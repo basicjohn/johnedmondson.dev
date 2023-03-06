@@ -15,7 +15,12 @@ const ComingSoon = () => (
     <a href="https://twitter.com/basicjohn">Twitter</a> |{" "}
     <a href="https://github.com/basicjohn">Github</a> |{" "}
     <a href="https://www.linkedin.com/in/johnedmondsondev/">LinkedIn</a>
-    <p className={styles[`${rootClass}__sneak-peak`]}></p>
+    <p className={styles[`${rootClass}__sneak-peek`]}>
+      {" "}
+      For those of you interested in seeing a sneak peek, you can view my
+      progress <a href="https://github.com/basicjohn/johnedmondson.dev">HERE</a>
+      .
+    </p>
   </div>
 );
 
