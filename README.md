@@ -1,4 +1,6 @@
-# React Project Template
+# John Edmondson's Portfolio
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1b2b2b2b-2b2b-2b2b-2b2b-2b2b2b2b2b2b/deploy-status)](https://app.netlify.com/sites/johnedmondson/deploys)
 
 A brief description of what this project does and who it's for
 
@@ -49,13 +51,17 @@ What did you learn while building this project? What challenges did you face and
 
 ## Project Notes & Ideas
 
-#### Section:
+#### Section: Introduction / About Me
 
-Answer 1
+#### Section: App Showcase
 
-#### Question 2
+Show tease for Fornify and display a "Coming soon..." ghosted image for the other apps.
 
-Answer 2
+#### Section: Portfolio / Code Samples
+
+#### Section: Blog
+
+#### Section: Contact
 
 ## Authors
 
