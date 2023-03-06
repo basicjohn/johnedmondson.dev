@@ -1,15 +1,12 @@
-
 # React Project Template
 
 A brief description of what this project does and who it's for
-
 
 ## Tech Stack
 
 **Client:** React, Axios, Bootstrap, Sass
 
 **Server:** Currently not deployed
-
 
 ## Installation
 
@@ -19,19 +16,19 @@ Install my-project with npm
   npm install my-project
   cd my-project
 ```
-    
+
 ## Run Locally
 
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/basicjohn/johnedmondson.dev.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd johnedmondson.dev
 ```
 
 Install dependencies
@@ -46,15 +43,13 @@ Start the server
   npm run start
 ```
 
-
 ## Lessons Learned
 
 What did you learn while building this project? What challenges did you face and how did you overcome them?
 
+## Project Notes & Ideas
 
-## FAQ
-
-#### Question 1
+#### Section:
 
 Answer 1
 
@@ -62,13 +57,11 @@ Answer 1
 
 Answer 2
 
-
 ## Authors
 
 - John Edmondson - [@basicjohn](https://www.github.com/basicjohn)
 
+<!-- ## Acknowledgements & Sources
 
-## Acknowledgements & Sources
-
- - [Source - @basicjohn](https://www.github.com/basicjohn)
- - [Acknowledgements - John Edmondson](https://www.github.com/basicjohn)
+- [Source - @basicjohn](https://www.github.com/basicjohn)
+- [Acknowledgements - John Edmondson](https://www.github.com/basicjohn) -->
