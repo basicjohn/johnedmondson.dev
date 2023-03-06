@@ -13,5 +13,5 @@ jobs:
 
       - name: Node Setup
         uses: actions/setup-node@v3
-      - run: npm ci --legacy-peer-deps
-      - run: CI=false npm run build
+      - run: npm i
+      - run: npm run build
