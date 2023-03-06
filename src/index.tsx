@@ -1,16 +1,11 @@
 // Dependencies
-import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 
 // Styles
-import './cssReset.css';
-import './index.css';
+import "./cssReset.scss";
+import "./index.scss";
 
 // Components
-import App from './App';
+import App from "./App";
 
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById("root"));

@@ -1,0 +1,23 @@
+.coming-soon {
+    padding-top: 10%;
+    p {
+        line-height: 1.3rem;
+        margin: 20px 0;
+        padding: 0 10px;
+    }
+    a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin: 20px 0;
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #000;
+        border-radius: 5px;
+        &:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+}
