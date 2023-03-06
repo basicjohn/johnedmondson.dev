@@ -9,7 +9,11 @@ import "./App.css";
 const App = () => {
   return (
     <div className="App">
-      <p>Portfolio Site Coming Soon</p>
+      <h1>Oh Hey, I'm looking for work!</h1>
+      <p>
+        Therefore I'm building a website to show off my wares...portfolio site
+        coming soon.
+      </p>
     </div>
   );
 };

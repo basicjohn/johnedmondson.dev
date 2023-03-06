@@ -1,23 +1,12 @@
 # John Edmondson's Portfolio
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1b2b2b2b-2b2b-2b2b-2b2b-2b2b2b2b2b2b/deploy-status)](https://app.netlify.com/sites/johnedmondson/deploys)
-
-A brief description of what this project does and who it's for
+This is the source code for my personal portfolio website. It is built with React using TypeScript and Sass.
 
 ## Tech Stack
 
-**Client:** React, Axios, Bootstrap, Sass
+**Client:** React, TypeScript, Bootstrap, Sass
 
-**Server:** Currently not deployed
-
-## Installation
-
-Install my-project with npm
-
-```bash
-  npm install my-project
-  cd my-project
-```
+**Server:** Currently hosted on Netlify at [johnedmondson.dev](https://johnedmondson.dev).
 
 ## Run Locally
 
@@ -45,13 +34,11 @@ Start the server
   npm run start
 ```
 
-## Lessons Learned
-
-What did you learn while building this project? What challenges did you face and how did you overcome them?
-
 ## Project Notes & Ideas
 
 #### Section: Introduction / About Me
+
+Small 'hello' section that I can use to introduce myself and give a brief overview of my skills and experience.
 
 #### Section: App Showcase
 
@@ -59,15 +46,18 @@ Show tease for Fornify and display a "Coming soon..." ghosted image for the othe
 
 #### Section: Portfolio / Code Samples
 
+Since most of the work that I've done is private then show some code samples from my personal projects and some obscured code from my work projects.
+
 #### Section: Blog
 
-#### Section: Contact
+A blog for publishing articles about new development skills I'm gathering. This section is not to gain clout or anything like that, but to help me learn and solidify my knowledge of the topics I'm writing about.
+
+#### Section: Contact / Social Media
+
+Contact form for sending me an email. Also, links to my social media accounts. (Pinterest, Twitter, LinkedIn, GitHub, etc.)
+
+#### Other Feature Ideas
 
 ## Authors
 
 - John Edmondson - [@basicjohn](https://www.github.com/basicjohn)
-
-<!-- ## Acknowledgements & Sources
-
-- [Source - @basicjohn](https://www.github.com/basicjohn)
-- [Acknowledgements - John Edmondson](https://www.github.com/basicjohn) -->
