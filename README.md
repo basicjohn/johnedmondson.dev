@@ -1,6 +1,6 @@
 # John Edmondson's Portfolio
 
-This is the source code for my personal portfolio website. It is built with React using TypeScript and Sass.
+This is the source code for my personal portfolio website. It's a single page application that I built using React and TypeScript. I'm using MaterialUI and Sass for styling and Netlify for hosting.
 
 ## Tech Stack
 
@@ -57,6 +57,15 @@ A blog for publishing articles about new development skills I'm gathering. This 
 Contact form for sending me an email. Also, links to my social media accounts. (Pinterest, Twitter, LinkedIn, GitHub, etc.)
 
 #### Other Feature Ideas
+
+- Add a dark mode toggle
+- Add a loading screen
+- Add a 404 page
+- Add a "Back to top" button
+- Add a "Scroll to section" button
+- Add a "View on GitHub" button
+- Add a "View on CodePen" button
+- Randomize on reload the font colors and font family for each section
 
 ## Authors
 
