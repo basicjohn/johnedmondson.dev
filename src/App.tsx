@@ -9,7 +9,7 @@ import ComingSoon from "./Components/ComingSoon/ComingSoon";
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       <ComingSoon />
     </div>
   );

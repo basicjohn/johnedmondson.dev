@@ -1,5 +1,14 @@
 .coming-soon {
-    padding: 10%;
+    width: 100%;
+    padding: 10vw;
+    h1 {
+        font-size: 2.7rem;
+        margin: 0;
+        padding: 0;
+        word-wrap: break-word;
+        white-space: normal;
+        max-width: 100%;
+    }
     p {
         line-height: 1.3rem;
         margin: 20px 0;

@@ -5,7 +5,7 @@ const rootClass = "coming-soon";
 
 const ComingSoon = () => (
   <div className={styles[rootClass]}>
-    <h1>Oh Hey, I'm looking for work!</h1>
+    <h1>Oh hey, I'm looking for work!</h1>
     <p>
       I'm building a website for presenting my wares
       <br />
