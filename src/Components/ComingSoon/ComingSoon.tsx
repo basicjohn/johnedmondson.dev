@@ -7,9 +7,9 @@ const ComingSoon = () => (
   <div className={styles[rootClass]}>
     <h1>Oh Hey, I'm looking for work!</h1>
     <p>
-      Therefore I'm building a website to show off my wares
+      I'm building a website for presenting my wares
       <br />
-      ..portfolio site coming soon.
+      ..therefore a portfolio site is coming soon.
     </p>
     <a href="mailto:contact@johnedmondson.dev">Contact</a> |{" "}
     <a href="https://twitter.com/basicjohn">Twitter</a> |{" "}
