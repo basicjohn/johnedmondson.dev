@@ -1,5 +1,6 @@
 // Dependencies
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 
 // Styles
 import "./App.scss";
@@ -10,7 +11,9 @@ import ComingSoon from "./Components/ComingSoon/ComingSoon";
 const App = () => {
   return (
     <div className="app">
-      <ComingSoon />
+      <Routes>
+        <Route path="/" element={<ComingSoon />} />
+      </Routes>
     </div>
   );
 };

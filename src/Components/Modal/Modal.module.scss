@@ -1,0 +1,48 @@
+.modal {
+    &__modal-box {
+        background-color: $white;
+        width: 50%;
+        margin: 50px auto;
+        border-radius: 5px;
+    }
+    &__modal-header {
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 0.3rem;
+        border-bottom: 1px solid #e6e6e6;
+    }
+    &__modal-content {
+        padding: 1rem;
+        h3 {
+            color: $tertiary;
+            font-size: 1rem;
+            font-weight: 900;
+        }
+        form {
+            div {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 1rem;
+                .MuiInputBase-root {
+                    margin-bottom: 1rem;
+                }
+                a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    margin: 0;
+                    svg {
+                        margin-right: 0.5rem;
+                    }
+                }
+                button {
+                    margin: 0;
+                    border: none;
+                }
+            }
+        }
+    }
+}
