@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.scss";
 
 // Components
-import ComingSoon from "./components/ComingSoon/ComingSoon";
+import ComingSoon from "./Components/ComingSoon/ComingSoon";
 import Home from "./pages/Home/Home";
 
 const App = () => {
