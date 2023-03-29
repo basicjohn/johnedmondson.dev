@@ -1,20 +1,19 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, IconButton } from "@mui/material";
-import { Menu as MenuIcon } from "@mui/icons-material";
+import { AppBar, Toolbar, Typography } from "@mui/material";
 import styles from "./Header.module.scss";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
-interface HeaderProps {}
+interface HeaderProps {
+  currentTitle: string;
+}
 
-const Header: React.FC<HeaderProps> = () => {
+const Header: React.FC<HeaderProps> = ({ currentTitle }) => {
   return (
     <div className={styles.header}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" className={styles.title}>
-            Portfolio
+            <SectionTitle title={currentTitle} />
           </Typography>
         </Toolbar>
       </AppBar>

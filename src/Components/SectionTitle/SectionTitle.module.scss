@@ -1,0 +1,12 @@
+.sectionTitle {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.hidden {
+    opacity: 0;
+}

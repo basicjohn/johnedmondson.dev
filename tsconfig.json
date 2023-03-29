@@ -9,7 +9,6 @@
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
@@ -18,9 +17,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["jest", "node"],
+    "downlevelIteration": true
   },
   "include": [
-    "src"
-  ]
+    "src/**/*"
+  ],
+  "exclude": ["node_modules", "build", "dist", ".next"]
 }
