@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, IconButton } from "@mui/material";
+import { AppBar, Toolbar, Typography } from "@mui/material";
 import styles from "./Header.module.scss";
 import SectionTitle from "../SectionTitle/SectionTitle";
 
