@@ -1,6 +1,5 @@
 import React from "react";
 import { AppBar, Toolbar, Typography, IconButton } from "@mui/material";
-import { Menu as MenuIcon } from "@mui/icons-material";
 import styles from "./Header.module.scss";
 import SectionTitle from "../SectionTitle/SectionTitle";
 
