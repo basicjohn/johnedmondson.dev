@@ -10,6 +10,8 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
   const titleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentTitleRef = titleRef.current;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -23,13 +25,13 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
       { threshold: 0.5 }
     );
 
-    if (titleRef.current) {
-      observer.observe(titleRef.current);
+    if (currentTitleRef) {
+      observer.observe(currentTitleRef);
     }
 
     return () => {
-      if (titleRef.current) {
-        observer.unobserve(titleRef.current);
+      if (currentTitleRef) {
+        observer.unobserve(currentTitleRef);
       }
     };
   }, []);
