@@ -4,6 +4,9 @@ on:
   pull_request:
     branches:
       - main
+  push:
+    branches:
+      - "dependabot/**"
 
 defaults:
   run:
@@ -12,7 +15,6 @@ defaults:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    needs: prettier
 
     steps:
       - name: Checkout code
