@@ -1,6 +1,5 @@
 name: Prettier
-with:
-  token: ${{ secrets.GH_ACTIONS_PAT }}
+
 on:
   pull_request:
     branches:
