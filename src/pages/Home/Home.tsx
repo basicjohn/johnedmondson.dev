@@ -9,8 +9,8 @@ const Home: React.FC<HomeProps> = () => {
   const sectionTitle = "About Me";
   return (
     <>
-      <Header currentTitle={sectionTitle} />
       <Container>
+        <Header currentTitle={sectionTitle} />
         <p>
           Life is changing fast in these modern economic times. It's time to
           build a future for myself and on my own terms. I'm currently
@@ -34,8 +34,8 @@ const Home: React.FC<HomeProps> = () => {
           adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nunc nisl
         </p>
         {/* Your page content goes here */}
+        <Footer />
       </Container>
-      <Footer />
     </>
   );
 };
