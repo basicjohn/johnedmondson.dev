@@ -1,6 +1,9 @@
 name: Prettier
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - "**"
@@ -10,10 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
         with:
+          ref: ${{ github.head_ref }}
           token: ${{ secrets.GH_ACTIONS_PAT }}
-      - name: Use Node.js 14.x
+
+      - name: Set up Node.js 14.x
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
@@ -24,10 +30,10 @@ jobs:
       - name: Run Prettier
         run: npm run prettier -- --write
 
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
           git config --global user.name 'GitHub Actions Bot'
-          git config --global user.email 'actions@github.com'
-          git add -A
-          git diff --quiet && git diff --staged --quiet || git commit -m "Automatically format code with Prettier"
-          git push
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m "Automatically format code with Prettier" || echo "No changes to commit"
+          git push origin HEAD:${{ github.head_ref }} || echo "No changes to push"
