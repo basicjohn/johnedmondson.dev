@@ -23,7 +23,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "prettier": "prettier '**/*.{js,jsx,ts,tsx,json,md}'",
-    "test": "react-scripts test"
+    "test": "react-scripts test --coverage"
   },
   "eslintConfig": {
     "extends": [
