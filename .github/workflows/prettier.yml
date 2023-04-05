@@ -15,7 +15,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
+        with:
+          token: ${{ secrets.GH_ACTIONS_PAT }}
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
