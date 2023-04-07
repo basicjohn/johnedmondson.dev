@@ -1,6 +1,7 @@
 import Footer from "../../Components/Footer/Footer";
 import Container from "../../Components/Container/Container";
 import Header from "../../Components/Header/Header";
+import Greeting from "Components/Greeting/Greeting";
 
 interface HomeProps {}
 
@@ -11,6 +12,7 @@ const Home: React.FC<HomeProps> = () => {
     <>
       <Container>
         <Header currentTitle={sectionTitle} />
+        <Greeting />
         <p>
           Life is changing fast in these modern economic times. It's time to
           build a future for myself and on my own terms. I'm currently
