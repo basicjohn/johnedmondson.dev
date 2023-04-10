@@ -4,31 +4,34 @@ import styles from "./Footer.module.scss";
 import profilePhoto from "../../assets/profile_photo.png";
 interface FooterProps {}
 
+const rootClass = "footer";
+
 const Footer: React.FC<FooterProps> = () => {
   return (
-    <footer className={styles.footer}>
-      <Container maxWidth="xl">
+    <footer className={styles[rootClass]}>
+      <div className={styles[`${rootClass}__cta`]}>
         <div>
           <Typography variant="h3">Start the Conversation</Typography>
         </div>
         <div>
           <Typography variant="body1">
-            If you're interested in working together or just want to say ‘Hi!’
+            If you're interested in working together or if you just want to say
+            ‘Hi!’
           </Typography>
           <button>Let's Chat</button>
         </div>
-      </Container>
-      <Container maxWidth="xl">
-        <div>
+      </div>
+      <div className={styles[`${rootClass}__sections`]}>
+        <div className={"contact"}>
           <Typography variant="h4">Contact</Typography>
-          <Typography variant="body2" align="right">
+          <Typography variant="body2" align="left">
             John Edmondson <br />
             <a href="mailto:contact@johnedmondson.dev">
               contact@johnedmondson.dev
             </a>
           </Typography>
         </div>
-        <div>
+        <div className={"social"}>
           <Typography variant="h4">Social</Typography>
 
           <ul>
@@ -100,14 +103,17 @@ const Footer: React.FC<FooterProps> = () => {
             </li>
           </ul>
         </div>
-        <div>
+        <div className={"newsletter"}>
           <Typography variant="h4">Newsletter</Typography>
+          <input></input>
+          <button>Subscribe</button>
         </div>
-        <div>
-          <Typography variant="h4">Quote</Typography>
+        <div className={"inspiration"}>
+          <Typography variant="h4">Inspiration</Typography>
+          <p>In feugiat arcu sed risus viverra, a luctus arcu pharetra.</p>
         </div>
-      </Container>
-      <Container maxWidth="xl">
+      </div>
+      <Container className={styles[`${rootClass}__copyright`]} maxWidth="xl">
         <img
           src={profilePhoto}
           alt="John Edmondson Ilustrated Icon"
