@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Button } from "@mui/material";
+import { Typography, Button, Box } from "@mui/material";
 
 import styles from "./Footer.module.scss";
 import profilePhoto from "../../assets/profile_photo.png";
@@ -21,13 +21,20 @@ const Footer: React.FC<FooterProps> = () => {
             If you're interested in working together or if you just want to say
             ‘Hi!’
           </Typography>
-          <Button
-            variant="contained"
-            color="primary"
-            className={styles["cta-button"]}
+          <Box
+            m={1}
+            display="flex"
+            justifyContent="flex-end"
+            alignItems="flex-end"
           >
-            Let's Chat
-          </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              className={styles["cta-button"]}
+            >
+              Let's Chat
+            </Button>
+          </Box>
         </div>
       </div>
       <div className={styles[`${rootClass}__sections`]}>
