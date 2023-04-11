@@ -5,7 +5,7 @@
         padding: 5rem 2rem;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        div {
+        section {
             h3 {
                 font-family: "Merriweather", serif;
                 display: inline;
@@ -27,17 +27,22 @@
         grid-template-columns: 2fr 2fr 2fr 3fr;
         grid-gap: 1rem;
         padding: 1rem 0;
-        .contact,
+        .navigation,
         .social,
         .newsletter {
             h4 {
                 font-family: "Merriweather", serif;
                 display: inline;
                 font-size: 2rem;
+                margin: 0;
+                padding: 0;
             }
             p {
                 font-size: 1.5rem;
             }
+        }
+        .navigation ul li a {
+            line-height: 25px;
         }
         .social ul li a {
             line-height: 30px;

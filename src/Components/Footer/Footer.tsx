@@ -13,13 +13,13 @@ const Footer: React.FC<FooterProps> = () => {
   return (
     <footer className={styles[rootClass]}>
       <div className={styles[`${rootClass}__cta`]}>
-        <div>
+        <section>
           <Typography variant="h3">Start the Conversation</Typography>
-        </div>
-        <div>
+        </section>
+        <section>
           <Typography variant="body1" align="right">
             If you're interested in working together or if you just want to say
-            ‘Hi!’
+            ‘Hi!’..
           </Typography>
           <Box
             m={1}
@@ -32,20 +32,29 @@ const Footer: React.FC<FooterProps> = () => {
               color="primary"
               className={styles["cta-button"]}
             >
-              Let's Chat
+              Let's Chat!
             </Button>
           </Box>
-        </div>
+        </section>
       </div>
       <div className={styles[`${rootClass}__sections`]}>
-        <div className={styles["contact"]}>
-          <Typography variant="h4">Contact</Typography>
-          <Typography variant="body2" align="left">
-            John Edmondson <br />
-            <a href="mailto:contact@johnedmondson.dev">
-              contact@johnedmondson.dev
-            </a>
-          </Typography>
+        <div className={styles["navigation"]}>
+          <Typography variant="h4">Nav</Typography>
+          <ul className={styles["footer-nav"]}>
+            <li>
+              <a href="#">Introduction</a>
+            </li>
+            <li>
+              <a href="#">Apps & Portfolio</a>
+            </li>
+
+            <li>
+              <a href="#">Contact</a>
+            </li>
+            <li>
+              <br />A blog is in the works..
+            </li>
+          </ul>
         </div>
         <div className={styles["social"]}>
           <Typography variant="h4">Social</Typography>
