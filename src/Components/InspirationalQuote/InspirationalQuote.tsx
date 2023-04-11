@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import inspirationData from "../../data/inspiration.json";
 import styles from "./InspirationalQuote.module.scss";
 

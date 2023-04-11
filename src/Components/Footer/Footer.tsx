@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Typography, Button } from "@mui/material";
+import { Typography, Button } from "@mui/material";
 
 import styles from "./Footer.module.scss";
 import profilePhoto from "../../assets/profile_photo.png";
@@ -114,15 +114,6 @@ const Footer: React.FC<FooterProps> = () => {
         </div>
         <div className={styles["newsletter"]}>
           <Typography variant="h4">Newsletter</Typography>
-          {/* <iframe
-            title="Newsletter"
-            className={styles["signup"]}
-            src="https://basicjohn.substack.com/embed"
-            // width="480"
-            // height="320"
-          ></iframe> */}
-          {/* Change the default outline and button style to #323232  */}
-
           <iframe
             title="Newsletter"
             className={styles["signup"]}
