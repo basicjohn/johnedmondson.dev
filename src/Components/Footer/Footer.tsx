@@ -16,7 +16,7 @@ const Footer: React.FC<FooterProps> = () => {
           <Typography variant="h3">Start the Conversation</Typography>
         </div>
         <div>
-          <Typography variant="body1">
+          <Typography variant="body1" align="right">
             If you're interested in working together or if you just want to say
             ‘Hi!’
           </Typography>
@@ -113,8 +113,22 @@ const Footer: React.FC<FooterProps> = () => {
         </div>
         <div className={styles["newsletter"]}>
           <Typography variant="h4">Newsletter</Typography>
-          <input></input>
-          <button>Subscribe</button>
+          {/* <iframe
+            title="Newsletter"
+            className={styles["signup"]}
+            src="https://basicjohn.substack.com/embed"
+            // width="480"
+            // height="320"
+          ></iframe> */}
+          {/* Change the default outline and button style to #323232  */}
+
+          <iframe
+            title="Newsletter"
+            className={styles["signup"]}
+            src="https://basicjohn.substack.com/embed"
+            width="100%"
+            height="120px"
+          ></iframe>
         </div>
         <div className={styles["inspiration"]}>
           <Typography variant="h4">Inspiration</Typography>
