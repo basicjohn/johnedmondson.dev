@@ -3,6 +3,7 @@ import { Container, Typography, Button } from "@mui/material";
 
 import styles from "./Footer.module.scss";
 import profilePhoto from "../../assets/profile_photo.png";
+import InspirationalQuote from "Components/InspirationalQuote/InspirationalQuote";
 
 interface FooterProps {}
 
@@ -131,8 +132,7 @@ const Footer: React.FC<FooterProps> = () => {
           ></iframe>
         </div>
         <div className={styles["inspiration"]}>
-          <Typography variant="h4">Inspiration</Typography>
-          <p>In feugiat arcu sed risus viverra, a luctus arcu pharetra.</p>
+          <InspirationalQuote />
         </div>
       </div>
       <div className={styles[`${rootClass}__copyright`]}>

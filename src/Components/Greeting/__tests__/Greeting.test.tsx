@@ -7,7 +7,7 @@ describe("Greeting component", () => {
   test("renders a random greeting from greetings.json", () => {
     render(<Greeting />);
 
-    const greetingElement = screen.getByRole("heading", { level: 1 });
+    const greetingElement = screen.getByRole("heading", { level: 2 });
     expect(greetingsData.greetings).toContain(greetingElement.textContent);
   });
 });

@@ -15,7 +15,7 @@ const Greeting = () => {
     setRandomGreeting(getRandomGreeting());
   }, []);
 
-  return <h1>{randomGreeting}</h1>;
+  return <h2>{randomGreeting}</h2>;
 };
 
 export default Greeting;

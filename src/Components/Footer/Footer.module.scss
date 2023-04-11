@@ -7,6 +7,7 @@
         grid-template-columns: repeat(2, 1fr);
         div {
             h3 {
+                font-family: "Merriweather", serif;
                 display: inline;
                 font-size: 4rem;
             }
@@ -21,9 +22,21 @@
     }
     &__sections {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: 2fr 2fr 2fr 3fr;
         grid-gap: 1rem;
         padding: 1rem 0;
+        .contact,
+        .social,
+        .newsletter {
+            h4 {
+                font-family: "Merriweather", serif;
+                display: inline;
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1.5rem;
+            }
+        }
         .social ul li a {
             line-height: 30px;
             img {
@@ -34,16 +47,16 @@
                 line-height: 24px;
             }
         }
-        .newsletter {
-            .signup {
-                .substack-embed {
-                    outline: 1px solid #323232;
-                }
-                .substack-embed .substack-embed-button {
-                    background-color: #323232;
-                }
-            }
-        }
+        // .newsletter {
+        //     .signup {
+        //         .substack-embed {
+        //             outline: 1px solid #323232;
+        //         }
+        //         .substack-embed .substack-embed-button {
+        //             background-color: #323232;
+        //         }
+        //     }
+        // }
     }
     &__copyright {
         margin-top: 1rem;
@@ -55,13 +68,5 @@
             text-align: right;
             line-height: 50px;
         }
-    }
-}
-.signup {
-    .substack-embed {
-        outline: 1px solid #323232;
-    }
-    .substack-embed .substack-embed-button {
-        background-color: #323232;
     }
 }

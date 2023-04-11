@@ -1,21 +1,37 @@
 import React, { useState, useEffect } from "react";
-import greetingsData from "../../data/greetings.json";
+import inspirationData from "../../data/inspiration.json";
+import styles from "./InspirationalQuote.module.scss";
 
-const Greeting = () => {
-  const [randomGreeting, setRandomGreeting] = useState("");
-
-  useEffect(() => {
-    const getRandomGreeting = () => {
-      const randomIndex = Math.floor(
-        Math.random() * greetingsData.greetings.length
-      );
-      return greetingsData.greetings[randomIndex];
-    };
-
-    setRandomGreeting(getRandomGreeting());
-  }, []);
-
-  return <h1>{randomGreeting}</h1>;
+type Quote = {
+  quote: string;
+  author: string;
 };
 
-export default Greeting;
+const rootClass = "inspirational-quote";
+
+const InspirationalQuote = () => {
+  const [randomInspirationalQuote, setRandomInspirationalQuote] = useState(
+    {} as Quote
+  );
+
+  useEffect(() => {
+    const getRandomInspirationalQuote = () => {
+      const randomIndex = Math.floor(
+        Math.random() * inspirationData.quotes.length
+      );
+      return inspirationData.quotes[randomIndex];
+    };
+
+    setRandomInspirationalQuote(getRandomInspirationalQuote());
+  }, []);
+
+  return (
+    <blockquote className={styles[rootClass]}>
+      {randomInspirationalQuote.quote}
+      <br />
+      <cite>{randomInspirationalQuote.author}</cite>
+    </blockquote>
+  );
+};
+
+export default InspirationalQuote;
