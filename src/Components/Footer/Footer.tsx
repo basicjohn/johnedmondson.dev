@@ -20,7 +20,13 @@ const Footer: React.FC<FooterProps> = () => {
             If you're interested in working together or if you just want to say
             ‘Hi!’
           </Typography>
-          <button>Let's Chat</button>
+          <Button
+            variant="contained"
+            color="primary"
+            className={styles["cta-button"]}
+          >
+            Let's Chat
+          </Button>
         </div>
       </div>
       <div className={styles[`${rootClass}__sections`]}>
