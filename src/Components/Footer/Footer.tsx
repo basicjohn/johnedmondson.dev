@@ -1,7 +1,9 @@
 import React from "react";
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Button } from "@mui/material";
+
 import styles from "./Footer.module.scss";
 import profilePhoto from "../../assets/profile_photo.png";
+
 interface FooterProps {}
 
 const rootClass = "footer";
@@ -22,7 +24,7 @@ const Footer: React.FC<FooterProps> = () => {
         </div>
       </div>
       <div className={styles[`${rootClass}__sections`]}>
-        <div className={"contact"}>
+        <div className={styles["contact"]}>
           <Typography variant="h4">Contact</Typography>
           <Typography variant="body2" align="left">
             John Edmondson <br />
@@ -31,7 +33,7 @@ const Footer: React.FC<FooterProps> = () => {
             </a>
           </Typography>
         </div>
-        <div className={"social"}>
+        <div className={styles["social"]}>
           <Typography variant="h4">Social</Typography>
 
           <ul>
@@ -48,7 +50,7 @@ const Footer: React.FC<FooterProps> = () => {
                   width="24px"
                   height="24px"
                 />
-                &nbsp; John Edmondson
+                <span>&nbsp; John Edmondson</span>
               </a>
             </li>
             <li>
@@ -66,7 +68,7 @@ const Footer: React.FC<FooterProps> = () => {
                   width="24px"
                   height="24px"
                 />
-                &nbsp; basicjohn
+                <span>&nbsp; basicjohn</span>
               </a>
             </li>
             <li>
@@ -82,7 +84,7 @@ const Footer: React.FC<FooterProps> = () => {
                   width="24px"
                   height="24px"
                 />
-                &nbsp; @basicjohn
+                <span>&nbsp; @basicjohn</span>
               </a>
             </li>
             <li>
@@ -98,22 +100,22 @@ const Footer: React.FC<FooterProps> = () => {
                   width="24px"
                   height="24px"
                 />
-                &nbsp; basicjohn
+                <span>&nbsp; basicjohn</span>
               </a>
             </li>
           </ul>
         </div>
-        <div className={"newsletter"}>
+        <div className={styles["newsletter"]}>
           <Typography variant="h4">Newsletter</Typography>
           <input></input>
           <button>Subscribe</button>
         </div>
-        <div className={"inspiration"}>
+        <div className={styles["inspiration"]}>
           <Typography variant="h4">Inspiration</Typography>
           <p>In feugiat arcu sed risus viverra, a luctus arcu pharetra.</p>
         </div>
       </div>
-      <Container className={styles[`${rootClass}__copyright`]} maxWidth="xl">
+      <div className={styles[`${rootClass}__copyright`]}>
         <img
           src={profilePhoto}
           alt="John Edmondson Ilustrated Icon"
@@ -123,7 +125,7 @@ const Footer: React.FC<FooterProps> = () => {
         <Typography variant="body1" align="right">
           &copy; {new Date().getFullYear()} John Edmondson. All rights reserved.
         </Typography>
-      </Container>
+      </div>
     </footer>
   );
 };
