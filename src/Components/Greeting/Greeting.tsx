@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import greetingsData from "../../data/greetings.json";
 
 const Greeting = () => {
@@ -15,7 +15,7 @@ const Greeting = () => {
     setRandomGreeting(getRandomGreeting());
   }, []);
 
-  return <h1>{randomGreeting}</h1>;
+  return <h2>{randomGreeting}</h2>;
 };
 
 export default Greeting;
