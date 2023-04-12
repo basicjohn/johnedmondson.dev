@@ -1,45 +1,23 @@
-import Footer from "../../Components/Footer/Footer";
-import Container from "../../Components/Container/Container";
-import Header from "../../Components/Header/Header";
+import styles from "./Contact.module.scss";
+
+import ContactForm from "Components/ContactForm/ContactForm";
 import Greeting from "Components/Greeting/Greeting";
 
-interface HomeProps {}
+interface ContactProps {}
 
-const Home: React.FC<HomeProps> = () => {
-  console.log("Displaying Home page");
-  const sectionTitle = "About Me";
+const rootClass = "contact-page";
+
+const Contact = () => {
   return (
-    <>
-      <Container>
-        <Header currentTitle={sectionTitle} />
+    <div className={styles[rootClass]}>
+      <div className={styles[`${rootClass}__left-column`]}>
         <Greeting />
-        <p>
-          Life is changing fast in these modern economic times. It's time to
-          build a future for myself and on my own terms. I'm currently
-          moonlighting to build apps (3) to solve some of the challenges I've
-          faced in my personal & professional life.
-        </p>
-        <h1>Placeholder Title</h1>
-        <button>Portfolio Item 1</button>
-        <p>
-          Content for Portfolio Item 1. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nunc nisl
-        </p>
-        <button>Portfolio Item 1</button>
-        <p>
-          Content for Portfolio Item 1. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nunc nisl
-        </p>
-        <button>Portfolio Item 1</button>
-        <p>
-          Content for Portfolio Item 1. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nunc nisl
-        </p>
-        {/* Your page content goes here */}
-        <Footer />
-      </Container>
-    </>
+      </div>
+      <div className={styles[`${rootClass}__right-column`]}>
+        <ContactForm />
+      </div>
+    </div>
   );
 };
 
-export default Home;
+export default Contact;

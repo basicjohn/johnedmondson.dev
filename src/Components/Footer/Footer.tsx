@@ -52,6 +52,9 @@ const Footer: React.FC<FooterProps> = () => {
               <a href="#">Contact</a>
             </li> */}
             <li>
+              <a href="#">View Repository</a>
+            </li>
+            <li>
               <br />A blog is in the works..
             </li>
           </ul>
