@@ -9,7 +9,7 @@ const ComingSoon = () => (
     <p>
       I'm building a website for presenting my wares
       <br />
-      ..therefore a portfolio site is coming soon.
+      ...therefore a portfolio site is coming soon.
     </p>
     <a href="mailto:contact@johnedmondson.dev">Contact</a> |{" "}
     <a href="https://twitter.com/basicjohn">Twitter</a> |{" "}

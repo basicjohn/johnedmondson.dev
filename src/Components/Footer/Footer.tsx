@@ -32,7 +32,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <br />A blog is in the works..
+                <br />A blog is in the works...
               </li>
             </ul>
           </div>
@@ -65,7 +65,7 @@ const Footer = () => {
                   rel="noreferrer"
                 >
                   <img
-                    src="https://img.icons8.com/fluent/48/000000/github.png"
+                    src="https://img.icons8.com/fluent/48/323232/github.png"
                     alt="GitHub"
                     width="24px"
                     height="24px"
@@ -81,7 +81,7 @@ const Footer = () => {
                   rel="noreferrer"
                 >
                   <img
-                    src="https://img.icons8.com/fluent/48/000000/twitter.png"
+                    src="https://img.icons8.com/fluent/48/323232/twitter.png"
                     alt="Twitter"
                     width="24px"
                     height="24px"
