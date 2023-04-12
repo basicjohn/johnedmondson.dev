@@ -58,7 +58,6 @@ const Footer: React.FC<FooterProps> = () => {
         </div>
         <div className={styles["social"]}>
           <Typography variant="h4">Social</Typography>
-
           <ul>
             <li>
               {/* LinkedIn */}

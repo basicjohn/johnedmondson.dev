@@ -1,7 +1,19 @@
 .header {
-    flex-grow: 1;
-}
-
-.title {
-    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 2rem;
+    &__social {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1rem 5rem;
+        &__item {
+            margin-left: 1rem;
+            a {
+                img {
+                    width: 2rem;
+                }
+            }
+        }
+    }
 }
