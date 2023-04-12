@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button } from "@mui/material";
+// import { Box, Button } from "@mui/material";
 
 import profilePhoto from "../../assets/profile_photo.png";
 import styles from "./Header.module.scss";
@@ -75,7 +75,7 @@ const Header = () => {
           </a>
         </div>
         <div className={styles[`${rootClass}__contact`]}>
-          <Box
+          {/* <Box
             m={1}
             display="flex"
             justifyContent="flex-end"
@@ -88,7 +88,7 @@ const Header = () => {
             >
               Let's Chat!
             </Button>
-          </Box>
+          </Box> */}
         </div>
       </div>
       <hr />
