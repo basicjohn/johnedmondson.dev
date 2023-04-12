@@ -2,7 +2,7 @@ import styles from "./Home.module.scss";
 
 const rootClass = "home-page";
 
-const Home: React.FC<HomeProps> = () => {
+const Home = () => {
   return (
     <div className={styles[rootClass]}>
       <p>
