@@ -41,7 +41,7 @@ const Footer: React.FC<FooterProps> = () => {
         <div className={styles["navigation"]}>
           <Typography variant="h4">Nav</Typography>
           <ul className={styles["footer-nav"]}>
-            <li>
+            {/* <li>
               <a href="#">Introduction</a>
             </li>
             <li>
@@ -50,7 +50,7 @@ const Footer: React.FC<FooterProps> = () => {
 
             <li>
               <a href="#">Contact</a>
-            </li>
+            </li> */}
             <li>
               <br />A blog is in the works..
             </li>
