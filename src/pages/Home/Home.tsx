@@ -1,12 +1,10 @@
 import styles from "./Home.module.scss";
 
-interface HomeProps {}
-
 const rootClass = "home-page";
 
 const Home: React.FC<HomeProps> = () => {
   return (
-    <>
+    <div className={styles[rootClass]}>
       <p>
         Life is changing fast in these modern economic times. It's time to build
         a future for myself and on my own terms. I'm currently moonlighting to
@@ -29,7 +27,7 @@ const Home: React.FC<HomeProps> = () => {
         Content for Portfolio Item 1. Lorem ipsum dolor sit amet, consectetur
         adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nunc nisl
       </p>
-    </>
+    </div>
   );
 };
 

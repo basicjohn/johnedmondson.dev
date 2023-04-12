@@ -3,8 +3,6 @@ import styles from "./Contact.module.scss";
 import ContactForm from "Components/ContactForm/ContactForm";
 import Greeting from "Components/Greeting/Greeting";
 
-interface ContactProps {}
-
 const rootClass = "contact-page";
 
 const Contact = () => {
