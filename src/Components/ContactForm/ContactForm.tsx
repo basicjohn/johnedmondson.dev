@@ -1,8 +1,16 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, FieldProps } from "formik";
 import * as Yup from "yup";
+import {
+  TextField,
+  Button,
+  Box,
+  Typography,
+  TextareaAutosize,
+  FormControl,
+  FormHelperText,
+} from "@mui/material";
 
-// Define the validation schema
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, "Name must be at least 2 characters long")
@@ -28,40 +36,81 @@ const initialValues: ContactFormValues = {
 
 const ContactForm: React.FC = () => {
   const onSubmit = (values: ContactFormValues) => {
-    // Handle form submission, e.g., send data to API
     console.log(values);
   };
 
   return (
-    <div>
-      <h1>Contact Me</h1>
+    <Box>
+      <Typography variant="h4" component="h1" gutterBottom>
+        Contact Me
+      </Typography>
       <Formik
         initialValues={initialValues}
         validationSchema={ContactSchema}
         onSubmit={onSubmit}
       >
-        {() => (
+        {({ errors, touched }) => (
           <Form>
-            <div>
-              <label htmlFor="name">Name:</label>
-              <Field name="name" type="text" />
-              <ErrorMessage name="name" />
-            </div>
-            <div>
-              <label htmlFor="email">Email:</label>
-              <Field name="email" type="email" />
-              <ErrorMessage name="email" />
-            </div>
-            <div>
-              <label htmlFor="message">Message:</label>
-              <Field name="message" as="textarea" />
-              <ErrorMessage name="message" />
-            </div>
-            <button type="submit">Submit</button>
+            <Box marginBottom={2}>
+              <Field name="name">
+                {({ field }: FieldProps) => (
+                  <TextField
+                    label="Name"
+                    variant="outlined"
+                    fullWidth
+                    {...field}
+                    error={touched.name && !!errors.name}
+                    helperText={touched.name && errors.name}
+                  />
+                )}
+              </Field>
+            </Box>
+            <Box marginBottom={2}>
+              <Field name="email">
+                {({ field }: FieldProps) => (
+                  <TextField
+                    label="Email"
+                    variant="outlined"
+                    fullWidth
+                    {...field}
+                    error={touched.email && !!errors.email}
+                    helperText={touched.email && errors.email}
+                  />
+                )}
+              </Field>
+            </Box>
+            <Box marginBottom={2}>
+              <FormControl
+                fullWidth
+                error={touched.message && !!errors.message}
+              >
+                <label htmlFor="message">Message:</label>
+                <Field name="message">
+                  {({ field }: FieldProps) => (
+                    <TextareaAutosize
+                      {...field}
+                      minRows={4}
+                      style={{
+                        width: "100%",
+                        padding: "8px",
+                        borderColor:
+                          touched.message && errors.message ? "red" : "",
+                      }}
+                    />
+                  )}
+                </Field>
+                {touched.message && errors.message && (
+                  <FormHelperText error>{errors.message}</FormHelperText>
+                )}
+              </FormControl>
+            </Box>
+            <Button type="submit" variant="contained">
+              Submit
+            </Button>
           </Form>
         )}
       </Formik>
-    </div>
+    </Box>
   );
 };
 
