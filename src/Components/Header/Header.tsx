@@ -1,9 +1,8 @@
 import React from "react";
-import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
 import profilePhoto from "../../assets/profile_photo.png";
 import styles from "./Header.module.scss";
-import SectionTitle from "../SectionTitle/SectionTitle";
 
 interface HeaderProps {
   currentTitle: string;
