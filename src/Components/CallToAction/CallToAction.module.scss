@@ -22,25 +22,39 @@
             font-family: "Merriweather", serif;
             display: inline;
             font-size: 4rem;
-
-            // Overwrite font-size for mobile
+            text-align: left;
             @include respond-to(small) {
                 font-size: 1.5rem;
+                text-align: left;
             }
-
-            // Overwrite font-size for tablet
             @include respond-to(medium) {
                 font-size: 2.5rem;
+                text-align: center;
             }
         }
 
         p {
             font-size: 1.5rem;
+
+            @include respond-to(small) {
+                font-size: 1rem;
+                text-align: left;
+            }
+            @include respond-to(medium) {
+                font-size: 1.25rem;
+                text-align: left;
+            }
         }
         & .cta-button {
             margin-top: 1rem;
             background-color: #323232;
             width: 12rem;
+            @include respond-to(small) {
+                width: 100%;
+            }
+            @include respond-to(medium) {
+                width: 60%;
+            }
         }
     }
 }

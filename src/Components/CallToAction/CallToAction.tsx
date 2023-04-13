@@ -13,10 +13,10 @@ const CallToAction = () => {
         {/* <Typography variant="h3">Start the Conversation</Typography> */}
       </section>
       <section>
-        <Typography variant="body1" align="right">
+        <p>
           If you're interested in working together or if you just want to say
           ‘Hi!’..
-        </Typography>
+        </p>
         <Box
           m={1}
           display="flex"
