@@ -1,0 +1,27 @@
+@import "./variables";
+
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == small {
+        @media (max-width: $small) {
+            @content;
+        }
+    } @else if $breakpoint == medium {
+        @media (min-width: calc(#{$small} + 1px)) and (max-width: $medium) {
+            @content;
+        }
+    } @else if $breakpoint == large {
+        @media (min-width: calc(#{$medium} + 1px)) and (max-width: $large) {
+            @content;
+        }
+    } @else if $breakpoint == extra-large {
+        @media (min-width: calc(#{$large} + 1px)) and (max-width: $extra-large) {
+            @content;
+        }
+    } @else if $breakpoint == extra-extra-large {
+        @media (min-width: calc(#{$extra-large} + 1px)) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}

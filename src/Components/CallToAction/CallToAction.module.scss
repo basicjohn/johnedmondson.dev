@@ -1,21 +1,71 @@
+@import "../../_mixins.scss";
+
 .cta {
     padding: 5rem 2rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    @include respond-to(small & medium) {
+        padding: 2rem 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    @include respond-to(large) {
+        padding: 2rem 1rem;
+    }
+
     section {
         h3 {
             font-family: "Merriweather", serif;
-            display: inline;
             font-size: 4rem;
+
+            @include respond-to(small) {
+                font-size: 1.5rem;
+                text-align: left;
+            }
+
+            @include respond-to(medium) {
+                font-size: 3rem;
+                text-align: center;
+            }
+
+            @include respond-to(Large) {
+                font-size: 3rem;
+            }
         }
 
         p {
             font-size: 1.5rem;
+            line-height: 1.8rem;
+            @include respond-to(small) {
+                font-size: 1rem;
+                line-height: 1.3rem;
+                text-align: left;
+            }
+
+            @include respond-to(medium & large) {
+                text-align: center;
+            }
         }
-        & .cta-button {
+
+        .cta-button {
             margin-top: 1rem;
             background-color: #323232;
             width: 12rem;
+
+            @include respond-to(small) {
+                width: 100%;
+            }
+
+            @include respond-to(medium) {
+                width: 35%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            @include respond-to(large) {
+                width: 80%;
+            }
         }
     }
 }
