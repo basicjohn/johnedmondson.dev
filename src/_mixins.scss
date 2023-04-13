@@ -1,0 +1,24 @@
+// _mixins.scss
+@import "./variables";
+
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == small {
+        @media (max-width: $small) {
+            @content;
+        }
+    } @else if $breakpoint == medium {
+        @media (max-width: $medium) {
+            @content;
+        }
+    } @else if $breakpoint == large {
+        @media (max-width: $large) {
+            @content;
+        }
+    } @else if $breakpoint == extra-large {
+        @media (max-width: $extra-large) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
