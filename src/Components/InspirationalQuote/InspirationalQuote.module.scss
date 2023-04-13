@@ -7,7 +7,11 @@
     margin: 0;
     padding: 0 0 0 1rem;
     text-align: right;
-    @include respond-to(small & medium) {
+    // Hide quote section on small screens
+    @include respond-to(small) {
+        display: none;
+    }
+    @include respond-to(medium) {
         text-align: left;
         font-size: 1.2rem;
     }
@@ -15,7 +19,7 @@
         font-size: 1.2rem;
         font-family: "Mulish", sans-serif;
         font-weight: normal;
-        @include respond-to(small & medium) {
+        @include respond-to(medium) {
             font-size: 1rem;
         }
     }
