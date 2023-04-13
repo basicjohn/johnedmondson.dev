@@ -1,7 +1,14 @@
 import React from "react";
 // import { Box, Button } from "@mui/material";
 
+// Images
 import profilePhoto from "../../assets/profile_photo.png";
+import githubIcon from "../../assets/icons/github-48.png";
+import linkedinIcon from "../../assets/icons/linkedin-48.png";
+import pinterestIcon from "../../assets/icons/pinterest-48.png";
+import twitterIcon from "../../assets/icons/twitter-48.png";
+
+// Styles
 import styles from "./Header.module.scss";
 
 const rootClass = "header";
@@ -25,12 +32,7 @@ const Header = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <img
-              src="https://img.icons8.com/color/48/000000/linkedin.png"
-              alt="LinkedIn"
-              width="24px"
-              height="24px"
-            />
+            <img src={linkedinIcon} alt="LinkedIn" width="24px" height="24px" />
           </a>
           {/* GitHub */}
           <a
@@ -40,12 +42,7 @@ const Header = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <img
-              src="https://img.icons8.com/fluent/48/000000/github.png"
-              alt="GitHub"
-              width="24px"
-              height="24px"
-            />
+            <img src={githubIcon} alt="GitHub" width="24px" height="24px" />
           </a>
           {/* Twitter */}
           <a
@@ -53,12 +50,7 @@ const Header = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <img
-              src="https://img.icons8.com/fluent/48/000000/twitter.png"
-              alt="Twitter"
-              width="24px"
-              height="24px"
-            />
+            <img src={twitterIcon} alt="Twitter" width="24px" height="24px" />
           </a>
           {/* Pinterest */}
           <a
@@ -67,7 +59,7 @@ const Header = () => {
             rel="noreferrer"
           >
             <img
-              src="https://img.icons8.com/fluent/48/000000/pinterest.png"
+              src={pinterestIcon}
               alt="Pinterest"
               width="24px"
               height="24px"
