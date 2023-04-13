@@ -1,12 +1,37 @@
+@import "../../_variables.scss";
+@import "../../_mixins.scss";
+
 .cta {
     padding: 5rem 2rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    // Mobile styles
+    @include respond-to(small) {
+        padding: 2rem 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    // Tablet styles
+    @include respond-to(medium) {
+        grid-template-columns: 1fr;
+    }
+
     section {
         h3 {
             font-family: "Merriweather", serif;
             display: inline;
             font-size: 4rem;
+
+            // Overwrite font-size for mobile
+            @include respond-to(small) {
+                font-size: 1.5rem;
+            }
+
+            // Overwrite font-size for tablet
+            @include respond-to(medium) {
+                font-size: 2.5rem;
+            }
         }
 
         p {

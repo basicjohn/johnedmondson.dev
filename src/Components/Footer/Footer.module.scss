@@ -1,3 +1,5 @@
+@import "./mixins";
+
 .footer {
     padding: 1rem;
     margin-top: 2rem;
@@ -6,6 +8,13 @@
         grid-template-columns: 2fr 2fr 2fr 3fr;
         grid-gap: 1rem;
         padding: 1rem 0;
+        @include respond-to(medium) {
+            grid-template-columns: 1fr;
+        }
+
+        @include respond-to(small) {
+            grid-template-columns: 1fr;
+        }
         .navigation,
         .social,
         .newsletter {

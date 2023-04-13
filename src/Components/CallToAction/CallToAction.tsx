@@ -9,7 +9,8 @@ const CallToAction = () => {
   return (
     <div className={styles[rootClass]}>
       <section>
-        <Typography variant="h3">Start the Conversation</Typography>
+        <h3>Start the Conversation</h3>
+        {/* <Typography variant="h3">Start the Conversation</Typography> */}
       </section>
       <section>
         <Typography variant="body1" align="right">
