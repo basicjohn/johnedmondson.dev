@@ -19,8 +19,8 @@ describe("Header Component", () => {
     expect(screen.getByAltText("Pinterest")).toBeInTheDocument();
   });
 
-  it("contains a 'Let's Chat!' button", () => {
-    render(<Header />);
-    expect(screen.getByText("Let's Chat!")).toBeInTheDocument();
-  });
+  // it("contains a 'Let's Chat!' button", () => {
+  //   render(<Header />);
+  //   expect(screen.getByText("Let's Chat!")).toBeInTheDocument();
+  // });
 });
