@@ -1,3 +1,5 @@
+@import "../../_mixins.scss";
+
 .inspirational-quote {
     font-family: "Merriweather", serif;
     font-size: 1.6rem;
@@ -5,9 +7,16 @@
     margin: 0;
     padding: 0 0 0 1rem;
     text-align: right;
+    @include respond-to(small & medium) {
+        text-align: left;
+        font-size: 1.2rem;
+    }
     cite {
         font-size: 1.2rem;
         font-family: "Mulish", sans-serif;
         font-weight: normal;
+        @include respond-to(small & medium) {
+            font-size: 1rem;
+        }
     }
 }
