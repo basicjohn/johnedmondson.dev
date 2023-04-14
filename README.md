@@ -1,12 +1,12 @@
 # John Edmondson's Portfolio
 
-This is the source code for my personal portfolio website. It's a single page application that I built using React and TypeScript. I'm using MaterialUI and Sass for styling and Netlify for hosting.
+This is the source code for my personal portfolio website. It's a single page application that I built using React and TypeScript. I'm using MaterialUI and Sass for styling and AWS for hosting.
 
 ## Tech Stack
 
 **Client:** React, TypeScript, Bootstrap, Sass
 
-**Server:** Currently hosted on Netlify at [johnedmondson.dev](https://johnedmondson.dev).
+**Server:** Currently hosted on AWS at [johnedmondson.dev](https://johnedmondson.dev).
 
 ## Run Locally
 
@@ -42,7 +42,7 @@ Small 'hello' section that I can use to introduce myself and give a brief overvi
 
 #### Section: App Showcase
 
-Show tease for Fornify and display a "Coming soon..." ghosted image for the other apps.
+Show tease with a "Coming soon..." ghosted image for the other apps.
 
 #### Section: Portfolio / Code Samples
 
