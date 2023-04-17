@@ -5,7 +5,12 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
-    @include respond-to(small & medium) {
+    @include respond-to(small) {
+        padding: 2rem 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    @include respond-to(medium) {
         padding: 2rem 1rem;
         grid-template-columns: 1fr;
     }
@@ -29,21 +34,22 @@
                 text-align: center;
             }
 
-            @include respond-to(Large) {
+            @include respond-to(large) {
                 font-size: 3rem;
+                text-align: left;
             }
         }
 
         p {
             font-size: 1.5rem;
             line-height: 1.8rem;
+            text-align: right;
             @include respond-to(small) {
                 font-size: 1rem;
                 line-height: 1.3rem;
                 text-align: left;
             }
-
-            @include respond-to(medium & large) {
+            @include respond-to(medium) {
                 text-align: center;
             }
         }
@@ -51,7 +57,9 @@
         .cta-button {
             margin-top: 1rem;
             background-color: #323232;
-            width: 12rem;
+            width: 8rem;
+            font-weight: 700;
+            text-transform: capitalize;
 
             @include respond-to(small) {
                 width: 100%;

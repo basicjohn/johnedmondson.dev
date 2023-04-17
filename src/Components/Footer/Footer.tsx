@@ -18,10 +18,10 @@ const Footer = () => {
             <Typography variant="h4">Navigation</Typography>
             <ul className={styles["footer-nav"]}>
               <li>
-                <RouterLink to="/">About</RouterLink>
+                <RouterLink to="/beta#about">About</RouterLink>
               </li>
               <li>
-                <RouterLink to="/">Apps & Portfolio</RouterLink>
+                <RouterLink to="/beta#portfolio">Apps & Portfolio</RouterLink>
               </li>
               <li>
                 <RouterLink to="/contact">Contact</RouterLink>

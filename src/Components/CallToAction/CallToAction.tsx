@@ -1,4 +1,5 @@
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 import { Button, Box } from "@mui/material";
 
 import styles from "./CallToAction.module.scss";
@@ -26,8 +27,9 @@ const CallToAction = () => {
           >
             <Button
               variant="contained"
-              color="primary"
               className={styles["cta-button"]}
+              component={RouterLink}
+              to="/contact"
             >
               Let's Chat!
             </Button>
