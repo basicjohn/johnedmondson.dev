@@ -44,9 +44,11 @@ const ContactForm: React.FC = () => {
 
   return (
     <Box className={styles[rootClass]}>
-      <Typography variant="h4" component="h1" gutterBottom>
-        Contact Me
-      </Typography>
+      <div>
+        <Typography variant="h4" component="h1" gutterBottom>
+          Contact Me
+        </Typography>
+      </div>
       <Formik
         initialValues={initialValues}
         validationSchema={ContactSchema}
@@ -108,6 +110,11 @@ const ContactForm: React.FC = () => {
               type="submit"
               variant="contained"
               className={styles[`${rootClass}__submit-button`]}
+              sx={{
+                backgroundColor: "#323232",
+                fontWeight: "700",
+                textTransform: "capitalize",
+              }}
             >
               Submit
             </Button>

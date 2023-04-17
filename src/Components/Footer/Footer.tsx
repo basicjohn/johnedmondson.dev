@@ -15,7 +15,7 @@ const Footer = () => {
       <footer className={styles[rootClass]}>
         <div className={styles[`${rootClass}__sections`]}>
           <div className={styles["navigation"]}>
-            <Typography variant="h4">Navigation</Typography>
+            <Typography variant="h4">Links</Typography>
             <ul className={styles["footer-nav"]}>
               <li>
                 <RouterLink to="/beta#about">About</RouterLink>
@@ -28,6 +28,15 @@ const Footer = () => {
               </li>
               <li>
                 <br />
+                <a
+                  target="_blank"
+                  href="https://calendly.com/johnedmondsondev/lets-chat"
+                  rel="noreferrer"
+                >
+                  Schedule Appointment
+                </a>
+              </li>
+              <li>
                 <a
                   target="_blank"
                   href="https://github.com/basicjohn/johnedmondson.dev"
