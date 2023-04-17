@@ -3,3 +3,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+a.contact-page__button {
+    text-decoration: none;
+    margin-top: 1rem;
+    background-color: #323232;
+    font-weight: 700;
+    text-transform: capitalize;
+}

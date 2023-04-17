@@ -1,17 +1,8 @@
 .contact-form {
-    display: block;
-    &__submit-button {
-        margin-top: 1rem;
-        background-color: #323232;
-        width: 8rem;
-        font-weight: 700;
-        text-transform: capitalize;
-    }
     input {
         background-color: #fff;
     }
     &__message {
-        width: 100%;
         padding: 1.2rem 0.9rem;
         border: 1px solid rgba(0, 0, 0, 0.23);
         border-radius: 0.25rem;
