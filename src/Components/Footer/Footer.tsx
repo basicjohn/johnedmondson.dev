@@ -28,7 +28,11 @@ const Footer = () => {
               </li>
               <li>
                 <br />
-                <a href="https://github.com/basicjohn/johnedmondson.dev">
+                <a
+                  target="_blank"
+                  href="https://github.com/basicjohn/johnedmondson.dev"
+                  rel="noreferrer"
+                >
                   View Repository
                 </a>
               </li>

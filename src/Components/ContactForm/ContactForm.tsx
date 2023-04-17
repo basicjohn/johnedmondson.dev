@@ -10,6 +10,9 @@ import {
   FormControl,
   FormHelperText,
 } from "@mui/material";
+import styles from "./ContactForm.module.scss";
+
+const rootClass = "contact-form";
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
@@ -40,7 +43,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <Box>
+    <Box className={styles[rootClass]}>
       <Typography variant="h4" component="h1" gutterBottom>
         Contact Me
       </Typography>
@@ -90,12 +93,9 @@ const ContactForm: React.FC = () => {
                     <TextareaAutosize
                       {...field}
                       minRows={4}
-                      style={{
-                        width: "100%",
-                        padding: "8px",
-                        borderColor:
-                          touched.message && errors.message ? "red" : "",
-                      }}
+                      className={`${styles[`${rootClass}__message`]} ${
+                        touched.message && errors.message ? styles.error : ""
+                      }`}
                     />
                   )}
                 </Field>
@@ -104,7 +104,11 @@ const ContactForm: React.FC = () => {
                 )}
               </FormControl>
             </Box>
-            <Button type="submit" variant="contained">
+            <Button
+              type="submit"
+              variant="contained"
+              className={styles[`${rootClass}__submit-button`]}
+            >
               Submit
             </Button>
           </Form>
