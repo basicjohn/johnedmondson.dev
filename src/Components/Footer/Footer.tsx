@@ -27,6 +27,7 @@ const Footer = () => {
                 <RouterLink to="/contact">Contact</RouterLink>
               </li>
               <li>
+                <br />
                 <a href="https://github.com/basicjohn/johnedmondson.dev">
                   View Repository
                 </a>

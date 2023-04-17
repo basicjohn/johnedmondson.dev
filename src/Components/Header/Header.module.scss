@@ -16,4 +16,13 @@
             }
         }
     }
+    &__contact {
+        .cta-button {
+            margin-top: 1rem;
+            background-color: #323232;
+            width: 8rem;
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+    }
 }
