@@ -1,4 +1,5 @@
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 import { Typography } from "@mui/material";
 
 import styles from "./Footer.module.scss";
@@ -16,23 +17,19 @@ const Footer = () => {
           <div className={styles["navigation"]}>
             <Typography variant="h4">Navigation</Typography>
             <ul className={styles["footer-nav"]}>
-              {/* <li>
-              <a href="#">Introduction</a>
-            </li>
-            <li>
-              <a href="#">Apps & Portfolio</a>
-            </li>
-
-            <li>
-              <a href="#">Contact</a>
-            </li> */}
+              <li>
+                <RouterLink to="/">About</RouterLink>
+              </li>
+              <li>
+                <RouterLink to="/">Apps & Portfolio</RouterLink>
+              </li>
+              <li>
+                <RouterLink to="/contact">Contact</RouterLink>
+              </li>
               <li>
                 <a href="https://github.com/basicjohn/johnedmondson.dev">
                   View Repository
                 </a>
-              </li>
-              <li>
-                <br />A blog is in the works...
               </li>
             </ul>
           </div>
