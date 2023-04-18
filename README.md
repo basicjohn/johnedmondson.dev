@@ -4,9 +4,9 @@ This is the source code for my personal portfolio website. It's a single page ap
 
 ## Tech Stack
 
-**Client:** React, TypeScript, Bootstrap, Sass
+**Client:** React, TypeScript, MaterialUi, CSS Modules, Formik
 
-**Server:** Currently hosted on AWS at [johnedmondson.dev](https://johnedmondson.dev).
+**Server:** Deployed directly to AWS Amplify [johnedmondson.dev](https://johnedmondson.dev).
 
 ## Run Locally
 
