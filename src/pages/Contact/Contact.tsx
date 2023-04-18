@@ -10,8 +10,11 @@ const rootClass = "contact-page";
 const Contact = () => {
   return (
     <div className={styles[rootClass]}>
-      <div className={styles[`${rootClass}__left-column`]}>
-        <Greeting />
+      <h2>I can sometimes be a hard one to track down.</h2>
+      <h3>Here's where to start...</h3>
+      <h5>Follow me on the socials</h5>
+      <h5>Schedule a meeting</h5>
+      <span>
         <Button
           variant="contained"
           component="a"
@@ -20,12 +23,13 @@ const Contact = () => {
           rel="noreferrer"
           className={styles[`${rootClass}__button`]}
         >
-          Schedule a Meeting
-        </Button>
-      </div>
-      <div className={styles[`${rootClass}__right-column`]}>
-        <ContactForm />
-      </div>
+          View Calendar
+        </Button>{" "}
+        on Calendly
+      </span>
+      <h2>OR get in touch now!</h2>
+      <Greeting />
+      <ContactForm />
     </div>
   );
 };
