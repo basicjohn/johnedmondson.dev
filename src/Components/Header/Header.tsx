@@ -17,7 +17,7 @@ const rootClass = "header";
 const Header = () => {
   return (
     <>
-      <div className={styles[rootClass]}>
+      <div className={styles[rootClass]} role="banner">
         <div className={styles[`${rootClass}__logo`]}>
           <img
             src={profilePhoto}
@@ -37,9 +37,7 @@ const Header = () => {
           </a>
           {/* GitHub */}
           <a
-            href="
-                  https://github.com/basicjohn
-                "
+            href="https://github.com/basicjohn"
             target="_blank"
             rel="noreferrer"
           >

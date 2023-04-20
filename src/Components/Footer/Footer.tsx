@@ -69,9 +69,7 @@ const Footer = () => {
               <li>
                 {/* GitHub */}
                 <a
-                  href="
-                  https://github.com/basicjohn
-                "
+                  href="https://github.com/basicjohn"
                   target="_blank"
                   rel="noreferrer"
                 >
