@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/submit": {
+      "name": "/submit",
+      "lambdaFunction": "contactFormFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

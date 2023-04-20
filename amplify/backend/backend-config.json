@@ -1,4 +1,20 @@
 {
+  "api": {
+    "contactFormApi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "contactFormFunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "function": {
     "contactFormFunction": {
       "build": true,

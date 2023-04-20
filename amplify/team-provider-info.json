@@ -17,6 +17,9 @@
           "deploymentBucketName": "amplify-johnedmondsondev-dev-121712-deployment",
           "s3Key": "amplify-builds/contactFormFunction-496b304f3644666d4176-build.zip"
         }
+      },
+      "api": {
+        "contactFormApi": {}
       }
     }
   }
