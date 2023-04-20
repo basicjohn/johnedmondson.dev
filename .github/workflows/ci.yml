@@ -34,9 +34,9 @@ jobs:
         run: npm run lint
 
       - name: Run tests with coverage
-        run: npm run test --coverage
+        run: npm run test -- --coverage
 
- codecov:
+  - codecov:
     needs: build-and-test
     runs-on: ubuntu-latest
 
