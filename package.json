@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@aws-amplify/api": "^5.0.28",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.11",
-    "@mui/material": "^5.12.1",
+    "@mui/material": "^5.11.15",
+    "aws-amplify": "^5.1.2",
     "axios": "^0.24.0",
     "formik": "^2.2.9",
     "prettier": "^2.8.8",
