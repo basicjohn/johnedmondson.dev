@@ -10,6 +10,14 @@
       "StackName": "amplify-johnedmondsondev-dev-121712",
       "StackId": "arn:aws:cloudformation:us-west-2:528815760611:stack/amplify-johnedmondsondev-dev-121712/9fc6b0d0-de1d-11ed-9c7a-06afd2e5f471",
       "AmplifyAppId": "d2kz5856gh592g"
+    },
+    "categories": {
+      "function": {
+        "contactFormFunction": {
+          "deploymentBucketName": "amplify-johnedmondsondev-dev-121712-deployment",
+          "s3Key": "amplify-builds/contactFormFunction-496b304f3644666d4176-build.zip"
+        }
+      }
     }
   }
 }
