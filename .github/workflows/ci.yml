@@ -34,7 +34,7 @@ jobs:
         run: npm run lint
 
       - name: Run tests with coverage
-        run: npm run test -- --coverage
+        run: npm run test --coverage
 
  codecov:
     needs: build-and-test
