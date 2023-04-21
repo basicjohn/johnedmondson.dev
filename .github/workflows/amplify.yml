@@ -3,6 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
+        - if [ -f ./src/aws-exports.js ]; then echo "aws-exports.js exists"; else amplify pull --appId <your-app-id> --envName <your-env-name> --yes; fi
         - npm ci --legacy-peer-deps
     build:
       commands:
