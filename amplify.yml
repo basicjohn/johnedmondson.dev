@@ -1,19 +1,19 @@
 version: 1
 frontend:
   phases:
-preBuild:
-  commands:
-    - export AWS_ACCESS_KEY_ID=$AMPLIFY_AWS_ACCESS_KEY_ID
-    - export AWS_SECRET_ACCESS_KEY=$AMPLIFY_AWS_SECRET_ACCESS_KEY
-    - if [ -f ./src/aws-exports.js ]; then echo "aws-exports.js exists"; else amplify pull --appId arn:aws:amplify:us-east-2:528815760611:apps/d1io9m2ckf4a1l --envName dev --yes; fi
-    - npm ci --legacy-peer-deps
-  build:
-    commands:
-      - npm run build
-artifacts:
-  baseDirectory: build
-  files:
-    - "**/*"
-cache:
-  paths:
-    - node_modules/**/*
+    preBuild:
+      commands:
+        - export AWS_ACCESS_KEY_ID=$AMPLIFY_AWS_ACCESS_KEY_ID
+        - export AWS_SECRET_ACCESS_KEY=$AMPLIFY_AWS_SECRET_ACCESS_KEY
+        - if [ -f ./src/aws-exports.js ]; then echo "aws-exports.js exists"; else amplify pull --appId arn:aws:amplify:us-east-2:528815760611:apps/d1io9m2ckf4a1l --envName dev --yes; fi
+        - npm ci --legacy-peer-deps
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*
