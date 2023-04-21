@@ -3,7 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm i
+        - npm ci --legacy-peer-deps
     build:
       commands:
         - npm run build
