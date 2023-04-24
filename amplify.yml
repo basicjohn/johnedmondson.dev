@@ -3,10 +3,6 @@ frontend:
   phases:
     preBuild:
       commands:
-        - export AWS_ACCESS_KEY_ID=$AMPLIFY_AWS_ACCESS_KEY_ID
-        - export AWS_SECRET_ACCESS_KEY=$AMPLIFY_AWS_SECRET_ACCESS_KEY
-        - amplify configure --appId d1io9m2ckf4a1l --envName staging
-        - if [ -f ./src/aws-exports.js ]; then echo "aws-exports.js exists"; else amplify pull --appId d1io9m2ckf4a1l --envName staging --yes; fi
         - npm ci --legacy-peer-deps
     build:
       commands:
