@@ -16,7 +16,7 @@
         "contactFormFunction": {
           "receivingEmailAddress": "contact@johnedmondson.dev",
           "deploymentBucketName": "amplify-amplifyddcb811f13614-staging-172239-deployment",
-          "s3Key": "amplify-builds/contactFormFunction-6a3045506f64484a7165-build.zip"
+          "s3Key": "amplify-builds/contactFormFunction-7174474c4b596e63744d-build.zip"
         }
       },
       "api": {
