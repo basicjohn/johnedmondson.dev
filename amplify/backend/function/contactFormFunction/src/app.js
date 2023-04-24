@@ -1,4 +1,4 @@
-/*
+ /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
     http://aws.amazon.com/apache2.0/
@@ -10,6 +10,7 @@ See the License for the specific language governing permissions and limitations 
 /* Amplify Params - DO NOT EDIT
 	ENV
 	REGION
+	RECEIVING_EMAIL_ADDRESS
 Amplify Params - DO NOT EDIT */
 
 const express = require('express')
@@ -33,12 +34,12 @@ app.use(function(req, res, next) {
  * Example get method *
  **********************/
 
-app.get('/item', function(req, res) {
+app.get('/contact', function(req, res) {
   // Add your code here
   res.json({success: 'get call succeed!', url: req.url});
 });
 
-app.get('/item/*', function(req, res) {
+app.get('/contact/*', function(req, res) {
   // Add your code here
   res.json({success: 'get call succeed!', url: req.url});
 });
@@ -47,12 +48,12 @@ app.get('/item/*', function(req, res) {
 * Example post method *
 ****************************/
 
-app.post('/item', function(req, res) {
+app.post('/contact', function(req, res) {
   // Add your code here
   res.json({success: 'post call succeed!', url: req.url, body: req.body})
 });
 
-app.post('/item/*', function(req, res) {
+app.post('/contact/*', function(req, res) {
   // Add your code here
   res.json({success: 'post call succeed!', url: req.url, body: req.body})
 });
@@ -61,12 +62,12 @@ app.post('/item/*', function(req, res) {
 * Example put method *
 ****************************/
 
-app.put('/item', function(req, res) {
+app.put('/contact', function(req, res) {
   // Add your code here
   res.json({success: 'put call succeed!', url: req.url, body: req.body})
 });
 
-app.put('/item/*', function(req, res) {
+app.put('/contact/*', function(req, res) {
   // Add your code here
   res.json({success: 'put call succeed!', url: req.url, body: req.body})
 });
@@ -75,12 +76,12 @@ app.put('/item/*', function(req, res) {
 * Example delete method *
 ****************************/
 
-app.delete('/item', function(req, res) {
+app.delete('/contact', function(req, res) {
   // Add your code here
   res.json({success: 'delete call succeed!', url: req.url});
 });
 
-app.delete('/item/*', function(req, res) {
+app.delete('/contact/*', function(req, res) {
   // Add your code here
   res.json({success: 'delete call succeed!', url: req.url});
 });

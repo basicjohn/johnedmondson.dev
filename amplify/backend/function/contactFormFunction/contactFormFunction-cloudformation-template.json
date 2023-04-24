@@ -15,6 +15,9 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "receivingEmailAddress": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -69,6 +72,9 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
+            },
+            "RECEIVING_EMAIL_ADDRESS": {
+              "Ref": "receivingEmailAddress"
             }
           }
         },
@@ -89,12 +95,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "johnedmondsondevLambdaRoleadc56d54",
+            "johnedmondsondevLambdaRolef7288338",
             {
               "Fn::Join": [
                 "",
                 [
-                  "johnedmondsondevLambdaRoleadc56d54",
+                  "johnedmondsondevLambdaRolef7288338",
                   "-",
                   {
                     "Ref": "env"

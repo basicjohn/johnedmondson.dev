@@ -1,4 +1,9 @@
 {
-  "permissions": {},
-  "lambdaLayers": []
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "receivingEmailAddress",
+      "environmentVariableName": "RECEIVING_EMAIL_ADDRESS"
+    }
+  ]
 }

@@ -32,6 +32,14 @@
         }
       ]
     },
+    "AMPLIFY_function_contactFormFunction_receivingEmailAddress": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "contactFormFunction"
+        }
+      ]
+    },
     "AMPLIFY_function_contactFormFunction_s3Key": {
       "usedBy": [
         {
