@@ -6,7 +6,7 @@ const awsmobile = {
     "aws_cloud_logic_custom": [
         {
             "name": "contactFormApi",
-            "endpoint": "https://pczkcphcra.execute-api.us-east-2.amazonaws.com/staging",
+            "endpoint": "https://9t0tc13wwe.execute-api.us-east-2.amazonaws.com/staging",
             "region": "us-east-2"
         }
     ]

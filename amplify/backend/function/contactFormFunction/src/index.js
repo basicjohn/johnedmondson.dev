@@ -2,6 +2,18 @@ const AWS = require('aws-sdk');
 const SES = new AWS.SES({ apiVersion: '2010-12-01' });
 
 exports.handler = async (event) => {
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true,
+        'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+        'Access-Control-Allow-Methods': 'OPTIONS,POST',
+      },
+      body: JSON.stringify({ message: 'CORS preflight request successful' }),
+    };
+  }
   const { name, email, message, topic } = JSON.parse(event.body);
 
   const receivingEmail = process.env.RECEIVING_EMAIL_ADDRESS;
