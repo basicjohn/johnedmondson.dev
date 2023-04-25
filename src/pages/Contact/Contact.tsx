@@ -4,10 +4,16 @@ import ContactForm from "Components/ContactForm/ContactForm";
 import Greeting from "Components/Greeting/Greeting";
 
 import styles from "./Contact.module.scss";
+import { useState } from "react";
 
 const rootClass = "contact-page";
 
 const Contact = () => {
+  const [hideElements, setHideElements] = useState(false);
+
+  const handleFormSubmit = () => {
+    setHideElements(true);
+  };
   return (
     <div className={styles[rootClass]}>
       <h2>I can sometimes be a hard one to track down.</h2>
@@ -29,7 +35,7 @@ const Contact = () => {
       </span>
       <h2>OR get in touch now!</h2>
       <Greeting />
-      <ContactForm />
+      <ContactForm onFormSubmit={handleFormSubmit} />
     </div>
   );
 };

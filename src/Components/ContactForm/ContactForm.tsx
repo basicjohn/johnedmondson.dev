@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { API } from "aws-amplify";
 import { Formik, Form, Field, FieldProps } from "formik";
 import * as Yup from "yup";
@@ -15,6 +15,10 @@ import {
   InputLabel,
 } from "@mui/material";
 import styles from "./ContactForm.module.scss";
+
+interface ContactFormProps {
+  onFormSubmit: () => void;
+}
 
 const rootClass = "contact-form";
 
@@ -134,13 +138,16 @@ const initialValues: ContactFormValues = {
   topic: "Follow the road less traveled",
 };
 
-const ContactForm: React.FC = () => {
+const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const onSubmit = async (values: ContactFormValues) => {
     try {
       await API.post("contactFormApi", "/submit", {
         body: values,
       });
       console.log("Form submitted successfully");
+      setFormSubmitted(true);
+      onFormSubmit(); // Call the function passed from the parent component
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -148,113 +155,114 @@ const ContactForm: React.FC = () => {
 
   return (
     <Box className={styles[rootClass]}>
-      <div>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Contact Me
-        </Typography>
-      </div>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={ContactSchema}
-        onSubmit={onSubmit}
-      >
-        {({ errors, touched }) => (
-          <Form>
-            <Box marginBottom={2}>
-              <Field name="name">
-                {({ field }: FieldProps) => (
-                  <TextField
-                    label="Name"
-                    variant="outlined"
-                    fullWidth
-                    {...field}
-                    error={touched.name && !!errors.name}
-                    helperText={touched.name && errors.name}
-                  />
-                )}
-              </Field>
-            </Box>
-            <Box marginBottom={2}>
-              <Field name="email">
-                {({ field }: FieldProps) => (
-                  <TextField
-                    label="Email"
-                    variant="outlined"
-                    fullWidth
-                    {...field}
-                    error={touched.email && !!errors.email}
-                    helperText={touched.email && errors.email}
-                  />
-                )}
-              </Field>
-            </Box>
-            <Box marginBottom={2}>
-              <FormControl
-                fullWidth
-                variant="outlined"
-                error={touched.topic && !!errors.topic}
-              >
-                <InputLabel htmlFor="topic">Topic</InputLabel>
-                <Field name="topic">
+      {!formSubmitted ? (
+        <Formik
+          initialValues={initialValues}
+          validationSchema={ContactSchema}
+          onSubmit={onSubmit}
+        >
+          {({ errors, touched }) => (
+            <Form>
+              <Box marginBottom={2}>
+                <Field name="name">
                   {({ field }: FieldProps) => (
-                    <Select
+                    <TextField
+                      label="Name"
+                      variant="outlined"
+                      fullWidth
                       {...field}
-                      label="Topic"
-                      inputProps={{
-                        name: "topic",
-                        id: "topic",
-                      }}
-                    >
-                      {topicOptions.map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  )}
-                </Field>
-                {touched.topic && errors.topic && (
-                  <FormHelperText error>{errors.topic}</FormHelperText>
-                )}
-              </FormControl>
-            </Box>
-            <Box marginBottom={2}>
-              <FormControl
-                fullWidth
-                error={touched.message && !!errors.message}
-              >
-                <label htmlFor="message">Message:</label>
-                <Field name="message">
-                  {({ field }: FieldProps) => (
-                    <TextareaAutosize
-                      {...field}
-                      minRows={4}
-                      className={`${styles[`${rootClass}__message`]} ${
-                        touched.message && errors.message ? styles.error : ""
-                      }`}
+                      error={touched.name && !!errors.name}
+                      helperText={touched.name && errors.name}
                     />
                   )}
                 </Field>
-                {touched.message && errors.message && (
-                  <FormHelperText error>{errors.message}</FormHelperText>
-                )}
-              </FormControl>
-            </Box>
-            <Button
-              type="submit"
-              variant="contained"
-              className={styles[`${rootClass}__submit-button`]}
-              sx={{
-                backgroundColor: "#323232",
-                fontWeight: "700",
-                textTransform: "capitalize",
-              }}
-            >
-              Submit
-            </Button>
-          </Form>
-        )}
-      </Formik>
+              </Box>
+              <Box marginBottom={2}>
+                <Field name="email">
+                  {({ field }: FieldProps) => (
+                    <TextField
+                      label="Email"
+                      variant="outlined"
+                      fullWidth
+                      {...field}
+                      error={touched.email && !!errors.email}
+                      helperText={touched.email && errors.email}
+                    />
+                  )}
+                </Field>
+              </Box>
+              <Box marginBottom={2}>
+                <FormControl
+                  fullWidth
+                  variant="outlined"
+                  error={touched.topic && !!errors.topic}
+                >
+                  <InputLabel htmlFor="topic">Topic</InputLabel>
+                  <Field name="topic">
+                    {({ field }: FieldProps) => (
+                      <Select
+                        {...field}
+                        label="Topic"
+                        inputProps={{
+                          name: "topic",
+                          id: "topic",
+                        }}
+                      >
+                        {topicOptions.map((option) => (
+                          <MenuItem key={option.value} value={option.value}>
+                            {option.label}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    )}
+                  </Field>
+                  {touched.topic && errors.topic && (
+                    <FormHelperText error>{errors.topic}</FormHelperText>
+                  )}
+                </FormControl>
+              </Box>
+              <Box marginBottom={2}>
+                <FormControl
+                  fullWidth
+                  error={touched.message && !!errors.message}
+                >
+                  <label htmlFor="message">Message:</label>
+                  <Field name="message">
+                    {({ field }: FieldProps) => (
+                      <TextareaAutosize
+                        {...field}
+                        minRows={4}
+                        className={`${styles[`${rootClass}__message`]} ${
+                          touched.message && errors.message ? styles.error : ""
+                        }`}
+                      />
+                    )}
+                  </Field>
+                  {touched.message && errors.message && (
+                    <FormHelperText error>{errors.message}</FormHelperText>
+                  )}
+                </FormControl>
+              </Box>
+              <Button
+                type="submit"
+                variant="contained"
+                className={styles[`${rootClass}__submit-button`]}
+                sx={{
+                  backgroundColor: "#323232",
+                  fontWeight: "700",
+                  textTransform: "capitalize",
+                }}
+              >
+                Submit
+              </Button>
+            </Form>
+          )}
+        </Formik>
+      ) : (
+        <Typography variant="h4" component="h1" gutterBottom>
+          Thank you for your message!
+        </Typography>
+      )}
     </Box>
   );
 };
