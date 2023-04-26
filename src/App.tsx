@@ -12,6 +12,7 @@ import Contact from "pages/Contact/Contact";
 import Container from "Components/Container/Container";
 import Header from "Components/Header/Header";
 import Footer from "Components/Footer/Footer";
+import AnimatedBackground from "Components/AnimatedBackground/AnimatedBackground";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Home />} />
         </Routes>
+        <AnimatedBackground />
         <Footer />
       </Container>
     </div>

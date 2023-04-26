@@ -1,4 +1,4 @@
-import CallToAction from "Components/CallToAction/CallToAction";
+import CallToAction from "Components/AnimatedBackground/AnimatedBackground";
 import styles from "./Home.module.scss";
 
 const rootClass = "home-page";

@@ -33,7 +33,7 @@ const Contact = () => {
         </Button>{" "}
         on Calendly
       </span>
-      <h2>OR get in touch now!</h2>
+      {hideElements! && <h2>OR get in touch now!</h2>}
       <Greeting />
       <ContactForm onFormSubmit={handleFormSubmit} />
     </div>

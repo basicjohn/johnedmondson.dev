@@ -8,6 +8,7 @@
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.15",
+    "@types/three": "^0.150.2",
     "aws-amplify": "^5.1.2",
     "aws-sdk": "^2.1361.0",
     "axios": "^0.24.0",
@@ -18,6 +19,7 @@
     "react-router-dom": "6.9.0",
     "react-scripts": "^5.0.1",
     "sass": "^1.60.0",
+    "three": "^0.151.3",
     "typescript": "^4.9.5",
     "webfontloader": "^1.6.28",
     "yup": "^1.1.1"
