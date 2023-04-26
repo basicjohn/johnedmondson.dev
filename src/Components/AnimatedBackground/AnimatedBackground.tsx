@@ -25,7 +25,7 @@ const AnimatedBackground: React.FC = () => {
         case 0: // Acute triangle
           geometry = new THREE.BufferGeometry();
           const vertices = new Float32Array([
-            -0.15, -0.15, 0, 0.15, -0.15, 0, 0, 0.3, 0,
+            -0.09, -0.09, 0, 0.09, -0.09, 0, 0, 0.18, 0,
           ]);
           geometry.setAttribute(
             "position",
@@ -34,10 +34,10 @@ const AnimatedBackground: React.FC = () => {
           break;
         case 1:
         case 2: // Small circle (probability increased)
-          geometry = new THREE.CircleGeometry(0.05, 32);
+          geometry = new THREE.CircleGeometry(0.03, 32);
           break;
         case 3: // Thin rectangle
-          geometry = new THREE.BoxGeometry(0.02, 0.3, 0.1);
+          geometry = new THREE.BoxGeometry(0.012, 0.18, 0.1);
           break;
       }
 
@@ -75,26 +75,43 @@ const AnimatedBackground: React.FC = () => {
         shape.position.y - 0.02,
         -0.05
       );
+
+      // Set random initial rotation
+      shape.rotation.z = Math.random() * Math.PI * 2;
+      shadowShape.rotation.z = shape.rotation.z;
+
+      // Set random drift speed and rotation speed
       shape.userData.driftSpeed = new THREE.Vector2(
-        Math.random() * 0.0011 - 0.001,
-        Math.random() * 0.0011 - 0.001
+        Math.random() * 0.0004 - 0.0002,
+        Math.random() * 0.0004 - 0.0002
       );
       shadowShape.userData.driftSpeed = shape.userData.driftSpeed;
+      shape.userData.rotationSpeed = Math.random() * 0.002 - 0.001;
+      shadowShape.userData.rotationSpeed = shape.userData.rotationSpeed;
+
       scene.add(shadowShape);
       scene.add(shape);
       shapes.push(shape);
       shapes.push(shadowShape);
     }
-
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 80; i++) {
       generateShape();
     }
 
     function animate() {
       shapes.forEach((shape) => {
-        shape.rotation.z += 0.001;
+        shape.rotation.z += shape.userData.rotationSpeed;
+
         shape.position.x += shape.userData.driftSpeed.x;
         shape.position.y += shape.userData.driftSpeed.y;
+
+        // Check if the shape has reached the edges of the renderer and reverse the drift speed
+        if (shape.position.x <= -1 || shape.position.x >= 1) {
+          shape.userData.driftSpeed.x = -shape.userData.driftSpeed.x;
+        }
+        if (shape.position.y <= -1 || shape.position.y >= 1) {
+          shape.userData.driftSpeed.y = -shape.userData.driftSpeed.y;
+        }
       });
 
       renderer.render(scene, camera);

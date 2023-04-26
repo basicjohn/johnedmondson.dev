@@ -1,8 +1,10 @@
 @import "./mixins";
 
 .footer {
+    background-color: #fff;
     padding: 1rem;
     margin-top: 2rem;
+    border-radius: 0.25rem;
     &__sections {
         display: grid;
         grid-template-columns: 2fr 2fr 2fr 3fr;
