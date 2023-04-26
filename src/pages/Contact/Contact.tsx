@@ -5,6 +5,7 @@ import Greeting from "Components/Greeting/Greeting";
 
 import styles from "./Contact.module.scss";
 import { useState } from "react";
+import AnimatedBackground from "Components/AnimatedBackground/AnimatedBackground";
 
 const rootClass = "contact-page";
 
@@ -36,6 +37,7 @@ const Contact = () => {
       {hideElements! && <h2>OR get in touch now!</h2>}
       <Greeting />
       <ContactForm onFormSubmit={handleFormSubmit} />
+      <AnimatedBackground />
     </div>
   );
 };

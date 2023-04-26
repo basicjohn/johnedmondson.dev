@@ -25,7 +25,6 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Home />} />
         </Routes>
-        <AnimatedBackground />
         <Footer />
       </Container>
     </div>
