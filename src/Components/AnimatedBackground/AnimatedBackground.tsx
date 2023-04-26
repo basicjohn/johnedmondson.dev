@@ -43,16 +43,15 @@ const AnimatedBackground: React.FC = () => {
 
       // Array of less muted colors
       const colors = [
+        "#f4b659",
+        "#3945AF",
         "#FFA7C4",
-        "#FFDEA6",
-        "#9BE29B",
-        "#A3C8ED",
+        "#57a957",
         "#E3A3E3",
-        "#FFBE8A",
-        "#D9B9D9",
-        "#A8D6A8",
+        "#c583c5",
+        "#F6D05B",
+        "#484848",
       ];
-
       // Choose a random color from the array
       const color = colors[Math.floor(Math.random() * colors.length)];
 
@@ -71,9 +70,9 @@ const AnimatedBackground: React.FC = () => {
       const shadowShape = new THREE.Mesh(geometry, shadowMaterial);
       shape.position.set(Math.random() * 2 - 1, Math.random() * 2 - 1, 0);
       shadowShape.position.set(
-        shape.position.x + 0.02,
+        shape.position.x + 0.01,
         shape.position.y - 0.02,
-        -0.05
+        -0.02
       );
 
       // Set random initial rotation
