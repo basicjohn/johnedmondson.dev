@@ -93,7 +93,7 @@ const AnimatedBackground: React.FC = () => {
       shapes.push(shape);
       shapes.push(shadowShape);
     }
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 20; i++) {
       generateShape();
     }
 

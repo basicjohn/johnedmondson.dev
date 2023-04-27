@@ -11,7 +11,6 @@ const rootClass = "footer";
 const Footer = () => {
   return (
     <>
-      <hr />
       <footer className={styles[rootClass]}>
         <div className={styles[`${rootClass}__sections`]}>
           <div className={styles["navigation"]}>

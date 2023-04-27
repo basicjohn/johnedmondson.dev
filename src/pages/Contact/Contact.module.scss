@@ -1,12 +1,18 @@
 .contact-page {
     background-color: #fff;
     border-radius: 0.25rem;
-
     width: 50%;
     margin: 0 auto;
-    padding: 5rem 1rem;
+    padding: 2rem 2rem;
     span {
         line-height: 2.5rem;
+    }
+    h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+    h5 {
+        margin-top: 1rem;
     }
 }
 
