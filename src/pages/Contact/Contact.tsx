@@ -11,7 +11,6 @@ import githubIcon from "../../assets/icons/github-48.png";
 import linkedinIcon from "../../assets/icons/linkedin-48.png";
 import pinterestIcon from "../../assets/icons/pinterest-48.png";
 import twitterIcon from "../../assets/icons/twitter-48.png";
-import AnimatedBackground from "Components/AnimatedBackground/AnimatedBackground";
 
 const rootClass = "contact-page";
 
@@ -23,8 +22,8 @@ const Contact = () => {
   };
   return (
     <div className={styles[rootClass]}>
-      <h2>I can sometimes be a hard one to track down.</h2>
-      <h3>Here's where to start...</h3>
+      <h2>At times...I can be a hard one to track down.</h2>
+      <h3>Here's where to start</h3>
       <h5>Follow me on the socials</h5>
       <div className={styles[`${rootClass}__social`]}>
         {/* LinkedIn */}
@@ -72,9 +71,9 @@ const Contact = () => {
         on Calendly
       </span>
       {hideElements! ? <h2>OR get in touch now!</h2> : null}
+      <hr />
       <Greeting />
       <ContactForm onFormSubmit={handleFormSubmit} />
-      <AnimatedBackground />
     </div>
   );
 };

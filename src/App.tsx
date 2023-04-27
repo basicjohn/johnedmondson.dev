@@ -13,6 +13,9 @@ import Container from "Components/Container/Container";
 import Header from "Components/Header/Header";
 import Footer from "Components/Footer/Footer";
 
+// Components
+import AnimatedBackground from "Components/AnimatedBackground/AnimatedBackground";
+
 const App = () => {
   return (
     <div className="app">
@@ -26,6 +29,7 @@ const App = () => {
         </Routes>
         <Footer />
       </Container>
+      <AnimatedBackground />
     </div>
   );
 };
