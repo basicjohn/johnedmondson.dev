@@ -8,11 +8,35 @@ const AnimatedBackground: React.FC = () => {
 
   useEffect(() => {
     const scene = new THREE.Scene();
-    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 1, 1000);
+    const aspectRatio = window.innerWidth / window.innerHeight;
+    const frustumSize = 2;
+    const camera = new THREE.OrthographicCamera(
+      (-frustumSize * aspectRatio) / 2,
+      (frustumSize * aspectRatio) / 2,
+      frustumSize / 2,
+      -frustumSize / 2,
+      1,
+      1000
+    );
     camera.position.z = 2;
 
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
+    mountRef.current?.appendChild(renderer.domElement);
+
+    window.addEventListener("resize", () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      camera.left = (-frustumSize * aspectRatio) / 2;
+      camera.right = (frustumSize * aspectRatio) / 2;
+      camera.top = frustumSize / 2;
+      camera.bottom = -frustumSize / 2;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(width, height);
+    });
+
     mountRef.current?.appendChild(renderer.domElement);
 
     function generateShape() {

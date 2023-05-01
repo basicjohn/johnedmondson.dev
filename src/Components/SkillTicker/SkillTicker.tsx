@@ -23,6 +23,8 @@ const skills: Skill[] = [
   { id: 12, label: "HTML / CSS" },
   { id: 13, label: "SEO" },
   { id: 14, label: "NX (Monorepo)" },
+  { id: 15, label: "React Native" },
+  { id: 16, label: "Next.js" },
 ];
 
 const TickerContainer = styled("div")`
