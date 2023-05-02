@@ -19,16 +19,16 @@ import AnimatedBackground from "Components/AnimatedBackground/AnimatedBackground
 const App = () => {
   return (
     <div className="app">
-      <Container>
-        <Header />
-        <Routes>
-          <Route path="/" element={<ComingSoon />} />
-          <Route path="/beta" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
-        <Footer />
-      </Container>
+      {/* <Container> */}
+      <Header />
+      <Routes>
+        <Route path="/" element={<ComingSoon />} />
+        <Route path="/beta" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+      <Footer />
+      {/* </Container> */}
       <AnimatedBackground />
     </div>
   );
