@@ -12,10 +12,10 @@ const Home = () => {
           Hello I'm John <br />& I make things
         </h1>
         <h2>Maker, Software Engineer, and UI / UX Designer</h2>
-
+        {/* 
         <div className={styles[`${rootClass}__about__image`]}>
           <img src="https://via.placeholder.com/150" alt="John's face" />
-        </div>
+        </div> */}
 
         <p>
           Life is changing fast in these modern economic times. It's time to
@@ -27,22 +27,19 @@ const Home = () => {
       <SkillTicker />
       {/* <section className={styles[`${rootClass}__skills`]}></section> */}
       <section id="portfolio" className={styles[`${rootClass}__portfolio`]}>
-        <h1>Apps & Code Samples</h1>
-        <button>Portfolio Item 1</button>
-        <p>
-          Content for Portfolio Item 1. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nunc nisl
-        </p>
-        <button>Portfolio Item 1</button>
-        <p>
-          Content for Portfolio Item 1. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nunc nisl
-        </p>
-        <button>Portfolio Item 1</button>
-        <p>
-          Content for Portfolio Item 1. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nunc nisl
-        </p>
+        <h1>Code Samples</h1>
+        F4B758
+        <h3>
+          Animated background in the style of 90's geometric art using three.js
+        </h3>
+        <a
+          href="https://codesandbox.io/p/sandbox/nifty-black-hqtk8p?file=%2Fsrc%2FApp.tsx&selection=%5B%7B%22endColumn%22%3A11%2C%22endLineNumber%22%3A11%2C%22startColumn%22%3A11%2C%22startLineNumber%22%3A11%7D%5D"
+          target="_blank"
+          rel="noreferrer"
+        >
+          CodeSandbox
+        </a>
+        <hr className={styles[`${rootClass}__short-rule`]} />
       </section>
       <CallToAction />
     </div>

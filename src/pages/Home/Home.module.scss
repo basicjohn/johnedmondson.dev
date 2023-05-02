@@ -3,4 +3,20 @@
     border-radius: 0.25rem;
     margin: 0 auto;
     padding: 2rem 2rem;
+    &__short-rule {
+        width: 100px;
+        height: 1px;
+        border: 0;
+        margin: 1rem 0;
+        background: #32323215;
+    }
+    &__portfolio {
+        h3 {
+            color: #f4b758;
+            margin-top: 1rem;
+        }
+        a {
+            font-weight: 800;
+        }
+    }
 }
