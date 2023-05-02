@@ -29,8 +29,6 @@ const skills: Skill[] = [
 
 const TickerContainer = styled("div")`
   background-color: #f4b659;
-  //   margin-top: 1rem;
-  //   margin-bottom: 1rem;
   padding-top: 1rem;
   padding-bottom: 2rem;
   overflow: hidden;
@@ -45,7 +43,7 @@ const TickerContent = styled("div")`
 
 const AnimatedStack = styled(Stack)`
   display: inline-block;
-  animation: move 500s linear infinite;
+  animation: move 250s linear infinite;
   position: absolute;
   top: 0;
   white-space: nowrap;
@@ -61,7 +59,6 @@ const AnimatedStack = styled(Stack)`
 `;
 
 const chipStyle = {
-  // backgroundColor: "rgba(#fff, 0.02)",
   backgroundColor: "rgba(227, 170, 82, 0.02)",
   color: "#ffffff",
   borderColor: "rgba(#fff, 0.01)",
