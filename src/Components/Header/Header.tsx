@@ -1,17 +1,19 @@
+// dependencies
 import React from "react";
-// import { Box, Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 
-// Images
-import profilePhoto from "../../assets/profile_photo.png";
-import githubIcon from "../../assets/icons/github-48.png";
-import linkedinIcon from "../../assets/icons/linkedin-48.png";
-import pinterestIcon from "../../assets/icons/pinterest-48.png";
-import twitterIcon from "../../assets/icons/twitter-48.png";
+// images
+import {
+  profilePhoto,
+  githubIcon,
+  linkedinIcon,
+  pinterestIcon,
+  twitterIcon,
+} from "assets";
 
-// Styles
+// styles
 import styles from "./Header.module.scss";
-import { Box, Button } from "@mui/material";
 
 const rootClass = "header";
 

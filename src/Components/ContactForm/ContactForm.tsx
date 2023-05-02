@@ -14,7 +14,11 @@ import {
   Select,
   InputLabel,
 } from "@mui/material";
+
+// data
 import topics from "../../data/contact_topics.json";
+
+// styles
 import styles from "./ContactForm.module.scss";
 
 interface ContactFormProps {
@@ -35,10 +39,10 @@ const ContactSchema = Yup.object().shape({
   topic: Yup.string().required("Topic is required"),
 });
 
-type Topic = {
-  value: string;
-  label: string;
-};
+// type Topic = {
+//   value: string;
+//   label: string;
+// };
 
 interface ContactFormValues {
   name: string;

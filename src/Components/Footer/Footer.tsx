@@ -1,10 +1,16 @@
+// dependencies
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Typography } from "@mui/material";
 
-import styles from "./Footer.module.scss";
-import profilePhoto from "../../assets/profile_photo.png";
+// components
 import InspirationalQuote from "Components/InspirationalQuote/InspirationalQuote";
+
+// images
+import { profilePhoto } from "assets";
+
+// styles
+import styles from "./Footer.module.scss";
 
 const rootClass = "footer";
 

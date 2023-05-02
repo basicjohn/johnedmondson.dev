@@ -1,16 +1,15 @@
 import { Button } from "@mui/material";
+import { useState } from "react";
 
+// components
 import ContactForm from "Components/ContactForm/ContactForm";
 import Greeting from "Components/Greeting/Greeting";
 
-import styles from "./Contact.module.scss";
-import { useState } from "react";
+// images
+import { githubIcon, linkedinIcon, pinterestIcon, twitterIcon } from "assets";
 
-// Images
-import githubIcon from "../../assets/icons/github-48.png";
-import linkedinIcon from "../../assets/icons/linkedin-48.png";
-import pinterestIcon from "../../assets/icons/pinterest-48.png";
-import twitterIcon from "../../assets/icons/twitter-48.png";
+// styles
+import styles from "./Contact.module.scss";
 
 const rootClass = "contact-page";
 
