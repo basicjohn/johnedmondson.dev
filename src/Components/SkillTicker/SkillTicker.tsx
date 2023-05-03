@@ -3,29 +3,28 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/system";
 
+// data
+import skillsData from "../../data/skills.json";
+
 interface Skill {
   id: number;
   label: string;
 }
 
-const skills: Skill[] = [
-  { id: 1, label: "React" },
-  { id: 2, label: "TypeScript" },
-  { id: 3, label: "Material-UI" },
-  { id: 4, label: "JavaScript" },
-  { id: 5, label: "TDD" },
-  { id: 6, label: "D3" },
-  { id: 7, label: "Three.js" },
-  { id: 8, label: "GraphQL" },
-  { id: 9, label: "GIT" },
-  { id: 10, label: "AWS" },
-  { id: 11, label: "Storybook.js" },
-  { id: 12, label: "HTML / CSS" },
-  { id: 13, label: "SEO" },
-  { id: 14, label: "NX (Monorepo)" },
-  { id: 15, label: "React Native" },
-  { id: 16, label: "Next.js" },
-];
+function shuffleArray(array: any[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+shuffleArray(skillsData.skills);
+const skills: Skill[] = skillsData.skills.map(
+  (skill: string, index: number) => ({
+    id: index + 1,
+    label: skill,
+  })
+);
 
 const TickerContainer = styled("div")`
   background-color: #f4b659;

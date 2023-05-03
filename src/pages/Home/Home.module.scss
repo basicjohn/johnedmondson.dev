@@ -4,7 +4,7 @@
     border-radius: 0.25rem;
     padding: 2rem 2rem;
     h1 {
-        font-size: 4rem;
+        font-size: 5rem;
         margin-bottom: 1rem;
         & span {
             color: #f4b758;
@@ -23,6 +23,10 @@
         background: #32323215;
     }
     &__portfolio {
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
         h3 {
             color: #f4b758;
             margin: 1rem 0;

@@ -4,7 +4,6 @@ import { Link as RouterLink } from "react-router-dom";
 import { Typography } from "@mui/material";
 
 // components
-import CallToAction from "Components/CallToAction/CallToAction";
 import InspirationalQuote from "Components/InspirationalQuote/InspirationalQuote";
 
 // images

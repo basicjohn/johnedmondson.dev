@@ -51,11 +51,11 @@ const Home = () => {
               three.js
             </h3>
             <a
-              href="https://codesandbox.io/p/sandbox/nifty-black-hqtk8p?file=%2Fsrc%2FApp.tsx&selection=%5B%7B%22endColumn%22%3A11%2C%22endLineNumber%22%3A11%2C%22startColumn%22%3A11%2C%22startLineNumber%22%3A11%7D%5D"
+              href="https://github.com/stars/basicjohn/lists/coding-bootcamp-solo-projects"
               target="_blank"
               rel="noreferrer"
             >
-              CodeSandbox
+              Github Repository List
             </a>
             <hr className={styles[`${rootClass}__short-rule`]} />
           </section>
