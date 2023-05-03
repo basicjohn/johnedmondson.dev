@@ -2,8 +2,19 @@
     background-color: #fff;
     color: #323232;
     border-radius: 0.25rem;
-    // margin: 0 auto;
     padding: 2rem 2rem;
+    h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        & span {
+            color: #f4b758;
+            font-size: 3rem;
+        }
+    }
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
     &__short-rule {
         width: 100px;
         height: 1px;
@@ -14,10 +25,15 @@
     &__portfolio {
         h3 {
             color: #f4b758;
-            margin-top: 1rem;
+            margin: 1rem 0;
         }
         a {
             font-weight: 800;
+            margin: 0.5rem;
+            padding: 0.5rem;
+            &:hover {
+                color: #000;
+            }
         }
     }
 }

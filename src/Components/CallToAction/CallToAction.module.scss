@@ -5,6 +5,7 @@
     padding: 5rem 2rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 2rem;
 
     @include respond-to(small) {
         padding: 2rem 1rem;

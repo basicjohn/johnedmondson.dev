@@ -9,7 +9,6 @@ const rootClass = "cta";
 const CallToAction = () => {
   return (
     <>
-      <hr />
       <div className={styles[rootClass]}>
         <section>
           <h3>Start the Conversation</h3>
