@@ -1,6 +1,7 @@
 @import "../../_mixins.scss";
 
 .cta {
+    background-color: #fff;
     padding: 5rem 2rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);

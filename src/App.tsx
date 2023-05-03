@@ -14,6 +14,7 @@ import Footer from "Components/Footer/Footer";
 
 // Components
 import AnimatedBackground from "Components/AnimatedBackground/AnimatedBackground";
+import CallToAction from "Components/CallToAction/CallToAction";
 
 const App = () => {
   return (

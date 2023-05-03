@@ -1,7 +1,7 @@
-import CallToAction from "Components/AnimatedBackground/AnimatedBackground";
 import styles from "./Home.module.scss";
 import SkillTicker from "Components/SkillTicker/SkillTicker";
-import { Container } from "@mui/material";
+import Container from "Components/Container/Container";
+import CallToAction from "Components/CallToAction/CallToAction";
 
 const rootClass = "home-page";
 
@@ -49,8 +49,8 @@ const Home = () => {
             </a>
             <hr className={styles[`${rootClass}__short-rule`]} />
           </section>
-          <CallToAction />
         </div>
+        <CallToAction />
       </Container>
     </>
   );
