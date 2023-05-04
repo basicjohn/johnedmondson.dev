@@ -1,7 +1,9 @@
+// dependencies
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Button, Box } from "@mui/material";
 
+// styles
 import styles from "./CallToAction.module.scss";
 
 const rootClass = "cta";

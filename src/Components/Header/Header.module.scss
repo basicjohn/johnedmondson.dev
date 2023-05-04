@@ -2,6 +2,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     &__social {
         display: flex;
         justify-content: space-around;

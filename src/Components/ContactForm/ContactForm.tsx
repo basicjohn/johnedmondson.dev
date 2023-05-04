@@ -1,7 +1,10 @@
+// dependencies
 import React, { useState } from "react";
 import { API } from "aws-amplify";
 import { Formik, Form, Field, FieldProps } from "formik";
 import * as Yup from "yup";
+
+// components
 import {
   TextField,
   Button,

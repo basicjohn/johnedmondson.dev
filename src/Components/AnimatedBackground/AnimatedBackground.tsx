@@ -1,11 +1,15 @@
+// dependencies
 import React, { useRef, useEffect } from "react";
 import * as THREE from "three";
+
+// styles
 import styles from "./AnimatedBackground.module.scss";
+
+const rootClass = "animated-background";
 
 const AnimatedBackground: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
-  const shapes: THREE.Mesh[] = [];
-
+  const shapesRef = useRef<THREE.Mesh[]>([]);
   useEffect(() => {
     const scene = new THREE.Scene();
     const aspectRatio = window.innerWidth / window.innerHeight;
@@ -113,15 +117,15 @@ const AnimatedBackground: React.FC = () => {
 
       scene.add(shadowShape);
       scene.add(shape);
-      shapes.push(shape);
-      shapes.push(shadowShape);
+      shapesRef.current.push(shape);
+      shapesRef.current.push(shadowShape);
     }
     for (let i = 0; i < 20; i++) {
       generateShape();
     }
 
     function animate() {
-      shapes.forEach((shape) => {
+      shapesRef.current.forEach((shape) => {
         shape.rotation.z += shape.userData.rotationSpeed;
 
         shape.position.x += shape.userData.driftSpeed.x;
@@ -139,11 +143,9 @@ const AnimatedBackground: React.FC = () => {
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     }
-
     animate();
   }, []);
 
-  const rootClass = "animated-background";
   return <div ref={mountRef} className={styles[rootClass]}></div>;
 };
 

@@ -1,4 +1,4 @@
-// Styles
+// styles
 import styles from "./ComingSoon.module.scss";
 
 const rootClass = "coming-soon";
