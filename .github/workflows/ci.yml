@@ -6,6 +6,7 @@ on:
       - main
   push:
     branches:
+      - "*"
       - "dependabot/**"
 
 defaults:
@@ -28,15 +29,15 @@ jobs:
           node-version: 14.x
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Run linter
         run: npm run lint
 
       - name: Run tests with coverage
-        run: npm run test -- --coverage
+        run: npm run test -- --coverage --coverageReporters=text-lcov > coverage.lcov
 
- codecov:
+  codecov:
     needs: build-and-test
     runs-on: ubuntu-latest
 
@@ -50,5 +51,5 @@ jobs:
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          directory: ./coverage
+          file: ./coverage.lcov
           fail_ci_if_error: true

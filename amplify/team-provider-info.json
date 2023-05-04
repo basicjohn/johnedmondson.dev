@@ -1,0 +1,27 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifyddcb811f13614-staging-172239-authRole",
+      "UnauthRoleArn": "arn:aws:iam::528815760611:role/amplify-amplifyddcb811f13614-staging-172239-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::528815760611:role/amplify-amplifyddcb811f13614-staging-172239-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-amplifyddcb811f13614-staging-172239-deployment",
+      "UnauthRoleName": "amplify-amplifyddcb811f13614-staging-172239-unauthRole",
+      "StackName": "amplify-amplifyddcb811f13614-staging-172239",
+      "StackId": "arn:aws:cloudformation:us-east-2:528815760611:stack/amplify-amplifyddcb811f13614-staging-172239/9d7ac6d0-e2c4-11ed-88dc-02096e20c023",
+      "AmplifyAppId": "d1io9m2ckf4a1l"
+    },
+    "categories": {
+      "function": {
+        "contactFormFunction": {
+          "receivingEmailAddress": "contact@johnedmondson.dev",
+          "deploymentBucketName": "amplify-amplifyddcb811f13614-staging-172239-deployment",
+          "s3Key": "amplify-builds/contactFormFunction-4a596b485861674f6d79-build.zip"
+        }
+      },
+      "api": {
+        "contactFormApi": {}
+      }
+    }
+  }
+}

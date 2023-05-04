@@ -1,6 +1,9 @@
+// dependencies
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 import { Button, Box } from "@mui/material";
 
+// styles
 import styles from "./CallToAction.module.scss";
 
 const rootClass = "cta";
@@ -8,7 +11,6 @@ const rootClass = "cta";
 const CallToAction = () => {
   return (
     <>
-      <hr />
       <div className={styles[rootClass]}>
         <section>
           <h3>Start the Conversation</h3>
@@ -26,8 +28,9 @@ const CallToAction = () => {
           >
             <Button
               variant="contained"
-              color="primary"
               className={styles["cta-button"]}
+              component={RouterLink}
+              to="/contact"
             >
               Let's Chat!
             </Button>

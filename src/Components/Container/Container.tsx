@@ -1,4 +1,6 @@
 import React from "react";
+
+// styles
 import styles from "./Container.module.scss";
 
 interface ContainerProps {

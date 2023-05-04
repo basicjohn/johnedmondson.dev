@@ -1,5 +1,35 @@
 .contact-page {
-    padding: 5rem 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    background-color: #fff;
+    border-radius: 0.25rem;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    padding: 2rem 2rem;
+    &__social {
+        padding-left: 1rem;
+    }
+    span {
+        line-height: 2.5rem;
+        padding-left: 1rem;
+    }
+    h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+    h5 {
+        margin-top: 1rem;
+    }
+    hr {
+        border: 0;
+        height: 1px;
+        background: #32323215;
+        margin: 1rem 0;
+    }
+}
+
+a.contact-page__button {
+    text-decoration: none;
+    background-color: #323232;
+    font-weight: 700;
+    text-transform: capitalize;
 }

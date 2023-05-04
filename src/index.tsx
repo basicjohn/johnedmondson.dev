@@ -1,6 +1,8 @@
 // Dependencies
 import { BrowserRouter as Router } from "react-router-dom";
-import * as ReactDOMClient from "react-dom/client";
+import ReactDOM from "react-dom";
+import { Amplify } from "aws-amplify";
+import config from "./aws-exports";
 
 // Styles
 import "./cssReset.scss";
@@ -10,6 +12,8 @@ import "./index.scss";
 import App from "./App";
 import WebFont from "webfontloader";
 
+Amplify.configure(config);
+
 WebFont.load({
   google: {
     families: ["Merriweather&display=swap", "Mulish:wght@300&display=swap"],
@@ -17,10 +21,9 @@ WebFont.load({
 });
 
 const container = document.getElementById("root") as HTMLElement;
-const root = ReactDOMClient.createRoot(container);
-
-root.render(
+ReactDOM.render(
   <Router>
     <App />
-  </Router>
+  </Router>,
+  container
 );

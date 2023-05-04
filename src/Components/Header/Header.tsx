@@ -1,14 +1,18 @@
+// dependencies
 import React from "react";
-// import { Box, Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
-// Images
-import profilePhoto from "../../assets/profile_photo.png";
-import githubIcon from "../../assets/icons/github-48.png";
-import linkedinIcon from "../../assets/icons/linkedin-48.png";
-import pinterestIcon from "../../assets/icons/pinterest-48.png";
-import twitterIcon from "../../assets/icons/twitter-48.png";
+// images
+import {
+  profilePhoto,
+  githubIcon,
+  linkedinIcon,
+  pinterestIcon,
+  twitterIcon,
+} from "assets";
 
-// Styles
+// styles
 import styles from "./Header.module.scss";
 
 const rootClass = "header";
@@ -16,14 +20,16 @@ const rootClass = "header";
 const Header = () => {
   return (
     <>
-      <div className={styles[rootClass]}>
+      <div className={styles[rootClass]} role="banner">
         <div className={styles[`${rootClass}__logo`]}>
-          <img
-            src={profilePhoto}
-            alt="John Edmondson Ilustrated Icon"
-            width="60px"
-            height="60px"
-          />
+          <RouterLink to="/">
+            <img
+              src={profilePhoto}
+              alt="John Edmondson Ilustrated Icon"
+              width="60px"
+              height="60px"
+            />
+          </RouterLink>
         </div>
         <div className={styles[`${rootClass}__social`]}>
           {/* LinkedIn */}
@@ -36,9 +42,7 @@ const Header = () => {
           </a>
           {/* GitHub */}
           <a
-            href="
-                  https://github.com/basicjohn
-                "
+            href="https://github.com/basicjohn"
             target="_blank"
             rel="noreferrer"
           >
@@ -67,7 +71,7 @@ const Header = () => {
           </a>
         </div>
         <div className={styles[`${rootClass}__contact`]}>
-          {/* <Box
+          <Box
             m={1}
             display="flex"
             justifyContent="flex-end"
@@ -75,15 +79,15 @@ const Header = () => {
           >
             <Button
               variant="contained"
-              color="primary"
               className={styles["cta-button"]}
+              component={RouterLink}
+              to="/contact"
             >
               Let's Chat!
             </Button>
-          </Box> */}
+          </Box>
         </div>
       </div>
-      <hr />
     </>
   );
 };

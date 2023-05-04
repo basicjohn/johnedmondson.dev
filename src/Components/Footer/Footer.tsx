@@ -1,38 +1,54 @@
+// dependencies
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 import { Typography } from "@mui/material";
 
-import styles from "./Footer.module.scss";
-import profilePhoto from "../../assets/profile_photo.png";
+// components
 import InspirationalQuote from "Components/InspirationalQuote/InspirationalQuote";
+
+// images
+import { profilePhoto } from "assets";
+
+// styles
+import styles from "./Footer.module.scss";
 
 const rootClass = "footer";
 
 const Footer = () => {
   return (
     <>
-      <hr />
       <footer className={styles[rootClass]}>
         <div className={styles[`${rootClass}__sections`]}>
           <div className={styles["navigation"]}>
-            <Typography variant="h4">Navigation</Typography>
+            <Typography variant="h4">Links</Typography>
             <ul className={styles["footer-nav"]}>
-              {/* <li>
-              <a href="#">Introduction</a>
-            </li>
-            <li>
-              <a href="#">Apps & Portfolio</a>
-            </li>
-
-            <li>
-              <a href="#">Contact</a>
-            </li> */}
               <li>
-                <a href="https://github.com/basicjohn/johnedmondson.dev">
-                  View Repository
+                <RouterLink to="/beta#about">About</RouterLink>
+              </li>
+              <li>
+                <RouterLink to="/beta#portfolio">Apps & Portfolio</RouterLink>
+              </li>
+              <li>
+                <RouterLink to="/contact">Contact</RouterLink>
+              </li>
+              <li>
+                <br />
+                <a
+                  target="_blank"
+                  href="https://calendly.com/johnedmondsondev/lets-chat"
+                  rel="noreferrer"
+                >
+                  Schedule Appointment
                 </a>
               </li>
               <li>
-                <br />A blog is in the works...
+                <a
+                  target="_blank"
+                  href="https://github.com/basicjohn/johnedmondson.dev"
+                  rel="noreferrer"
+                >
+                  View Repository
+                </a>
               </li>
             </ul>
           </div>
@@ -58,9 +74,7 @@ const Footer = () => {
               <li>
                 {/* GitHub */}
                 <a
-                  href="
-                  https://github.com/basicjohn
-                "
+                  href="https://github.com/basicjohn"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -122,12 +136,14 @@ const Footer = () => {
           </div>
         </div>
         <div className={styles[`${rootClass}__copyright`]}>
-          <img
-            src={profilePhoto}
-            alt="John Edmondson Ilustrated Icon"
-            width="40px"
-            height="40px"
-          />
+          <RouterLink to="/">
+            <img
+              src={profilePhoto}
+              alt="John Edmondson Ilustrated Icon"
+              width="40px"
+              height="40px"
+            />
+          </RouterLink>
           <Typography variant="body1" align="right">
             &copy; {new Date().getFullYear()} John Edmondson. All rights
             reserved.
