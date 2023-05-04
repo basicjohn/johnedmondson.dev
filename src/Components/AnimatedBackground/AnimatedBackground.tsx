@@ -20,7 +20,7 @@ const AnimatedBackground: React.FC = () => {
     );
     camera.position.z = 2;
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     mountRef.current?.appendChild(renderer.domElement);
 
@@ -41,7 +41,7 @@ const AnimatedBackground: React.FC = () => {
 
     function generateShape() {
       // Select a random shape type with higher probability for circles
-      const shapeType = Math.floor(Math.random() * 5); // change the denominator to 5
+      const shapeType = Math.floor(Math.random() * 5);
 
       // Create geometry based on the shape type
       let geometry;
@@ -57,7 +57,7 @@ const AnimatedBackground: React.FC = () => {
           );
           break;
         case 1:
-        case 2: // Small circle (probability increased)
+        case 2: // Small circle
           geometry = new THREE.CircleGeometry(0.03, 32);
           break;
         case 3: // Thin rectangle
@@ -65,7 +65,6 @@ const AnimatedBackground: React.FC = () => {
           break;
       }
 
-      // Array of less muted colors
       const colors = [
         "#f4b659",
         "#3945AF",

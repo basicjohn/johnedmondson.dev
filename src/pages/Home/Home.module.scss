@@ -14,6 +14,13 @@
         font-size: 1.5rem;
         margin-bottom: 1rem;
     }
+    p {
+        max-width: 40rem;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        font-weight: 500;
+        padding-left: 0.5rem;
+    }
     &__short-rule {
         width: 100px;
         height: 1px;
