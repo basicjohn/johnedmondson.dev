@@ -16,9 +16,10 @@ const Home = () => {
             </h1>
             <h2>I make things</h2>
             <h3>Software Engineer & Maker</h3>
+            <p>This is a paragraph describing what my goals are.</p>
           </section>
         </div>
-        <h2>Skills</h2>
+        {/* <h2>Skills</h2> */}
       </Container>
 
       <SkillTicker />

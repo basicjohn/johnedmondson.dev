@@ -136,12 +136,14 @@ const Footer = () => {
           </div>
         </div>
         <div className={styles[`${rootClass}__copyright`]}>
-          <img
-            src={profilePhoto}
-            alt="John Edmondson Ilustrated Icon"
-            width="40px"
-            height="40px"
-          />
+          <RouterLink to="/">
+            <img
+              src={profilePhoto}
+              alt="John Edmondson Ilustrated Icon"
+              width="40px"
+              height="40px"
+            />
+          </RouterLink>
           <Typography variant="body1" align="right">
             &copy; {new Date().getFullYear()} John Edmondson. All rights
             reserved.

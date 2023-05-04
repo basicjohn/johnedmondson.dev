@@ -22,12 +22,14 @@ const Header = () => {
     <>
       <div className={styles[rootClass]} role="banner">
         <div className={styles[`${rootClass}__logo`]}>
-          <img
-            src={profilePhoto}
-            alt="John Edmondson Ilustrated Icon"
-            width="60px"
-            height="60px"
-          />
+          <RouterLink to="/">
+            <img
+              src={profilePhoto}
+              alt="John Edmondson Ilustrated Icon"
+              width="60px"
+              height="60px"
+            />
+          </RouterLink>
         </div>
         <div className={styles[`${rootClass}__social`]}>
           {/* LinkedIn */}
@@ -86,7 +88,6 @@ const Header = () => {
           </Box>
         </div>
       </div>
-      <hr />
     </>
   );
 };
