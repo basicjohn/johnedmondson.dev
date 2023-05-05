@@ -69,6 +69,7 @@ const AnimatedBackground: React.FC = () => {
           break;
       }
 
+      // TODO: finalize colors and add a few more. Move to a separate file.
       const colors = [
         "#f4b659",
         "#3945AF",
@@ -79,6 +80,7 @@ const AnimatedBackground: React.FC = () => {
         "#F6D05B",
         "#484848",
       ];
+
       // Choose a random color from the array
       const color = colors[Math.floor(Math.random() * colors.length)];
 

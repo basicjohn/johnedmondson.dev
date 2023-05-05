@@ -1,6 +1,10 @@
+// dependencies
 import { useState, useEffect } from "react";
+
+// data
 import greetingsData from "../../data/greetings.json";
 
+// styles
 import styles from "./Greeting.module.scss";
 
 const rootClass = "greeting";

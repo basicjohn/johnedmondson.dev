@@ -1,12 +1,14 @@
 // dependencies
 import React from "react";
+
+// components
 import { Link as RouterLink } from "react-router-dom";
 import { Typography } from "@mui/material";
 
-// components
+// data
 import InspirationalQuote from "Components/InspirationalQuote/InspirationalQuote";
 
-// images
+// assets
 import { profilePhoto } from "assets";
 
 // styles

@@ -1,10 +1,15 @@
+// dependencies
 import React, { useEffect, useRef, useState } from "react";
+
+// components
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
-import { styled } from "@mui/system";
 
 // data
 import skillsData from "../../data/skills.json";
+
+// styles
+import { styled } from "@mui/system";
 
 interface Skill {
   id: number;

@@ -1,11 +1,12 @@
-import { Button } from "@mui/material";
+// dependencies
 import { useState } from "react";
 
 // components
+import { Button } from "@mui/material";
 import ContactForm from "Components/ContactForm/ContactForm";
 import Greeting from "Components/Greeting/Greeting";
 
-// images
+// assets
 import { githubIcon, linkedinIcon, pinterestIcon, twitterIcon } from "assets";
 
 // styles

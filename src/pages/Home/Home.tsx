@@ -1,7 +1,10 @@
-import styles from "./Home.module.scss";
+// components
 import SkillTicker from "Components/SkillTicker/SkillTicker";
 import Container from "Components/Container/Container";
 import CallToAction from "Components/CallToAction/CallToAction";
+
+// styles
+import styles from "./Home.module.scss";
 
 const rootClass = "home-page";
 
@@ -24,9 +27,7 @@ const Home = () => {
             </p>
           </section>
         </div>
-        {/* <h2>Skills</h2> */}
       </Container>
-
       <SkillTicker />
       <Container>
         <section id="portfolio" className={styles[`${rootClass}__portfolio`]}>
