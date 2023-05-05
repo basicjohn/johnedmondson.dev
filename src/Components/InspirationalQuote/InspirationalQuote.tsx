@@ -1,5 +1,10 @@
+// dependencies
 import { useState, useEffect } from "react";
+
+// data
 import inspirationData from "../../data/inspiration.json";
+
+// styles
 import styles from "./InspirationalQuote.module.scss";
 
 type Quote = {

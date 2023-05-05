@@ -24,11 +24,18 @@ import topics from "../../data/contact_topics.json";
 // styles
 import styles from "./ContactForm.module.scss";
 
+const rootClass = "contact-form";
+
 interface ContactFormProps {
   onFormSubmit: () => void;
 }
 
-const rootClass = "contact-form";
+interface ContactFormValues {
+  name: string;
+  email: string;
+  message: string;
+  topic: string;
+}
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
@@ -41,18 +48,6 @@ const ContactSchema = Yup.object().shape({
     .required("Message is required"),
   topic: Yup.string().required("Topic is required"),
 });
-
-// type Topic = {
-//   value: string;
-//   label: string;
-// };
-
-interface ContactFormValues {
-  name: string;
-  email: string;
-  message: string;
-  topic: string;
-}
 
 const initialValues: ContactFormValues = {
   name: "",
@@ -70,7 +65,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
       });
       console.log("Form submitted successfully");
       setFormSubmitted(true);
-      onFormSubmit(); // Call the function passed from the parent component
+      onFormSubmit();
     } catch (error) {
       console.error("Error submitting form:", error);
     }

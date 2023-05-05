@@ -1,14 +1,14 @@
-// Dependencies
+// dependencies
 import { BrowserRouter as Router } from "react-router-dom";
 import ReactDOM from "react-dom";
 import { Amplify } from "aws-amplify";
 import config from "./aws-exports";
 
-// Styles
+// styles
 import "./cssReset.scss";
 import "./index.scss";
 
-// Components
+// components
 import App from "./App";
 import WebFont from "webfontloader";
 

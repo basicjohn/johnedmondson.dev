@@ -1,4 +1,7 @@
+// dependencies
 import React, { useEffect, useRef, useState } from "react";
+
+// styles
 import styles from "./SectionTitle.module.scss";
 
 interface SectionTitleProps {
