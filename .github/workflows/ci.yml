@@ -20,8 +20,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GH_ACTIONS_PAT }}
 
       - name: Set up Node.js 14.x
         uses: actions/setup-node@v2
@@ -44,8 +42,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GH_ACTIONS_PAT }}
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
