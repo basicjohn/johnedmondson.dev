@@ -61,7 +61,7 @@ const Header = () => (
       <Box m={1} display="flex" justifyContent="flex-end" alignItems="flex-end">
         <Button
           variant="contained"
-          className={styles["cta-button"]}
+          className={styles[`${rootClass}__contact__cta-button`]}
           component={RouterLink}
           to="/contact"
         >

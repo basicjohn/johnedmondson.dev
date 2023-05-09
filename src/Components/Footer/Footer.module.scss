@@ -3,7 +3,6 @@
 .footer {
     background-color: #fff;
     padding: 1rem;
-    // margin-top: 2rem;
     border-radius: 0.25rem;
     &__sections {
         display: grid;
@@ -46,17 +45,6 @@
                 line-height: 24px;
             }
         }
-
-        // .newsletter {
-        //     .signup {
-        //         .substack-embed {
-        //             outline: 1px solid #323232;
-        //         }
-        //         .substack-embed .substack-embed-button {
-        //             background-color: #323232;
-        //         }
-        //     }
-        // }
     }
     &__copyright {
         margin-top: 1rem;
