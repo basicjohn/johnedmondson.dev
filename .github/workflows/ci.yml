@@ -20,8 +20,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GH_ACTIONS_PAT }}
 
       - name: Set up Node.js 14.x
         uses: actions/setup-node@v2
@@ -37,6 +35,12 @@ jobs:
       - name: Run tests with coverage
         run: npm run test -- --coverage --coverageReporters=text-lcov > coverage.lcov
 
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: ./coverage.lcov
+
   codecov:
     needs: build-and-test
     runs-on: ubuntu-latest
@@ -44,8 +48,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Download coverage report
+        uses: actions/download-artifact@v2
         with:
-          token: ${{ secrets.GH_ACTIONS_PAT }}
+          name: coverage
+          path: ./
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2

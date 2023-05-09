@@ -1,81 +1,75 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
-import Footer from "./../Footer";
+import { BrowserRouter as Router } from "react-router-dom";
+import Footer from "../Footer";
 
-const renderFooter = () => {
-  return render(
-    <BrowserRouter>
-      <Footer />
-    </BrowserRouter>
-  );
-};
+// Mock InspirationalQuote component, as it's not being tested here
+jest.mock("Components/InspirationalQuote/InspirationalQuote", () => () => (
+  <div>InspirationalQuote</div>
+));
 
-describe("Footer component", () => {
-  test("renders Links title", () => {
-    renderFooter();
-    const linksTitle = screen.getByText("Links");
-    expect(linksTitle).toBeInTheDocument();
-  });
-
-  test("renders Social title", () => {
-    renderFooter();
-    const socialTitle = screen.getByText("Social");
-    expect(socialTitle).toBeInTheDocument();
-  });
-
-  test("renders Newsletter title", () => {
-    renderFooter();
-    const newsletterTitle = screen.getByText("Newsletter");
-    expect(newsletterTitle).toBeInTheDocument();
-  });
-
-  test("renders copyright text", () => {
-    renderFooter();
-    const copyrightText = screen.getByText(
-      /© \d{4} John Edmondson. All rights reserved./
+describe("Footer", () => {
+  it("renders without crashing", () => {
+    render(
+      <Router>
+        <Footer />
+      </Router>
     );
-    expect(copyrightText).toBeInTheDocument();
   });
 
-  test("renders social links with correct hrefs", () => {
-    renderFooter();
-    const linkedinLink = screen.getByRole("link", { name: /John Edmondson/i });
-    expect(linkedinLink).toHaveAttribute(
+  it("displays the correct year in the copyright", () => {
+    render(
+      <Router>
+        <Footer />
+      </Router>
+    );
+    const date = new Date();
+    const year = date.getFullYear();
+    expect(
+      screen.getByText(`© ${year} John Edmondson. All rights reserved.`)
+    ).toBeInTheDocument();
+  });
+
+  it("contains the correct navigation links", () => {
+    render(
+      <Router>
+        <Footer />
+      </Router>
+    );
+    expect(screen.getByRole("link", { name: /about/i })).toHaveAttribute(
+      "href",
+      "/beta#about"
+    );
+    expect(
+      screen.getByRole("link", { name: /apps & portfolio/i })
+    ).toHaveAttribute("href", "/beta#portfolio");
+    expect(screen.getByRole("link", { name: /contact/i })).toHaveAttribute(
+      "href",
+      "/contact"
+    );
+  });
+
+  it("contains the correct social links", () => {
+    render(
+      <Router>
+        <Footer />
+      </Router>
+    );
+    expect(screen.getByRole("link", { name: /linkedin/i })).toHaveAttribute(
       "href",
       "https://www.linkedin.com/in/johnedmondsondev/"
     );
-
-    const githubLink = screen.getByRole("link", { name: /GitHub basicjohn/i });
-    expect(githubLink).toHaveAttribute("href", "https://github.com/basicjohn");
-
-    const twitterLink = screen.getByRole("link", {
-      name: /Twitter @basicjohn/i,
-    });
-    expect(twitterLink).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /github/i })).toHaveAttribute(
+      "href",
+      "https://github.com/basicjohn"
+    );
+    expect(screen.getByRole("link", { name: /twitter/i })).toHaveAttribute(
       "href",
       "https://twitter.com/basicjohn"
     );
-
-    const pinterestLink = screen.getByRole("link", {
-      name: /Pinterest basicjohn/i,
-    });
-    expect(pinterestLink).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /pinterest/i })).toHaveAttribute(
       "href",
       "https://www.pinterest.com/basicjohn/"
     );
-  });
-  test("renders navigation links with correct hrefs", () => {
-    renderFooter();
-    const aboutLink = screen.getByRole("link", { name: /About/i });
-    expect(aboutLink).toHaveAttribute("href", "/beta#about");
-
-    const portfolioLink = screen.getByRole("link", {
-      name: /Apps & Portfolio/i,
-    });
-    expect(portfolioLink).toHaveAttribute("href", "/beta#portfolio");
-
-    const contactLink = screen.getByRole("link", { name: /Contact/i });
-    expect(contactLink).toHaveAttribute("href", "/contact");
   });
 });

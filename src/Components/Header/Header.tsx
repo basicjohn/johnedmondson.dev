@@ -3,7 +3,7 @@ import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 
 // components
-import { Box, Button } from "@mui/material";
+import { Button } from "@mui/material";
 
 // assets
 import {

@@ -1,12 +1,12 @@
 # John Edmondson's Portfolio
 
-This is the source code for my personal portfolio website. It's a single page application that I built using React and TypeScript. I'm using MaterialUI and Sass for styling and AWS for hosting.
+A portfolio website dedicated to showcasing the projects and accomplishments of John Edmondson.
 
 ## Tech Stack
 
-**Client:** React, TypeScript, MaterialUi, CSS Modules, Formik
+**Client:** React, TypeScript, MaterialUI, CSS Modules, Formik, Three.js
 
-**Server:** Deployed directly to AWS Amplify [johnedmondson.dev](https://johnedmondson.dev).
+**Server:** Deployed on AWS Amplify [johnedmondson.dev](https://johnedmondson.dev).
 
 ## Run Locally
 
@@ -48,24 +48,17 @@ Show tease with a "Coming soon..." ghosted image for the other apps.
 
 Since most of the work that I've done is private then show some code samples from my personal projects and some obscured code from my work projects.
 
-#### Section: Blog
-
-A blog for publishing articles about new development skills I'm gathering. This section is not to gain clout or anything like that, but to help me learn and solidify my knowledge of the topics I'm writing about.
-
 #### Section: Contact / Social Media
 
-Contact form for sending me an email. Also, links to my social media accounts. (Pinterest, Twitter, LinkedIn, GitHub, etc.)
+Contact form for emailing the website owner. Also, links to my social media accounts. (Pinterest, Twitter, LinkedIn, GitHub, etc.)
 
-#### Other Feature Ideas
+#### Future Feature Ideas
 
 - Add a dark mode toggle
 - Add a loading screen
 - Add a 404 page
 - Add a "Back to top" button
 - Add a "Scroll to section" button
-- Add a "View on GitHub" button
-- Add a "View on CodePen" button
-- Randomize on reload the font colors and font family for each section
 
 ## Authors
 
