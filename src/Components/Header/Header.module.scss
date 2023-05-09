@@ -29,17 +29,16 @@
         }
     }
     &__contact {
-        &__cta-button {
-            margin-top: 1rem;
-            background-color: #323232;
-            width: 8rem;
-            font-weight: 700;
-            text-transform: capitalize;
-            @include respond-to(small) {
-                margin-top: 0.3rem;
-            }
-        }
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
     }
+}
+a.contact-button {
+    background-color: #323232;
+    width: 8rem;
+    font-weight: 700;
+    text-transform: capitalize;
 }
 hr {
     margin-bottom: 1rem;

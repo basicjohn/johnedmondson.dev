@@ -8,7 +8,7 @@
     margin-bottom: 2rem;
     padding: 2rem 2rem;
     @include respond-to(small) {
-        width: 95%;
+        width: auto;
         padding: 1rem 1rem;
         margin: 1rem;
     }
