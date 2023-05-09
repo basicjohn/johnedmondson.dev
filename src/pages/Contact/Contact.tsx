@@ -22,7 +22,7 @@ const Contact = () => {
   };
   return (
     <div className={styles[rootClass]}>
-      <h2>At times...I can be a hard one to track down.</h2>
+      <h2>I hear you want to track me down...</h2>
       <h3>Here's where to start</h3>
       <h5>Follow me on the socials</h5>
       <div className={styles[`${rootClass}__social`]}>
@@ -70,7 +70,6 @@ const Contact = () => {
         </Button>{" "}
         on Calendly
       </span>
-      {hideElements! ? <h2>OR get in touch now!</h2> : null}
       <hr />
       <Greeting />
       <ContactForm onFormSubmit={handleFormSubmit} />

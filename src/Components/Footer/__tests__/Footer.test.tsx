@@ -38,11 +38,11 @@ describe("Footer", () => {
     );
     expect(screen.getByRole("link", { name: /about/i })).toHaveAttribute(
       "href",
-      "/beta#about"
+      "/#about"
     );
     expect(
       screen.getByRole("link", { name: /apps & portfolio/i })
-    ).toHaveAttribute("href", "/beta#portfolio");
+    ).toHaveAttribute("href", "/#portfolio");
     expect(screen.getByRole("link", { name: /contact/i })).toHaveAttribute(
       "href",
       "/contact"
