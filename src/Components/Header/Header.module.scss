@@ -1,9 +1,16 @@
+@import "./mixins";
+
 .header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-bottom: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    @include respond-to(small) {
+        grid-template-columns: 1fr 1fr;
+        padding: 0;
+        margin-bottom: 0.5rem;
+    }
     &__social {
         display: flex;
         justify-content: space-around;
@@ -17,16 +24,21 @@
                 }
             }
         }
-    }
-    &__contact {
-        .cta-button {
-            margin-top: 1rem;
-            background-color: #323232;
-            width: 8rem;
-            font-weight: 700;
-            text-transform: capitalize;
+        @include respond-to(small) {
+            display: none;
         }
     }
+    &__contact {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+a.contact-button {
+    background-color: #323232;
+    width: 8rem;
+    font-weight: 700;
+    text-transform: capitalize;
 }
 hr {
     margin-bottom: 1rem;

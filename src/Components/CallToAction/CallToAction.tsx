@@ -17,8 +17,8 @@ const CallToAction = () => (
     </section>
     <section>
       <p>
-        If you're interested in working together or if you just want to say
-        ‘Hi!’...
+        Please reach out you're interested in working together or you just want
+        to say ‘Hi!’...
       </p>
       <Box m={1} display="flex" justifyContent="flex-end" alignItems="flex-end">
         <Button
