@@ -1,18 +1,33 @@
+@import "./mixins";
+
 .home-page {
     background-color: #ffffffd6;
     color: #323232;
     border-radius: 0.25rem;
     padding: 4rem 2rem;
+    @include respond-to(small) {
+        padding: 2rem 1rem;
+    }
+
     h1 {
         font-size: 5rem;
+        @include respond-to(small) {
+            font-size: 4rem;
+        }
     }
     h2 {
         color: #f4b758;
         font-size: 3rem;
+        @include respond-to(small) {
+            font-size: 2rem;
+        }
     }
     h3 {
         font-size: 1.5rem;
         margin-bottom: 1rem;
+        @include respond-to(small) {
+            font-size: 1rem;
+        }
     }
     p {
         max-width: 40rem;
@@ -20,6 +35,10 @@
         line-height: 1.6rem;
         font-weight: 500;
         padding-left: 0.5rem;
+        @include respond-to(small) {
+            font-size: 1rem;
+            line-height: 1.3rem;
+        }
     }
     &__short-rule {
         width: 100px;
@@ -33,14 +52,22 @@
         color: #323232;
         border-radius: 0.25rem;
         padding: 3rem 2rem;
-
-        h1 {
+        @include respond-to(small) {
+            padding: 2rem 1rem;
+        }
+        h2 {
             font-size: 3rem;
             margin-bottom: 1rem;
+            @include respond-to(small) {
+                font-size: 2rem;
+            }
         }
         h3 {
             color: #f4b758;
             margin: 1rem 0;
+            @include respond-to(small) {
+                font-size: 1.5rem;
+            }
         }
         a {
             font-weight: 800;
@@ -48,6 +75,11 @@
             padding: 0.5rem;
             &:hover {
                 color: #000;
+            }
+            @include respond-to(small) {
+                display: block;
+                margin: 0rem;
+                padding: 0.5rem;
             }
         }
     }
