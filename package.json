@@ -11,7 +11,7 @@
     "@types/three": "^0.150.2",
     "aws-amplify": "^5.1.2",
     "aws-sdk": "^2.1361.0",
-    "axios": "^0.24.0",
+    "axios": "^1.4.0",
     "formik": "^2.2.9",
     "prettier": "^2.8.8",
     "react": "18.2.0",
