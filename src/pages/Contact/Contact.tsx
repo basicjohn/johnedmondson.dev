@@ -24,7 +24,7 @@ const Contact = () => {
     <div className={styles[rootClass]}>
       <h2>I hear you want to track me down...</h2>
       <h3>Here's where to start</h3>
-      <h5>Follow me on the socials</h5>
+      <h5>Find me on the socials</h5>
       <div className={styles[`${rootClass}__social`]}>
         {/* LinkedIn */}
         <a
@@ -56,7 +56,7 @@ const Contact = () => {
         </a>
       </div>
 
-      <h5>Schedule a meeting</h5>
+      <h5>Schedule a meeting with me</h5>
       <span>
         <Button
           variant="contained"
