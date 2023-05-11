@@ -1,5 +1,6 @@
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
+import * as THREE from "three";
 import AnimatedBackground from "../AnimatedBackground";
 
 let container: Element | null = null;
@@ -7,6 +8,12 @@ beforeEach(() => {
   // setup a DOM element as a render target
   container = document.createElement("div");
   document.body.appendChild(container);
+
+  // Create mock domElement
+  (THREE.WebGLRenderer as jest.Mock).mockImplementation(() => ({
+    setSize: jest.fn(),
+    domElement: document.createElement("div"),
+  }));
 });
 
 afterEach(() => {
@@ -20,11 +27,10 @@ jest.mock("three", () => ({
   Scene: jest.fn().mockImplementation(() => ({
     add: jest.fn(),
   })),
-  OrthographicCamera: jest.fn(),
-  WebGLRenderer: jest.fn().mockImplementation(() => ({
-    setSize: jest.fn(),
-    domElement: document.createElement("div"),
+  OrthographicCamera: jest.fn().mockImplementation(() => ({
+    position: { z: 2 },
   })),
+  WebGLRenderer: jest.fn(),
   BufferGeometry: jest.fn(),
   BufferAttribute: jest.fn(),
   CircleGeometry: jest.fn(),

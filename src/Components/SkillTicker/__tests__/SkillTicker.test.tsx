@@ -10,7 +10,7 @@ describe("SkillTicker", () => {
 
   it("displays the correct number of skills", () => {
     render(<SkillTicker />);
-    const skills = screen.getAllByRole("button");
-    expect(skills).toHaveLength(skillsData.skills.length * 2); // Each skill appears twice in the ticker
+    const chips = screen.getAllByTestId("chip");
+    expect(chips).toHaveLength(skillsData.skills.length * 2);
   });
 });

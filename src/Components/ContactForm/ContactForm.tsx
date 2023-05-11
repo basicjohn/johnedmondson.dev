@@ -59,6 +59,7 @@ const initialValues: ContactFormValues = {
 const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const onSubmit = async (values: ContactFormValues) => {
+    console.log("Submitting form with values:", values);
     try {
       await API.post("contactFormApi", "/submit", {
         body: values,
@@ -126,6 +127,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
                         inputProps={{
                           name: "topic",
                           id: "topic",
+                          "data-testid": "topic-select",
                         }}
                       >
                         {topics.topicOptions.map((option) => (
