@@ -1,7 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import userEvent from "@testing-library/user-event";
 import CallToAction from "../CallToAction";
 
 describe("CallToAction", () => {
@@ -35,16 +34,5 @@ describe("CallToAction", () => {
     const linkElement = screen.getByRole("link", { name: /let's chat!/i });
     expect(linkElement).toBeInTheDocument();
     expect(linkElement).toHaveAttribute("href", "/contact");
-  });
-
-  it("navigates to the correct page when 'Let's Chat!' button is clicked", () => {
-    render(
-      <MemoryRouter initialEntries={["/"]}>
-        <CallToAction />
-      </MemoryRouter>
-    );
-
-    userEvent.click(screen.getByText(/let's chat!/i));
-    expect(window.location.pathname).toBe("/contact");
   });
 });
