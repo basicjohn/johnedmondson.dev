@@ -43,12 +43,12 @@ describe("ContactForm", () => {
 
     userEvent.type(screen.getByLabelText(/name/i), "John Doe");
     userEvent.type(screen.getByLabelText(/email/i), "john.doe@test.com");
-    userEvent.selectOptions(
-      screen.getByLabelText(/topic/i),
-      "Follow the road less traveled"
-    );
+    userEvent.selectOptions(screen.getByLabelText(/topic/i), [
+      "Follow the road less traveled!",
+    ]);
+
     userEvent.type(
-      screen.getByLabelText(/message/i),
+      screen.getByLabelText(/message:/i),
       "Hello, this is a test message."
     );
 
