@@ -105,7 +105,12 @@ const SkillTicker: React.FC = () => {
           ref={skillsListRef}
         >
           {skills.map((skill) => (
-            <Chip key={skill.id} label={skill.label} sx={chipStyle} />
+            <Chip
+              key={skill.id}
+              label={skill.label}
+              sx={chipStyle}
+              data-testid="chip"
+            />
           ))}
         </AnimatedStack>
         <AnimatedStack
@@ -115,7 +120,12 @@ const SkillTicker: React.FC = () => {
           style={{ left: skillsListWidth }}
         >
           {skills.map((skill) => (
-            <Chip key={skill.id} label={skill.label} sx={chipStyle} />
+            <Chip
+              key={skill.id}
+              label={skill.label}
+              sx={chipStyle}
+              data-testid="chip"
+            />
           ))}
         </AnimatedStack>
       </TickerContent>

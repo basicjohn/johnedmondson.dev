@@ -148,7 +148,13 @@ const AnimatedBackground: React.FC = () => {
     animate();
   }, []);
 
-  return <div ref={mountRef} className={styles[rootClass]}></div>;
+  return (
+    <div
+      ref={mountRef}
+      data-testid="animated-background"
+      className={styles[rootClass]}
+    ></div>
+  );
 };
 
 export default AnimatedBackground;

@@ -31,6 +31,8 @@
     "Websockets",
     "Webpack",
     "Babel",
-    "Redux"
+    "Redux",
+    "CI/CD",
+    "GitHub Actions"
   ]
 }

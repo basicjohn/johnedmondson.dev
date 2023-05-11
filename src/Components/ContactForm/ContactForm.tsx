@@ -26,10 +26,6 @@ import styles from "./ContactForm.module.scss";
 
 const rootClass = "contact-form";
 
-interface ContactFormProps {
-  onFormSubmit: () => void;
-}
-
 interface ContactFormValues {
   name: string;
   email: string;
@@ -53,19 +49,19 @@ const initialValues: ContactFormValues = {
   name: "",
   email: "",
   message: "",
-  topic: "Follow the road less traveled",
+  topic: "",
 };
 
-const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
+const ContactForm: React.FC = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const onSubmit = async (values: ContactFormValues) => {
+    console.log("Submitting form with values:", values);
     try {
       await API.post("contactFormApi", "/submit", {
         body: values,
       });
       console.log("Form submitted successfully");
       setFormSubmitted(true);
-      onFormSubmit();
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -115,7 +111,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
                   variant="outlined"
                   error={touched.topic && !!errors.topic}
                 >
-                  <InputLabel htmlFor="topic">Topic</InputLabel>
+                  <InputLabel htmlFor="topic">
+                    Unsure where to start? Choose a jumping off point!
+                  </InputLabel>
                   <Field name="topic">
                     {({ field }: FieldProps) => (
                       <Select
@@ -124,11 +122,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
                         inputProps={{
                           name: "topic",
                           id: "topic",
+                          "data-testid": "topic-select",
                         }}
                       >
                         {topics.topicOptions.map((option) => (
-                          <MenuItem key={option.value} value={option.value}>
-                            {option.label}
+                          <MenuItem key={option} value={option}>
+                            {option}
                           </MenuItem>
                         ))}
                       </Select>
@@ -149,6 +148,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
                     {({ field }: FieldProps) => (
                       <TextareaAutosize
                         {...field}
+                        id="message"
                         minRows={4}
                         className={`${styles[`${rootClass}__message`]} ${
                           touched.message && errors.message ? styles.error : ""
@@ -160,7 +160,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
                     <FormHelperText error>{errors.message}</FormHelperText>
                   )}
                 </FormControl>
-              </Box>
+              </Box>{" "}
               <Button
                 type="submit"
                 variant="contained"

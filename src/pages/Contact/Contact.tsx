@@ -1,6 +1,3 @@
-// dependencies
-import { useState } from "react";
-
 // components
 import { Button } from "@mui/material";
 import ContactForm from "Components/ContactForm/ContactForm";
@@ -15,16 +12,11 @@ import styles from "./Contact.module.scss";
 const rootClass = "contact-page";
 
 const Contact = () => {
-  const [hideElements, setHideElements] = useState(false);
-
-  const handleFormSubmit = () => {
-    setHideElements(true);
-  };
   return (
     <div className={styles[rootClass]}>
-      <h2>At times...I can be a hard one to track down.</h2>
+      <h2>I hear you want to track me down...</h2>
       <h3>Here's where to start</h3>
-      <h5>Follow me on the socials</h5>
+      <h5>Find me on the socials</h5>
       <div className={styles[`${rootClass}__social`]}>
         {/* LinkedIn */}
         <a
@@ -56,7 +48,7 @@ const Contact = () => {
         </a>
       </div>
 
-      <h5>Schedule a meeting</h5>
+      <h5>Schedule a meeting with me</h5>
       <span>
         <Button
           variant="contained"
@@ -70,10 +62,9 @@ const Contact = () => {
         </Button>{" "}
         on Calendly
       </span>
-      {hideElements! ? <h2>OR get in touch now!</h2> : null}
       <hr />
       <Greeting />
-      <ContactForm onFormSubmit={handleFormSubmit} />
+      <ContactForm />
     </div>
   );
 };
