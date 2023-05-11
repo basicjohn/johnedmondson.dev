@@ -1,6 +1,5 @@
 import React from "react";
-import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, screen } from "@testing-library/react";
 import ContactForm from "../ContactForm";
 
 jest.mock("aws-amplify", () => ({
@@ -11,13 +10,11 @@ jest.mock("aws-amplify", () => ({
 
 describe("ContactForm", () => {
   it("renders without crashing", () => {
-    const mockOnFormSubmit = jest.fn();
-    render(<ContactForm onFormSubmit={mockOnFormSubmit} />);
+    render(<ContactForm />);
   });
 
   it("has the correct fields and a submit button", () => {
-    const mockOnFormSubmit = jest.fn();
-    render(<ContactForm onFormSubmit={mockOnFormSubmit} />);
+    render(<ContactForm />);
     expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
     expect(screen.getByTestId("topic-select")).toBeInTheDocument();

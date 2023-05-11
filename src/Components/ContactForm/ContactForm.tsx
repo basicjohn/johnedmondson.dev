@@ -26,10 +26,6 @@ import styles from "./ContactForm.module.scss";
 
 const rootClass = "contact-form";
 
-interface ContactFormProps {
-  onFormSubmit: () => void;
-}
-
 interface ContactFormValues {
   name: string;
   email: string;
@@ -56,7 +52,7 @@ const initialValues: ContactFormValues = {
   topic: "",
 };
 
-const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
+const ContactForm: React.FC = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const onSubmit = async (values: ContactFormValues) => {
     console.log("Submitting form with values:", values);
@@ -66,7 +62,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ onFormSubmit }) => {
       });
       console.log("Form submitted successfully");
       setFormSubmitted(true);
-      onFormSubmit();
     } catch (error) {
       console.error("Error submitting form:", error);
     }

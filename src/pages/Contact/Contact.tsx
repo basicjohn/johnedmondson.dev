@@ -1,6 +1,3 @@
-// dependencies
-import { useState } from "react";
-
 // components
 import { Button } from "@mui/material";
 import ContactForm from "Components/ContactForm/ContactForm";
@@ -15,11 +12,6 @@ import styles from "./Contact.module.scss";
 const rootClass = "contact-page";
 
 const Contact = () => {
-  const [hideElements, setHideElements] = useState(false);
-
-  const handleFormSubmit = () => {
-    setHideElements(true);
-  };
   return (
     <div className={styles[rootClass]}>
       <h2>I hear you want to track me down...</h2>
@@ -72,7 +64,7 @@ const Contact = () => {
       </span>
       <hr />
       <Greeting />
-      <ContactForm onFormSubmit={handleFormSubmit} />
+      <ContactForm />
     </div>
   );
 };
