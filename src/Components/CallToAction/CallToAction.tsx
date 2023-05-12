@@ -31,6 +31,7 @@ const CallToAction = () => (
         </Button>
       </Box>
     </section>
+    <hr />
   </div>
 );
 
