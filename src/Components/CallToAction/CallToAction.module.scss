@@ -2,25 +2,21 @@
 
 .cta {
     background-color: #fff;
-    padding: 5rem 2rem;
+    padding: 5rem 5rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-top: 2rem;
-
     @include respond-to(small) {
         padding: 2rem 1rem;
         grid-template-columns: 1fr;
     }
-
     @include respond-to(medium) {
         padding: 2rem 1rem;
         grid-template-columns: 1fr;
     }
-
     @include respond-to(large) {
         padding: 2rem 1rem;
     }
-
     section {
         h3 {
             font-family: "Merriweather", serif;
