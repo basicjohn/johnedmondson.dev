@@ -58,7 +58,6 @@ const Header = () => (
       </a>
     </div>
     <div className={styles[`${rootClass}__contact`]}>
-      {/* <Box m={1} display="flex" justifyContent="flex-end" alignItems="flex-end"> */}
       <Button
         variant="contained"
         className={styles["contact-button"]}
@@ -67,7 +66,6 @@ const Header = () => (
       >
         Let's Chat!
       </Button>
-      {/* </Box> */}
     </div>
   </div>
 );

@@ -52,26 +52,12 @@ const Home = () => {
           <hr className={styles[`${rootClass}__short-rule`]} />
           <h3>Student Projects from Coding Bootcamp</h3>
           <a
-            href="https://github.com/basicjohn/mr-robogers"
+            href="https://github.com/basicjohn/lightification"
             target="_blank"
             rel="noreferrer"
           >
-            Mr Robogers
+            Capstone Project
           </a>{" "}
-          <a
-            href="https://github.com/basicjohn/currency-exchanger"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Currency Exchanger
-          </a>{" "}
-          <a
-            href="https://github.com/basicjohn/language-suggester"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Language Suggester
-          </a>
           <a
             href="https://github.com/stars/basicjohn/lists/coding-bootcamp-solo-projects"
             target="_blank"
