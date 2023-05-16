@@ -66,6 +66,29 @@ const Home = () => {
             Complete Project List
           </a>
           <hr className={styles[`${rootClass}__short-rule`]} />
+          <h3>Codewars Coding Practice</h3>
+          <a
+            href="https://www.codewars.com/users/basicjohn/stats"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Profile
+          </a>
+          <a
+            href="https://www.codewars.com/users/basicjohn/completed"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Completed Kata
+          </a>
+          <a
+            href="https://www.codewars.com/users/basicjohn/completed_solutions"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Solutions
+          </a>
+          <hr className={styles[`${rootClass}__short-rule`]} />
         </section>
         <CallToAction />
       </Container>
