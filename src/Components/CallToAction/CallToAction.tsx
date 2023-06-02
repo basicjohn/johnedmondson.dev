@@ -12,10 +12,10 @@ const rootClass = "cta";
 
 const CallToAction = () => (
   <div className={styles[rootClass]}>
-    <section>
-      <h3>Start the Conversation</h3>
+    <section aria-label="Start the Conversation">
+      <h2>Start the Conversation</h2>
     </section>
-    <section>
+    <section aria-label="Call to action">
       <p>
         Please reach out if you're interested in working together or if you just
         want to say ‘Hi!’...
@@ -26,12 +26,13 @@ const CallToAction = () => (
           className={styles["cta-button"]}
           component={RouterLink}
           to="/contact"
+          aria-label="Navigate to contact page"
         >
           Let's Chat!
         </Button>
       </Box>
     </section>
-    <hr />
+    <hr aria-label="Horizontal separator" />
   </div>
 );
 
