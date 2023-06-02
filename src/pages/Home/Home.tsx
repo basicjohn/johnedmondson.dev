@@ -1,3 +1,6 @@
+// dependencies
+import { Helmet } from "react-helmet";
+
 // components
 import SkillTicker from "Components/SkillTicker/SkillTicker";
 import Container from "Components/Container/Container";
@@ -11,8 +14,15 @@ const rootClass = "home-page";
 const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>John Edmondson - Software Engineer & Maker</title>
+        <meta
+          name="description"
+          content="John Edmondson is a Software Engineer based out of Portland, Oregon. He spends his free time traveling, doing house projects, and building apps."
+        />
+      </Helmet>
       <Container>
-        <div className={styles[rootClass]}>
+        <main className={styles[rootClass]}>
           <section id="about" className={styles[`${rootClass}__about`]}>
             <h1>
               Hello, I'm John <br />
@@ -26,7 +36,7 @@ const Home = () => {
               thoughts and explorations over on my substack.
             </p>
           </section>
-        </div>
+        </main>
       </Container>
       <SkillTicker />
       <Container>
@@ -37,6 +47,7 @@ const Home = () => {
             href="https://github.com/basicjohn/johnedmondson.dev"
             target="_blank"
             rel="noreferrer"
+            aria-label="John Edmondson official website repository"
           >
             Repository
           </a>
@@ -46,6 +57,7 @@ const Home = () => {
             href="https://codesandbox.io/p/sandbox/nifty-black-hqtk8p?file=%2Fsrc%2FApp.tsx&selection=%5B%7B%22endColumn%22%3A11%2C%22endLineNumber%22%3A11%2C%22startColumn%22%3A11%2C%22startLineNumber%22%3A11%7D%5D"
             target="_blank"
             rel="noreferrer"
+            aria-label="90's Style Animated Background on CodeSandbox"
           >
             CodeSandbox
           </a>
@@ -55,6 +67,7 @@ const Home = () => {
             href="https://github.com/basicjohn/lightification"
             target="_blank"
             rel="noreferrer"
+            aria-label="Capstone project on GitHub"
           >
             Capstone Project
           </a>{" "}
@@ -62,6 +75,7 @@ const Home = () => {
             href="https://github.com/stars/basicjohn/lists/coding-bootcamp-solo-projects"
             target="_blank"
             rel="noreferrer"
+            aria-label="Complete project list on GitHub"
           >
             Complete Project List
           </a>
@@ -71,6 +85,7 @@ const Home = () => {
             href="https://www.codewars.com/users/basicjohn/stats"
             target="_blank"
             rel="noreferrer"
+            aria-label="Profile on Codewars"
           >
             Profile
           </a>
@@ -78,6 +93,7 @@ const Home = () => {
             href="https://www.codewars.com/users/basicjohn/completed"
             target="_blank"
             rel="noreferrer"
+            aria-label="Completed Kata on Codewars"
           >
             Completed Kata
           </a>
@@ -85,6 +101,7 @@ const Home = () => {
             href="https://www.codewars.com/users/basicjohn/completed_solutions"
             target="_blank"
             rel="noreferrer"
+            aria-label="Solutions on Codewars"
           >
             Solutions
           </a>
