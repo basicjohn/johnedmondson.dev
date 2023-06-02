@@ -17,7 +17,7 @@ describe("ComingSoon", () => {
 
   it("renders a link to the GitHub repository", () => {
     render(<ComingSoon />);
-    const link = screen.getByRole("link", { name: /view my progress/i });
+    const link = screen.getByRole("link", { name: /view on github/i });
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute("href", "https://github.com/basicjohn/johnedmondson.dev");
   });
