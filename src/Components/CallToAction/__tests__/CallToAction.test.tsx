@@ -1,5 +1,4 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import CallToAction from "../CallToAction";
 
@@ -24,15 +23,17 @@ describe("CallToAction", () => {
     ).toBeInTheDocument();
   });
 
-  it("has a link to the contact page", () => {
+  it("has a link to the contact page", async () => {
     render(
       <MemoryRouter>
         <CallToAction />
       </MemoryRouter>
     );
 
-    const linkElement = screen.getByRole("link", { name: /let's chat!/i });
-    expect(linkElement).toBeInTheDocument();
-    expect(linkElement).toHaveAttribute("href", "/contact");
+    await waitFor(() => {
+      const linkElement = screen.getByRole("link", { name: /let's chat!/i });
+      expect(linkElement).toBeInTheDocument();
+      expect(linkElement).toHaveAttribute("href", "/contact");
+    });
   });
 });
