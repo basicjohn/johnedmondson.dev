@@ -13,13 +13,7 @@ import {
   TextareaAutosize,
   FormControl,
   FormHelperText,
-  MenuItem,
-  Select,
-  InputLabel,
 } from "@mui/material";
-
-// data
-import topics from "../../data/contact_topics.json";
 
 // styles
 import styles from "./ContactForm.module.scss";
@@ -30,7 +24,6 @@ interface ContactFormValues {
   name: string;
   email: string;
   message: string;
-  topic: string;
 }
 
 const ContactSchema = Yup.object().shape({
@@ -42,14 +35,12 @@ const ContactSchema = Yup.object().shape({
   message: Yup.string()
     .min(10, "Message must be at least 10 characters long")
     .required("Message is required"),
-  topic: Yup.string().required("Topic is required"),
 });
 
 const initialValues: ContactFormValues = {
   name: "",
   email: "",
   message: "",
-  topic: "",
 };
 
 const ContactForm: React.FC = () => {
@@ -104,39 +95,6 @@ const ContactForm: React.FC = () => {
                     />
                   )}
                 </Field>
-              </Box>
-              <Box marginBottom={2}>
-                <FormControl
-                  fullWidth
-                  variant="outlined"
-                  error={touched.topic && !!errors.topic}
-                >
-                  <InputLabel htmlFor="topic">
-                    Unsure where to start? Choose a jumping off point!
-                  </InputLabel>
-                  <Field name="topic">
-                    {({ field }: FieldProps) => (
-                      <Select
-                        {...field}
-                        label="Topic"
-                        inputProps={{
-                          name: "topic",
-                          id: "topic",
-                          "data-testid": "topic-select",
-                        }}
-                      >
-                        {topics.topicOptions.map((option) => (
-                          <MenuItem key={option} value={option}>
-                            {option}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    )}
-                  </Field>
-                  {touched.topic && errors.topic && (
-                    <FormHelperText error>{errors.topic}</FormHelperText>
-                  )}
-                </FormControl>
               </Box>
               <Box marginBottom={2}>
                 <FormControl
