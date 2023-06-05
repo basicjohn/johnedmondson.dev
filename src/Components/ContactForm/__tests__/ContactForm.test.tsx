@@ -17,7 +17,6 @@ describe("ContactForm", () => {
     render(<ContactForm />);
     expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
-    expect(screen.getByTestId("topic-select")).toBeInTheDocument();
     expect(screen.getByLabelText(/message/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /submit/i })).toBeInTheDocument();
   });

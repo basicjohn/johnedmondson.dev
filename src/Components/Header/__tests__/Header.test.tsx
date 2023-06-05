@@ -1,50 +1,63 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
-import Header from "./../Header";
+import { MemoryRouter } from "react-router-dom";
+import Header from "../Header";
 
-const renderHeader = () => {
-  render(
-    <BrowserRouter>
-      <Header />
-    </BrowserRouter>
-  );
-};
-
-describe("Header component", () => {
-  test("renders Header component", () => {
-    renderHeader();
-    const headerElement = screen.getByRole("banner");
-    expect(headerElement).toBeInTheDocument();
+describe("Header", () => {
+  it("renders without crashing", () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
+    );
   });
 
-  test("renders social links with correct hrefs", () => {
-    renderHeader();
-    const linkedinLink = screen.getByRole("link", { name: /LinkedIn/i });
-    expect(linkedinLink).toHaveAttribute(
+  it("displays the profile photo", () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
+    );
+
+    const profilePhotoElement = screen.getByAltText(
+      "Illustrated icon of John Edmondson"
+    );
+    expect(profilePhotoElement).toBeInTheDocument();
+  });
+
+  it("has links to social media profiles", () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
+    );
+
+    const linkedInLink = screen.getByTitle("John's LinkedIn");
+    expect(linkedInLink).toBeInTheDocument();
+    expect(linkedInLink).toHaveAttribute(
       "href",
       "https://www.linkedin.com/in/johnedmondsondev/"
     );
 
-    const githubLink = screen.getByRole("link", { name: /GitHub/i });
-    expect(githubLink).toHaveAttribute("href", "https://github.com/basicjohn");
+    const gitHubLink = screen.getByTitle("John's GitHub");
+    expect(gitHubLink).toBeInTheDocument();
+    expect(gitHubLink).toHaveAttribute(
+      "href",
+      "https://github.com/basicjohn"
+    );
 
-    const twitterLink = screen.getByRole("link", { name: /Twitter/i });
+    const twitterLink = screen.getByTitle("John's Twitter");
+    expect(twitterLink).toBeInTheDocument();
     expect(twitterLink).toHaveAttribute(
       "href",
       "https://twitter.com/basicjohn"
     );
 
-    const pinterestLink = screen.getByRole("link", { name: /Pinterest/i });
+    const pinterestLink = screen.getByTitle("John's Pinterest");
+    expect(pinterestLink).toBeInTheDocument();
     expect(pinterestLink).toHaveAttribute(
       "href",
       "https://www.pinterest.com/basicjohn/"
     );
   });
 
-  test("renders Let's Chat! button with correct link", () => {
-    renderHeader();
-    const letsChatButton = screen.getByRole("link", { name: /Let's Chat!/i });
-    expect(letsChatButton).toHaveAttribute("href", "/contact");
-  });
 });

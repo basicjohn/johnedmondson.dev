@@ -31,11 +31,12 @@ const InspirationalQuote = () => {
   }, []);
 
   return (
-    <blockquote className={styles[rootClass]}>
-      {randomInspirationalQuote.quote}
-      <br />
-      <cite>{randomInspirationalQuote.author}</cite>
-    </blockquote>
+    <section aria-label="Inspirational quote section">
+      <figure className={styles[rootClass]} aria-live="polite">
+        {randomInspirationalQuote.quote}
+        <figcaption>{randomInspirationalQuote.author}</figcaption>
+      </figure>
+    </section>
   );
 };
 

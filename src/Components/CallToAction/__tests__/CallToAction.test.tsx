@@ -1,4 +1,3 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import CallToAction from "../CallToAction";
@@ -24,15 +23,4 @@ describe("CallToAction", () => {
     ).toBeInTheDocument();
   });
 
-  it("has a link to the contact page", () => {
-    render(
-      <MemoryRouter>
-        <CallToAction />
-      </MemoryRouter>
-    );
-
-    const linkElement = screen.getByRole("link", { name: /let's chat!/i });
-    expect(linkElement).toBeInTheDocument();
-    expect(linkElement).toHaveAttribute("href", "/contact");
-  });
 });

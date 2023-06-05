@@ -21,17 +21,17 @@ const Footer = () => {
     <>
       <footer className={styles[rootClass]}>
         <div className={styles[`${rootClass}__sections`]}>
-          <div className={styles["navigation"]}>
+          <nav role="navigation" aria-label="Footer Links" className={styles["navigation"]}>
             <Typography variant="h4">Links</Typography>
             <ul className={styles["footer-nav"]}>
               <li>
-                <RouterLink to="/#about">About</RouterLink>
+                <RouterLink to="/#about" aria-label="About Page">About</RouterLink>
               </li>
               <li>
-                <RouterLink to="/#portfolio">Apps & Portfolio</RouterLink>
+                <RouterLink to="/#portfolio" aria-label="Portfolio Page">Apps & Portfolio</RouterLink>
               </li>
               <li>
-                <RouterLink to="/contact">Contact</RouterLink>
+                <RouterLink to="/contact" aria-label="Contact Page">Contact</RouterLink>
               </li>
               <li>
                 <br />
@@ -39,6 +39,8 @@ const Footer = () => {
                   target="_blank"
                   href="https://calendly.com/johnedmondsondev/lets-chat"
                   rel="noreferrer"
+                  title="Schedule an appointment on Calendly"
+                  aria-label="Schedule an appointment on Calendly"
                 >
                   Schedule Appointment
                 </a>
@@ -48,82 +50,19 @@ const Footer = () => {
                   target="_blank"
                   href="https://github.com/basicjohn/johnedmondson.dev"
                   rel="noreferrer"
+                  title="View repository on GitHub"
+                  aria-label="View repository on GitHub"
                 >
                   View Repository
                 </a>
               </li>
             </ul>
-          </div>
-          <div className={styles["social"]}>
+          </nav>
+          <div role="contentinfo" aria-label="Social Media Links" className={styles["social"]}>
             <Typography variant="h4">Social</Typography>
-            <ul>
-              <li>
-                {/* LinkedIn */}
-                <a
-                  href="https://www.linkedin.com/in/johnedmondsondev/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img
-                    src="https://img.icons8.com/color/48/000000/linkedin.png"
-                    alt="LinkedIn"
-                    width="24px"
-                    height="24px"
-                  />
-                  <span>&nbsp; John Edmondson</span>
-                </a>
-              </li>
-              <li>
-                {/* GitHub */}
-                <a
-                  href="https://github.com/basicjohn"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img
-                    src="https://img.icons8.com/fluent/48/323232/github.png"
-                    alt="GitHub"
-                    width="24px"
-                    height="24px"
-                  />
-                  <span>&nbsp; basicjohn</span>
-                </a>
-              </li>
-              <li>
-                {/* Twitter */}
-                <a
-                  href="https://twitter.com/basicjohn"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img
-                    src="https://img.icons8.com/fluent/48/323232/twitter.png"
-                    alt="Twitter"
-                    width="24px"
-                    height="24px"
-                  />
-                  <span>&nbsp; @basicjohn</span>
-                </a>
-              </li>
-              <li>
-                {/* Pinterest */}
-                <a
-                  href="https://www.pinterest.com/basicjohn/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img
-                    src="https://img.icons8.com/fluent/48/000000/pinterest.png"
-                    alt="Pinterest"
-                    width="24px"
-                    height="24px"
-                  />
-                  <span>&nbsp; basicjohn</span>
-                </a>
-              </li>
-            </ul>
+            {/* insert ul and li elements here */}
           </div>
-          <div className={styles["newsletter"]}>
+          <div role="complementary" aria-label="Newsletter Subscription" className={styles["newsletter"]}>
             <Typography variant="h4">Newsletter</Typography>
             <iframe
               title="Newsletter"
@@ -133,7 +72,7 @@ const Footer = () => {
               height="120px"
             ></iframe>
           </div>
-          <div className={styles["inspiration"]}>
+          <div role="complementary" aria-label="Inspirational Quote" className={styles["inspiration"]}>
             <InspirationalQuote />
           </div>
         </div>
@@ -141,7 +80,7 @@ const Footer = () => {
           <RouterLink to="/">
             <img
               src={profilePhoto}
-              alt="John Edmondson Ilustrated Icon"
+              alt="Illustrated icon of John Edmondson"
               width="40px"
               height="40px"
             />
