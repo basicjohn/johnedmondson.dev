@@ -33,7 +33,9 @@ describe("CallToAction", () => {
     await waitFor(() => {
       const linkElement = screen.getByRole("link", { name: /let's chat!/i });
       expect(linkElement).toBeInTheDocument();
-      expect(linkElement).toHaveAttribute("href", "/contact");
     });
+
+    const linkElement = screen.getByRole("link", { name: /let's chat!/i });
+    expect(linkElement).toHaveAttribute("href", "/contact");
   });
 });
