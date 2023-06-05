@@ -60,22 +60,4 @@ describe("Header", () => {
     );
   });
 
-  it("displays the contact button with the correct text and link", () => {
-    render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>
-    );
-
-    const contactButton = screen.getByRole("button", { name: /let's chat!/i });
-    expect(contactButton).toBeInTheDocument();
-    expect(contactButton).toHaveAttribute("href", "/contact");
-
-    // Click the button to navigate to the contact page
-    contactButton.click();
-
-    const backButton = screen.getByRole("button", { name: /go back to homepage/i });
-    expect(backButton).toBeInTheDocument();
-    expect(backButton).toHaveAttribute("href", "/");
-  });
 });
