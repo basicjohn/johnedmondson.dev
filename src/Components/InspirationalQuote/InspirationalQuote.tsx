@@ -34,7 +34,6 @@ const InspirationalQuote = () => {
     <section aria-label="Inspirational quote section">
       <figure className={styles[rootClass]} aria-live="polite">
         {randomInspirationalQuote.quote}
-        {/* TODO: fix styling so Author displays properly */}
         <figcaption>{randomInspirationalQuote.author}</figcaption>
       </figure>
     </section>
