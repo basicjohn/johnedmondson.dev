@@ -26,45 +26,6 @@ const Contact = () => {
       </Helmet>
       <h2>I hear you want to track me down...</h2>
       <h3>Here's where to start</h3>
-      <h4>Find me on the socials</h4>
-      <div className={styles[`${rootClass}__social`]}>
-        {/* LinkedIn */}
-        <a
-          href="https://www.linkedin.com/in/johnedmondsondev/"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="John Edmondson's LinkedIn profile"
-        >
-          <img src={linkedinIcon} alt="LinkedIn" width="24px" height="24px" />
-        </a>
-        {/* GitHub */}
-        <a
-          href="https://github.com/basicjohn"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="John Edmondson's GitHub profile"
-        >
-          <img src={githubIcon} alt="GitHub" width="24px" height="24px" />
-        </a>
-        {/* Twitter */}
-        <a
-          href="https://twitter.com/basicjohn"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="John Edmondson's Twitter profile"
-        >
-          <img src={twitterIcon} alt="Twitter" width="24px" height="24px" />
-        </a>
-        {/* Pinterest */}
-        <a
-          href="https://www.pinterest.com/basicjohn/"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="John Edmondson's Pinterest profile"
-        >
-          <img src={pinterestIcon} alt="Pinterest" width="24px" height="24px" />
-        </a>
-      </div>
 
       <h4>Schedule a meeting with me</h4>
       <span>
@@ -81,8 +42,9 @@ const Contact = () => {
         </Button>{" "}
         on Calendly
       </span>
+      <br />
+      <h4>OR send me a message</h4>
       <hr />
-      <Greeting />
       <ContactForm />
     </main>
   );

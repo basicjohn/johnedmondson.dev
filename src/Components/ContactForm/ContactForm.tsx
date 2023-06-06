@@ -17,6 +17,7 @@ import {
 
 // styles
 import styles from "./ContactForm.module.scss";
+import Greeting from "Components/Greeting/Greeting";
 
 const rootClass = "contact-form";
 
@@ -61,79 +62,82 @@ const ContactForm: React.FC = () => {
   return (
     <Box className={styles[rootClass]}>
       {!formSubmitted ? (
-        <Formik
-          initialValues={initialValues}
-          validationSchema={ContactSchema}
-          onSubmit={onSubmit}
-        >
-          {({ errors, touched }) => (
-            <Form>
-              <Box marginBottom={2}>
-                <Field name="name">
-                  {({ field }: FieldProps) => (
-                    <TextField
-                      label="Name"
-                      variant="outlined"
-                      fullWidth
-                      {...field}
-                      error={touched.name && !!errors.name}
-                      helperText={touched.name && errors.name}
-                    />
-                  )}
-                </Field>
-              </Box>
-              <Box marginBottom={2}>
-                <Field name="email">
-                  {({ field }: FieldProps) => (
-                    <TextField
-                      label="Email"
-                      variant="outlined"
-                      fullWidth
-                      {...field}
-                      error={touched.email && !!errors.email}
-                      helperText={touched.email && errors.email}
-                    />
-                  )}
-                </Field>
-              </Box>
-              <Box marginBottom={2}>
-                <FormControl
-                  fullWidth
-                  error={touched.message && !!errors.message}
-                >
-                  <label htmlFor="message">Message:</label>
-                  <Field name="message">
+        <>
+          <Greeting />
+          <Formik
+            initialValues={initialValues}
+            validationSchema={ContactSchema}
+            onSubmit={onSubmit}
+          >
+            {({ errors, touched }) => (
+              <Form>
+                <Box marginBottom={2}>
+                  <Field name="name">
                     {({ field }: FieldProps) => (
-                      <TextareaAutosize
+                      <TextField
+                        label="Name"
+                        variant="outlined"
+                        fullWidth
                         {...field}
-                        id="message"
-                        minRows={4}
-                        className={`${styles[`${rootClass}__message`]} ${
-                          touched.message && errors.message ? styles.error : ""
-                        }`}
+                        error={touched.name && !!errors.name}
+                        helperText={touched.name && errors.name}
                       />
                     )}
                   </Field>
-                  {touched.message && errors.message && (
-                    <FormHelperText error>{errors.message}</FormHelperText>
-                  )}
-                </FormControl>
-              </Box>{" "}
-              <Button
-                type="submit"
-                variant="contained"
-                className={styles[`${rootClass}__submit-button`]}
-                sx={{
-                  backgroundColor: "#323232",
-                  fontWeight: "700",
-                  textTransform: "capitalize",
-                }}
-              >
-                Submit
-              </Button>
-            </Form>
-          )}
-        </Formik>
+                </Box>
+                <Box marginBottom={2}>
+                  <Field name="email">
+                    {({ field }: FieldProps) => (
+                      <TextField
+                        label="Email"
+                        variant="outlined"
+                        fullWidth
+                        {...field}
+                        error={touched.email && !!errors.email}
+                        helperText={touched.email && errors.email}
+                      />
+                    )}
+                  </Field>
+                </Box>
+                <Box marginBottom={2}>
+                  <FormControl
+                    fullWidth
+                    error={touched.message && !!errors.message}
+                  >
+                    <label htmlFor="message">Message:</label>
+                    <Field name="message">
+                      {({ field }: FieldProps) => (
+                        <TextareaAutosize
+                          {...field}
+                          id="message"
+                          minRows={4}
+                          className={`${styles[`${rootClass}__message`]} ${
+                            touched.message && errors.message ? styles.error : ""
+                          }`}
+                        />
+                      )}
+                    </Field>
+                    {touched.message && errors.message && (
+                      <FormHelperText error>{errors.message}</FormHelperText>
+                    )}
+                  </FormControl>
+                </Box>{" "}
+                <Button
+                  type="submit"
+                  variant="contained"
+                  className={styles[`${rootClass}__submit-button`]}
+                  sx={{
+                    backgroundColor: "#323232",
+                    fontWeight: "700",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Submit
+                </Button>
+              </Form>
+            )}
+          </Formik>
+        </>
       ) : (
         <Typography variant="h4" component="h1" gutterBottom>
           Thank you for your message!

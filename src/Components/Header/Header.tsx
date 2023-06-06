@@ -3,15 +3,17 @@ import React from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 
 // components
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
+import {
+  LinkedIn as LinkedInIcon,
+  GitHub as GitHubIcon,
+  Twitter as TwitterIcon,
+  Pinterest as PinterestIcon,
+} from "@mui/icons-material";
 
 // assets
 import {
   profilePhoto,
-  githubIcon,
-  linkedinIcon,
-  pinterestIcon,
-  twitterIcon,
 } from "assets";
 
 // styles
@@ -44,36 +46,49 @@ const Header = () => {
       </div>
       <nav className={styles[`${rootClass}__social`]} aria-label="Social media links">
         {/* LinkedIn */}
-        <a
+        <IconButton
           href="https://www.linkedin.com/in/johnedmondsondev/"
           target="_blank"
           rel="noreferrer"
           title="John's LinkedIn"
+          aria-label="LinkedIn"
+          style={{ color: "#323232" }}
         >
-          <img src={linkedinIcon} alt="LinkedIn" width="24px" height="24px" />
-        </a>
+          <LinkedInIcon />
+        </IconButton>
         {/* GitHub */}
-        <a href="https://github.com/basicjohn" target="_blank" rel="noreferrer" title="John's GitHub">
-          <img src={githubIcon} alt="GitHub" width="24px" height="24px" />
-        </a>
+        <IconButton
+          href="https://github.com/basicjohn"
+          target="_blank"
+          rel="noreferrer"
+          title="John's GitHub"
+          aria-label="GitHub"
+          style={{ color: "#323232" }}
+        >
+          <GitHubIcon />
+        </IconButton>
         {/* Twitter */}
-        <a
+        <IconButton
           href="https://twitter.com/basicjohn"
           target="_blank"
           rel="noreferrer"
           title="John's Twitter"
+          aria-label="Twitter"
+          style={{ color: "#323232" }}
         >
-          <img src={twitterIcon} alt="Twitter" width="24px" height="24px" />
-        </a>
+          <TwitterIcon />
+        </IconButton>
         {/* Pinterest */}
-        <a
+        <IconButton
           href="https://www.pinterest.com/basicjohn/"
           target="_blank"
           rel="noreferrer"
           title="John's Pinterest"
+          aria-label="Pinterest"
+          style={{ color: "#323232" }}
         >
-          <img src={pinterestIcon} alt="Pinterest" width="24px" height="24px" />
-        </a>
+          <PinterestIcon />
+        </IconButton>
       </nav>
       <div className={styles[`${rootClass}__contact`]}>
         <Button
