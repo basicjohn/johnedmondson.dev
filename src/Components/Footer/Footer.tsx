@@ -3,7 +3,13 @@ import React from "react";
 
 // components
 import { Link as RouterLink } from "react-router-dom";
-import { Typography } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
+import {
+  LinkedIn as LinkedInIcon,
+  GitHub as GitHubIcon,
+  Twitter as TwitterIcon,
+  Pinterest as PinterestIcon,
+} from "@mui/icons-material";
 
 // data
 import InspirationalQuote from "Components/InspirationalQuote/InspirationalQuote";
@@ -60,7 +66,52 @@ const Footer = () => {
           </nav>
           <div role="contentinfo" aria-label="Social Media Links" className={styles["social"]}>
             <Typography variant="h4">Social</Typography>
-            {/* insert ul and li elements here */}
+            <div>
+              {/* LinkedIn */}
+              <IconButton
+                href="https://www.linkedin.com/in/johnedmondsondev/"
+                target="_blank"
+                rel="noreferrer"
+                title="John's LinkedIn"
+                aria-label="LinkedIn"
+                style={{ color: "#323232" }}
+              >
+                <LinkedInIcon />
+              </IconButton>
+              {/* GitHub */}
+              <IconButton
+                href="https://github.com/basicjohn"
+                target="_blank"
+                rel="noreferrer"
+                title="John's GitHub"
+                aria-label="GitHub"
+                style={{ color: "#323232" }}
+              >
+                <GitHubIcon />
+              </IconButton>
+              {/* Twitter */}
+              <IconButton
+                href="https://twitter.com/basicjohn"
+                target="_blank"
+                rel="noreferrer"
+                title="John's Twitter"
+                aria-label="Twitter"
+                style={{ color: "#323232" }}
+              >
+                <TwitterIcon />
+              </IconButton>
+              {/* Pinterest */}
+              <IconButton
+                href="https://www.pinterest.com/basicjohn/"
+                target="_blank"
+                rel="noreferrer"
+                title="John's Pinterest"
+                aria-label="Pinterest"
+                style={{ color: "#323232" }}
+              >
+                <PinterestIcon />
+              </IconButton>
+            </div>
           </div>
           <div role="complementary" aria-label="Newsletter Subscription" className={styles["newsletter"]}>
             <Typography variant="h4">Newsletter</Typography>
