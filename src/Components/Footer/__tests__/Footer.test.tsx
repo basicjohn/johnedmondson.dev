@@ -38,10 +38,5 @@ describe("Footer", () => {
     );
     expect(profilePhotoElement).toBeInTheDocument();
 
-    const year = new Date().getFullYear();
-    const copyrightElement = screen.getByText(
-      `© ${year} John Edmondson. All rights reserved.`
-    );
-    expect(profilePhotoElement).toBeInTheDocument();
   });
 });

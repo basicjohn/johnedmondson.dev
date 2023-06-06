@@ -4,10 +4,6 @@ import { Helmet } from "react-helmet";
 // components
 import { Button } from "@mui/material";
 import ContactForm from "Components/ContactForm/ContactForm";
-import Greeting from "Components/Greeting/Greeting";
-
-// assets
-import { githubIcon, linkedinIcon, pinterestIcon, twitterIcon } from "assets";
 
 // styles
 import styles from "./Contact.module.scss";
