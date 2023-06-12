@@ -81,6 +81,7 @@ const ContactForm: React.FC = () => {
                         {...field}
                         error={touched.name && !!errors.name}
                         helperText={touched.name && errors.name}
+                        autoComplete="name"
                       />
                     )}
                   </Field>
@@ -95,6 +96,7 @@ const ContactForm: React.FC = () => {
                         {...field}
                         error={touched.email && !!errors.email}
                         helperText={touched.email && errors.email}
+                        autoComplete="email"
                       />
                     )}
                   </Field>
