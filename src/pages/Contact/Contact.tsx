@@ -39,7 +39,7 @@ const Contact = () => {
         on Calendly
       </span>
       <br />
-      <h4>OR send me a message</h4>
+      <h4>OR send me a message.</h4>
       <hr />
       <ContactForm />
     </main>
