@@ -9,7 +9,7 @@
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.13.4",
     "@types/three": "^0.150.2",
-    "aws-amplify": "^5.2.4",
+    "aws-amplify": "^5.2.7",
     "aws-sdk": "^2.1398.0",
     "axios": "^1.4.0",
     "formik": "^2.4.1",
