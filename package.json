@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@aws-amplify/api": "^5.2.1",
+    "@aws-amplify/api": "^5.3.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.11",
