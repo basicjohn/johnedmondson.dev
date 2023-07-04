@@ -61,7 +61,7 @@
     "@types/react-dom": "^18.2.5",
     "@types/react-helmet": "^6.1.6",
     "@types/webfontloader": "^1.6.35",
-    "@typescript-eslint/types": "5.59.8",
+    "@typescript-eslint/types": "5.61.0",
     "babel-jest": "^29.5.0",
     "eslint": "^8.42.0",
     "intersection-observer": "^0.12.2",
