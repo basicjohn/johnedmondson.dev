@@ -65,6 +65,6 @@
     "babel-jest": "^29.6.1",
     "eslint": "^8.44.0",
     "intersection-observer": "^0.12.2",
-    "jest": "^29.6.0"
+    "jest": "^29.6.1"
   }
 }
