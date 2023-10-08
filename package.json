@@ -20,7 +20,7 @@
     "react-helmet": "^6.1.0",
     "react-router-dom": "6.15.0",
     "react-scripts": "^5.0.1",
-    "sass": "^1.68.0",
+    "sass": "^1.69.0",
     "three": "^0.157.0",
     "typescript": "^5.2.2",
     "webfontloader": "^1.6.28",
