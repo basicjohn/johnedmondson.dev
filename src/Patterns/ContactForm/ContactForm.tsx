@@ -72,10 +72,10 @@ const ContactForm: React.FC = () => {
             {({ errors, touched }) => (
               <Form>
                 <Box marginBottom={2}>
+                  <label htmlFor="name" className={styles[`${rootClass}__form-label`]}>Name</label>
                   <Field name="name">
                     {({ field }: FieldProps) => (
                       <TextField
-                        label="Name"
                         variant="outlined"
                         fullWidth
                         {...field}
@@ -87,15 +87,16 @@ const ContactForm: React.FC = () => {
                   </Field>
                 </Box>
                 <Box marginBottom={2}>
+                  <label htmlFor="email">Email</label>
                   <Field name="email">
                     {({ field }: FieldProps) => (
                       <TextField
-                        label="Email"
                         variant="outlined"
                         fullWidth
                         {...field}
                         error={touched.email && !!errors.email}
                         helperText={touched.email && errors.email}
+                        type="email"
                         autoComplete="email"
                       />
                     )}
@@ -106,8 +107,10 @@ const ContactForm: React.FC = () => {
                     fullWidth
                     error={touched.message && !!errors.message}
                   >
-                    <label htmlFor="message">Message:</label>
-                    <Field name="message">
+                    <label htmlFor="message" className={styles[`${rootClass}__form-label`]}>Message</label>
+                    <Field 
+                      name="message"
+                    >
                       {({ field }: FieldProps) => (
                         <TextareaAutosize
                           {...field}
