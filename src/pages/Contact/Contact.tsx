@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 
 // components
 import { Button } from "@mui/material";
-import ContactForm from "Components/ContactForm/ContactForm";
+import ContactForm from "Patterns/ContactForm/ContactForm";
 
 // styles
 import styles from "./Contact.module.scss";

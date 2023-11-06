@@ -1,7 +1,10 @@
 .contact-form {
-    input {
+    input, textarea {
         background-color: #fff;
+        padding: 1.2rem 0.9rem;
+        margin-top: 1rem;
     }
+
     &__message {
         padding: 1.2rem 0.9rem;
         border: 1px solid rgba(0, 0, 0, 0.23);

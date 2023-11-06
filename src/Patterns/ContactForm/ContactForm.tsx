@@ -72,10 +72,16 @@ const ContactForm: React.FC = () => {
             {({ errors, touched }) => (
               <Form>
                 <Box marginBottom={2}>
+                  <label
+                    htmlFor="name"
+                    className={styles[`${rootClass}__form-label`]}
+                  >
+                    Name
+                  </label>
                   <Field name="name">
                     {({ field }: FieldProps) => (
                       <TextField
-                        label="Name"
+                        id="name"
                         variant="outlined"
                         fullWidth
                         {...field}
@@ -87,15 +93,17 @@ const ContactForm: React.FC = () => {
                   </Field>
                 </Box>
                 <Box marginBottom={2}>
+                  <label htmlFor="email">Email</label>
                   <Field name="email">
                     {({ field }: FieldProps) => (
                       <TextField
-                        label="Email"
+                        id="email"
                         variant="outlined"
                         fullWidth
                         {...field}
                         error={touched.email && !!errors.email}
                         helperText={touched.email && errors.email}
+                        type="email"
                         autoComplete="email"
                       />
                     )}
@@ -106,7 +114,12 @@ const ContactForm: React.FC = () => {
                     fullWidth
                     error={touched.message && !!errors.message}
                   >
-                    <label htmlFor="message">Message:</label>
+                    <label
+                      htmlFor="message"
+                      className={styles[`${rootClass}__form-label`]}
+                    >
+                      Message
+                    </label>
                     <Field name="message">
                       {({ field }: FieldProps) => (
                         <TextareaAutosize
@@ -114,7 +127,9 @@ const ContactForm: React.FC = () => {
                           id="message"
                           minRows={4}
                           className={`${styles[`${rootClass}__message`]} ${
-                            touched.message && errors.message ? styles.error : ""
+                            touched.message && errors.message
+                              ? styles.error
+                              : ""
                           }`}
                         />
                       )}
