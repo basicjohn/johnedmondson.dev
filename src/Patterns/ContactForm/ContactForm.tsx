@@ -72,10 +72,16 @@ const ContactForm: React.FC = () => {
             {({ errors, touched }) => (
               <Form>
                 <Box marginBottom={2}>
-                  <label htmlFor="name" className={styles[`${rootClass}__form-label`]}>Name</label>
+                  <label
+                    htmlFor="name"
+                    className={styles[`${rootClass}__form-label`]}
+                  >
+                    Name
+                  </label>
                   <Field name="name">
                     {({ field }: FieldProps) => (
                       <TextField
+                        id="name"
                         variant="outlined"
                         fullWidth
                         {...field}
@@ -91,6 +97,7 @@ const ContactForm: React.FC = () => {
                   <Field name="email">
                     {({ field }: FieldProps) => (
                       <TextField
+                        id="email"
                         variant="outlined"
                         fullWidth
                         {...field}
@@ -107,17 +114,22 @@ const ContactForm: React.FC = () => {
                     fullWidth
                     error={touched.message && !!errors.message}
                   >
-                    <label htmlFor="message" className={styles[`${rootClass}__form-label`]}>Message</label>
-                    <Field 
-                      name="message"
+                    <label
+                      htmlFor="message"
+                      className={styles[`${rootClass}__form-label`]}
                     >
+                      Message
+                    </label>
+                    <Field name="message">
                       {({ field }: FieldProps) => (
                         <TextareaAutosize
                           {...field}
                           id="message"
                           minRows={4}
                           className={`${styles[`${rootClass}__message`]} ${
-                            touched.message && errors.message ? styles.error : ""
+                            touched.message && errors.message
+                              ? styles.error
+                              : ""
                           }`}
                         />
                       )}
