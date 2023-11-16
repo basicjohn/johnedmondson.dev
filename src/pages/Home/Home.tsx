@@ -50,16 +50,14 @@ const Home = () => {
             aria-label="John Edmondson official website repository"
           >
             Repository
-          </a>
-          <hr className={styles[`${rootClass}__short-rule`]} />
-          <h3>90's Style Animated Background</h3>
+          </a>{" "}
           <a
             href="https://codesandbox.io/p/sandbox/nifty-black-hqtk8p?file=%2Fsrc%2FApp.tsx&selection=%5B%7B%22endColumn%22%3A11%2C%22endLineNumber%22%3A11%2C%22startColumn%22%3A11%2C%22startLineNumber%22%3A11%7D%5D"
             target="_blank"
             rel="noreferrer"
             aria-label="90's Style Animated Background on CodeSandbox"
           >
-            CodeSandbox
+            Animated Background on CodeSandbox
           </a>
           <hr className={styles[`${rootClass}__short-rule`]} />
           <h3>Student Projects from Coding Bootcamp</h3>
