@@ -1,29 +1,32 @@
 @import "./mixins";
 
 .home-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
     background-color: #ffffffd6;
     color: #323232;
     border-radius: 0.25rem;
-    padding: 4rem 2rem;
+    padding: 4rem 2rem 2rem 2rem;
     @include respond-to(small) {
         padding: 2rem 1rem;
     }
 
     h1 {
-        font-size: 5rem;
+        font-size: 4rem;
         @include respond-to(small) {
             font-size: 4rem;
         }
     }
     h2 {
         color: #f4b758;
-        font-size: 3rem;
+        font-size: 1.5rem;
         @include respond-to(small) {
             font-size: 2rem;
         }
     }
     h3 {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
         margin-bottom: 1rem;
         @include respond-to(small) {
             font-size: 1rem;
@@ -48,10 +51,10 @@
         background: #32323215;
     }
     &__portfolio {
-        background-color: #fff;
+        // background-color: #fff;
         color: #323232;
         border-radius: 0.25rem;
-        padding: 3rem 2rem;
+        // padding: 3rem 2rem;
         @include respond-to(small) {
             padding: 2rem 1rem;
         }
