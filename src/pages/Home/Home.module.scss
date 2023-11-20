@@ -4,42 +4,53 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
-    background-color: #ffffffd6;
+    background-color: #ffffffbe;
     color: #323232;
     border-radius: 0.25rem;
     padding: 4rem 2rem 2rem 2rem;
     @include respond-to(small) {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: none;
+        padding: 2rem 1rem;
+    }
+    @include respond-to(large) {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: none;
         padding: 2rem 1rem;
     }
 
     h1 {
         font-size: 4rem;
+        line-height: 4.2rem;
         @include respond-to(small) {
-            font-size: 4rem;
+            font-size: 2.5rem;
+            line-height: 2.8rem;
         }
     }
     h2 {
         color: #f4b758;
         font-size: 1.5rem;
         @include respond-to(small) {
-            font-size: 2rem;
-        }
-    }
-    h3 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        @include respond-to(small) {
             font-size: 1rem;
         }
     }
+
     p {
         max-width: 40rem;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         line-height: 1.6rem;
         font-weight: 500;
         padding-left: 0.5rem;
         @include respond-to(small) {
-            font-size: 1rem;
+            max-width: 25rem;
+            font-size: 1.1rem;
+            line-height: 1.3rem;
+        }
+        @include respond-to(medium) {
+            max-width: 25rem;
+            font-size: 1.2rem;
             line-height: 1.3rem;
         }
     }
@@ -60,12 +71,15 @@
         }
         h2 {
             font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
             @include respond-to(small) {
                 font-size: 2rem;
             }
         }
+
         h3 {
+            font-size: 2rem;
+            line-height: 1rem;
             color: #f4b758;
             margin: 1rem 0;
             @include respond-to(small) {

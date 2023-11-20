@@ -28,7 +28,8 @@ const Home = () => {
               John Edmondson <br />
             </h1>
             <h2>Software Engineer & Maker</h2>
-            <h3>Hello! I make things</h3>
+            {/* <h3>Hello! I make things</h3> */}
+            <br />
             <p>
               I’m a Software Engineer based out of Portland, Oregon. I like to
               spend my free time traveling, doing house projects, and building
@@ -37,8 +38,8 @@ const Home = () => {
             </p>
           </section>
           <section id="portfolio" className={styles[`${rootClass}__portfolio`]}>
-            <h2>things</h2>
-            <h3>The John Edmondson Official Website</h3>
+            <h2>Projects</h2>
+            <h3>Portfolio Site Resources</h3>
             <a
               href="https://github.com/basicjohn/johnedmondson.dev"
               target="_blank"
@@ -56,7 +57,7 @@ const Home = () => {
               Animated Background on CodeSandbox
             </a>
             <hr className={styles[`${rootClass}__short-rule`]} />
-            <h3>Student Projects from Coding Bootcamp</h3>
+            {/* <h3>Student Projects from Coding Bootcamp</h3>
             <a
               href="https://github.com/basicjohn/lightification"
               target="_blank"
@@ -99,7 +100,7 @@ const Home = () => {
             >
               Solutions
             </a>
-            <hr className={styles[`${rootClass}__short-rule`]} />
+            <hr className={styles[`${rootClass}__short-rule`]} /> */}
           </section>
         </main>
       </Container>
