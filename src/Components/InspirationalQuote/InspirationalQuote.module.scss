@@ -1,6 +1,7 @@
 @import "../../_mixins.scss";
 
 .inspirational-quote {
+    display: block;
     font-family: "Merriweather", serif;
     font-size: 1.6rem;
     line-height: 1.9rem;
@@ -8,7 +9,13 @@
     padding: 0 0 0 1rem;
     text-align: right;
     // Hide quote section on small and medium screens
-    @include respond-to(small & medium) {
+    @include respond-to(small) {
+        display: none;
+    }
+    @include respond-to(medium) {
+        display: none;
+    }
+    @include respond-to(large) {
         display: none;
     }
     figcaption {

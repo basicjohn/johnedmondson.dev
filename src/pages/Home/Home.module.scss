@@ -9,7 +9,13 @@
     border-radius: 0.25rem;
     padding: 2rem;
     margin-bottom: 2rem;
-    @include respond-to(small & medium) {
+    @include respond-to(small) {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: none;
+        padding: 2rem 1rem;
+    }
+    @include respond-to(medium) {
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: none;
@@ -42,7 +48,7 @@
         line-height: 1.6rem;
         font-weight: 500;
         padding-left: 0.5rem;
-        @include respond-to(medium & small) {
+        @include respond-to(medium) {
             font-size: 1.2rem;
             line-height: 1.3rem;
         }
