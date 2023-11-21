@@ -76,8 +76,8 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/johnedmondsondev/"
                 target="_blank"
                 rel="noreferrer"
-                title="John's LinkedIn"
-                aria-label="LinkedIn"
+                title="John's LinkedIn Profile"
+                aria-label="LinkedIn icon"
                 style={{ color: "#323232" }}
               >
                 <LinkedInIcon />
@@ -87,7 +87,7 @@ const Footer = () => {
                 href="https://github.com/basicjohn"
                 target="_blank"
                 rel="noreferrer"
-                title="John's GitHub"
+                title="John's GitHub Profile"
                 aria-label="GitHub"
                 style={{ color: "#323232" }}
               >
@@ -98,8 +98,8 @@ const Footer = () => {
                 href="https://twitter.com/basicjohn"
                 target="_blank"
                 rel="noreferrer"
-                title="John's Twitter"
-                aria-label="Twitter"
+                title="John's X Profile"
+                aria-label="X icon"
                 style={{ color: "#323232" }}
               >
                 <TwitterIcon />
@@ -109,8 +109,8 @@ const Footer = () => {
                 href="https://www.pinterest.com/basicjohn/"
                 target="_blank"
                 rel="noreferrer"
-                title="John's Pinterest"
-                aria-label="Pinterest"
+                title="John's Pinterest Profile"
+                aria-label="Pinterest icon"
                 style={{ color: "#323232" }}
               >
                 <PinterestIcon />

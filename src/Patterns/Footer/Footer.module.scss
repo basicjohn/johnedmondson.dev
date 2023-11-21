@@ -12,6 +12,7 @@
 
         @include respond-to(small & medium) {
             grid-template-columns: repeat(2, 1fr);
+
             .newsletter {
                 display: none;
             }
@@ -52,13 +53,16 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 1rem;
-        @include respond-to(small & medium) {
-            grid-template-columns: 1fr 4fr;
-        }
         p {
             display: inline;
             text-align: right;
             padding-top: 15px;
+        }
+        @include respond-to(small & medium) {
+            display: flex;
+            p {
+                text-align: left;
+            }
         }
     }
 }
