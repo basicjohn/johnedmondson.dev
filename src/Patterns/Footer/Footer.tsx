@@ -148,9 +148,7 @@ const Footer = () => {
               height="40px"
             />
           </RouterLink>
-          <Typography variant="body1" align="right">
-            &copy; {new Date().getFullYear()} John Edmondson
-          </Typography>
+          <p>&copy; {new Date().getFullYear()} John Edmondson</p>
         </div>
       </footer>
     </>

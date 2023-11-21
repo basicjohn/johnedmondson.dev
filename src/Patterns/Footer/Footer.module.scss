@@ -1,4 +1,4 @@
-@import "../../mixins";
+@import "../../_mixins";
 
 .footer {
     background-color: #fff;
@@ -9,14 +9,6 @@
         grid-template-columns: 2fr 2fr 2fr 3fr;
         grid-gap: 1rem;
         padding: 1rem 0;
-
-        @include respond-to(small & medium) {
-            grid-template-columns: repeat(2, 1fr);
-
-            .newsletter {
-                display: none;
-            }
-        }
 
         .navigation,
         .social,
@@ -47,22 +39,42 @@
                 line-height: 24px;
             }
         }
+        @include respond-to(small) {
+            grid-template-columns: repeat(2, 1fr);
+            .newsletter {
+                display: none;
+            }
+        }
+        @include respond-to(medium) {
+            grid-template-columns: repeat(2, 1fr);
+            .newsletter {
+                display: none;
+            }
+        }
+        @include respond-to(large) {
+            grid-template-columns: repeat(2, 1fr);
+            .newsletter {
+                display: none;
+            }
+        }
     }
     &__copyright {
         margin-top: 1rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 1rem;
-        p {
-            display: inline;
-            text-align: right;
-            padding-top: 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        @include respond-to(small) {
+            justify-content: left;
+            grid-gap: 1rem;
         }
-        @include respond-to(small & medium) {
-            display: flex;
-            p {
-                text-align: left;
-            }
+        @include respond-to(medium) {
+            justify-content: left;
+            grid-gap: 1rem;
+        }
+
+        p {
+            font-weight: 300;
+            padding-top: 0.7rem;
         }
     }
 }
