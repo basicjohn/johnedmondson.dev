@@ -48,13 +48,13 @@
         line-height: 1.6rem;
         font-weight: 500;
         padding-left: 0.5rem;
-        @include respond-to(medium) {
-            font-size: 1.2rem;
-            line-height: 1.3rem;
-        }
         @include respond-to(small) {
             max-width: 25rem;
             font-size: 1.1rem;
+            line-height: 1.3rem;
+        }
+        @include respond-to(medium) {
+            font-size: 1.2rem;
             line-height: 1.3rem;
         }
     }
