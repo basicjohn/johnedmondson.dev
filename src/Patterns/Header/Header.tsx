@@ -12,9 +12,7 @@ import {
 } from "@mui/icons-material";
 
 // assets
-import {
-  profilePhoto,
-} from "assets";
+import { profilePhoto } from "assets";
 
 // styles
 import styles from "./Header.module.scss";
@@ -25,7 +23,7 @@ const Header = () => {
   const location = useLocation();
 
   const buttonText =
-    location.pathname === "/contact" ? "Go Back" : "Let's Chat!";
+    location.pathname === "/contact" ? "Return Home" : "Message";
   const buttonLink = location.pathname === "/contact" ? "/" : "/contact";
   const buttonAriaLabel =
     location.pathname === "/contact"
@@ -44,14 +42,17 @@ const Header = () => {
           />
         </RouterLink>
       </div>
-      <nav className={styles[`${rootClass}__social`]} aria-label="Social media links">
+      <nav
+        className={styles[`${rootClass}__social`]}
+        aria-label="Social media links"
+      >
         {/* LinkedIn */}
         <IconButton
           href="https://www.linkedin.com/in/johnedmondsondev/"
           target="_blank"
           rel="noreferrer"
-          title="John's LinkedIn"
-          aria-label="LinkedIn"
+          title="John's LinkedIn Profile"
+          aria-label="LinkedIn icon"
           style={{ color: "#323232" }}
         >
           <LinkedInIcon />
@@ -61,8 +62,8 @@ const Header = () => {
           href="https://github.com/basicjohn"
           target="_blank"
           rel="noreferrer"
-          title="John's GitHub"
-          aria-label="GitHub"
+          title="John's GitHub Profile"
+          aria-label="GitHub icon"
           style={{ color: "#323232" }}
         >
           <GitHubIcon />
@@ -72,8 +73,8 @@ const Header = () => {
           href="https://twitter.com/basicjohn"
           target="_blank"
           rel="noreferrer"
-          title="John's Twitter"
-          aria-label="Twitter"
+          title="John's X Profile"
+          aria-label="X icon"
           style={{ color: "#323232" }}
         >
           <TwitterIcon />
@@ -83,8 +84,8 @@ const Header = () => {
           href="https://www.pinterest.com/basicjohn/"
           target="_blank"
           rel="noreferrer"
-          title="John's Pinterest"
-          aria-label="Pinterest"
+          title="John's Pinterest Profile"
+          aria-label="Pinterest icon"
           style={{ color: "#323232" }}
         >
           <PinterestIcon />

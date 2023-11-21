@@ -32,7 +32,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx --ignore-path .eslintignore",
     "prettier": "prettier '**/*.{js,jsx,ts,tsx,json,md}'",
-    "test": "react-scripts test --coverage"
+    "test": "react-scripts test --coverage",
+    "test:update": "react-scripts test --coverage --updateSnapshot"
   },
   "eslintConfig": {
     "extends": [

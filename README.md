@@ -34,6 +34,20 @@ Start the server
   npm run start
 ```
 
+## Run Tests
+
+To run tests, run the following command
+
+```bash
+  npm run test
+```
+
+To update snapshots, run the following command
+
+```bash
+  npm run test:update
+```
+
 ## Project Notes & Ideas
 
 #### Section: Introduction / About Me
@@ -54,11 +68,8 @@ Contact form for emailing the website owner. Also, links to my social media acco
 
 #### Future Feature Ideas
 
-- Add a dark mode toggle
-- Add a loading screen
+- Add a dark mode toggle or change color scheme button
 - Add a 404 page
-- Add a "Back to top" button
-- Add a "Scroll to section" button
 
 ## Authors
 

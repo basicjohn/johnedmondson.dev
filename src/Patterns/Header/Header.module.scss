@@ -1,4 +1,4 @@
-@import "./mixins";
+@import "../../mixins";
 
 .header {
     display: grid;
@@ -33,16 +33,16 @@
         justify-content: flex-end;
         align-items: center;
     }
-}
-a.contact-button {
-    background-color: #323232;
-    width: 8rem;
-    font-weight: 700;
-    text-transform: capitalize;
-}
-hr {
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 1px solid rgba(#f2f0ef, 1);
-    border-radius: 0.25rem;
+    a.contact-button {
+        background-color: #323232;
+        width: 8rem;
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+    hr {
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(#f2f0ef, 1);
+        border-radius: 0.25rem;
+    }
 }

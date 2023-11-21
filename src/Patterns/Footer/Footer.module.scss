@@ -1,4 +1,4 @@
-@import "./mixins";
+@import "../../mixins";
 
 .footer {
     background-color: #fff;
@@ -10,12 +10,14 @@
         grid-gap: 1rem;
         padding: 1rem 0;
 
-        @include respond-to(small) {
-            grid-template-columns: 1fr;
-        }
-        @include respond-to(medium) {
+        @include respond-to(small & medium) {
             grid-template-columns: repeat(2, 1fr);
+
+            .newsletter {
+                display: none;
+            }
         }
+
         .navigation,
         .social,
         .newsletter {
@@ -30,9 +32,9 @@
                 font-size: 1.5rem;
             }
         }
-        .navigation ul li a {
+        .navigation ul li {
             line-height: 25px;
-            padding-left: 10px;
+            padding: 5px 0 5px 10px;
         }
         .social ul li a {
             line-height: 30px;
@@ -51,13 +53,16 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 1rem;
-        @include respond-to(small & medium) {
-            grid-template-columns: 1fr 4fr;
-        }
         p {
             display: inline;
             text-align: right;
             padding-top: 15px;
+        }
+        @include respond-to(small & medium) {
+            display: flex;
+            p {
+                text-align: left;
+            }
         }
     }
 }

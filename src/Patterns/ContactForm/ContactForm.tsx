@@ -64,6 +64,8 @@ const ContactForm: React.FC = () => {
       {!formSubmitted ? (
         <>
           <Greeting />
+          <h3>Message John</h3>
+          <br />
           <Formik
             initialValues={initialValues}
             validationSchema={ContactSchema}
@@ -149,7 +151,7 @@ const ContactForm: React.FC = () => {
                     textTransform: "capitalize",
                   }}
                 >
-                  Submit
+                  Send Message
                 </Button>
               </Form>
             )}

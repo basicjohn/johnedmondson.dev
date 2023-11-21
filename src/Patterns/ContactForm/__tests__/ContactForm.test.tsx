@@ -18,6 +18,8 @@ describe("ContactForm", () => {
     expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/message/i)).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /submit/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /send message/i })
+    ).toBeInTheDocument();
   });
 });

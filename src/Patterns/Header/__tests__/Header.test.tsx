@@ -31,33 +31,29 @@ describe("Header", () => {
       </MemoryRouter>
     );
 
-    const linkedInLink = screen.getByTitle("John's LinkedIn");
+    const linkedInLink = screen.getByTitle("John's LinkedIn Profile");
     expect(linkedInLink).toBeInTheDocument();
     expect(linkedInLink).toHaveAttribute(
       "href",
       "https://www.linkedin.com/in/johnedmondsondev/"
     );
 
-    const gitHubLink = screen.getByTitle("John's GitHub");
+    const gitHubLink = screen.getByTitle("John's GitHub Profile");
     expect(gitHubLink).toBeInTheDocument();
-    expect(gitHubLink).toHaveAttribute(
-      "href",
-      "https://github.com/basicjohn"
-    );
+    expect(gitHubLink).toHaveAttribute("href", "https://github.com/basicjohn");
 
-    const twitterLink = screen.getByTitle("John's Twitter");
+    const twitterLink = screen.getByTitle("John's X Profile");
     expect(twitterLink).toBeInTheDocument();
     expect(twitterLink).toHaveAttribute(
       "href",
       "https://twitter.com/basicjohn"
     );
 
-    const pinterestLink = screen.getByTitle("John's Pinterest");
+    const pinterestLink = screen.getByTitle("John's Pinterest Profile");
     expect(pinterestLink).toBeInTheDocument();
     expect(pinterestLink).toHaveAttribute(
       "href",
       "https://www.pinterest.com/basicjohn/"
     );
   });
-
 });

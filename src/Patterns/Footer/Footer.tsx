@@ -27,17 +27,17 @@ const Footer = () => {
     <>
       <footer className={styles[rootClass]}>
         <div className={styles[`${rootClass}__sections`]}>
-          <nav role="navigation" aria-label="Footer Links" className={styles["navigation"]}>
+          <nav
+            role="navigation"
+            aria-label="Footer Links"
+            className={styles["navigation"]}
+          >
             <Typography variant="h4">Links</Typography>
             <ul className={styles["footer-nav"]}>
               <li>
-                <RouterLink to="/#about" aria-label="About Page">About</RouterLink>
-              </li>
-              <li>
-                <RouterLink to="/#portfolio" aria-label="Portfolio Page">Apps & Portfolio</RouterLink>
-              </li>
-              <li>
-                <RouterLink to="/contact" aria-label="Contact Page">Contact</RouterLink>
+                <RouterLink to="/contact" aria-label="Contact Page">
+                  Send a Message
+                </RouterLink>
               </li>
               <li>
                 <br />
@@ -64,7 +64,11 @@ const Footer = () => {
               </li>
             </ul>
           </nav>
-          <div role="contentinfo" aria-label="Social Media Links" className={styles["social"]}>
+          <div
+            role="contentinfo"
+            aria-label="Social Media Links"
+            className={styles["social"]}
+          >
             <Typography variant="h4">Social</Typography>
             <div>
               {/* LinkedIn */}
@@ -72,8 +76,8 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/johnedmondsondev/"
                 target="_blank"
                 rel="noreferrer"
-                title="John's LinkedIn"
-                aria-label="LinkedIn"
+                title="John's LinkedIn Profile"
+                aria-label="LinkedIn icon"
                 style={{ color: "#323232" }}
               >
                 <LinkedInIcon />
@@ -83,7 +87,7 @@ const Footer = () => {
                 href="https://github.com/basicjohn"
                 target="_blank"
                 rel="noreferrer"
-                title="John's GitHub"
+                title="John's GitHub Profile"
                 aria-label="GitHub"
                 style={{ color: "#323232" }}
               >
@@ -94,8 +98,8 @@ const Footer = () => {
                 href="https://twitter.com/basicjohn"
                 target="_blank"
                 rel="noreferrer"
-                title="John's Twitter"
-                aria-label="Twitter"
+                title="John's X Profile"
+                aria-label="X icon"
                 style={{ color: "#323232" }}
               >
                 <TwitterIcon />
@@ -105,15 +109,19 @@ const Footer = () => {
                 href="https://www.pinterest.com/basicjohn/"
                 target="_blank"
                 rel="noreferrer"
-                title="John's Pinterest"
-                aria-label="Pinterest"
+                title="John's Pinterest Profile"
+                aria-label="Pinterest icon"
                 style={{ color: "#323232" }}
               >
                 <PinterestIcon />
               </IconButton>
             </div>
           </div>
-          <div role="complementary" aria-label="Newsletter Subscription" className={styles["newsletter"]}>
+          <div
+            role="complementary"
+            aria-label="Newsletter Subscription"
+            className={styles["newsletter"]}
+          >
             <Typography variant="h4">Newsletter</Typography>
             <iframe
               title="Newsletter"
@@ -123,7 +131,11 @@ const Footer = () => {
               height="120px"
             ></iframe>
           </div>
-          <div role="complementary" aria-label="Inspirational Quote" className={styles["inspiration"]}>
+          <div
+            role="complementary"
+            aria-label="Inspirational Quote"
+            className={styles["inspiration"]}
+          >
             <InspirationalQuote />
           </div>
         </div>
@@ -137,8 +149,7 @@ const Footer = () => {
             />
           </RouterLink>
           <Typography variant="body1" align="right">
-            &copy; {new Date().getFullYear()} John Edmondson. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} John Edmondson
           </Typography>
         </div>
       </footer>
