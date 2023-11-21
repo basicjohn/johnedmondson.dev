@@ -1,11 +1,15 @@
 @import "../../mixins";
 
 .contact-form {
+    label {
+        line-height: 1.6rem;
+        font-weight: 700;
+    }
     input,
     textarea {
-        background-color: #fff;
+        background-color: #ffffffbe;
         padding: 1.2rem 0.9rem;
-        margin-top: 1rem;
+        // margin-top: 1rem;
     }
     &__message {
         padding: 1.2rem 0.9rem;

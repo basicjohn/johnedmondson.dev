@@ -12,9 +12,7 @@ import {
 } from "@mui/icons-material";
 
 // assets
-import {
-  profilePhoto,
-} from "assets";
+import { profilePhoto } from "assets";
 
 // styles
 import styles from "./Header.module.scss";
@@ -25,7 +23,7 @@ const Header = () => {
   const location = useLocation();
 
   const buttonText =
-    location.pathname === "/contact" ? "Go Back" : "Let's Chat!";
+    location.pathname === "/contact" ? "Return Home" : "Message";
   const buttonLink = location.pathname === "/contact" ? "/" : "/contact";
   const buttonAriaLabel =
     location.pathname === "/contact"
@@ -44,7 +42,10 @@ const Header = () => {
           />
         </RouterLink>
       </div>
-      <nav className={styles[`${rootClass}__social`]} aria-label="Social media links">
+      <nav
+        className={styles[`${rootClass}__social`]}
+        aria-label="Social media links"
+      >
         {/* LinkedIn */}
         <IconButton
           href="https://www.linkedin.com/in/johnedmondsondev/"
