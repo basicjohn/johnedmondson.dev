@@ -15,7 +15,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        padding: 1rem 5rem;
+        padding: 0 5rem;
         &__item {
             margin-left: 1rem;
             a {
@@ -26,6 +26,9 @@
         }
         @include respond-to(small) {
             display: none;
+        }
+        @include respond-to(medium) {
+            padding: 0;
         }
     }
     &__contact {
