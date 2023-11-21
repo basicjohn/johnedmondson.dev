@@ -36,7 +36,7 @@ const Footer = () => {
             <ul className={styles["footer-nav"]}>
               <li>
                 <RouterLink to="/contact" aria-label="Contact Page">
-                  Contact
+                  Send a Message
                 </RouterLink>
               </li>
               <li>

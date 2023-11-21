@@ -9,7 +9,6 @@
     textarea {
         background-color: #ffffffbe;
         padding: 1.2rem 0.9rem;
-        // margin-top: 1rem;
     }
     &__message {
         padding: 1.2rem 0.9rem;
@@ -18,7 +17,7 @@
         outline: none;
         resize: vertical;
         font-family: inherit;
-        font-size: 1rem;
+        font-size: 1.2rem;
         line-height: 1.1876em;
         &.error {
             border-color: #f44336;
@@ -28,7 +27,6 @@
         margin-top: 1rem;
         background-color: #323232;
         width: 10rem;
-        font-weight: 700;
         text-transform: capitalize;
         @include respond-to(small) {
             width: 100%;
