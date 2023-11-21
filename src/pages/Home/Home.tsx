@@ -28,7 +28,6 @@ const Home = () => {
               John Edmondson <br />
             </h1>
             <h2>Software Engineer & Maker</h2>
-            {/* <h3>Hello! I make things</h3> */}
             <br />
             <p>
               I’m a Software Engineer based out of Portland, Oregon. I like to
@@ -57,57 +56,9 @@ const Home = () => {
               Animated Background on CodeSandbox
             </a>
             <hr className={styles[`${rootClass}__short-rule`]} />
-            {/* <h3>Student Projects from Coding Bootcamp</h3>
-            <a
-              href="https://github.com/basicjohn/lightification"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Capstone project on GitHub"
-            >
-              Capstone Project
-            </a>{" "}
-            <a
-              href="https://github.com/stars/basicjohn/lists/coding-bootcamp-solo-projects"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Complete project list on GitHub"
-            >
-              Complete Project List
-            </a>
-            <hr className={styles[`${rootClass}__short-rule`]} />
-            <h3>Codewars Coding Practice</h3>
-            <a
-              href="https://www.codewars.com/users/basicjohn/stats"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Profile on Codewars"
-            >
-              Profile
-            </a>
-            <a
-              href="https://www.codewars.com/users/basicjohn/completed"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Completed Kata on Codewars"
-            >
-              Completed Kata
-            </a>
-            <a
-              href="https://www.codewars.com/users/basicjohn/completed_solutions"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Solutions on Codewars"
-            >
-              Solutions
-            </a>
-            <hr className={styles[`${rootClass}__short-rule`]} /> */}
           </section>
         </main>
       </Container>
-      {/* <SkillTicker /> */}
-      {/* <Container>
-        <CallToAction />
-      </Container> */}
     </>
   );
 };

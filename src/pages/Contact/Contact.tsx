@@ -20,7 +20,7 @@ const Contact = () => {
           content="Get in touch with John Edmondson, a Software Engineer based out of Portland, Oregon."
         />
       </Helmet>
-      <h2>I hear you want to track me down...</h2>
+      {/* <h2>I hear you want to track me down...</h2>
       <h3>Here's where to start</h3>
 
       <h4>Schedule a meeting with me</h4>
@@ -40,7 +40,7 @@ const Contact = () => {
       </span>
       <br />
       <h4>OR send me a message.</h4>
-      <hr />
+      <hr /> */}
       <ContactForm />
     </main>
   );

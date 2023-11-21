@@ -34,16 +34,6 @@ const Footer = () => {
           >
             <Typography variant="h4">Links</Typography>
             <ul className={styles["footer-nav"]}>
-              {/* <li>
-                <RouterLink to="/#about" aria-label="About Page">
-                  About
-                </RouterLink>
-              </li>
-              <li>
-                <RouterLink to="/#portfolio" aria-label="Portfolio Page">
-                  Apps & Portfolio
-                </RouterLink>
-              </li> */}
               <li>
                 <RouterLink to="/contact" aria-label="Contact Page">
                   Contact
