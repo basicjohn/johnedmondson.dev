@@ -47,7 +47,7 @@ const Footer = () => {
                   title="Hire me on UpWork"
                   aria-label="Hire me on UpWork"
                 >
-                  UpWork Profile
+                  UpWork
                 </a>
               </li>
               <li>
