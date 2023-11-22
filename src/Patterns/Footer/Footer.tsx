@@ -40,6 +40,17 @@ const Footer = () => {
                 </RouterLink>
               </li>
               <li>
+                <a
+                  target="_blank"
+                  href="https://www.upwork.com/freelancers/johnedmondsondev"
+                  rel="noreferrer"
+                  title="Hire me on UpWork"
+                  aria-label="Hire me on UpWork"
+                >
+                  UpWork Profile
+                </a>
+              </li>
+              <li>
                 <br />
                 <a
                   target="_blank"
