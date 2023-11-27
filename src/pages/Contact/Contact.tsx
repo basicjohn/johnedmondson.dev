@@ -14,10 +14,10 @@ const Contact = () => {
   return (
     <main className={styles[rootClass]}>
       <Helmet>
-        <title>Contact John Edmondson</title>
+        <title>Contact John</title>
         <meta
           name="description"
-          content="Get in touch with John Edmondson, a Software Engineer based out of Portland, Oregon."
+          content="Get in touch with John, a Software Engineer based out of Portland, Oregon."
         />
       </Helmet>
       <ContactForm />
