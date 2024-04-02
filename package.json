@@ -10,7 +10,7 @@
     "@mui/material": "^5.15.14",
     "@types/three": "^0.162.0",
     "aws-amplify": "^6.0.20",
-    "aws-sdk": "^2.1452.0",
+    "aws-sdk": "^2.1590.0",
     "axios": "^1.6.7",
     "formik": "^2.4.5",
     "history": "^5.3.0",
