@@ -22,7 +22,7 @@
     "react-scripts": "^5.0.1",
     "sass": "^1.74.1",
     "three": "^0.163.0",
-    "typescript": "^5.4.3",
+    "typescript": "^5.4.5",
     "webfontloader": "^1.6.28",
     "yup": "^1.4.0"
   },
