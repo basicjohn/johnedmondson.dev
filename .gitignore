@@ -1,5 +1,7 @@
 ## Environment settings and configurations
 .env
+.env.local
+.env.*.local
 nuget.config
 
 ## Node.js and webpack

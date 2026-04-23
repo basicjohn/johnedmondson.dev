@@ -1,63 +1,48 @@
-name: Continuous Integration
+name: CI
 
 on:
-  pull_request:
-    branches:
-      - main
   push:
     branches:
-      - "*"
+      - master
+      - portfolio
       - "dependabot/**"
+  pull_request:
+    branches:
+      - master
+      - portfolio
+
+permissions:
+  contents: read
 
 defaults:
   run:
     shell: bash
 
 jobs:
-  build-and-test:
+  build-test-audit:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Set up Node.js 14.x
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
-          node-version: 14.x
+          node-version: "20"
+          cache: "npm"
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+        run: npm ci
 
-      - name: Run linter
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
         run: npm run lint
 
-      - name: Run tests with coverage
-        run: npm run test -- --coverage --coverageReporters=text-lcov > coverage.lcov
+      - name: Test
+        run: npm test
 
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v2
-        with:
-          name: coverage
-          path: ./coverage.lcov
+      - name: Build
+        run: npm run build
 
-  codecov:
-    needs: build-and-test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Download coverage report
-        uses: actions/download-artifact@v2
-        with:
-          name: coverage
-          path: ./
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage.lcov
-          fail_ci_if_error: true
+      - name: Audit (fail on high or critical)
+        run: npm audit --audit-level=high --omit=dev

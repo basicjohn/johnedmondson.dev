@@ -1,5 +1,4 @@
 // images
-import previewImage from './preview-image.jpg';
 import profilePhoto from "./profile_photo.png";
 
 // portfolio images
@@ -16,4 +15,16 @@ import linkedinIcon from "./icons/linkedin-48.png";
 import pinterestIcon from "./icons/pinterest-48.png";
 import twitterIcon from "./icons/twitter-48.png";
 
-export {  githubIcon, ionChannel1a, ionChannel1b, ionChannel2, ionChannel3, linkedinIcon, nonContact1a, nonContact1b, pinterestIcon, previewImage, profilePhoto, twitterIcon };
+export {
+  githubIcon,
+  ionChannel1a,
+  ionChannel1b,
+  ionChannel2,
+  ionChannel3,
+  linkedinIcon,
+  nonContact1a,
+  nonContact1b,
+  pinterestIcon,
+  profilePhoto,
+  twitterIcon,
+};

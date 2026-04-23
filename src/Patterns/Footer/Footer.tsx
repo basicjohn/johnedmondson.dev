@@ -1,6 +1,3 @@
-// dependencies
-import React from "react";
-
 // components
 import { Link as RouterLink } from "react-router-dom";
 import { IconButton, Typography } from "@mui/material";

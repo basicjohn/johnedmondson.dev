@@ -1,8 +1,7 @@
 // dependencies
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 // components
-import { Button } from "@mui/material";
 import ContactForm from "Patterns/ContactForm/ContactForm";
 
 // styles

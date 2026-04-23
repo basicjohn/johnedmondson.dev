@@ -1,15 +1,17 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
 import InspirationalQuote from "./../InspirationalQuote";
 import inspirationData from "../../../data/inspiration.json";
 
-jest.mock("../../../data/inspiration.json", () => ({
-  quotes: [
-    {
-      quote: "Test Quote",
-      author: "Test Author",
-    },
-  ],
+vi.mock("../../../data/inspiration.json", () => ({
+  default: {
+    quotes: [
+      {
+        quote: "Test Quote",
+        author: "Test Author",
+      },
+    ],
+  },
 }));
 
 describe("InspirationalQuote", () => {
@@ -20,7 +22,7 @@ describe("InspirationalQuote", () => {
   });
 
   it("selects a random quote from the inspiration data", () => {
-    const spy = jest.spyOn(Math, "random");
+    const spy = vi.spyOn(Math, "random");
     spy.mockReturnValue(0.5);
 
     render(<InspirationalQuote />);

@@ -1,8 +1,5 @@
 // dependencies
-import { Helmet } from "react-helmet";
-
-// components
-// import { Button } from "@mui/material";
+import { Helmet } from "react-helmet-async";
 
 // assets
 import { nonContact1a, nonContact1b } from "assets";

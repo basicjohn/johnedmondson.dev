@@ -1,11 +1,9 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
 import ContactForm from "../ContactForm";
 
-jest.mock("aws-amplify", () => ({
-  API: {
-    post: jest.fn(),
-  },
+vi.mock("lib/api", () => ({
+  submitContactForm: vi.fn(),
 }));
 
 describe("ContactForm", () => {

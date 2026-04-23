@@ -1,4 +1,3 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import SkillTicker from "../SkillTicker";
 import skillsData from "../../../data/skills.json";

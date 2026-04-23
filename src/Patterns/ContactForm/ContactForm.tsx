@@ -1,6 +1,5 @@
 // dependencies
 import React, { useState } from "react";
-import { API } from "aws-amplify";
 import { Formik, Form, Field, FieldProps } from "formik";
 import * as Yup from "yup";
 
@@ -14,6 +13,9 @@ import {
   FormControl,
   FormHelperText,
 } from "@mui/material";
+
+// lib
+import { submitContactForm } from "lib/api";
 
 // styles
 import styles from "./ContactForm.module.scss";
@@ -46,16 +48,14 @@ const initialValues: ContactFormValues = {
 
 const ContactForm: React.FC = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const onSubmit = async (values: ContactFormValues) => {
-    console.log("Submitting form with values:", values);
+    setSubmitError(null);
     try {
-      await API.post("contactFormApi", "/submit", {
-        body: values,
-      });
-      console.log("Form submitted successfully");
+      await submitContactForm(values);
       setFormSubmitted(true);
-    } catch (error) {
-      console.error("Error submitting form:", error);
+    } catch {
+      setSubmitError("Something went wrong sending your message. Please try again.");
     }
   };
 
@@ -141,6 +141,11 @@ const ContactForm: React.FC = () => {
                     )}
                   </FormControl>
                 </Box>{" "}
+                {submitError && (
+                  <FormHelperText error role="alert" sx={{ marginBottom: 2 }}>
+                    {submitError}
+                  </FormHelperText>
+                )}
                 <Button
                   type="submit"
                   variant="contained"

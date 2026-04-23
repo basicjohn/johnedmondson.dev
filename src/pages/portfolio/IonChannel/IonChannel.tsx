@@ -1,8 +1,5 @@
 // dependencies
-import { Helmet } from "react-helmet";
-
-// components
-// import { Button } from "@mui/material";
+import { Helmet } from "react-helmet-async";
 
 // assets
 import { ionChannel1a, ionChannel1b, ionChannel2, ionChannel3 } from "assets";
