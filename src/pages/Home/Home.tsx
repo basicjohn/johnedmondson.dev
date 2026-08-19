@@ -18,7 +18,7 @@ const Home = () => {
         <title>John Edmondson - Software Engineer & Maker</title>
         <meta
           name="description"
-          content="John Edmondson is a Software Engineer based out of Portland, Oregon. He spends his free time traveling, doing house projects, and building apps."
+          content="John Edmondson is a product-focused software engineer based in Freiburg, Germany, building data-driven systems that support real teams in production."
         />
       </Helmet>
       <Container>
@@ -30,10 +30,18 @@ const Home = () => {
             <h2>Software Engineer & Maker</h2>
             <br />
             <p>
-              I’m a Software Engineer based out of Portland, Oregon. I like to
-              spend my free time traveling, doing house projects, and building
-              apps to improve my day-to-day life. I regularly talk about my
-              thoughts and explorations over on my substack.
+              I’m a product-focused software engineer who builds scalable,
+              data-driven systems that support real teams in production —
+              relational data models, APIs, and background processing alongside
+              React and TypeScript frontends. A background in UX/UI design means
+              I think through user experience, data integrity, and system
+              reliability together rather than in isolation, and I’m most
+              motivated by mission-driven work — lately, tools that support
+              sustainability and waste reduction. Originally from Portland,
+              Oregon, I’m now based in Freiburg, Germany, where I spend my free
+              time traveling, doing house projects, and building apps to improve
+              my day-to-day life — and I write about what I’m exploring over on
+              my substack.
             </p>
           </section>
           <section id="portfolio" className={styles[`${rootClass}__portfolio`]}>

@@ -17,7 +17,7 @@ const Contact = () => {
         <title>Contact John Edmondson</title>
         <meta
           name="description"
-          content="Get in touch with John Edmondson, a Software Engineer based out of Portland, Oregon."
+          content="Get in touch with John Edmondson, a product-focused software engineer based in Freiburg, Germany."
         />
       </Helmet>
       <ContactForm />
