@@ -13,10 +13,10 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>John Edmondson - Software Engineer & Maker</title>
+        <title>John Edmondson - Product Engineer & Maker</title>
         <meta
           name="description"
-          content="John Edmondson is a product-focused software engineer based in Freiburg, Germany, building data-driven systems that support real teams in production."
+          content="John Edmondson is a product-focused software engineer turning complex problems into reliable, thoughtful software, drawn to mission-driven work."
         />
       </Helmet>
       <Container>
@@ -25,21 +25,17 @@ const Home = () => {
             <h1>
               John Edmondson <br />
             </h1>
-            <h2>Software Engineer & Maker</h2>
+            <h2>Product Engineer & Maker</h2>
             <br />
             <p>
-              I’m a product-focused software engineer who builds scalable,
-              data-driven systems that support real teams in production —
-              relational data models, APIs, and background processing alongside
-              React and TypeScript frontends. A background in UX/UI design means
-              I think through user experience, data integrity, and system
-              reliability together rather than in isolation, and I’m most
-              motivated by mission-driven work — lately, tools that support
-              sustainability and waste reduction. Originally from Portland,
-              Oregon, I’m now based in Freiburg, Germany, where I spend my free
-              time traveling, doing house projects, and building apps to improve
-              my day-to-day life — and I write about what I’m exploring over on
-              my substack.
+              Thanks for stopping by. I’m John, a product-focused software
+              engineer who enjoys turning complex problems into reliable,
+              thoughtful software. With a background in UX/UI design and
+              experience across the full stack, I care about building products
+              that are both technically sound and genuinely useful. I’m
+              especially drawn to mission-driven work where good software can
+              help people and organizations operate better and make a positive
+              impact.
             </p>
           </section>
           <section id="portfolio" className={styles[`${rootClass}__portfolio`]}>

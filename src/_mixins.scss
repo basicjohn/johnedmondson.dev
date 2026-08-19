@@ -25,3 +25,20 @@
         @content;
     }
 }
+
+// Content panels sit over the fixed animated background (a 50px grid plus
+// drifting WebGL shapes). At the original 75% white the grid lines and shape
+// edges cut straight through body copy. Blurring the backdrop removes those
+// hard edges, which is what actually hurt readability, so the panel can stay
+// translucent and still read cleanly.
+@mixin content-surface($alpha: 0.86, $blur: 12px) {
+    // Fallback for browsers without backdrop-filter: lean on opacity instead.
+    background-color: rgba(255, 255, 255, 0.96);
+    @supports (
+        (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+    ) {
+        background-color: rgba(255, 255, 255, $alpha);
+        -webkit-backdrop-filter: blur($blur);
+        backdrop-filter: blur($blur);
+    }
+}
