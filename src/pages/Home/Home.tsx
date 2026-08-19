@@ -2,9 +2,7 @@
 import { Helmet } from "react-helmet";
 
 // components
-import SkillTicker from "Components/SkillTicker/SkillTicker";
 import Container from "Components/Container/Container";
-import CallToAction from "Components/CallToAction/CallToAction";
 
 // styles
 import styles from "./Home.module.scss";

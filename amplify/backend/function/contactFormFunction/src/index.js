@@ -18,7 +18,9 @@ exports.handler = async (event) => {
 
   const receivingEmail = process.env.RECEIVING_EMAIL_ADDRESS;
   const subject = `New message from ${name} via contact form`;
-  const body = `Name: ${name}\nEmail: ${email}\nTopic: ${topic}\n\nMessage:\n${message}`;
+  // `topic` is optional - the contact form does not currently send one
+  const topicLine = topic ? `Topic: ${topic}\n` : '';
+  const body = `Name: ${name}\nEmail: ${email}\n${topicLine}\nMessage:\n${message}`;
 
   const params = {
     Source: receivingEmail,

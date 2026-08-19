@@ -1,6 +1,6 @@
 // dependencies
 import React, { useState } from "react";
-import { API } from "aws-amplify";
+import { post } from "aws-amplify/api";
 import { Formik, Form, Field, FieldProps } from "formik";
 import * as Yup from "yup";
 
@@ -49,9 +49,14 @@ const ContactForm: React.FC = () => {
   const onSubmit = async (values: ContactFormValues) => {
     console.log("Submitting form with values:", values);
     try {
-      await API.post("contactFormApi", "/submit", {
-        body: values,
+      const { response } = post({
+        apiName: "contactFormApi",
+        path: "/submit",
+        options: {
+          body: { ...values },
+        },
       });
+      await response;
       console.log("Form submitted successfully");
       setFormSubmitted(true);
     } catch (error) {
