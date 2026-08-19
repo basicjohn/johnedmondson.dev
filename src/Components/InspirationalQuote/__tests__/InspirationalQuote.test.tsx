@@ -25,15 +25,15 @@ describe("InspirationalQuote", () => {
 
     render(<InspirationalQuote />);
     const randomIndex = Math.floor(
-      Math.random() * inspirationData.quotes.length
+      Math.random() * inspirationData.quotes.length,
     );
 
     expect(spy).toHaveBeenCalled();
     expect(
-      screen.getByText(inspirationData.quotes[randomIndex].quote)
+      screen.getByText(inspirationData.quotes[randomIndex].quote),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(inspirationData.quotes[randomIndex].author)
+      screen.getByText(inspirationData.quotes[randomIndex].author),
     ).toBeInTheDocument();
 
     spy.mockRestore();

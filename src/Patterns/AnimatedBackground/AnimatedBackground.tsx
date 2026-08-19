@@ -20,7 +20,7 @@ const AnimatedBackground: React.FC = () => {
       frustumSize / 2,
       -frustumSize / 2,
       1,
-      1000
+      1000,
     );
     camera.position.z = 2;
 
@@ -57,7 +57,7 @@ const AnimatedBackground: React.FC = () => {
           ]);
           geometry.setAttribute(
             "position",
-            new THREE.BufferAttribute(vertices, 3)
+            new THREE.BufferAttribute(vertices, 3),
           );
           break;
         case 1:
@@ -101,7 +101,7 @@ const AnimatedBackground: React.FC = () => {
       shadowShape.position.set(
         shape.position.x + 0.01,
         shape.position.y - 0.02,
-        -0.02
+        -0.02,
       );
 
       // Set random initial rotation
@@ -111,7 +111,7 @@ const AnimatedBackground: React.FC = () => {
       // Set random drift speed and rotation speed
       shape.userData.driftSpeed = new THREE.Vector2(
         Math.random() * 0.0004 - 0.0002,
-        Math.random() * 0.0004 - 0.0002
+        Math.random() * 0.0004 - 0.0002,
       );
       shadowShape.userData.driftSpeed = shape.userData.driftSpeed;
       shape.userData.rotationSpeed = Math.random() * 0.002 - 0.001;

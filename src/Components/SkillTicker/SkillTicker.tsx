@@ -28,7 +28,7 @@ const skills: Skill[] = skillsData.skills.map(
   (skill: string, index: number) => ({
     id: index + 1,
     label: skill,
-  })
+  }),
 );
 
 const TickerContainer = styled("div")`

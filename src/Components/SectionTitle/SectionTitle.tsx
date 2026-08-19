@@ -25,7 +25,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     if (currentTitleRef) {
