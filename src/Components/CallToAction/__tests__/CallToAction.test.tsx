@@ -7,7 +7,7 @@ describe("CallToAction", () => {
     render(
       <MemoryRouter>
         <CallToAction />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
   });
 
@@ -15,12 +15,11 @@ describe("CallToAction", () => {
     render(
       <MemoryRouter>
         <CallToAction />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(
-      screen.getByRole("heading", { name: /start the conversation/i })
+      screen.getByRole("heading", { name: /start the conversation/i }),
     ).toBeInTheDocument();
   });
-
 });

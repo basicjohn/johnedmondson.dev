@@ -16,13 +16,13 @@ const rootClass = "inspirational-quote";
 
 const InspirationalQuote = () => {
   const [randomInspirationalQuote, setRandomInspirationalQuote] = useState(
-    {} as Quote
+    {} as Quote,
   );
 
   useEffect(() => {
     const getRandomInspirationalQuote = () => {
       const randomIndex = Math.floor(
-        Math.random() * inspirationData.quotes.length
+        Math.random() * inspirationData.quotes.length,
       );
       return inspirationData.quotes[randomIndex];
     };

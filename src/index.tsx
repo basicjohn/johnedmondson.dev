@@ -25,5 +25,5 @@ ReactDOM.render(
   <Router>
     <App />
   </Router>,
-  container
+  container,
 );

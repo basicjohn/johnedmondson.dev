@@ -7,7 +7,7 @@ describe("Header", () => {
     render(
       <MemoryRouter>
         <Header />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
   });
 
@@ -15,11 +15,11 @@ describe("Header", () => {
     render(
       <MemoryRouter>
         <Header />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     const profilePhotoElement = screen.getByAltText(
-      "Illustrated icon of John Edmondson"
+      "Illustrated icon of John Edmondson",
     );
     expect(profilePhotoElement).toBeInTheDocument();
   });
@@ -28,14 +28,14 @@ describe("Header", () => {
     render(
       <MemoryRouter>
         <Header />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     const linkedInLink = screen.getByTitle("John's LinkedIn Profile");
     expect(linkedInLink).toBeInTheDocument();
     expect(linkedInLink).toHaveAttribute(
       "href",
-      "https://www.linkedin.com/in/johnedmondsondev/"
+      "https://www.linkedin.com/in/johnedmondsondev/",
     );
 
     const gitHubLink = screen.getByTitle("John's GitHub Profile");
@@ -46,14 +46,14 @@ describe("Header", () => {
     expect(twitterLink).toBeInTheDocument();
     expect(twitterLink).toHaveAttribute(
       "href",
-      "https://twitter.com/basicjohn"
+      "https://twitter.com/basicjohn",
     );
 
     const pinterestLink = screen.getByTitle("John's Pinterest Profile");
     expect(pinterestLink).toBeInTheDocument();
     expect(pinterestLink).toHaveAttribute(
       "href",
-      "https://www.pinterest.com/basicjohn/"
+      "https://www.pinterest.com/basicjohn/",
     );
   });
 });

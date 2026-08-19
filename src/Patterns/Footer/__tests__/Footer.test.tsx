@@ -7,7 +7,7 @@ describe("Footer", () => {
     render(
       <MemoryRouter>
         <Footer />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
   });
 
@@ -15,14 +15,14 @@ describe("Footer", () => {
     render(
       <MemoryRouter>
         <Footer />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     const newsletterIframe = screen.getByTitle("Newsletter");
     expect(newsletterIframe).toBeInTheDocument();
     expect(newsletterIframe).toHaveAttribute(
       "src",
-      "https://basicjohn.substack.com/embed"
+      "https://basicjohn.substack.com/embed",
     );
   });
 
@@ -30,13 +30,12 @@ describe("Footer", () => {
     render(
       <MemoryRouter>
         <Footer />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     const profilePhotoElement = screen.getByAltText(
-      "Illustrated icon of John Edmondson"
+      "Illustrated icon of John Edmondson",
     );
     expect(profilePhotoElement).toBeInTheDocument();
-
   });
 });

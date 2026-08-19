@@ -15,7 +15,7 @@ const Greeting = () => {
   useEffect(() => {
     const getRandomGreeting = () => {
       const randomIndex = Math.floor(
-        Math.random() * greetingsData.greetings.length
+        Math.random() * greetingsData.greetings.length,
       );
       return greetingsData.greetings[randomIndex];
     };
