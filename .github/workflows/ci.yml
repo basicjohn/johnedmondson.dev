@@ -19,12 +19,13 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js 14.x
-        uses: actions/setup-node@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 14.x
+          node-version: 20.x
+          cache: npm
 
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
@@ -36,7 +37,7 @@ jobs:
         run: npm run test -- --coverage --coverageReporters=text-lcov > coverage.lcov
 
       - name: Upload coverage report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: coverage
           path: ./coverage.lcov
@@ -47,17 +48,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Download coverage report
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: coverage
           path: ./
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage.lcov
+          files: ./coverage.lcov
           fail_ci_if_error: true
