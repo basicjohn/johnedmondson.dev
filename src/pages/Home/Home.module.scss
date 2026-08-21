@@ -1,101 +1,58 @@
 @import "../../_mixins.scss";
 
 .home-page {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
-    @include content-surface;
-    color: #323232;
-    border-radius: 0.25rem;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    @include respond-to(small) {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: none;
-        padding: 2rem 1rem;
-    }
-    @include respond-to(medium) {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: none;
-        padding: 2rem 1rem;
-    }
-    @include respond-to(large) {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: none;
-        padding: 2rem 1rem;
-    }
+  // Single column: the old 1fr 1fr grid left the right column two-thirds
+  // empty, and work history needs the full measure to stay readable.
+  @include content-surface;
+  color: #323232;
+  border-radius: 0.25rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  @include respond-to(small) {
+    padding: 2rem 1rem;
+  }
+  @include respond-to(medium) {
+    padding: 2rem 1rem;
+  }
+  @include respond-to(large) {
+    padding: 2rem 1rem;
+  }
+
+  // Scoped to the bio deliberately. These were bare element selectors when
+  // this panel held only the about section; left that way they now outrank
+  // the Experience section's own type and restyle every <p> inside it.
+  &__about {
     h1 {
-        font-size: 4rem;
-        line-height: 4.2rem;
-        @include respond-to(small) {
-            font-size: 2rem;
-            line-height: 2.3rem;
-        }
+      font-size: 4rem;
+      line-height: 4.2rem;
+      @include respond-to(small) {
+        font-size: 2rem;
+        line-height: 2.3rem;
+      }
     }
     h2 {
-        color: #f2a934;
-        font-size: 1.5rem;
-        @include respond-to(small) {
-            font-size: 1rem;
-        }
+      // Darkened from #f2a934, which measured 2.2:1 against this panel.
+      color: #8f5a12;
+      font-size: 1.5rem;
+      @include respond-to(small) {
+        font-size: 1rem;
+      }
     }
     p {
-        max-width: 40rem;
-        font-size: 1.3rem;
-        line-height: 1.6rem;
-        font-weight: 500;
-        padding-left: 0.5rem;
-        @include respond-to(small) {
-            max-width: 25rem;
-            font-size: 1.1rem;
-            line-height: 1.3rem;
-        }
-        @include respond-to(medium) {
-            font-size: 1.2rem;
-            line-height: 1.3rem;
-        }
+      max-width: 40rem;
+      font-size: 1.3rem;
+      line-height: 1.6rem;
+      font-weight: 500;
+      padding-left: 0.5rem;
+      @include respond-to(small) {
+        max-width: 25rem;
+        font-size: 1.1rem;
+        line-height: 1.3rem;
+      }
+      @include respond-to(medium) {
+        font-size: 1.2rem;
+        line-height: 1.3rem;
+      }
     }
-    &__short-rule {
-        width: 100px;
-        height: 1px;
-        border: 0;
-        margin: 1rem 0;
-        background: #32323215;
-    }
-    &__portfolio {
-        color: #323232;
-        border-radius: 0.25rem;
-        h2 {
-            font-size: 3rem;
-            line-height: 4.5rem;
-            @include respond-to(small) {
-                line-height: 3.2rem;
-                font-size: 2rem;
-            }
-        }
-        h3 {
-            font-size: 2rem;
-            line-height: 2.3rem;
-            color: #f4b754;
-            @include respond-to(small) {
-                font-size: 1.5rem;
-            }
-        }
-        a {
-            font-weight: 800;
-            margin: 0.5rem;
-            padding: 0.5rem;
-            &:hover {
-                color: #000;
-            }
-            @include respond-to(small) {
-                display: block;
-                margin: 0rem;
-                padding: 0.5rem;
-            }
-        }
-    }
+  }
 }
