@@ -1,0 +1,173 @@
+@import "../../mixins";
+
+// The single accent. Both previous ambers (#f2a934, #f4b754) fail WCAG AA on
+// the near-white panel; this one measures 5.4:1, so it can carry text.
+$accent: #8f5a12;
+$ink: #323232;
+$ink-soft: #56534f;
+$ink-muted: #6b6560;
+$rule: #32323215;
+
+.experience {
+  padding-top: 2.5rem;
+  margin-top: 2.5rem;
+  border-top: 1px solid $rule;
+
+  &__header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $ink;
+  }
+
+  // A signpost, not a headline: the old 3rem "Projects" heading outranked
+  // the name at the top of the page.
+  &__label {
+    font-family: "Mulish", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $ink;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__note {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: $ink-muted;
+    margin: 0 0 0 auto;
+    @include respond-to(small) {
+      margin-left: 0;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__role {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid $rule;
+
+    // The section rule above already separates it; a second gap doubles up.
+    &:first-child {
+      border-top: 0;
+      margin-top: 0;
+    }
+
+    @include respond-to(small) {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    @include respond-to(medium) {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    @include respond-to(large) {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    &--condensed {
+      align-items: baseline;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  &__company {
+    font-family: "Mulish", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: $ink;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__engagement,
+  &__dates {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: $ink-muted;
+    margin: 0;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 0;
+  }
+
+  &__title {
+    font-family: "Merriweather", serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.4;
+    color: $ink;
+    margin: 0;
+    @include respond-to(small) {
+      font-size: 1.1rem;
+    }
+  }
+
+  &__summary {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: $ink-muted;
+    margin: 0;
+  }
+
+  &__highlights {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin: 0.25rem 0 0;
+    padding: 0;
+
+    li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: $ink-soft;
+
+      &::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: $accent;
+      }
+    }
+  }
+
+  &__oneline {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $ink-soft;
+    margin: 0;
+
+    strong {
+      font-weight: 700;
+      color: $ink;
+    }
+  }
+}
