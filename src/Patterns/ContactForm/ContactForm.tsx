@@ -17,7 +17,6 @@ import {
 
 // styles
 import styles from "./ContactForm.module.scss";
-import Greeting from "Components/Greeting/Greeting";
 
 const rootClass = "contact-form";
 
@@ -68,8 +67,7 @@ const ContactForm: React.FC = () => {
     <Box className={styles[rootClass]}>
       {!formSubmitted ? (
         <>
-          <Greeting />
-          <h3>Message John</h3>
+          <h2>Message John</h2>
           <br />
           <Formik
             initialValues={initialValues}

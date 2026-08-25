@@ -11,9 +11,6 @@ import {
   Pinterest as PinterestIcon,
 } from "@mui/icons-material";
 
-// data
-import InspirationalQuote from "Components/InspirationalQuote/InspirationalQuote";
-
 // assets
 import { profilePhoto } from "assets";
 
@@ -51,7 +48,6 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <br />
                 <a
                   target="_blank"
                   href="https://calendly.com/johnedmondsondev/lets-chat"
@@ -127,27 +123,6 @@ const Footer = () => {
                 <PinterestIcon />
               </IconButton>
             </div>
-          </div>
-          <div
-            role="complementary"
-            aria-label="Newsletter Subscription"
-            className={styles["newsletter"]}
-          >
-            <Typography variant="h4">Newsletter</Typography>
-            <iframe
-              title="Newsletter"
-              className={styles["signup"]}
-              src="https://basicjohn.substack.com/embed"
-              width="100%"
-              height="120px"
-            ></iframe>
-          </div>
-          <div
-            role="complementary"
-            aria-label="Inspirational Quote"
-            className={styles["inspiration"]}
-          >
-            <InspirationalQuote />
           </div>
         </div>
         <div className={styles[`${rootClass}__copyright`]}>

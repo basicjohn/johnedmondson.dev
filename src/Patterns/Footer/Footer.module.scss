@@ -1,83 +1,66 @@
 @import "../../_mixins";
 
 .footer {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 0.25rem;
-    &__sections {
-        display: grid;
-        grid-template-columns: 2fr 2fr 2fr 3fr;
-        grid-gap: 1rem;
-        padding: 1rem 0;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  &__sections {
+    display: grid;
+    // Was 2fr 2fr 2fr 3fr, for the newsletter embed and the rotating
+    // quote that used to sit beside these two.
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    padding: 1rem 0;
 
-        .navigation,
-        .social,
-        .newsletter {
-            h4 {
-                font-family: "Merriweather", serif;
-                display: inline;
-                font-size: 2rem;
-                margin: 0 0 1rem 0;
-                padding: 0;
-            }
-            p {
-                font-size: 1.5rem;
-            }
-        }
-        .navigation ul li {
-            line-height: 25px;
-            padding: 5px 0 5px 10px;
-        }
-        .social ul li a {
-            line-height: 30px;
-            padding-left: 10px;
-            img {
-                margin-bottom: -5px;
-                padding-top: 3px;
-            }
-            span {
-                line-height: 24px;
-            }
-        }
-        @include respond-to(small) {
-            grid-template-columns: repeat(2, 1fr);
-            .newsletter {
-                display: none;
-            }
-        }
-        @include respond-to(medium) {
-            grid-template-columns: repeat(2, 1fr);
-            .newsletter {
-                display: none;
-            }
-        }
-        @include respond-to(large) {
-            grid-template-columns: repeat(2, 1fr);
-            .newsletter {
-                display: none;
-            }
-        }
+    .navigation,
+    .social {
+      h4 {
+        font-family: "Merriweather", serif;
+        display: inline;
+        font-size: 2rem;
+        margin: 0 0 1rem 0;
+        padding: 0;
+      }
+      p {
+        font-size: 1.5rem;
+      }
     }
-    &__copyright {
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        @include respond-to(small) {
-            justify-content: left;
-            grid-gap: 1rem;
-        }
-        @include respond-to(medium) {
-            justify-content: left;
-            grid-gap: 1rem;
-        }
+    .navigation ul li {
+      line-height: 25px;
+      padding: 5px 0 5px 10px;
+    }
+    .social ul li a {
+      line-height: 30px;
+      padding-left: 10px;
+      img {
+        margin-bottom: -5px;
+        padding-top: 3px;
+      }
+      span {
+        line-height: 24px;
+      }
+    }
+  }
+  &__copyright {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @include respond-to(small) {
+      justify-content: left;
+      grid-gap: 1rem;
+    }
+    @include respond-to(medium) {
+      justify-content: left;
+      grid-gap: 1rem;
+    }
 
-        p {
-            font-weight: 300;
-            padding-top: 0.7rem;
-        }
+    p {
+      font-weight: 300;
+      padding-top: 0.7rem;
     }
+  }
 }
 #main {
-    background-color: #fff;
+  background-color: #fff;
 }
