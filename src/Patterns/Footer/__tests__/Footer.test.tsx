@@ -2,40 +2,52 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Footer from "../Footer";
 
+const renderFooter = () =>
+  render(
+    <MemoryRouter>
+      <Footer />
+    </MemoryRouter>,
+  );
+
 describe("Footer", () => {
   it("renders without crashing", () => {
-    render(
-      <MemoryRouter>
-        <Footer />
-      </MemoryRouter>,
-    );
+    renderFooter();
   });
 
-  it("displays the newsletter subscription form", () => {
-    render(
-      <MemoryRouter>
-        <Footer />
-      </MemoryRouter>,
-    );
+  it("displays its navigation links", () => {
+    renderFooter();
 
-    const newsletterIframe = screen.getByTitle("Newsletter");
-    expect(newsletterIframe).toBeInTheDocument();
-    expect(newsletterIframe).toHaveAttribute(
-      "src",
-      "https://basicjohn.substack.com/embed",
-    );
+    [
+      "Send a Message",
+      "UpWork",
+      "Schedule Appointment",
+      "View Repository",
+    ].forEach((label) => {
+      expect(screen.getByText(label)).toBeInTheDocument();
+    });
   });
 
   it("displays the correct copyright information", () => {
-    render(
-      <MemoryRouter>
-        <Footer />
-      </MemoryRouter>,
-    );
+    renderFooter();
 
     const profilePhotoElement = screen.getByAltText(
       "Illustrated icon of John Edmondson",
     );
     expect(profilePhotoElement).toBeInTheDocument();
+    expect(
+      screen.getByText(`© ${new Date().getFullYear()} John Edmondson`),
+    ).toBeInTheDocument();
+  });
+
+  // The Substack embed was a fixed-height iframe whose legal line collided
+  // with its own wordmark at wide breakpoints. It should stay gone until
+  // there are posts to sign up for.
+  it("no longer embeds the newsletter iframe", () => {
+    renderFooter();
+
+    expect(screen.queryByTitle("Newsletter")).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("complementary", { name: "Newsletter Subscription" }),
+    ).not.toBeInTheDocument();
   });
 });
