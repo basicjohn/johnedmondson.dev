@@ -50,4 +50,20 @@ describe("Footer", () => {
       screen.queryByRole("complementary", { name: "Newsletter Subscription" }),
     ).not.toBeInTheDocument();
   });
+
+  it("displays the availability line and a mailto link", () => {
+    renderFooter();
+
+    expect(
+      screen.getByRole("complementary", { name: "Availability" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Open to full-time product engineering roles."),
+    ).toBeInTheDocument();
+
+    const email = screen.getByRole("link", {
+      name: "Email John at contact@johnedmondson.dev",
+    });
+    expect(email).toHaveAttribute("href", "mailto:contact@johnedmondson.dev");
+  });
 });

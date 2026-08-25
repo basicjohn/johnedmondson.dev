@@ -124,6 +124,21 @@ const Footer = () => {
               </IconButton>
             </div>
           </div>
+          <div
+            role="complementary"
+            aria-label="Availability"
+            className={styles["availability"]}
+          >
+            <Typography variant="h4">Availability</Typography>
+            <p>Open to full-time product engineering roles.</p>
+            <a
+              href="mailto:contact@johnedmondson.dev"
+              title="Email John"
+              aria-label="Email John at contact@johnedmondson.dev"
+            >
+              contact@johnedmondson.dev
+            </a>
+          </div>
         </div>
         <div className={styles[`${rootClass}__copyright`]}>
           <RouterLink to="/">
