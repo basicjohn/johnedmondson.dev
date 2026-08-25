@@ -1,8 +1,17 @@
 @import "../../_mixins.scss";
 
+// Bio left, work right, from 1025px up. Weighted toward the work column: an
+// even split leaves the role bullets around 35 characters wide once the
+// 220px company column is subtracted.
+@mixin home-two-column {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
+  gap: 3rem;
+  align-items: start;
+}
+
 .home-page {
-  // Single column: the old 1fr 1fr grid left the right column two-thirds
-  // empty, and work history needs the full measure to stay readable.
+  display: grid;
+  grid-template-columns: 1fr;
   @include content-surface;
   color: #323232;
   border-radius: 0.25rem;
@@ -17,17 +26,44 @@
   @include respond-to(large) {
     padding: 2rem 1rem;
   }
+  @include respond-to(extra-large) {
+    @include home-two-column;
+  }
+  @include respond-to(extra-extra-large) {
+    @include home-two-column;
+  }
 
   // Scoped to the bio deliberately. These were bare element selectors when
   // this panel held only the about section; left that way they now outrank
   // the Experience section's own type and restyle every <p> inside it.
   &__about {
+    // The work list runs roughly three times the height of the bio, so a
+    // static left column would sit empty for most of the scroll. Pinning it
+    // keeps the name and intro alongside whichever role is being read.
+    @include respond-to(extra-large) {
+      position: sticky;
+      top: 2rem;
+    }
+    @include respond-to(extra-extra-large) {
+      position: sticky;
+      top: 2rem;
+    }
     h1 {
       font-size: 4rem;
       line-height: 4.2rem;
       @include respond-to(small) {
         font-size: 2rem;
         line-height: 2.3rem;
+      }
+      // The name sets the column's minimum width; at 4rem it forces an
+      // awkward two-line break in the narrower left column.
+      @include respond-to(extra-large) {
+        font-size: 3rem;
+        line-height: 3.2rem;
+      }
+      @include respond-to(extra-extra-large) {
+        font-size: 3rem;
+        line-height: 3.2rem;
       }
     }
     h2 {
@@ -52,6 +88,15 @@
       @include respond-to(medium) {
         font-size: 1.2rem;
         line-height: 1.3rem;
+      }
+      // Narrower column, so the copy steps down with it.
+      @include respond-to(extra-large) {
+        font-size: 1.15rem;
+        line-height: 1.55rem;
+      }
+      @include respond-to(extra-extra-large) {
+        font-size: 1.15rem;
+        line-height: 1.55rem;
       }
     }
   }
