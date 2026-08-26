@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { alternatesFor } from "@/lib/seo";
 import { getDictionary, isLocale } from "@/lib/i18n";
+import { getSiteData } from "@/lib/content";
 import ContactForm from "@/components/organisms/ContactForm/ContactForm";
 import Button from "@/components/atoms/Button/Button";
 import styles from "./page.module.scss";
 
 const CALENDLY_URL = "https://calendly.com/johnedmondsondev/lets-chat";
-const FALLBACK_EMAIL = "edmondsonj@gmail.com";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -27,6 +27,9 @@ export default async function ContactPage({ params }: Props) {
   if (!isLocale(locale)) notFound();
 
   const dict = getDictionary(locale);
+  // The published address, not a personal one — this renders into a
+  // mailto: link in the static export when no endpoint is configured.
+  const { email } = getSiteData();
 
   return (
     <div className={`container ${styles.page}`}>
@@ -39,7 +42,7 @@ export default async function ContactPage({ params }: Props) {
         <ContactForm
           labels={dict.contact}
           endpoint={process.env.NEXT_PUBLIC_CONTACT_ENDPOINT}
-          fallbackEmail={FALLBACK_EMAIL}
+          fallbackEmail={email}
         />
 
         <aside className={styles.schedule}>

@@ -84,3 +84,46 @@ src/
 Standard Next.js build (`npm run build`). No special config needed — the
 admin API routes self-disable in production. If you prefer a fully static
 export, all public pages are pre-rendered via `generateStaticParams`.
+
+## Deployment
+
+AWS Amplify Hosting builds `main` and serves the static export from S3 and
+CloudFront. There is no compute platform — `next.config.ts` sets
+`output: "export"` in production, and `amplify.yml` publishes `out/`.
+
+### One rule to add in the Amplify console
+
+Static export silently drops `middleware.ts`, which is what normally sends a
+bare `/` to a locale. `src/app/page.tsx` covers this with a meta refresh and a
+visible link, so the site is correct without it — but a server-side rule is
+faster and cleaner. In **Hosting → Rewrites and redirects**, add:
+
+| Source | Target | Type                         |
+| ------ | ------ | ---------------------------- |
+| `/`    | `/en`  | `302 (Redirect - Temporary)` |
+
+Temporary rather than permanent: a 301 is cached by browsers indefinitely, and
+this target changes if the default locale ever does.
+
+Leave the existing SPA catch-all rule off. Every route is prerendered to a real
+file, so a catch-all would mask genuine 404s.
+
+### Environment
+
+`NEXT_PUBLIC_CONTACT_ENDPOINT` is committed in `.env.production` rather than
+set in the console. It is inlined into the client bundle at build time and
+already ships publicly, so it is not a secret, and keeping it in the repo means
+the contact form cannot break because a console value went missing.
+
+The contact backend is the same API Gateway and Lambda the previous site used,
+defined in `amplify/`. It sends via SES and is intentionally open — worth
+knowing that anyone can POST to it.
+
+### Verifying a deploy
+
+```bash
+curl -sI https://www.johnedmondson.dev | grep -i last-modified
+```
+
+The page HTML is prerendered, so unlike the previous CRA app you can grep the
+served HTML directly for content rather than digging through the JS bundle.
