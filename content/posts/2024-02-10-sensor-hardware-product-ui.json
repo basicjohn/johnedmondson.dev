@@ -1,0 +1,25 @@
+{
+  "id": "2024-02-10-sensor-hardware-product-ui",
+  "slug": "sensor-hardware-product-ui",
+  "type": "portfolio",
+  "status": "draft",
+  "featured": false,
+  "date": "2024-02-10",
+  "tags": ["Product", "UI/UX", "Frontend"],
+  "title": {
+    "en": "Sensor Hardware — Product Experience",
+    "de": "Sensorhardware — Produkterlebnis"
+  },
+  "excerpt": {
+    "en": "Product UI work for a hardware company: presenting technical sensor products clearly across devices.",
+    "de": "Produkt-UI für ein Hardware-Unternehmen: technische Sensorprodukte klar und geräteübergreifend präsentiert."
+  },
+  "body": {
+    "en": "## Overview\n\nA precision sensor hardware manufacturer needed a product site that carried its catalogue properly. The web experience needed to present deeply technical products to two very different audiences at once: engineers who want specifications, and procurement teams who want clarity.\n\n## What I built\n\n- Product detail layouts that pair specification tables with plain-language summaries\n- A responsive component system so dense technical content stays readable on mobile\n- Image-forward product galleries with graceful fallbacks\n\n## Approach\n\nThe guiding principle was *clarity over cleverness*. Typography and spacing do the heavy lifting; interactive flourishes only appear where they help comparison and comprehension.",
+    "de": "## Überblick\n\nEin Hersteller von Präzisions-Sensorhardware brauchte einen Produktauftritt, der seinen Katalog trägt. Der Webauftritt musste hochtechnische Produkte für zwei sehr unterschiedliche Zielgruppen gleichzeitig aufbereiten: Ingenieure, die Spezifikationen wollen, und Einkaufsteams, die Klarheit brauchen.\n\n## Was ich gebaut habe\n\n- Produktdetail-Layouts, die Spezifikationstabellen mit verständlichen Zusammenfassungen kombinieren\n- Ein responsives Komponentensystem, damit dichte technische Inhalte auch mobil lesbar bleiben\n- Bildstarke Produktgalerien mit eleganten Fallbacks\n\n## Vorgehen\n\nDas Leitprinzip war *Klarheit statt Effekthascherei*. Typografie und Weißraum leisten die Hauptarbeit; interaktive Details gibt es nur dort, wo sie Vergleich und Verständnis fördern."
+  },
+  "client": "Precision sensor manufacturer",
+  "role": "Frontend Engineer",
+  "year": "2024",
+  "stack": ["React", "TypeScript", "Sass/SCSS"]
+}
