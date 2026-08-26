@@ -36,6 +36,9 @@ jobs:
       - name: Run linter
         run: npm run lint
 
+      - name: Run tests
+        run: npm test
+
       # Emits out/ — the static export Amplify serves. Catches the
       # case-sensitivity and export-compatibility failures that a macOS
       # dev machine will not reproduce.

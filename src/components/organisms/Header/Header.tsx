@@ -8,6 +8,7 @@ import LanguageToggle from "@/components/molecules/LanguageToggle/LanguageToggle
 import styles from "./Header.module.scss";
 
 type NavLabels = {
+  label: string;
   home: string;
   portfolio: string;
   writing: string;
@@ -71,7 +72,7 @@ export default function Header({ locale, nav, languageLabel }: Props) {
           id="site-nav"
           className={`${styles.navWrap} ${open ? styles.navOpen : ""}`}
         >
-          <nav className={styles.nav}>
+          <nav className={styles.nav} aria-label={nav.label}>
             {links.map((link) => (
               <Link
                 key={link.href}

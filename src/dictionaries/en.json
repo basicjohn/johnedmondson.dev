@@ -1,5 +1,6 @@
 {
   "nav": {
+    "label": "Main",
     "home": "Home",
     "portfolio": "Portfolio",
     "writing": "Writing",
