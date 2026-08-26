@@ -7,13 +7,15 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const pathnameHasLocale = locales.some(
-    (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
+    (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
   );
   if (pathnameHasLocale) return;
 
   const cookieLocale = request.cookies.get("locale")?.value;
   const locale =
-    cookieLocale && locales.includes(cookieLocale) ? cookieLocale : defaultLocale;
+    cookieLocale && locales.includes(cookieLocale)
+      ? cookieLocale
+      : defaultLocale;
 
   const url = request.nextUrl.clone();
   url.pathname = `/${locale}${pathname === "/" ? "" : pathname}`;

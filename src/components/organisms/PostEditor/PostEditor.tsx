@@ -47,7 +47,7 @@ export default function PostEditor({ initial, isNew }: Props) {
           method: isNew ? "POST" : "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(post),
-        }
+        },
       );
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
@@ -131,7 +131,7 @@ export default function PostEditor({ initial, isNew }: Props) {
                 e.target.value
                   .split(",")
                   .map((t) => t.trim())
-                  .filter(Boolean)
+                  .filter(Boolean),
               )
             }
           />
@@ -196,7 +196,7 @@ export default function PostEditor({ initial, isNew }: Props) {
                     e.target.value
                       .split(",")
                       .map((t) => t.trim())
-                      .filter(Boolean)
+                      .filter(Boolean),
                   )
                 }
               />
@@ -206,7 +206,11 @@ export default function PostEditor({ initial, isNew }: Props) {
 
         {/* ---------- Content column ---------- */}
         <div className={styles.content}>
-          <div className={styles.langTabs} role="tablist" aria-label="Content language">
+          <div
+            className={styles.langTabs}
+            role="tablist"
+            aria-label="Content language"
+          >
             {(["en", "de"] as Locale[]).map((l) => (
               <button
                 key={l}
@@ -238,7 +242,9 @@ export default function PostEditor({ initial, isNew }: Props) {
           />
 
           <div className={styles.bodyHeader}>
-            <span className={styles.bodyLabel}>Body (Markdown, {lang.toUpperCase()})</span>
+            <span className={styles.bodyLabel}>
+              Body (Markdown, {lang.toUpperCase()})
+            </span>
             <button
               type="button"
               className={styles.previewToggle}

@@ -15,7 +15,9 @@
   font-weight: 700;
   text-decoration: none;
   color: var(--color-ink-soft);
-  transition: background 0.15s var(--ease), color 0.15s var(--ease);
+  transition:
+    background 0.15s var(--ease),
+    color 0.15s var(--ease);
 }
 
 .option:hover {

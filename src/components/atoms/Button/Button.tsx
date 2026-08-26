@@ -28,7 +28,12 @@ export default function Button(props: Props) {
   if ("href" in props && props.href) {
     if (props.external) {
       return (
-        <a className={cls} href={props.href} target="_blank" rel="noopener noreferrer">
+        <a
+          className={cls}
+          href={props.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {children}
         </a>
       );
@@ -40,7 +45,12 @@ export default function Button(props: Props) {
     );
   }
 
-  const { variant: _v, className: _c, children: _ch, ...rest } = props as AsButton;
+  const {
+    variant: _v,
+    className: _c,
+    children: _ch,
+    ...rest
+  } = props as AsButton;
   return (
     <button className={cls} {...rest}>
       {children}

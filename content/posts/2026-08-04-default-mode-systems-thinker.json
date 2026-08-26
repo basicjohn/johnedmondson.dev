@@ -5,10 +5,7 @@
   "status": "draft",
   "featured": false,
   "date": "2026-08-04",
-  "tags": [
-    "Systems Thinking",
-    "Metacognition"
-  ],
+  "tags": ["Systems Thinking", "Metacognition"],
   "title": {
     "en": "Default Mode: Systems Thinker",
     "de": "Standardmodus: Systemdenker"

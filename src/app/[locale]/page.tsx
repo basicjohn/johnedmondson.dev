@@ -35,7 +35,6 @@ export default async function HomePage({ params }: Props) {
         ctaContact={dict.home.ctaContact}
       />
 
-
       {featuredWork.length > 0 && (
         <section className={`container ${styles.section}`}>
           <SectionHeading

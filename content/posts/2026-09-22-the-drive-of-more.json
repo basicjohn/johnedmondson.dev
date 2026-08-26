@@ -5,11 +5,7 @@
   "status": "draft",
   "featured": false,
   "date": "2026-09-22",
-  "tags": [
-    "Philosophy",
-    "Metacognition",
-    "Productivity"
-  ],
+  "tags": ["Philosophy", "Metacognition", "Productivity"],
   "title": {
     "en": "The Drive of More",
     "de": "Der Drang nach Mehr"

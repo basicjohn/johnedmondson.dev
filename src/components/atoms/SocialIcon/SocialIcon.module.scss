@@ -8,7 +8,9 @@
   color: var(--color-ink-soft);
   border: 1px solid var(--color-border);
   background: var(--color-surface);
-  transition: color 0.2s var(--ease), border-color 0.2s var(--ease),
+  transition:
+    color 0.2s var(--ease),
+    border-color 0.2s var(--ease),
     transform 0.15s var(--ease);
 
   &:hover {

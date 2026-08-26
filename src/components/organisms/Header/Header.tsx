@@ -39,7 +39,11 @@ export default function Header({ locale, nav, languageLabel }: Props) {
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
-        <Link href={`/${locale}`} className={styles.logo} onClick={() => setOpen(false)}>
+        <Link
+          href={`/${locale}`}
+          className={styles.logo}
+          onClick={() => setOpen(false)}
+        >
           John Edmondson<span className={styles.logoDot}>.</span>
         </Link>
 
@@ -50,22 +54,36 @@ export default function Header({ locale, nav, languageLabel }: Props) {
           aria-controls="site-nav"
           onClick={() => setOpen((v) => !v)}
         >
-          <span className="visually-hidden">{open ? nav.menuClose : nav.menuOpen}</span>
-          <span className={`${styles.burger} ${open ? styles.burgerOpen : ""}`} aria-hidden="true">
+          <span className="visually-hidden">
+            {open ? nav.menuClose : nav.menuOpen}
+          </span>
+          <span
+            className={`${styles.burger} ${open ? styles.burgerOpen : ""}`}
+            aria-hidden="true"
+          >
             <span />
             <span />
             <span />
           </span>
         </button>
 
-        <div id="site-nav" className={`${styles.navWrap} ${open ? styles.navOpen : ""}`}>
+        <div
+          id="site-nav"
+          className={`${styles.navWrap} ${open ? styles.navOpen : ""}`}
+        >
           <nav className={styles.nav}>
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={isActive(link.href, link.exact) ? styles.activeLink : styles.link}
-                aria-current={isActive(link.href, link.exact) ? "page" : undefined}
+                className={
+                  isActive(link.href, link.exact)
+                    ? styles.activeLink
+                    : styles.link
+                }
+                aria-current={
+                  isActive(link.href, link.exact) ? "page" : undefined
+                }
                 onClick={() => setOpen(false)}
               >
                 {link.label}

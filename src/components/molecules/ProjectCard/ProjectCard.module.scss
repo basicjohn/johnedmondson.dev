@@ -5,7 +5,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  transition:
+    transform 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
 
   &:hover {
     transform: translateY(-4px);

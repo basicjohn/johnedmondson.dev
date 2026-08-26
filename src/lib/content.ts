@@ -12,7 +12,7 @@ export function getAllPosts(opts: { includeDrafts?: boolean } = {}): Post[] {
   if (!fs.existsSync(POSTS_DIR)) return [];
   const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".json"));
   const posts = files.map(
-    (f) => JSON.parse(fs.readFileSync(path.join(POSTS_DIR, f), "utf8")) as Post
+    (f) => JSON.parse(fs.readFileSync(path.join(POSTS_DIR, f), "utf8")) as Post,
   );
   return posts
     .filter((p) => opts.includeDrafts || p.status === "published")

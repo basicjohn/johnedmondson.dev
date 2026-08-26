@@ -38,7 +38,13 @@ export default function SocialIcon({ label, url }: Props) {
       aria-label={label}
       title={label}
     >
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        width="20"
+        height="20"
+        fill="currentColor"
+        aria-hidden="true"
+      >
         <path d={paths[iconKey(label)]} />
       </svg>
     </a>

@@ -17,7 +17,12 @@ type Props = {
   dict: Dictionary;
 };
 
-export default function PortfolioPostTemplate({ post, related, locale, dict }: Props) {
+export default function PortfolioPostTemplate({
+  post,
+  related,
+  locale,
+  dict,
+}: Props) {
   const html = markdownToHtml(post.body[locale]);
 
   const facts: { label: string; value: string }[] = [];
@@ -29,9 +34,16 @@ export default function PortfolioPostTemplate({ post, related, locale, dict }: P
     <article>
       <div className={styles.coverWrap}>
         {post.cover ? (
-          <img className={styles.cover} src={post.cover} alt={post.title[locale]} />
+          <img
+            className={styles.cover}
+            src={post.cover}
+            alt={post.title[locale]}
+          />
         ) : (
-          <div className={styles.cover} style={{ background: coverGradient(post.slug) }} />
+          <div
+            className={styles.cover}
+            style={{ background: coverGradient(post.slug) }}
+          />
         )}
       </div>
 
@@ -42,7 +54,8 @@ export default function PortfolioPostTemplate({ post, related, locale, dict }: P
           </Link>
           {post.status === "draft" && (
             <p className={styles.draftNotice}>
-              <Badge label={dict.common.draft} tone="draft" /> {dict.post.draftNotice}
+              <Badge label={dict.common.draft} tone="draft" />{" "}
+              {dict.post.draftNotice}
             </p>
           )}
           <h1 className={styles.title}>{post.title[locale]}</h1>

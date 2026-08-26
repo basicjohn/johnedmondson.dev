@@ -10,7 +10,13 @@ type Props = {
   ctaContact: string;
 };
 
-export default function Hero({ locale, role, bio, ctaWork, ctaContact }: Props) {
+export default function Hero({
+  locale,
+  role,
+  bio,
+  ctaWork,
+  ctaContact,
+}: Props) {
   return (
     <section className={styles.hero}>
       <div className={`container ${styles.inner}`}>

@@ -25,7 +25,7 @@ export default function PostList({
 
   const tags = useMemo(
     () => [...new Set(posts.flatMap((p) => p.tags))].sort(),
-    [posts]
+    [posts],
   );
 
   const visible = activeTag

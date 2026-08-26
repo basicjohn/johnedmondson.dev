@@ -12,7 +12,8 @@ export async function GET(_request: NextRequest, { params }: Ctx) {
 
   const { id } = await params;
   const post = getPostById(id);
-  if (!post) return NextResponse.json({ error: "Post not found." }, { status: 404 });
+  if (!post)
+    return NextResponse.json({ error: "Post not found." }, { status: 404 });
   return NextResponse.json(post);
 }
 
@@ -22,7 +23,8 @@ export async function PUT(request: NextRequest, { params }: Ctx) {
 
   const { id } = await params;
   const existing = getPostById(id);
-  if (!existing) return NextResponse.json({ error: "Post not found." }, { status: 404 });
+  if (!existing)
+    return NextResponse.json({ error: "Post not found." }, { status: 404 });
 
   const body = (await request.json()) as Post;
   body.id = id; // id is immutable
@@ -32,12 +34,12 @@ export async function PUT(request: NextRequest, { params }: Ctx) {
   if (invalid) return NextResponse.json({ error: invalid }, { status: 400 });
 
   const slugTaken = getAllPosts({ includeDrafts: true }).some(
-    (p) => p.slug === body.slug && p.id !== id
+    (p) => p.slug === body.slug && p.id !== id,
   );
   if (slugTaken) {
     return NextResponse.json(
       { error: `A post with slug "${body.slug}" already exists.` },
-      { status: 409 }
+      { status: 409 },
     );
   }
 
@@ -51,6 +53,7 @@ export async function DELETE(_request: NextRequest, { params }: Ctx) {
 
   const { id } = await params;
   const ok = deletePost(id);
-  if (!ok) return NextResponse.json({ error: "Post not found." }, { status: 404 });
+  if (!ok)
+    return NextResponse.json({ error: "Post not found." }, { status: 404 });
   return NextResponse.json({ deleted: id });
 }

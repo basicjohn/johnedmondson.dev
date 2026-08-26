@@ -9,7 +9,7 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
-    getPostsByType("portfolio").map((post) => ({ locale, slug: post.slug }))
+    getPostsByType("portfolio").map((post) => ({ locale, slug: post.slug })),
   );
 }
 
@@ -18,8 +18,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!isLocale(locale)) return {};
   const post = getPostBySlug(slug);
   if (!post) return {};
-  return { title: post.title[locale], description: post.excerpt[locale],
-    alternates: alternatesFor(locale, `/portfolio/${post.slug}`) };
+  return {
+    title: post.title[locale],
+    description: post.excerpt[locale],
+    alternates: alternatesFor(locale, `/portfolio/${post.slug}`),
+  };
 }
 
 export default async function PortfolioPostPage({ params }: Props) {
@@ -29,12 +32,18 @@ export default async function PortfolioPostPage({ params }: Props) {
   const post = getPostBySlug(slug);
   if (!post || post.type !== "portfolio") notFound();
   // Drafts are previewable in dev only
-  if (post.status === "draft" && process.env.NODE_ENV === "production") notFound();
+  if (post.status === "draft" && process.env.NODE_ENV === "production")
+    notFound();
 
   const dict = getDictionary(locale);
   const related = getRelatedPosts(post);
 
   return (
-    <PortfolioPostTemplate post={post} related={related} locale={locale} dict={dict} />
+    <PortfolioPostTemplate
+      post={post}
+      related={related}
+      locale={locale}
+      dict={dict}
+    />
   );
 }

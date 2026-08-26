@@ -26,7 +26,11 @@ type Props = {
 
 type Status = "idle" | "sending" | "success" | "error";
 
-export default function ContactForm({ labels, endpoint, fallbackEmail }: Props) {
+export default function ContactForm({
+  labels,
+  endpoint,
+  fallbackEmail,
+}: Props) {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -81,7 +85,12 @@ export default function ContactForm({ labels, endpoint, fallbackEmail }: Props) 
 
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
-      <FormField label={labels.name} name="name" error={errors.name} autoComplete="name" />
+      <FormField
+        label={labels.name}
+        name="name"
+        error={errors.name}
+        autoComplete="name"
+      />
       <FormField
         label={labels.email}
         name="email"

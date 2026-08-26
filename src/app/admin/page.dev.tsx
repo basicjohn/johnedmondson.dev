@@ -35,7 +35,9 @@ export default function AdminDashboard() {
 
   async function handleDelete(post: Post) {
     if (!confirm(`Delete "${post.title.en}"? This cannot be undone.`)) return;
-    const res = await fetch(`/api/admin/posts/${post.id}`, { method: "DELETE" });
+    const res = await fetch(`/api/admin/posts/${post.id}`, {
+      method: "DELETE",
+    });
     if (res.ok) {
       setPosts((prev) => prev?.filter((p) => p.id !== post.id) ?? null);
     } else {
@@ -75,7 +77,8 @@ export default function AdminDashboard() {
     <div>
       <div className={styles.toolbar}>
         <h1 className={styles.title}>
-          Posts {posts && <span className={styles.count}>({visible.length})</span>}
+          Posts{" "}
+          {posts && <span className={styles.count}>({visible.length})</span>}
         </h1>
         <div className={styles.filters}>
           <input
@@ -125,7 +128,10 @@ export default function AdminDashboard() {
             {visible.map((post) => (
               <tr key={post.id}>
                 <td>
-                  <Link href={`/admin/edit/${post.id}`} className={styles.rowTitle}>
+                  <Link
+                    href={`/admin/edit/${post.id}`}
+                    className={styles.rowTitle}
+                  >
                     {post.title.en || "(untitled)"}
                   </Link>
                   <span className={styles.rowSlug}>/{post.slug}</span>

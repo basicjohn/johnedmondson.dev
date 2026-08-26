@@ -12,7 +12,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = getDictionary(locale);
-  return { title: dict.writing.title, description: dict.writing.intro , alternates: alternatesFor(locale, "/writing") };
+  return {
+    title: dict.writing.title,
+    description: dict.writing.intro,
+    alternates: alternatesFor(locale, "/writing"),
+  };
 }
 
 export default async function WritingPage({ params }: Props) {

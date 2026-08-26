@@ -5,11 +5,7 @@
   "status": "draft",
   "featured": false,
   "date": "2026-07-28",
-  "tags": [
-    "AI",
-    "Systems Thinking",
-    "Craft"
-  ],
+  "tags": ["AI", "Systems Thinking", "Craft"],
   "title": {
     "en": "Building for Problems That Won't Sit Still",
     "de": "Bauen für Probleme, die nicht stillhalten"

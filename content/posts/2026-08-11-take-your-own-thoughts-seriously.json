@@ -5,11 +5,7 @@
   "status": "draft",
   "featured": false,
   "date": "2026-08-11",
-  "tags": [
-    "Critical Thinking",
-    "Metacognition",
-    "Writing"
-  ],
+  "tags": ["Critical Thinking", "Metacognition", "Writing"],
   "title": {
     "en": "Take Your Own Thoughts Seriously",
     "de": "Nimm deine eigenen Gedanken ernst"

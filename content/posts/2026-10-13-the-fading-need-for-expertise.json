@@ -5,11 +5,7 @@
   "status": "draft",
   "featured": false,
   "date": "2026-10-13",
-  "tags": [
-    "AI",
-    "Critical Thinking",
-    "Career"
-  ],
+  "tags": ["AI", "Critical Thinking", "Career"],
   "title": {
     "en": "The Fading Need for Expertise",
     "de": "Der schwindende Bedarf an Expertise"

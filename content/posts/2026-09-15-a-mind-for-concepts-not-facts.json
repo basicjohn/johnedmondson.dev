@@ -5,11 +5,7 @@
   "status": "draft",
   "featured": false,
   "date": "2026-09-15",
-  "tags": [
-    "Metacognition",
-    "Systems Thinking",
-    "Learning"
-  ],
+  "tags": ["Metacognition", "Systems Thinking", "Learning"],
   "title": {
     "en": "A Mind for Concepts, Not Facts",
     "de": "Ein Kopf für Konzepte, nicht für Fakten"

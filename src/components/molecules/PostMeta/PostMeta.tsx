@@ -7,7 +7,12 @@ type Props = {
   extra?: string;
 };
 
-export default function PostMeta({ date, readingTime, minReadLabel, extra }: Props) {
+export default function PostMeta({
+  date,
+  readingTime,
+  minReadLabel,
+  extra,
+}: Props) {
   return (
     <p className={styles.meta}>
       <time>{date}</time>

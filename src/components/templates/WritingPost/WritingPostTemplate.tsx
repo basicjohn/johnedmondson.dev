@@ -17,7 +17,12 @@ type Props = {
   dict: Dictionary;
 };
 
-export default function WritingPostTemplate({ post, related, locale, dict }: Props) {
+export default function WritingPostTemplate({
+  post,
+  related,
+  locale,
+  dict,
+}: Props) {
   const html = markdownToHtml(post.body[locale]);
 
   return (
@@ -28,7 +33,8 @@ export default function WritingPostTemplate({ post, related, locale, dict }: Pro
         </Link>
         {post.status === "draft" && (
           <p className={styles.draftNotice}>
-            <Badge label={dict.common.draft} tone="draft" /> {dict.post.draftNotice}
+            <Badge label={dict.common.draft} tone="draft" />{" "}
+            {dict.post.draftNotice}
           </p>
         )}
         <h1 className={styles.title}>{post.title[locale]}</h1>

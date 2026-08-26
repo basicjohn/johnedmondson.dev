@@ -14,11 +14,11 @@ npm install
 npm run dev
 ```
 
-| URL | What |
-| --- | --- |
-| http://localhost:3000 | Site (redirects to `/en` or your last-used language) |
-| http://localhost:3000/de | German version |
-| http://localhost:3000/admin | CMS (local dev only) |
+| URL                         | What                                                 |
+| --------------------------- | ---------------------------------------------------- |
+| http://localhost:3000       | Site (redirects to `/en` or your last-used language) |
+| http://localhost:3000/de    | German version                                       |
+| http://localhost:3000/admin | CMS (local dev only)                                 |
 
 ## How the CMS works
 

@@ -8,7 +8,12 @@ type Props = {
   linkLabel?: string;
 };
 
-export default function SectionHeading({ title, overline, linkHref, linkLabel }: Props) {
+export default function SectionHeading({
+  title,
+  overline,
+  linkHref,
+  linkLabel,
+}: Props) {
   return (
     <div className={styles.wrapper}>
       <div>

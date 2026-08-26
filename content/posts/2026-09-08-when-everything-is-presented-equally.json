@@ -5,11 +5,7 @@
   "status": "draft",
   "featured": false,
   "date": "2026-09-08",
-  "tags": [
-    "Attention",
-    "Critical Thinking",
-    "Systems Thinking"
-  ],
+  "tags": ["Attention", "Critical Thinking", "Systems Thinking"],
   "title": {
     "en": "When Everything Is Presented Equally",
     "de": "Wenn alles gleichwertig präsentiert wird"

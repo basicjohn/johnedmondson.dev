@@ -14,7 +14,12 @@ export default function ProjectCard({ post, locale }: Props) {
 
   return (
     <article className={styles.card}>
-      <Link href={href} className={styles.coverLink} tabIndex={-1} aria-hidden="true">
+      <Link
+        href={href}
+        className={styles.coverLink}
+        tabIndex={-1}
+        aria-hidden="true"
+      >
         {post.cover ? (
           <img
             className={styles.cover}

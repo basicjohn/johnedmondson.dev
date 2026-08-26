@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
   if (getPostBySlug(body.slug)) {
     return NextResponse.json(
       { error: `A post with slug "${body.slug}" already exists.` },
-      { status: 409 }
+      { status: 409 },
     );
   }
 

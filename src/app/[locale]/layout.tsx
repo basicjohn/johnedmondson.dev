@@ -36,13 +36,13 @@ export default async function LocaleLayout({ children, params }: Props) {
       <a className="visually-hidden" href="#main">
         {dict.common.skipToContent}
       </a>
-      <Header locale={locale} nav={dict.nav} languageLabel={dict.common.languageLabel} />
-      <main id="main">{children}</main>
-      <Footer
-        labels={dict.footer}
-        socials={site.socials}
-        email={site.email}
+      <Header
+        locale={locale}
+        nav={dict.nav}
+        languageLabel={dict.common.languageLabel}
       />
+      <main id="main">{children}</main>
+      <Footer labels={dict.footer} socials={site.socials} email={site.email} />
     </div>
   );
 }

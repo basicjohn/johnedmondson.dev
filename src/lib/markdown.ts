@@ -14,11 +14,11 @@ function inline(text: string): string {
   let out = escapeHtml(text);
   out = out.replace(
     /!\[([^\]]*)\]\(([^)\s]+)\)/g,
-    '<img src="$2" alt="$1" loading="lazy" />'
+    '<img src="$2" alt="$1" loading="lazy" />',
   );
   out = out.replace(
     /\[([^\]]+)\]\(([^)\s]+)\)/g,
-    '<a href="$2" rel="noopener">$1</a>'
+    '<a href="$2" rel="noopener">$1</a>',
   );
   out = out.replace(/`([^`]+)`/g, "<code>$1</code>");
   out = out.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
@@ -55,8 +55,8 @@ export function markdownToHtml(md: string): string {
       i++; // skip closing fence
       html.push(
         `<pre><code${lang ? ` class="language-${lang}"` : ""}>${escapeHtml(
-          code.join("\n")
-        )}</code></pre>`
+          code.join("\n"),
+        )}</code></pre>`,
       );
       continue;
     }
@@ -106,7 +106,9 @@ export function markdownToHtml(md: string): string {
         items.push(lines[i].replace(/^[-*]\s+/, ""));
         i++;
       }
-      html.push(`<ul>${items.map((it) => `<li>${inline(it)}</li>`).join("")}</ul>`);
+      html.push(
+        `<ul>${items.map((it) => `<li>${inline(it)}</li>`).join("")}</ul>`,
+      );
       continue;
     }
 
@@ -118,7 +120,9 @@ export function markdownToHtml(md: string): string {
         items.push(lines[i].replace(/^\d+\.\s+/, ""));
         i++;
       }
-      html.push(`<ol>${items.map((it) => `<li>${inline(it)}</li>`).join("")}</ol>`);
+      html.push(
+        `<ol>${items.map((it) => `<li>${inline(it)}</li>`).join("")}</ol>`,
+      );
       continue;
     }
 

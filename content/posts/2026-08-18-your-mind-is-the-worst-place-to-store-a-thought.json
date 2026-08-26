@@ -5,11 +5,7 @@
   "status": "draft",
   "featured": false,
   "date": "2026-08-18",
-  "tags": [
-    "Note-Taking",
-    "Productivity",
-    "Metacognition"
-  ],
+  "tags": ["Note-Taking", "Productivity", "Metacognition"],
   "title": {
     "en": "Your Mind Is the Worst Place to Store a Thought",
     "de": "Dein Kopf ist der schlechteste Ort, um einen Gedanken aufzubewahren"

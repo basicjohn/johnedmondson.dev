@@ -53,7 +53,9 @@
     height: 2px;
     background: var(--color-ink);
     border-radius: 2px;
-    transition: transform 0.25s var(--ease), opacity 0.2s var(--ease);
+    transition:
+      transform 0.25s var(--ease),
+      opacity 0.2s var(--ease);
   }
 }
 

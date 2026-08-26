@@ -5,11 +5,7 @@
   "status": "draft",
   "featured": false,
   "date": "2026-10-06",
-  "tags": [
-    "Learning",
-    "Craft",
-    "Metacognition"
-  ],
+  "tags": ["Learning", "Craft", "Metacognition"],
   "title": {
     "en": "Learning Loops: The Life of a Serial Hobbyist",
     "de": "Lernschleifen: Das Leben eines seriellen Hobbyisten"

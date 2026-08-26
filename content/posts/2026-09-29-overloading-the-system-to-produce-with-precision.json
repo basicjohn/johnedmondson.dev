@@ -5,11 +5,7 @@
   "status": "draft",
   "featured": false,
   "date": "2026-09-29",
-  "tags": [
-    "Productivity",
-    "Craft",
-    "Metacognition"
-  ],
+  "tags": ["Productivity", "Craft", "Metacognition"],
   "title": {
     "en": "Overloading the System to Produce with Precision",
     "de": "Das System überlasten, um präzise zu produzieren"

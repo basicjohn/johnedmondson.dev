@@ -15,7 +15,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = getDictionary(locale);
-  return { title: dict.contact.title, description: dict.contact.intro , alternates: alternatesFor(locale, "/contact") };
+  return {
+    title: dict.contact.title,
+    description: dict.contact.intro,
+    alternates: alternatesFor(locale, "/contact"),
+  };
 }
 
 export default async function ContactPage({ params }: Props) {
@@ -39,7 +43,9 @@ export default async function ContactPage({ params }: Props) {
         />
 
         <aside className={styles.schedule}>
-          <h2 className={styles.scheduleHeading}>{dict.contact.scheduleHeading}</h2>
+          <h2 className={styles.scheduleHeading}>
+            {dict.contact.scheduleHeading}
+          </h2>
           <p className={styles.scheduleText}>{dict.contact.scheduleText}</p>
           <Button variant="secondary" href={CALENDLY_URL} external>
             {dict.contact.scheduleCta}

@@ -50,7 +50,13 @@ export default function FormField(props: Props) {
       </select>
     );
   } else {
-    const { label: _l, error: _e, hint: _h, as: _a, ...rest } = props as InputProps;
+    const {
+      label: _l,
+      error: _e,
+      hint: _h,
+      as: _a,
+      ...rest
+    } = props as InputProps;
     control = (
       <input
         id={id}

@@ -20,7 +20,9 @@ export default function EditPostPage() {
         }
         setPost(await res.json());
       })
-      .catch((e) => setError(e instanceof Error ? e.message : "Failed to load."));
+      .catch((e) =>
+        setError(e instanceof Error ? e.message : "Failed to load."),
+      );
   }, [id]);
 
   if (error) return <p style={{ color: "var(--color-danger)" }}>{error}</p>;

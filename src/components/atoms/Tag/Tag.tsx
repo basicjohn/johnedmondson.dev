@@ -11,7 +11,12 @@ export default function Tag({ label, active = false, onClick }: Props) {
 
   if (onClick) {
     return (
-      <button type="button" className={cls} onClick={onClick} aria-pressed={active}>
+      <button
+        type="button"
+        className={cls}
+        onClick={onClick}
+        aria-pressed={active}
+      >
         {label}
       </button>
     );

@@ -13,12 +13,17 @@ type Props = {
   emptyLabel: string;
 };
 
-export default function PostGrid({ posts, locale, allLabel, emptyLabel }: Props) {
+export default function PostGrid({
+  posts,
+  locale,
+  allLabel,
+  emptyLabel,
+}: Props) {
   const [activeTag, setActiveTag] = useState<string | null>(null);
 
   const tags = useMemo(
     () => [...new Set(posts.flatMap((p) => p.tags))].sort(),
-    [posts]
+    [posts],
   );
 
   const visible = activeTag
