@@ -1,0 +1,25 @@
+{
+  "id": "2026-09-15-a-mind-for-concepts-not-facts",
+  "slug": "a-mind-for-concepts-not-facts",
+  "type": "writing",
+  "status": "draft",
+  "featured": false,
+  "date": "2026-09-15",
+  "tags": [
+    "Metacognition",
+    "Systems Thinking",
+    "Learning"
+  ],
+  "title": {
+    "en": "A Mind for Concepts, Not Facts",
+    "de": "Ein Kopf für Konzepte, nicht für Fakten"
+  },
+  "excerpt": {
+    "en": "I don't retain specifics well — dates, names, exact figures slip away. But give me the shape of how things relate and I never lose it. On thinking in relationships.",
+    "de": "Ich behalte Details schlecht — Daten, Namen, genaue Zahlen entgleiten mir. Aber gib mir die Form, wie Dinge zusammenhängen, und ich verliere sie nie. Über das Denken in Beziehungen."
+  },
+  "body": {
+    "en": "My memory for specifics is bad in a way that used to embarrass me. Dates, names, exact figures — they don't stick. What *does* stick, permanently, is the shape of how things relate: the structure, the cause-and-effect, the pattern.\n\nFor a long time I treated that as a deficiency. Now I think it's just a different storage format — lossy on facts, high-fidelity on relationships.\n\n## How it actually works\n\n- I can't recall the number, but I know exactly *why* it matters and what it connects to.\n- I forget the exact syntax but remember the model it implements.\n- I lose the quote but keep the idea it was pointing at.\n\n## The upside and the tax\n\n- Upside: concepts transfer across domains; facts don't. This is the engine of systems thinking.\n- Tax: I have to look things up constantly, and I have to *externalize* facts (notes, references) instead of trusting recall.\n\n## Notes to self\n\n- Reframe honestly — not \"bad memory,\" but \"conceptual memory.\" Avoid making it sound like a superpower.\n- Link to the note-taking post: externalizing facts is the compensating system.",
+    "de": ""
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "2026-06-01-git-based-cms",
+  "slug": "git-based-cms",
+  "type": "writing",
+  "status": "published",
+  "featured": false,
+  "date": "2026-06-01",
+  "tags": ["CMS", "Next.js", "Architecture"],
+  "title": {
+    "en": "The Case for a Git-Based CMS on a Personal Site",
+    "de": "Warum ein Git-basiertes CMS für die eigene Website"
+  },
+  "excerpt": {
+    "en": "No database, no auth, no hosting bill for an editor nobody else uses. Your content is JSON, your publish button is git push.",
+    "de": "Keine Datenbank, kein Login, keine Hosting-Kosten für einen Editor, den sonst niemand benutzt. Der Inhalt ist JSON, der Publish-Button heißt git push."
+  },
+  "body": {
+    "en": "Every personal site eventually faces the CMS question. Hosted platforms want a subscription, headless services want an account and an API key, and a self-hosted database wants maintenance forever. For a site with exactly one editor — you — there's a simpler answer.\n\n## The model\n\n- Content lives in the repo as JSON files, one per post\n- A local admin UI (only available in `next dev`) reads and writes those files through a couple of API routes\n- Publishing is `git commit && git push` — your CI builds a fully static site\n\n## What you get for free\n\n- **Version history.** Every edit is a diff. Rollbacks are `git revert`.\n- **Zero attack surface.** No login page exists in production, because the CMS isn't deployed.\n- **Portability.** Your content is plain text in your own repo, not rows in someone else's database.\n\n## The trade-off\n\nYou can't edit from your phone on a beach. For a portfolio and an essay every few weeks, that trade is easy. If I ever need remote editing, the content model doesn't change — only the transport does.",
+    "de": "Jede persönliche Website steht irgendwann vor der CMS-Frage. Gehostete Plattformen wollen ein Abo, Headless-Dienste wollen ein Konto und einen API-Key, und eine selbst gehostete Datenbank will für immer gewartet werden. Für eine Seite mit genau einer redigierenden Person — dir — gibt es eine einfachere Antwort.\n\n## Das Modell\n\n- Inhalte liegen als JSON-Dateien im Repo, eine pro Beitrag\n- Eine lokale Admin-Oberfläche (nur in `next dev` verfügbar) liest und schreibt diese Dateien über wenige API-Routen\n- Veröffentlichen heißt `git commit && git push` — die CI baut eine vollständig statische Seite\n\n## Was es geschenkt gibt\n\n- **Versionsgeschichte.** Jede Änderung ist ein Diff. Rollbacks sind `git revert`.\n- **Null Angriffsfläche.** In Produktion existiert keine Login-Seite, weil das CMS gar nicht deployt wird.\n- **Portabilität.** Der Inhalt ist Klartext im eigenen Repo, keine Zeilen in einer fremden Datenbank.\n\n## Der Kompromiss\n\nVom Strand aus am Handy editieren geht nicht. Für ein Portfolio und einen Essay alle paar Wochen ist dieser Tausch leicht. Und falls ich je Remote-Editing brauche, ändert sich nicht das Inhaltsmodell — nur der Transportweg."
+  }
+}

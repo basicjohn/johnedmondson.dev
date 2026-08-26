@@ -1,0 +1,24 @@
+{
+  "id": "2026-08-04-default-mode-systems-thinker",
+  "slug": "default-mode-systems-thinker",
+  "type": "writing",
+  "status": "draft",
+  "featured": false,
+  "date": "2026-08-04",
+  "tags": [
+    "Systems Thinking",
+    "Metacognition"
+  ],
+  "title": {
+    "en": "Default Mode: Systems Thinker",
+    "de": "Standardmodus: Systemdenker"
+  },
+  "excerpt": {
+    "en": "My first instinct is always the connection between things, not the things themselves — even when nobody else sees the thread. What that costs, and what it's worth.",
+    "de": "Mein erster Instinkt ist immer die Verbindung zwischen den Dingen, nicht die Dinge selbst — auch wenn niemand sonst den Faden sieht. Was das kostet und was es wert ist."
+  },
+  "body": {
+    "en": "Ask me what I noticed about a thing and I'll almost never start with the thing. I'll start with what it's connected to — the dependency two steps upstream, the incentive that shaped it, the pattern it rhymes with somewhere unrelated.\n\nThis is my default mode, not a technique I switch on. And I've learned it's not universal: the connections that feel loud and obvious to me are often invisible, or \"insignificant,\" to other people in the room.\n\n## What it's good for\n\n- Seeing second-order effects before they arrive.\n- Diagnosing the *actual* cause instead of the loudest symptom.\n- Transferring a solution from one domain into another that looks nothing alike.\n\n## What it costs\n\n- I can over-connect — treating a coincidence as a system.\n- Explaining the thread takes longer than anyone wants to listen.\n- \"Obvious to me\" is a trap; the burden is on me to make it legible.\n\n## The real work\n\nThe skill isn't seeing connections. It's *filtering* them, then translating the ones that matter into something a non-systems-thinker can act on.\n\n## Notes to self\n\n- Concrete story where a connection I saw early paid off (or embarrassingly didn't).\n- Tie to the \"concepts, not facts\" post — same underlying wiring.",
+    "de": ""
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "writing": "Writing",
+    "contact": "Contact",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "home": {
+    "role": "Software Engineer & Maker",
+    "bio": "I'm a product-focused software engineer who builds scalable, data-driven systems that support real teams in production — relational data models, APIs, and background processing alongside React and TypeScript frontends. A background in UX/UI design means I think through user experience, data integrity, and system reliability together rather than in isolation, and I'm most motivated by mission-driven work — lately, tools that support sustainability and waste reduction. Originally from Portland, Oregon, now based in Freiburg, Germany. In my free time you'll find me traveling, doing house projects, and building apps to improve my day-to-day life.",
+    "ctaWork": "See my work",
+    "ctaContact": "Get in touch",
+    "featuredWork": "Featured work",
+    "recentWriting": "Recent writing",
+    "viewAllWork": "All projects",
+    "viewAllWriting": "All writing",
+    "skillsHeading": "Tools & technologies"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "intro": "Selected projects — product work, dashboards, and experiments.",
+    "empty": "No projects published yet. Check back soon.",
+    "filterAll": "All"
+  },
+  "writing": {
+    "title": "Writing",
+    "intro": "Thoughts and explorations on building software, design, and day-to-day life.",
+    "empty": "No posts published yet. Check back soon.",
+    "filterAll": "All"
+  },
+  "post": {
+    "publishedOn": "Published",
+    "updatedOn": "Updated",
+    "minRead": "min read",
+    "backToPortfolio": "Back to portfolio",
+    "backToWriting": "Back to writing",
+    "related": "More like this",
+    "client": "Client",
+    "role": "Role",
+    "year": "Year",
+    "stack": "Stack",
+    "visitSite": "Visit site",
+    "viewCode": "View code",
+    "draftNotice": "This is an unpublished draft."
+  },
+  "contact": {
+    "title": "Let's talk",
+    "intro": "Have a project, a question, or just want to chat about code and design? Drop me a line.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending…",
+    "success": "Thanks! Your message is on its way — I'll get back to you soon.",
+    "error": "Something went wrong. Please try again or email me directly.",
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email address",
+    "scheduleHeading": "Prefer to talk live?",
+    "scheduleText": "Grab a time on my calendar.",
+    "scheduleCta": "Schedule a chat"
+  },
+  "footer": {
+    "newsletterHeading": "Newsletter",
+    "newsletterText": "I regularly share my thoughts and explorations on Substack.",
+    "newsletterCta": "Read on Substack",
+    "elsewhere": "Elsewhere",
+    "rights": "All rights reserved.",
+    "builtWith": "Designed & built by John Edmondson."
+  },
+  "common": {
+    "languageLabel": "Language",
+    "draft": "Draft",
+    "featured": "Featured",
+    "skipToContent": "Skip to content"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you're looking for doesn't exist or has moved.",
+    "backHome": "Back to home"
+  }
+}

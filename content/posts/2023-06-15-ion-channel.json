@@ -1,0 +1,25 @@
+{
+  "id": "2023-06-15-ion-channel",
+  "slug": "ion-channel",
+  "type": "portfolio",
+  "status": "published",
+  "featured": false,
+  "date": "2023-06-15",
+  "tags": ["Dashboard", "Data Visualization", "Security"],
+  "title": {
+    "en": "Ion Channel — Software Supply Chain Dashboard",
+    "de": "Ion Channel — Dashboard für die Software-Lieferkette"
+  },
+  "excerpt": {
+    "en": "Frontend work on a security intelligence platform: dependency health, repository metrics, and user & feature management at a glance.",
+    "de": "Frontend-Arbeit an einer Sicherheitsplattform: Abhängigkeits-Gesundheit, Repository-Metriken sowie Nutzer- und Feature-Verwaltung auf einen Blick."
+  },
+  "body": {
+    "en": "## Overview\n\nIon Channel analyzes the software supply chain — the open-source dependencies, repositories, and pipelines that modern products are built on. As a front-end engineer I worked on the dashboard experience that turns that firehose of security data into something teams can actually act on.\n\n## What I built\n\n- Four greenfield applications: search for active packages & repositories, a package & repository metrics page, a project dashboard, and multiple user & org management pages\n- Migration of the platform to GraphQL and React Context, improving efficiency and maintainability\n- Front-end performance gains through caching with Graphcache\n- Automated testing CI/CD pipelines to protect front-end code integrity\n\n## Beyond features\n\nI assisted in migrating legacy code to an Nx monorepo, led code reviews with constructive feedback, and mentored a junior engineer through pair programming and code review — improving both their coding skills and project management.",
+    "de": "## Überblick\n\nIon Channel analysiert die Software-Lieferkette — die Open-Source-Abhängigkeiten, Repositories und Pipelines, auf denen moderne Produkte aufbauen. Als Frontend-Engineer habe ich an der Dashboard-Erfahrung gearbeitet, die diese Flut an Sicherheitsdaten in etwas verwandelt, womit Teams tatsächlich arbeiten können.\n\n## Was ich gebaut habe\n\n- Vier Greenfield-Anwendungen: Suche für aktive Pakete & Repositories, eine Metrik-Seite für Pakete & Repositories, ein Projekt-Dashboard sowie mehrere Seiten zur Nutzer- und Organisationsverwaltung\n- Migration der Plattform zu GraphQL und React Context — für mehr Effizienz und Wartbarkeit\n- Frontend-Performance-Gewinne durch Caching mit Graphcache\n- Automatisierte Test-Pipelines (CI/CD) zum Schutz der Frontend-Codequalität\n\n## Über Features hinaus\n\nIch habe bei der Migration von Legacy-Code in ein Nx-Monorepo mitgewirkt, Code-Reviews mit konstruktivem Feedback geleitet und einen Junior-Engineer durch Pair Programming und Reviews gementort — mit Fortschritten in Code-Qualität und Projektmanagement."
+  },
+  "client": "Ion Channel",
+  "role": "Front-end Software Engineer",
+  "year": "2022 – 2023",
+  "stack": ["React", "TypeScript", "GraphQL", "Nx", "Graphcache"]
+}

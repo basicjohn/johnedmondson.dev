@@ -1,0 +1,25 @@
+{
+  "id": "2024-06-01-six-pillars",
+  "slug": "six-pillars",
+  "type": "portfolio",
+  "status": "published",
+  "featured": true,
+  "date": "2024-06-01",
+  "tags": ["Next.js", "AWS", "SaaS", "Design System"],
+  "title": {
+    "en": "Six Pillars — Cloud Optimization Platform",
+    "de": "Six Pillars — Cloud-Optimierungsplattform"
+  },
+  "excerpt": {
+    "en": "Co-founded and built a complete cloud optimization platform: Next.js/TypeScript product, multi-tenant B2B SaaS architecture, AWS Marketplace integration, and an atomic design system.",
+    "de": "Mitgegründet und komplett aufgebaut: eine Cloud-Optimierungsplattform mit Next.js/TypeScript, mandantenfähiger B2B-SaaS-Architektur, AWS-Marketplace-Integration und einem Atomic-Design-System."
+  },
+  "body": {
+    "en": "## Overview\n\nSix Pillars helps organizations analyze and optimize their cloud resources. As co-founder and product engineer (Dec 2023 – Mar 2025), I owned the product end to end — from architecture and design system to business strategy.\n\n## What I built\n\n- A complete cloud optimization platform in Next.js/TypeScript with complex state management, responsive UI architecture, and AWS integration\n- An atomic design system with scalable components, translating complex technical processes into intuitive user experiences\n- A multi-tenant system with WorkOS authentication, organization management, and AWS Marketplace integration for secure B2B SaaS with role-based access control\n- Data visualization patterns and dashboards that communicate technical metrics and optimization outcomes to both technical and business stakeholders\n- An end-to-end API integration layer between frontend and optimization backend with token-based authentication middleware\n\n## Beyond the code\n\nAs co-founder I led product ideation and UX strategy across multiple design iterations, created the AWS Marketplace listing, ran customer demonstrations, and developed five-year milestone plans aligning product vision with market needs.",
+    "de": "## Überblick\n\nSix Pillars hilft Organisationen, ihre Cloud-Ressourcen zu analysieren und zu optimieren. Als Mitgründer und Product Engineer (Dez 2023 – März 2025) habe ich das Produkt von Anfang bis Ende verantwortet — von Architektur und Designsystem bis zur Geschäftsstrategie.\n\n## Was ich gebaut habe\n\n- Eine vollständige Cloud-Optimierungsplattform in Next.js/TypeScript mit komplexem State Management, responsiver UI-Architektur und AWS-Integration\n- Ein Atomic-Design-System mit skalierbaren Komponenten, das komplexe technische Prozesse in intuitive Nutzererlebnisse übersetzt\n- Ein mandantenfähiges System mit WorkOS-Authentifizierung, Organisationsverwaltung und AWS-Marketplace-Integration für sicheres B2B-SaaS mit rollenbasierter Zugriffskontrolle\n- Datenvisualisierungs-Muster und Dashboards, die technische Metriken und Optimierungsergebnisse für Technik- wie Business-Stakeholder verständlich machen\n- Eine durchgängige API-Integrationsschicht zwischen Frontend und Optimierungs-Backend mit tokenbasierter Auth-Middleware\n\n## Über den Code hinaus\n\nAls Mitgründer habe ich Produktideen und UX-Strategie über mehrere Design-Iterationen geführt, das AWS-Marketplace-Listing erstellt, Kundendemos durchgeführt und Fünfjahres-Meilensteinpläne entwickelt, die Produktvision und Marktbedarf verbinden."
+  },
+  "client": "Six Pillars (Co-Founder)",
+  "role": "Co-Founder & Product Engineer",
+  "year": "2023 – 2025",
+  "stack": ["Next.js", "TypeScript", "AWS", "WorkOS", "Storybook"]
+}

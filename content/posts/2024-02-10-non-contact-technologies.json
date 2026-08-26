@@ -1,0 +1,25 @@
+{
+  "id": "2024-02-10-non-contact-technologies",
+  "slug": "non-contact-technologies",
+  "type": "portfolio",
+  "status": "published",
+  "featured": false,
+  "date": "2024-02-10",
+  "tags": ["Product", "UI/UX", "Frontend"],
+  "title": {
+    "en": "Non-Contact Technologies — Product Experience",
+    "de": "Non-Contact Technologies — Produkterlebnis"
+  },
+  "excerpt": {
+    "en": "Product UI work for a hardware company: presenting technical sensor products clearly across devices.",
+    "de": "Produkt-UI für ein Hardware-Unternehmen: technische Sensorprodukte klar und geräteübergreifend präsentiert."
+  },
+  "body": {
+    "en": "## Overview\n\nNon-Contact Technologies builds precision sensor hardware. The web experience needed to present deeply technical products to two very different audiences at once: engineers who want specifications, and procurement teams who want clarity.\n\n## What I built\n\n- Product detail layouts that pair specification tables with plain-language summaries\n- A responsive component system so dense technical content stays readable on mobile\n- Image-forward product galleries with graceful fallbacks\n\n## Approach\n\nThe guiding principle was *clarity over cleverness*. Typography and spacing do the heavy lifting; interactive flourishes only appear where they help comparison and comprehension.",
+    "de": "## Überblick\n\nNon-Contact Technologies baut Präzisions-Sensorhardware. Der Webauftritt musste hochtechnische Produkte für zwei sehr unterschiedliche Zielgruppen gleichzeitig aufbereiten: Ingenieure, die Spezifikationen wollen, und Einkaufsteams, die Klarheit brauchen.\n\n## Was ich gebaut habe\n\n- Produktdetail-Layouts, die Spezifikationstabellen mit verständlichen Zusammenfassungen kombinieren\n- Ein responsives Komponentensystem, damit dichte technische Inhalte auch mobil lesbar bleiben\n- Bildstarke Produktgalerien mit eleganten Fallbacks\n\n## Vorgehen\n\nDas Leitprinzip war *Klarheit statt Effekthascherei*. Typografie und Weißraum leisten die Hauptarbeit; interaktive Details gibt es nur dort, wo sie Vergleich und Verständnis fördern."
+  },
+  "client": "Non-Contact Technologies",
+  "role": "Frontend Engineer",
+  "year": "2024",
+  "stack": ["React", "TypeScript", "Sass/SCSS"]
+}

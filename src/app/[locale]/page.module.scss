@@ -1,0 +1,19 @@
+@use "tokens" as *;
+
+.section {
+  padding-block: var(--space-7);
+}
+
+.workGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+
+  @include respond($bp-md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.writingList {
+  max-width: var(--content-max);
+}

@@ -1,0 +1,80 @@
+{
+  "skills": [
+    "React",
+    "TypeScript",
+    "Next.js",
+    "PostgreSQL",
+    "Node.js",
+    "JavaScript",
+    "HTML/CSS",
+    "Sass/SCSS",
+    "GraphQL",
+    "RESTful APIs",
+    "AWS",
+    "CI/CD",
+    "GitHub Actions",
+    "TDD",
+    "Jest",
+    "Storybook",
+    "D3",
+    "Three.js",
+    "React Native",
+    "Redux",
+    "NX (Monorepo)",
+    "Webpack",
+    "Responsive Design",
+    "Web Accessibility",
+    "Performance Optimization",
+    "UI/UX",
+    "Design Patterns",
+    "SEO"
+  ],
+  "greetings": [
+    "Hello!",
+    "Hallo!",
+    "Yo!",
+    "Aloha!",
+    "Hi there!",
+    "Servus!",
+    "Howdy!",
+    "Moin!",
+    "Hey!",
+    "Grüezi!",
+    "Welcome!",
+    "Willkommen!",
+    "Greetings, earthling!",
+    "Bonjour!",
+    "Hej!",
+    "Oi!"
+  ],
+  "quotes": [
+    {
+      "text": "Creativity is intelligence having fun.",
+      "author": "Albert Einstein"
+    },
+    {
+      "text": "You can't use up creativity. The more you use, the more you have.",
+      "author": "Maya Angelou"
+    },
+    {
+      "text": "To practice any art, no matter how well or badly, is a way to make your soul grow.",
+      "author": "Kurt Vonnegut"
+    },
+    {
+      "text": "An idea that is not dangerous is unworthy of being called an idea at all.",
+      "author": "Oscar Wilde"
+    },
+    {
+      "text": "Simplicity is the ultimate sophistication.",
+      "author": "Leonardo da Vinci"
+    }
+  ],
+  "socials": [
+    { "label": "GitHub", "url": "https://github.com/basicjohn" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/johnedmondsondev/" },
+    { "label": "Twitter / X", "url": "https://twitter.com/basicjohn" },
+    { "label": "Pinterest", "url": "https://www.pinterest.com/basicjohn/" },
+    { "label": "Substack", "url": "https://basicjohn.substack.com" },
+    { "label": "Upwork", "url": "https://www.upwork.com/freelancers/johnedmondsondev" }
+  ]
+}

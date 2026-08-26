@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "home": "Start",
+    "portfolio": "Portfolio",
+    "writing": "Texte",
+    "contact": "Kontakt",
+    "menuOpen": "Menü öffnen",
+    "menuClose": "Menü schließen"
+  },
+  "home": {
+    "role": "Software Engineer & Macher",
+    "bio": "Ich bin ein produktorientierter Software Engineer und baue skalierbare, datengetriebene Systeme, die Teams im Produktivbetrieb wirklich unterstützen — relationale Datenmodelle, APIs und Hintergrundverarbeitung ebenso wie Frontends mit React und TypeScript. Durch meinen Hintergrund im UX/UI-Design denke ich Nutzererlebnis, Datenintegrität und Systemzuverlässigkeit zusammen statt isoliert, und am meisten motiviert mich sinnstiftende Arbeit — zuletzt Tools für Nachhaltigkeit und Abfallvermeidung. Ursprünglich aus Portland, Oregon, heute zu Hause in Freiburg. In meiner Freizeit reise ich gern, arbeite an Hausprojekten und baue Apps, die meinen Alltag verbessern.",
+    "ctaWork": "Meine Arbeiten",
+    "ctaContact": "Kontakt aufnehmen",
+    "featuredWork": "Ausgewählte Arbeiten",
+    "recentWriting": "Neueste Texte",
+    "viewAllWork": "Alle Projekte",
+    "viewAllWriting": "Alle Texte",
+    "skillsHeading": "Tools & Technologien"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "intro": "Ausgewählte Projekte — Produktarbeit, Dashboards und Experimente.",
+    "empty": "Noch keine Projekte veröffentlicht. Schau bald wieder vorbei.",
+    "filterAll": "Alle"
+  },
+  "writing": {
+    "title": "Texte",
+    "intro": "Gedanken und Erkundungen über Softwareentwicklung, Design und den Alltag.",
+    "empty": "Noch keine Beiträge veröffentlicht. Schau bald wieder vorbei.",
+    "filterAll": "Alle"
+  },
+  "post": {
+    "publishedOn": "Veröffentlicht",
+    "updatedOn": "Aktualisiert",
+    "minRead": "Min. Lesezeit",
+    "backToPortfolio": "Zurück zum Portfolio",
+    "backToWriting": "Zurück zu den Texten",
+    "related": "Mehr davon",
+    "client": "Kunde",
+    "role": "Rolle",
+    "year": "Jahr",
+    "stack": "Stack",
+    "visitSite": "Website besuchen",
+    "viewCode": "Code ansehen",
+    "draftNotice": "Dies ist ein unveröffentlichter Entwurf."
+  },
+  "contact": {
+    "title": "Sag Hallo",
+    "intro": "Du hast ein Projekt, eine Frage oder möchtest einfach über Code und Design plaudern? Schreib mir.",
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "send": "Nachricht senden",
+    "sending": "Wird gesendet…",
+    "success": "Danke! Deine Nachricht ist unterwegs — ich melde mich bald.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuch es erneut oder schreib mir direkt eine E-Mail.",
+    "required": "Dieses Feld ist erforderlich",
+    "invalidEmail": "Bitte gib eine gültige E-Mail-Adresse ein",
+    "scheduleHeading": "Lieber direkt sprechen?",
+    "scheduleText": "Such dir einen Termin in meinem Kalender aus.",
+    "scheduleCta": "Termin vereinbaren"
+  },
+  "footer": {
+    "newsletterHeading": "Newsletter",
+    "newsletterText": "Ich teile regelmäßig meine Gedanken und Erkundungen auf Substack.",
+    "newsletterCta": "Auf Substack lesen",
+    "elsewhere": "Anderswo",
+    "rights": "Alle Rechte vorbehalten.",
+    "builtWith": "Gestaltet & entwickelt von John Edmondson."
+  },
+  "common": {
+    "languageLabel": "Sprache",
+    "draft": "Entwurf",
+    "featured": "Ausgewählt",
+    "skipToContent": "Zum Inhalt springen"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "text": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "backHome": "Zur Startseite"
+  }
+}

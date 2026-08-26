@@ -1,0 +1,20 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 32rem;
+}
+
+.success {
+  padding: var(--space-4) var(--space-5);
+  background: #e2efe5;
+  color: var(--color-success);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  max-width: 32rem;
+}
+
+.error {
+  color: var(--color-danger);
+  font-weight: 600;
+}

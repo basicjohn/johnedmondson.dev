@@ -1,0 +1,53 @@
+@use "tokens" as *;
+
+.footer {
+  margin-top: var(--space-8);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface-tint);
+  padding-top: var(--space-7);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  padding-bottom: var(--space-7);
+
+  @include respond($bp-md) {
+    grid-template-columns: 1.2fr 1fr auto;
+  }
+}
+
+.quoteCol {
+  max-width: 28rem;
+}
+
+.heading {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-3);
+}
+
+.text {
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-4);
+  max-width: 24rem;
+}
+
+.socials {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  color: var(--color-ink-faint);
+}

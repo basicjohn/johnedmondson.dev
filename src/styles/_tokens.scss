@@ -1,0 +1,29 @@
+// ============================================
+// Design tokens — SCSS side (breakpoints, mixins)
+// Color/space/type tokens live as CSS custom
+// properties in globals.scss
+// ============================================
+
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1200px;
+
+// Mobile-first: styles apply at $bp and up
+@mixin respond($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+@mixin focus-ring {
+  outline: 2px solid var(--color-accent-strong);
+  outline-offset: 2px;
+}
+
+@mixin card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}

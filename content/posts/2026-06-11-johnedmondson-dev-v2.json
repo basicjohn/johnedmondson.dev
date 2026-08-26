@@ -1,0 +1,25 @@
+{
+  "id": "2026-06-11-johnedmondson-dev-v2",
+  "slug": "johnedmondson-dev-v2",
+  "type": "portfolio",
+  "status": "published",
+  "featured": true,
+  "date": "2026-06-11",
+  "tags": ["Next.js", "Design System", "i18n"],
+  "title": {
+    "en": "johnedmondson.dev v2 — This Website",
+    "de": "johnedmondson.dev v2 — Diese Website"
+  },
+  "excerpt": {
+    "en": "A bilingual portfolio and writing site built on Next.js with an atomic design component library and a file-based CMS.",
+    "de": "Eine zweisprachige Portfolio- und Schreib-Website auf Next.js-Basis, mit Atomic-Design-Komponentenbibliothek und dateibasiertem CMS."
+  },
+  "body": {
+    "en": "## Why a rebuild?\n\nVersion one did its job, but I wanted three things it couldn't offer: a real home for longer writing, proper German/English support, and a component library organized the way I think about interfaces.\n\n## Architecture\n\n- **Next.js App Router** with locale-segmented routes (`/en`, `/de`) and a cookie-aware middleware redirect\n- **Atomic design** — atoms, molecules, organisms, and templates, each with co-located SCSS modules\n- **File-based CMS** — posts are JSON documents edited through a local `/admin` interface; publishing is a git commit, so the production site stays fully static with zero database\n- A dependency-free Markdown renderer for post bodies\n\n## Two kinds of posts\n\nPortfolio pieces get an image-forward template with a sticky project fact sheet — client, role, year, stack, links. Writings get a focused editorial column tuned for reading. Same content model, two presentations.",
+    "de": "## Warum ein Neuaufbau?\n\nVersion eins hat ihren Zweck erfüllt, aber mir fehlten drei Dinge: ein echter Ort für längere Texte, sauberer Deutsch/Englisch-Support und eine Komponentenbibliothek, die so organisiert ist, wie ich über Interfaces denke.\n\n## Architektur\n\n- **Next.js App Router** mit Sprach-Routen (`/en`, `/de`) und Cookie-basierter Middleware-Weiterleitung\n- **Atomic Design** — Atoms, Molecules, Organisms und Templates, jeweils mit eigenen SCSS-Modulen\n- **Dateibasiertes CMS** — Beiträge sind JSON-Dokumente, bearbeitet über ein lokales `/admin`-Interface; Veröffentlichen ist ein Git-Commit, die Produktivseite bleibt komplett statisch und ohne Datenbank\n- Ein abhängigkeitsfreier Markdown-Renderer für die Beitragsinhalte\n\n## Zwei Arten von Beiträgen\n\nPortfolio-Stücke bekommen ein bildstarkes Template mit einem fixierten Projekt-Steckbrief — Kunde, Rolle, Jahr, Stack, Links. Texte bekommen eine fokussierte, aufs Lesen optimierte Spalte. Gleiches Inhaltsmodell, zwei Darstellungen."
+  },
+  "role": "Design & Engineering",
+  "year": "2026",
+  "repo": "https://github.com/basicjohn/johnedmondson.dev",
+  "stack": ["Next.js", "TypeScript", "Sass/SCSS", "React"]
+}

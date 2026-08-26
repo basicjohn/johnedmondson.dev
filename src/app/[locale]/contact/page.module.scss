@@ -1,0 +1,47 @@
+@use "tokens" as *;
+
+.page {
+  padding-block: var(--space-7);
+}
+
+.header {
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-size: var(--text-3xl);
+}
+
+.intro {
+  margin-top: var(--space-2);
+  font-size: var(--text-lg);
+  color: var(--color-ink-soft);
+  max-width: var(--content-max);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: start;
+
+  @include respond($bp-lg) {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    column-gap: var(--space-8);
+  }
+}
+
+.schedule {
+  @include card;
+  padding: var(--space-5);
+}
+
+.scheduleHeading {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+}
+
+.scheduleText {
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-4);
+}
