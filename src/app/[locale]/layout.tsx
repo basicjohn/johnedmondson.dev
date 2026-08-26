@@ -19,10 +19,6 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   const dict = getDictionary(locale);
   const site = getSiteData();
-  const newsletter =
-    site.socials.find((s) => s.label.toLowerCase().includes("substack"))?.url ??
-    "https://basicjohn.substack.com";
-
   return (
     <div lang={locale}>
       <a className="visually-hidden" href="#main">
@@ -33,8 +29,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <Footer
         labels={dict.footer}
         socials={site.socials}
-        quotes={site.quotes}
-        newsletterUrl={newsletter}
+        email={site.email}
       />
     </div>
   );

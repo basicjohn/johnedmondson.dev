@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { getFeaturedPosts, getPostsByType, getSiteData } from "@/lib/content";
 import Hero from "@/components/organisms/Hero/Hero";
-import SkillTicker from "@/components/molecules/SkillTicker/SkillTicker";
 import SectionHeading from "@/components/molecules/SectionHeading/SectionHeading";
 import ProjectCard from "@/components/molecules/ProjectCard/ProjectCard";
 import PostCard from "@/components/molecules/PostCard/PostCard";
@@ -23,14 +22,12 @@ export default async function HomePage({ params }: Props) {
     <>
       <Hero
         locale={locale}
-        greetings={site.greetings}
         role={dict.home.role}
         bio={dict.home.bio}
         ctaWork={dict.home.ctaWork}
         ctaContact={dict.home.ctaContact}
       />
 
-      <SkillTicker skills={site.skills} heading={dict.home.skillsHeading} />
 
       {featuredWork.length > 0 && (
         <section className={`container ${styles.section}`}>

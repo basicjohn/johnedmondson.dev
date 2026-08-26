@@ -13,7 +13,10 @@
   --color-ink-soft: #6b6560;
   --color-ink-faint: #97918a;
   --color-accent: #f2a934; // decorative gold
-  --color-accent-strong: #b06f10; // accessible gold for text/links
+  // Darkened from #b06f10, which measured 4.03:1 on surface and 3.63:1
+  // on the page background — under AA's 4.5:1 for body text despite the
+  // name. This value clears 5.1:1 on every surface in the palette.
+  --color-accent-strong: #8f5a12; // accessible gold for text/links
   --color-accent-soft: #fbeed3;
   --color-border: #e5dfd4;
   --color-danger: #b3422f;

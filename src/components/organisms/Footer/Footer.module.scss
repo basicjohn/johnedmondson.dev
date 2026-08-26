@@ -14,11 +14,12 @@
   padding-bottom: var(--space-7);
 
   @include respond($bp-md) {
-    grid-template-columns: 1.2fr 1fr auto;
+    // Was 1.2fr 1fr auto, for the quote and newsletter columns.
+    grid-template-columns: 1.4fr auto;
   }
 }
 
-.quoteCol {
+.availabilityCol {
   max-width: 28rem;
 }
 
@@ -31,6 +32,15 @@
   color: var(--color-ink-soft);
   margin-bottom: var(--space-4);
   max-width: 24rem;
+}
+
+.email {
+  font-weight: 700;
+  color: var(--color-accent-strong);
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .socials {

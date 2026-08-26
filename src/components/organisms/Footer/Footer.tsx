@@ -1,13 +1,10 @@
-import type { Quote, SocialLink } from "@/lib/types";
-import QuoteBlock from "@/components/molecules/QuoteBlock/QuoteBlock";
+import type { SocialLink } from "@/lib/types";
 import SocialIcon from "@/components/atoms/SocialIcon/SocialIcon";
-import Button from "@/components/atoms/Button/Button";
 import styles from "./Footer.module.scss";
 
 type FooterLabels = {
-  newsletterHeading: string;
-  newsletterText: string;
-  newsletterCta: string;
+  availabilityHeading: string;
+  availabilityText: string;
   elsewhere: string;
   rights: string;
   builtWith: string;
@@ -16,24 +13,22 @@ type FooterLabels = {
 type Props = {
   labels: FooterLabels;
   socials: SocialLink[];
-  quotes: Quote[];
-  newsletterUrl: string;
+  email: string;
 };
 
-export default function Footer({ labels, socials, quotes, newsletterUrl }: Props) {
+export default function Footer({ labels, socials, email }: Props) {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
-        <div className={styles.quoteCol}>
-          <QuoteBlock quotes={quotes} />
-        </div>
-
-        <div>
-          <h2 className={styles.heading}>{labels.newsletterHeading}</h2>
-          <p className={styles.text}>{labels.newsletterText}</p>
-          <Button variant="secondary" href={newsletterUrl} external>
-            {labels.newsletterCta}
-          </Button>
+        {/* Replaced a rotating quote and an empty newsletter signup. A
+            current availability line and a plain address are the most
+            useful thing a portfolio footer can carry. */}
+        <div className={styles.availabilityCol}>
+          <h2 className={styles.heading}>{labels.availabilityHeading}</h2>
+          <p className={styles.text}>{labels.availabilityText}</p>
+          <a className={styles.email} href={`mailto:${email}`}>
+            {email}
+          </a>
         </div>
 
         <div>

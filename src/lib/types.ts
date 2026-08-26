@@ -30,21 +30,14 @@ export interface Post {
   stack?: string[];
 }
 
-export interface Quote {
-  text: string;
-  author: string;
-}
-
 export interface SocialLink {
   label: string;
   url: string;
 }
 
 export interface SiteData {
-  skills: string[];
-  greetings: string[];
-  quotes: Quote[];
   socials: SocialLink[];
+  email: string;
 }
 
 /** Blank post used by the CMS "new post" form */

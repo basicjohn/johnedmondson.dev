@@ -15,8 +15,7 @@
     "featuredWork": "Featured work",
     "recentWriting": "Recent writing",
     "viewAllWork": "All projects",
-    "viewAllWriting": "All writing",
-    "skillsHeading": "Tools & technologies"
+    "viewAllWriting": "All writing"
   },
   "portfolio": {
     "title": "Portfolio",
@@ -62,9 +61,8 @@
     "scheduleCta": "Schedule a chat"
   },
   "footer": {
-    "newsletterHeading": "Newsletter",
-    "newsletterText": "I regularly share my thoughts and explorations on Substack.",
-    "newsletterCta": "Read on Substack",
+    "availabilityHeading": "Availability",
+    "availabilityText": "Open to full-time product engineering roles.",
     "elsewhere": "Elsewhere",
     "rights": "All rights reserved.",
     "builtWith": "Designed & built by John Edmondson."

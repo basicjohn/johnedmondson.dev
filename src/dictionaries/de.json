@@ -15,8 +15,7 @@
     "featuredWork": "Ausgewählte Arbeiten",
     "recentWriting": "Neueste Texte",
     "viewAllWork": "Alle Projekte",
-    "viewAllWriting": "Alle Texte",
-    "skillsHeading": "Tools & Technologien"
+    "viewAllWriting": "Alle Texte"
   },
   "portfolio": {
     "title": "Portfolio",
@@ -62,9 +61,8 @@
     "scheduleCta": "Termin vereinbaren"
   },
   "footer": {
-    "newsletterHeading": "Newsletter",
-    "newsletterText": "Ich teile regelmäßig meine Gedanken und Erkundungen auf Substack.",
-    "newsletterCta": "Auf Substack lesen",
+    "availabilityHeading": "Verfügbarkeit",
+    "availabilityText": "Offen für eine Festanstellung als Product Engineer.",
     "elsewhere": "Anderswo",
     "rights": "Alle Rechte vorbehalten.",
     "builtWith": "Gestaltet & entwickelt von John Edmondson."
