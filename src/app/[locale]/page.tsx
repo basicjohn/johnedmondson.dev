@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { alternatesFor } from "@/lib/seo";
 import { getDictionary, isLocale } from "@/lib/i18n";
-import { getFeaturedPosts, getPostsByType, getSiteData } from "@/lib/content";
+import { getFeaturedPosts, getPostsByType } from "@/lib/content";
 import Hero from "@/components/organisms/Hero/Hero";
 import SectionHeading from "@/components/molecules/SectionHeading/SectionHeading";
 import ProjectCard from "@/components/molecules/ProjectCard/ProjectCard";
@@ -9,12 +11,17 @@ import styles from "./page.module.scss";
 
 type Props = { params: Promise<{ locale: string }> };
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  return { alternates: alternatesFor(locale) };
+}
+
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
   const dict = getDictionary(locale);
-  const site = getSiteData();
   const featuredWork = getFeaturedPosts("portfolio", 3);
   const recentWriting = getPostsByType("writing").slice(0, 3);
 

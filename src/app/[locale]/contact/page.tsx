@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { alternatesFor } from "@/lib/seo";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import ContactForm from "@/components/organisms/ContactForm/ContactForm";
 import Button from "@/components/atoms/Button/Button";
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = getDictionary(locale);
-  return { title: dict.contact.title, description: dict.contact.intro };
+  return { title: dict.contact.title, description: dict.contact.intro , alternates: alternatesFor(locale, "/contact") };
 }
 
 export default async function ContactPage({ params }: Props) {

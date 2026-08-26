@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary, isLocale, locales } from "@/lib/i18n";
 import { getPostBySlug, getPostsByType, getRelatedPosts } from "@/lib/content";
+import { alternatesFor } from "@/lib/seo";
 import PortfolioPostTemplate from "@/components/templates/PortfolioPost/PortfolioPostTemplate";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -17,7 +18,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!isLocale(locale)) return {};
   const post = getPostBySlug(slug);
   if (!post) return {};
-  return { title: post.title[locale], description: post.excerpt[locale] };
+  return { title: post.title[locale], description: post.excerpt[locale],
+    alternates: alternatesFor(locale, `/portfolio/${post.slug}`) };
 }
 
 export default async function PortfolioPostPage({ params }: Props) {

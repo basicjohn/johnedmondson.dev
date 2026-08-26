@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { alternatesFor } from "@/lib/seo";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { getPostsByType } from "@/lib/content";
 import PostList from "@/components/organisms/PostList/PostList";
@@ -11,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = getDictionary(locale);
-  return { title: dict.writing.title, description: dict.writing.intro };
+  return { title: dict.writing.title, description: dict.writing.intro , alternates: alternatesFor(locale, "/writing") };
 }
 
 export default async function WritingPage({ params }: Props) {
