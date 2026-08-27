@@ -1,0 +1,66 @@
+@use "tokens" as *;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-8);
+
+  @include respond($bp-md) {
+    padding-block: calc(var(--space-8) * 1.4);
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+}
+
+.greeting {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-accent-strong);
+  margin-bottom: var(--space-2);
+}
+
+.name {
+  font-size: var(--text-4xl);
+  letter-spacing: -0.02em;
+}
+
+.role {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-size: var(--text-xl);
+  color: var(--color-ink-soft);
+  margin-top: var(--space-2);
+}
+
+.bio {
+  font-size: var(--text-lg);
+  color: var(--color-ink-soft);
+  margin-top: var(--space-4);
+  max-width: 38rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 36rem;
+  height: 36rem;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgb(242 169 52 / 18%) 0%,
+    rgb(242 169 52 / 0%) 65%
+  );
+  pointer-events: none;
+}

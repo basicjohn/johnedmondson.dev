@@ -1,0 +1,21 @@
+{
+  "id": "2026-09-08-when-everything-is-presented-equally",
+  "slug": "when-everything-is-presented-equally",
+  "type": "writing",
+  "status": "draft",
+  "featured": false,
+  "date": "2026-09-08",
+  "tags": ["Attention", "Critical Thinking", "Systems Thinking"],
+  "title": {
+    "en": "When Everything Is Presented Equally",
+    "de": "Wenn alles gleichwertig präsentiert wird"
+  },
+  "excerpt": {
+    "en": "Feeds, dashboards, inboxes: modern tools flatten everything to the same visual weight. Deciding what actually matters is now a skill, not a given.",
+    "de": "Feeds, Dashboards, Postfächer: Moderne Werkzeuge nivellieren alles auf dasselbe visuelle Gewicht. Zu entscheiden, was wirklich zählt, ist heute eine Fähigkeit, keine Selbstverständlichkeit."
+  },
+  "body": {
+    "en": "Open almost any modern tool and everything arrives at the same visual weight. Every email the same size. Every feed item the same card. Every notification the same red dot. The interface makes no claim about what matters — it flattens the urgent, the trivial, and the life-changing into one uniform stream.\n\nThat flattening quietly offloads a hard job onto you: deciding what's important, with zero help from the presentation.\n\n## What \"presented equally\" costs us\n\n- Salience gets hijacked by whatever is loudest or newest, not what's most important.\n- Prioritization becomes constant, invisible labor.\n- The default is to treat everything as equally (un)important — which means nothing gets real weight.\n\n## The skill this demands\n\n- Bringing your *own* hierarchy to a system that refuses to supply one.\n- Deciding your filtering criteria *before* you open the stream, not inside it.\n\n## Notes to self\n\n- Tie to systems thinking: importance is about relationships, not items.\n- Possible design angle: what would a tool that took a stance on importance actually look like?",
+    "de": ""
+  }
+}

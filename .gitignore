@@ -1,84 +1,36 @@
-## Environment settings and configurations
-.env
-nuget.config
-
-## Node.js and webpack
+# dependencies
 node_modules/
 .pnp
 .pnp.js
-/coverage
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# production
 /build
+/dist
+
+# environment
+.env
+.env*.local
+
+# testing
+/coverage
+
+# misc
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+*.pem
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vscode
-
-## Visual Studio and other IDEs
-*.rsuser
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-*.userprefs
-mono_crash.*
-.vs/
-*.VisualState.xml
-*.gpState
-_ReSharper*/
-*.[Rr]e[Ss]harper
-*.DotSettings.user
-_TeamCity*
-*.dotCover
-.axoCover/*
-!.axoCover/settings.json
-coverage*.json
-coverage*.xml
-coverage*.info
-*.psess
-*.vsp
-*.vspx
-*.sap
-*.e2e
-$tf/
-*.GhostDoc.xml
-.ntvs_analysis.dat
-*.plg
-*.opt
-*.vbw
-.cr/personal
-__pycache__/
-*.pyc
-*.tss
-*.jmconfig
-*.nvuser
-.mfractor/
-.ionide/
-.localhistory/
 .history/
 
-## Build results and artifacts
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-x64/
-x86/
-[Ww][Ii][Nn]32/
-[Aa][Rr][Mm]/
-[Aa][Rr][Mm]64/
-bld/
-[Bb]in/
-[Oo]bj/
-[Ll]ogs?/
-Generated\ Files/
-[Tt]
-
-#amplify-do-not-edit-begin
+# amplify — the contact-form backend lives here; only its generated
+# state is ignored, never the CloudFormation definitions themselves.
 amplify/\#current-cloud-backend
 amplify/.config/local-*
 amplify/logs
@@ -86,15 +38,8 @@ amplify/mock-data
 amplify/mock-api-resources
 amplify/backend/amplify-meta.json
 amplify/backend/.temp
-build/
-dist/
-node_modules/
 awsconfiguration.json
 amplifyconfiguration.json
-amplifyconfiguration.dart
 amplify-build-config.json
-amplify-gradle-config.json
 amplifytools.xcconfig
 .secret-*
-**.sample
-#amplify-do-not-edit-end

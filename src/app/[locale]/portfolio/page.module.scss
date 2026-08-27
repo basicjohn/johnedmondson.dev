@@ -1,0 +1,18 @@
+.page {
+  padding-block: var(--space-7);
+}
+
+.header {
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-size: var(--text-3xl);
+}
+
+.intro {
+  margin-top: var(--space-2);
+  font-size: var(--text-lg);
+  color: var(--color-ink-soft);
+  max-width: var(--content-max);
+}

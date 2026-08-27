@@ -1,0 +1,51 @@
+@use "tokens" as *;
+
+.shell {
+  min-height: 100dvh;
+}
+
+.header {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 700;
+  font-size: var(--text-lg);
+  color: var(--color-bg);
+  text-decoration: none;
+}
+
+.logoDot {
+  color: var(--color-accent);
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-5);
+
+  a {
+    color: var(--color-bg);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--text-sm);
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+}
+
+.main {
+  padding-block: var(--space-6);
+}

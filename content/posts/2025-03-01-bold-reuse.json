@@ -1,0 +1,26 @@
+{
+  "id": "2025-03-01-bold-reuse",
+  "slug": "bold-reuse",
+  "type": "portfolio",
+  "status": "published",
+  "featured": true,
+  "date": "2025-03-01",
+  "tags": ["Full-Stack", "GraphQL", "PostgreSQL", "Operations"],
+  "title": {
+    "en": "Bold Reuse — Reuse Operations Platform",
+    "de": "Bold Reuse — Plattform für Mehrweg-Logistik"
+  },
+  "excerpt": {
+    "en": "Full-stack product engineering for a reusable packaging company: operational workflows, data-heavy CRUD interfaces, and automation used daily by live fulfillment teams.",
+    "de": "Full-Stack-Produktentwicklung für ein Mehrwegverpackungs-Unternehmen: operative Workflows, datenintensive CRUD-Oberflächen und Automatisierung im täglichen Einsatz."
+  },
+  "body": {
+    "en": "## Overview\n\nBold Reuse runs reusable packaging programs — items go out, come back, get washed, and go out again. Since March 2025 I've been designing and shipping full-stack features across a React + TypeScript frontend and a PostgreSQL backend, supporting complex, stateful workflows and high-volume operational data.\n\n## What I built\n\n- Multi-step operational workflows (wash, pack, rewash, receive, pickup, delivery) as dedicated pages and reusable components, used daily by live fulfillment teams\n- CRM-style, data-heavy CRUD interfaces for clients, inventory pools, assets, events, and users — GraphQL queries/mutations, role-gated actions, and navigation-level access control\n- A client onboarding flow with route-level and UI-level guards that enforce required setup before core product access\n- Bulk data import and admin tooling: CSV validation, deduplication, and ingestion pipelines for large-scale onboarding\n- Background jobs and automation for scheduled processing, bulk updates, and third-party data sync, with retry and cleanup logic\n\n## Data layer\n\nI architected a migration-driven PostgreSQL schema with explicit domain modeling, enums, and relational integrity — built to safely support evolving workflows and large datasets.",
+    "de": "## Überblick\n\nBold Reuse betreibt Mehrwegverpackungs-Programme — Artikel gehen raus, kommen zurück, werden gewaschen und gehen wieder raus. Seit März 2025 entwerfe und liefere ich Full-Stack-Features über ein React + TypeScript-Frontend und ein PostgreSQL-Backend, für komplexe, zustandsbehaftete Workflows und große operative Datenmengen.\n\n## Was ich gebaut habe\n\n- Mehrstufige operative Workflows (Waschen, Packen, Nachwaschen, Annahme, Abholung, Lieferung) als eigene Seiten und wiederverwendbare Komponenten — täglich im Einsatz bei laufenden Fulfillment-Teams\n- CRM-artige, datenintensive CRUD-Oberflächen für Kunden, Bestandspools, Assets, Events und Nutzer — GraphQL-Queries/-Mutations, rollenbasierte Aktionen und Zugriffskontrolle auf Navigationsebene\n- Ein Kunden-Onboarding mit Guards auf Routen- und UI-Ebene, das erforderliche Einrichtungsschritte vor dem Produktzugang erzwingt\n- Massenimport und Admin-Tooling: CSV-Validierung, Deduplizierung und Ingestion-Pipelines für Onboarding im großen Maßstab\n- Hintergrund-Jobs und Automatisierung für geplante Verarbeitung, Massen-Updates und Drittanbieter-Sync, mit Retry- und Cleanup-Logik\n\n## Datenschicht\n\nIch habe ein migrationsgetriebenes PostgreSQL-Schema mit explizitem Domain-Modeling, Enums und relationaler Integrität entworfen — gebaut, um wachsende Workflows und große Datensätze sicher zu tragen."
+  },
+  "client": "Bold Reuse",
+  "role": "Full-Stack Software Engineer (Contract)",
+  "year": "2025 – present",
+  "link": "https://www.boldreuse.com",
+  "stack": ["React", "TypeScript", "GraphQL", "PostgreSQL"]
+}

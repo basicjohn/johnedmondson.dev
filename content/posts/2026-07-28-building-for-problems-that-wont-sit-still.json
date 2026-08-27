@@ -1,0 +1,21 @@
+{
+  "id": "2026-07-28-building-for-problems-that-wont-sit-still",
+  "slug": "building-for-problems-that-wont-sit-still",
+  "type": "writing",
+  "status": "draft",
+  "featured": false,
+  "date": "2026-07-28",
+  "tags": ["AI", "Systems Thinking", "Craft"],
+  "title": {
+    "en": "Building for Problems That Won't Sit Still",
+    "de": "Bauen für Probleme, die nicht stillhalten"
+  },
+  "excerpt": {
+    "en": "If AI makes every problem bespoke and cheap to solve once, what exactly are we building when we build software? A note on durable value in a disposable-solution world.",
+    "de": "Wenn KI jedes Problem einzigartig und einmalig billig lösbar macht — was genau bauen wir dann, wenn wir Software bauen? Eine Notiz über beständigen Wert in einer Welt der Wegwerf-Lösungen."
+  },
+  "body": {
+    "en": "There's an old, comfortable story about software: find a problem, build the thing that solves it, and the value compounds because the same solution serves everyone with that problem. Scale was the whole point.\n\nThat story assumes problems are shared and stable. What happens when they aren't?\n\n## The shift\n\n- AI is collapsing the cost of solving a problem *once*, for *one* person, in *one* context.\n- When a bespoke solution is nearly free, the reusable product loses part of its reason to exist.\n- The problem itself stops sitting still long enough to be \"solved\" in a durable way.\n\n## The question I keep circling\n\nIf any specific problem can be met with a made-to-order answer on demand, what are we actually building when we build software? Are we shipping solutions, or shipping the *capacity* to generate them?\n\n## Where I think the value moves\n\n- From the artifact to the system that produces artifacts.\n- From \"the answer\" to judgment about which answer is worth having.\n- From owning a solution to owning the problem-framing.\n\n## Notes to self\n\n- Ground this in a concrete example from my own work.\n- Steelman the counter-view: some problems are still shared and stable — where's the line?\n- Land on what this means for how I choose what to build next.",
+    "de": ""
+  }
+}

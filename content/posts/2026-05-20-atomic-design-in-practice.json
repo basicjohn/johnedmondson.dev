@@ -1,0 +1,21 @@
+{
+  "id": "2026-05-20-atomic-design-in-practice",
+  "slug": "atomic-design-in-practice",
+  "type": "writing",
+  "status": "published",
+  "featured": false,
+  "date": "2026-05-20",
+  "tags": ["Design Systems", "Frontend", "Process"],
+  "title": {
+    "en": "Atomic Design in Practice: Where the Lines Actually Blur",
+    "de": "Atomic Design in der Praxis: Wo die Grenzen wirklich verschwimmen"
+  },
+  "excerpt": {
+    "en": "Atoms, molecules, organisms — the taxonomy sounds tidy until you meet a real component. Here's how I draw the lines on actual projects.",
+    "de": "Atoms, Molecules, Organisms — die Taxonomie klingt aufgeräumt, bis man einer echten Komponente begegnet. So ziehe ich die Grenzen in echten Projekten."
+  },
+  "body": {
+    "en": "Brad Frost's atomic design gives teams a shared vocabulary, and that alone earns its keep. But anyone who's actually organized a component library knows the awkward moments: is a search bar with a button a molecule or an organism? Does a card with a heading, image, and link graduate categories when it gains a menu?\n\n## The rules I actually use\n\n1. **Atoms are unopinionated.** A Button doesn't know what page it's on. If a component needs app context to make sense, it isn't an atom.\n2. **Molecules compose, organisms orchestrate.** A molecule arranges a few atoms for one job — a form field with its label and error. An organism owns behavior: a header that tracks scroll state, a list that filters itself.\n3. **Templates are layout, not logic.** A template should be testable with placeholder content.\n\n## Where I bend the rules\n\nPurity isn't the goal — findability is. When the team debates a category for more than five minutes, I pick whichever folder a new developer would check first and move on. The taxonomy serves the team, not the other way around.\n\n> A design system is a product serving products. Treat its ergonomics like you'd treat UX.\n\nThe payoff shows up months later: new pages assemble themselves from parts you trust, and redesigns become recomposition instead of rewrites.",
+    "de": "Brad Frosts Atomic Design gibt Teams ein gemeinsames Vokabular, und allein das rechtfertigt seinen Einsatz. Aber wer schon einmal eine Komponentenbibliothek organisiert hat, kennt die unangenehmen Momente: Ist eine Suchleiste mit Button eine Molecule oder ein Organism? Steigt eine Card mit Überschrift, Bild und Link in eine andere Kategorie auf, sobald sie ein Menü bekommt?\n\n## Meine tatsächlichen Regeln\n\n1. **Atoms haben keine Meinung.** Ein Button weiß nicht, auf welcher Seite er steht. Wenn eine Komponente App-Kontext braucht, ist sie kein Atom.\n2. **Molecules komponieren, Organisms orchestrieren.** Eine Molecule ordnet wenige Atoms für eine Aufgabe an — ein Formularfeld mit Label und Fehlermeldung. Ein Organism besitzt Verhalten: ein Header, der den Scroll-Zustand kennt, eine Liste, die sich selbst filtert.\n3. **Templates sind Layout, keine Logik.** Ein Template muss mit Platzhalter-Inhalten testbar sein.\n\n## Wo ich die Regeln beuge\n\nReinheit ist nicht das Ziel — Auffindbarkeit ist es. Wenn das Team länger als fünf Minuten über eine Kategorie diskutiert, wähle ich den Ordner, in dem eine neue Entwicklerin zuerst suchen würde, und mache weiter. Die Taxonomie dient dem Team, nicht umgekehrt.\n\n> Ein Designsystem ist ein Produkt, das Produkten dient. Behandle seine Ergonomie wie UX.\n\nDer Lohn zeigt sich Monate später: Neue Seiten setzen sich aus Teilen zusammen, denen man vertraut, und Redesigns werden zur Neukomposition statt zum Neuschreiben."
+  }
+}

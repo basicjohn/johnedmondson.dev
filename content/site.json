@@ -1,0 +1,29 @@
+{
+  "socials": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/basicjohn"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/johnedmondsondev/"
+    },
+    {
+      "label": "Twitter / X",
+      "url": "https://twitter.com/basicjohn"
+    },
+    {
+      "label": "Pinterest",
+      "url": "https://www.pinterest.com/basicjohn/"
+    },
+    {
+      "label": "Substack",
+      "url": "https://basicjohn.substack.com"
+    },
+    {
+      "label": "Upwork",
+      "url": "https://www.upwork.com/freelancers/johnedmondsondev"
+    }
+  ],
+  "email": "contact@johnedmondson.dev"
+}

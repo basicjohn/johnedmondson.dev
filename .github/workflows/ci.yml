@@ -28,40 +28,28 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+        run: npm ci
+
+      - name: Check formatting
+        run: npm run format:check
 
       - name: Run linter
         run: npm run lint
 
-      - name: Run tests with coverage
-        run: npm run test -- --coverage --coverageReporters=text-lcov > coverage.lcov
+      - name: Run tests
+        run: npm test
 
-      - name: Build production bundle
+      # Emits out/ — the static export Amplify serves. Catches the
+      # case-sensitivity and export-compatibility failures that a macOS
+      # dev machine will not reproduce.
+      - name: Build static export
         run: npm run build
 
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage
-          path: ./coverage.lcov
-
-  codecov:
-    needs: build-and-test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Download coverage report
-        uses: actions/download-artifact@v4
-        with:
-          name: coverage
-          path: ./
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.lcov
-          fail_ci_if_error: true
+      - name: Verify the CMS is absent from the export
+        run: |
+          if find out -iname '*admin*' -o -iname '*api*' | grep -q .; then
+            echo "::error::admin or api paths leaked into the static export"
+            find out -iname '*admin*' -o -iname '*api*'
+            exit 1
+          fi
+          echo "CMS correctly excluded from out/"

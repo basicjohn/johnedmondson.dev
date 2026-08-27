@@ -1,0 +1,31 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.neutral {
+  background: var(--color-surface-tint);
+  border: 1px solid var(--color-border);
+  color: var(--color-ink-soft);
+}
+
+.accent {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+}
+
+.draft {
+  background: #f3e3df;
+  color: var(--color-danger);
+}
+
+.success {
+  background: #e2efe5;
+  color: var(--color-success);
+}

@@ -1,0 +1,121 @@
+@use "tokens" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 4rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.logoDot {
+  color: var(--color-accent);
+}
+
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-md);
+
+  @include respond($bp-md) {
+    display: none;
+  }
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 22px;
+
+  span {
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition:
+      transform 0.25s var(--ease),
+      opacity 0.2s var(--ease);
+  }
+}
+
+.burgerOpen {
+  span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  span:nth-child(2) {
+    opacity: 0;
+  }
+  span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+.navWrap {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+
+  @include respond($bp-md) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    padding-block: 0;
+    gap: var(--space-5);
+  }
+}
+
+.navOpen {
+  display: flex;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+
+  @include respond($bp-md) {
+    flex-direction: row;
+    gap: var(--space-5);
+  }
+}
+
+.link,
+.activeLink {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--color-ink-soft);
+  padding-block: var(--space-1);
+
+  &:hover {
+    color: var(--color-ink);
+  }
+}
+
+.activeLink {
+  color: var(--color-ink);
+  box-shadow: inset 0 -2px 0 var(--color-accent);
+}
