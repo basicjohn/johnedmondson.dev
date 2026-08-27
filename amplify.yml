@@ -3,6 +3,14 @@ frontend:
   phases:
     preBuild:
       commands:
+        # The default Amplify build image still ships Node 16, which Next 15
+        # refuses to build on (it needs ^18.18 || ^19.8 || >=20). nvm is
+        # present in the image, so select 20 explicitly — the same version CI
+        # uses. The durable fix is switching the app's build image to Amazon
+        # Linux 2023 in the console; this works on either.
+        - nvm install 20
+        - nvm use 20
+        - node --version
         - npm ci
     build:
       commands:
