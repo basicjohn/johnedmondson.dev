@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { alternatesFor } from "@/lib/seo";
+import { WRITING_SECTION_PUBLIC } from "@/lib/config";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { getFeaturedPosts, getPostsByType } from "@/lib/content";
 import Hero from "@/components/organisms/Hero/Hero";
@@ -50,7 +51,7 @@ export default async function HomePage({ params }: Props) {
         </section>
       )}
 
-      {recentWriting.length > 0 && (
+      {WRITING_SECTION_PUBLIC && recentWriting.length > 0 && (
         <section className={`container ${styles.section}`}>
           <SectionHeading
             title={dict.home.recentWriting}

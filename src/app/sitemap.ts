@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getPostsByType } from "@/lib/content";
 import { locales } from "@/lib/types";
+import { WRITING_SECTION_PUBLIC } from "@/lib/config";
 
 const SITE_URL = "https://www.johnedmondson.dev";
 
@@ -11,7 +12,8 @@ export const dynamic = "force-static";
 // Generated at build time, so it works under output: "export" — the file is
 // emitted into out/sitemap.xml alongside the pages.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPaths = ["", "/portfolio", "/writing", "/contact"];
+  const staticPaths = ["", "/portfolio", "/contact"];
+  if (WRITING_SECTION_PUBLIC) staticPaths.splice(2, 0, "/writing");
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of locales) {
@@ -24,7 +26,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     // Only published posts have generated pages, so only they belong here.
-    for (const type of ["portfolio", "writing"] as const) {
+    const types = WRITING_SECTION_PUBLIC
+      ? (["portfolio", "writing"] as const)
+      : (["portfolio"] as const);
+    for (const type of types) {
       for (const post of getPostsByType(type)) {
         entries.push({
           url: `${SITE_URL}/${locale}/${type}/${post.slug}`,

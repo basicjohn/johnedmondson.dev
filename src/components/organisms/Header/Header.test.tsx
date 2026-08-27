@@ -6,13 +6,21 @@ import en from "@/dictionaries/en.json";
 import de from "@/dictionaries/de.json";
 
 const pathname = vi.hoisted(() => ({ current: "/en" }));
+const flags = vi.hoisted(() => ({ writingPublic: false }));
 
 vi.mock("next/navigation", () => ({
   usePathname: () => pathname.current,
 }));
 
+vi.mock("@/lib/config", () => ({
+  get WRITING_SECTION_PUBLIC() {
+    return flags.writingPublic;
+  },
+}));
+
 beforeEach(() => {
   pathname.current = "/en";
+  flags.writingPublic = false;
 });
 
 const renderHeader = (locale: "en" | "de" = "en") => {
@@ -29,14 +37,13 @@ const renderHeader = (locale: "en" | "de" = "en") => {
 // The CRA site had no navigation at all — review finding 06. These tests
 // hold the line on the section links existing and pointing somewhere real.
 describe("Header navigation", () => {
-  it("links to every section, locale-prefixed", () => {
+  it("links to every always-public section, locale-prefixed", () => {
     renderHeader();
     const nav = screen.getByRole("navigation", { name: en.nav.label });
 
     const expected = [
       [en.nav.home, "/en"],
       [en.nav.portfolio, "/en/portfolio"],
-      [en.nav.writing, "/en/writing"],
       [en.nav.contact, "/en/contact"],
     ] as const;
 
@@ -46,6 +53,28 @@ describe("Header navigation", () => {
         href,
       );
     }
+  });
+
+  // The section builds either way; the flag decides whether anything points
+  // at it. Both states are asserted so re-linking is a one-line change.
+  it("hides the writing link while the section is not public", () => {
+    flags.writingPublic = false;
+    renderHeader();
+    const nav = screen.getByRole("navigation", { name: en.nav.label });
+
+    expect(
+      within(nav).queryByRole("link", { name: en.nav.writing }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("shows the writing link once the section is public", () => {
+    flags.writingPublic = true;
+    renderHeader();
+    const nav = screen.getByRole("navigation", { name: en.nav.label });
+
+    expect(
+      within(nav).getByRole("link", { name: en.nav.writing }),
+    ).toHaveAttribute("href", "/en/writing");
   });
 
   it("prefixes links with the active locale", () => {
@@ -58,15 +87,15 @@ describe("Header navigation", () => {
   });
 
   it("marks the current page with aria-current", () => {
-    pathname.current = "/en/writing";
+    pathname.current = "/en/portfolio";
     renderHeader();
 
     const nav = screen.getByRole("navigation", { name: en.nav.label });
     expect(
-      within(nav).getByRole("link", { name: en.nav.writing }),
+      within(nav).getByRole("link", { name: en.nav.portfolio }),
     ).toHaveAttribute("aria-current", "page");
     expect(
-      within(nav).getByRole("link", { name: en.nav.portfolio }),
+      within(nav).getByRole("link", { name: en.nav.contact }),
     ).not.toHaveAttribute("aria-current");
   });
 
@@ -84,12 +113,12 @@ describe("Header navigation", () => {
   });
 
   it("keeps a post page under its section", () => {
-    pathname.current = "/en/writing/some-post";
+    pathname.current = "/en/portfolio/bold-reuse";
     renderHeader();
 
     const nav = screen.getByRole("navigation", { name: en.nav.label });
     expect(
-      within(nav).getByRole("link", { name: en.nav.writing }),
+      within(nav).getByRole("link", { name: en.nav.portfolio }),
     ).toHaveAttribute("aria-current", "page");
   });
 });

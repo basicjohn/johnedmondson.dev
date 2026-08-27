@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getDictionary, isLocale, locales } from "@/lib/i18n";
 import { getPostBySlug, getPostsByType, getRelatedPosts } from "@/lib/content";
 import { alternatesFor } from "@/lib/seo";
+import { WRITING_SECTION_PUBLIC } from "@/lib/config";
 import WritingPostTemplate from "@/components/templates/WritingPost/WritingPostTemplate";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -21,6 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title[locale],
     description: post.excerpt[locale],
+    robots: WRITING_SECTION_PUBLIC ? undefined : { index: false, follow: true },
     alternates: alternatesFor(locale, `/writing/${post.slug}`),
   };
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Locale } from "@/lib/types";
 import LanguageToggle from "@/components/molecules/LanguageToggle/LanguageToggle";
+import { WRITING_SECTION_PUBLIC } from "@/lib/config";
 import styles from "./Header.module.scss";
 
 type NavLabels = {
@@ -30,7 +31,9 @@ export default function Header({ locale, nav, languageLabel }: Props) {
   const links = [
     { href: `/${locale}`, label: nav.home, exact: true },
     { href: `/${locale}/portfolio`, label: nav.portfolio },
-    { href: `/${locale}/writing`, label: nav.writing },
+    ...(WRITING_SECTION_PUBLIC
+      ? [{ href: `/${locale}/writing`, label: nav.writing }]
+      : []),
     { href: `/${locale}/contact`, label: nav.contact },
   ];
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { alternatesFor } from "@/lib/seo";
+import { WRITING_SECTION_PUBLIC } from "@/lib/config";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { getPostsByType } from "@/lib/content";
 import PostList from "@/components/organisms/PostList/PostList";
@@ -15,6 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: dict.writing.title,
     description: dict.writing.intro,
+    robots: WRITING_SECTION_PUBLIC ? undefined : { index: false, follow: true },
     alternates: alternatesFor(locale, "/writing"),
   };
 }
