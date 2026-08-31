@@ -67,7 +67,6 @@
 .excerpt {
   color: var(--color-ink-soft);
   font-size: var(--text-base);
-  flex: 1;
 }
 
 .tags {
@@ -76,5 +75,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-top: var(--space-2);
+  // Pin the tag row to the card's bottom edge so rows of cards share a
+  // baseline no matter how the tags wrap.
+  margin-top: auto;
+  padding-top: var(--space-2);
 }

@@ -34,6 +34,19 @@
   max-width: 24rem;
 }
 
+// The accent doing structural work: a small "open" indicator on the
+// availability line, echoing the wordmark dot.
+.dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+  margin-right: var(--space-2);
+  vertical-align: 0.0625rem;
+}
+
 .email {
   font-weight: 700;
   color: var(--color-accent-strong);
@@ -47,8 +60,18 @@
   list-style: none;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.socialLink {
+  font-weight: 700;
+  color: var(--color-accent-strong);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .legal {

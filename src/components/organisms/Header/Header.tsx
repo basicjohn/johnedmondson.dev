@@ -48,7 +48,17 @@ export default function Header({ locale, nav, languageLabel }: Props) {
           className={styles.logo}
           onClick={() => setOpen(false)}
         >
-          John Edmondson<span className={styles.logoDot}>.</span>
+          {/* Decorative — the wordmark beside it carries the name */}
+          <img
+            className={styles.avatar}
+            src="/images/john-avatar-64.png"
+            alt=""
+            width={32}
+            height={32}
+          />
+          <span>
+            John Edmondson<span className={styles.logoDot}>.</span>
+          </span>
         </Link>
 
         <button

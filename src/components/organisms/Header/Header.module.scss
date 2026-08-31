@@ -19,11 +19,21 @@
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   font-family: var(--font-serif), Georgia, serif;
   font-size: var(--text-lg);
   font-weight: 700;
   color: var(--color-ink);
   text-decoration: none;
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  flex: none;
 }
 
 .logoDot {

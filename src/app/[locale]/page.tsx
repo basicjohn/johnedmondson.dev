@@ -31,7 +31,9 @@ export default async function HomePage({ params }: Props) {
       <Hero
         locale={locale}
         role={dict.home.role}
+        bioLead={dict.home.bioLead}
         bio={dict.home.bio}
+        portraitAlt={dict.home.portraitAlt}
         ctaWork={dict.home.ctaWork}
         ctaContact={dict.home.ctaContact}
       />

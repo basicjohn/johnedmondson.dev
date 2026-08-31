@@ -13,14 +13,15 @@
 .inner {
   position: relative;
   z-index: 1;
-  max-width: 46rem;
-}
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6);
 
-.greeting {
-  font-size: var(--text-lg);
-  font-weight: 700;
-  color: var(--color-accent-strong);
-  margin-bottom: var(--space-2);
+  @include respond($bp-lg) {
+    grid-template-columns: minmax(0, 46rem) 1fr;
+    align-items: center;
+    column-gap: var(--space-8);
+  }
 }
 
 .name {
@@ -36,11 +37,22 @@
   margin-top: var(--space-2);
 }
 
+// The one sentence a skimmer should leave with, set above body size.
+.bioLead {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-ink);
+  margin-top: var(--space-5);
+  max-width: 36rem;
+  text-wrap: pretty;
+}
+
 .bio {
-  font-size: var(--text-lg);
   color: var(--color-ink-soft);
   margin-top: var(--space-4);
   max-width: 38rem;
+  text-wrap: pretty;
 }
 
 .actions {
@@ -48,6 +60,24 @@
   flex-wrap: wrap;
   gap: var(--space-3);
   margin-top: var(--space-6);
+}
+
+.portraitWrap {
+  order: -1;
+
+  @include respond($bp-lg) {
+    order: 0;
+    justify-self: center;
+  }
+}
+
+.portrait {
+  width: 7.5rem;
+  height: auto;
+
+  @include respond($bp-lg) {
+    width: min(19rem, 100%);
+  }
 }
 
 .glow {

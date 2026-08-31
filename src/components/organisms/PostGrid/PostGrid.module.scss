@@ -7,6 +7,8 @@
   margin-bottom: var(--space-6);
 }
 
+// Two columns, deliberately: four projects in three columns strands one
+// card alone on the second row.
 .grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -14,10 +16,6 @@
 
   @include respond($bp-md) {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include respond($bp-xl) {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 

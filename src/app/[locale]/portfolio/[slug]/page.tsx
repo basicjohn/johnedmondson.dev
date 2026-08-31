@@ -38,10 +38,20 @@ export default async function PortfolioPostPage({ params }: Props) {
   const dict = getDictionary(locale);
   const related = getRelatedPosts(post);
 
+  // Neighbours in the same newest-first order the index uses. Drafts are
+  // already excluded, so the links can never point at an unpublished page.
+  const ordered = getPostsByType("portfolio");
+  const index = ordered.findIndex((p) => p.id === post.id);
+  const prev = index > 0 ? ordered[index - 1] : undefined;
+  const next =
+    index >= 0 && index < ordered.length - 1 ? ordered[index + 1] : undefined;
+
   return (
     <PortfolioPostTemplate
       post={post}
       related={related}
+      prev={prev}
+      next={next}
       locale={locale}
       dict={dict}
     />

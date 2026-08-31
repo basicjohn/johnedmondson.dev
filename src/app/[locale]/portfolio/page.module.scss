@@ -8,6 +8,17 @@
 
 .title {
   font-size: var(--text-3xl);
+
+  // Same gold rule the section headings carry — see SectionHeading.
+  &::after {
+    content: "";
+    display: block;
+    width: 2.75rem;
+    height: 3px;
+    border-radius: var(--radius-pill);
+    background: var(--color-accent);
+    margin-top: var(--space-2);
+  }
 }
 
 .intro {

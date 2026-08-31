@@ -21,5 +21,6 @@
   "role": "Design & Engineering",
   "year": "2026",
   "repo": "https://github.com/basicjohn/johnedmondson.dev",
-  "stack": ["Next.js", "TypeScript", "Sass/SCSS", "React"]
+  "stack": ["Next.js", "TypeScript", "Sass/SCSS", "React"],
+  "cover": "/images/portfolio/johnedmondson-dev-v2-home.jpg"
 }

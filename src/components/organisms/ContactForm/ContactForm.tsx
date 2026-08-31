@@ -7,10 +7,20 @@ import styles from "./ContactForm.module.scss";
 
 type Labels = {
   name: string;
+  namePlaceholder: string;
   email: string;
+  emailPlaceholder: string;
   message: string;
+  messagePlaceholder: string;
+  topicLabel: string;
+  topicHiring: string;
+  topicContract: string;
+  topicCollaboration: string;
+  topicOther: string;
   send: string;
   sending: string;
+  formNote: string;
+  successHeading: string;
   success: string;
   error: string;
   required: string;
@@ -33,6 +43,14 @@ export default function ContactForm({
 }: Props) {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [topic, setTopic] = useState<string | null>(null);
+
+  const topics = [
+    labels.topicHiring,
+    labels.topicContract,
+    labels.topicCollaboration,
+    labels.topicOther,
+  ];
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -51,10 +69,16 @@ export default function ContactForm({
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) return;
 
+    // The backend forwards `message` verbatim, so the chosen topic rides
+    // inside it rather than needing a Lambda change.
+    const fullMessage = topic ? `[${topic}] ${message}` : message;
+
     if (!endpoint) {
       // No backend configured — open the user's mail client instead
-      const subject = encodeURIComponent(`Website message from ${name}`);
-      const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+      const subject = encodeURIComponent(
+        `Website message from ${name}${topic ? ` — ${topic}` : ""}`,
+      );
+      const body = encodeURIComponent(`${fullMessage}\n\n— ${name} (${email})`);
       window.location.href = `mailto:${fallbackEmail}?subject=${subject}&body=${body}`;
       setStatus("success");
       return;
@@ -65,7 +89,7 @@ export default function ContactForm({
       const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message: fullMessage }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setStatus("success");
@@ -77,9 +101,10 @@ export default function ContactForm({
 
   if (status === "success") {
     return (
-      <p className={styles.success} role="status">
-        {labels.success}
-      </p>
+      <div className={styles.success} role="status">
+        <p className={styles.successHeading}>{labels.successHeading}</p>
+        <p className={styles.successText}>{labels.success}</p>
+      </div>
     );
   }
 
@@ -90,6 +115,8 @@ export default function ContactForm({
         name="name"
         error={errors.name}
         autoComplete="name"
+        placeholder={labels.namePlaceholder}
+        required
       />
       <FormField
         label={labels.email}
@@ -97,22 +124,52 @@ export default function ContactForm({
         type="email"
         error={errors.email}
         autoComplete="email"
+        placeholder={labels.emailPlaceholder}
+        required
       />
+      <fieldset className={styles.topics}>
+        <legend className={styles.topicsLegend}>{labels.topicLabel}</legend>
+        <div className={styles.topicRow}>
+          {topics.map((option) => (
+            <label key={option} className={styles.topic}>
+              <input
+                className={styles.topicInput}
+                type="radio"
+                name="topic"
+                value={option}
+                checked={topic === option}
+                onChange={() => setTopic(option)}
+                onClick={() => {
+                  // Second click on the active chip clears it — the topic is
+                  // optional and radios can't deselect on their own.
+                  if (topic === option) setTopic(null);
+                }}
+              />
+              <span className={styles.topicChip}>{option}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
       <FormField
         as="textarea"
         label={labels.message}
         name="message"
         rows={6}
         error={errors.message}
+        placeholder={labels.messagePlaceholder}
+        required
       />
       {status === "error" && (
         <p className={styles.error} role="alert">
           {labels.error}
         </p>
       )}
-      <Button type="submit" disabled={status === "sending"}>
-        {status === "sending" ? labels.sending : labels.send}
-      </Button>
+      <div className={styles.actions}>
+        <Button type="submit" disabled={status === "sending"}>
+          {status === "sending" ? labels.sending : labels.send}
+        </Button>
+        <p className={styles.note}>{labels.formNote}</p>
+      </div>
     </form>
   );
 }

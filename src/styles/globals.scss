@@ -19,6 +19,7 @@
   --color-accent-strong: #8f5a12; // accessible gold for text/links
   --color-accent-soft: #fbeed3;
   --color-border: #e5dfd4;
+  --color-grid-line: rgb(43 41 38 / 6%);
   --color-danger: #b3422f;
   --color-success: #3d7a4a;
 
@@ -74,7 +75,13 @@ html {
 }
 
 body {
-  background: var(--color-bg);
+  // v1's drafting-table grid, kept at a contrast where it reads as paper
+  // texture rather than lines. Surfaces (cards, header, footer) sit on top.
+  background-color: var(--color-bg);
+  background-image:
+    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
+  background-size: 2rem 2rem;
   color: var(--color-ink);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--text-base);
@@ -196,6 +203,10 @@ h4 {
     li + li {
       margin-top: var(--space-2);
     }
+  }
+
+  ul li::marker {
+    color: var(--color-accent-strong);
   }
 
   blockquote {

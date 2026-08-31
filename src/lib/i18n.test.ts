@@ -70,7 +70,15 @@ describe("dictionary parity", () => {
       .sort();
 
     expect(identical).toEqual(
-      ["contact.name", "nav.portfolio", "portfolio.title", "post.stack"].sort(),
+      [
+        "contact.name",
+        // The job title is deliberately kept in English on the German site,
+        // as German tech CVs and job ads do.
+        "home.role",
+        "nav.portfolio",
+        "portfolio.title",
+        "post.stack",
+      ].sort(),
     );
   });
 

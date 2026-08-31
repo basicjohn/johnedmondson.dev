@@ -13,6 +13,9 @@ import styles from "./PortfolioPostTemplate.module.scss";
 type Props = {
   post: Post;
   related: Post[];
+  /** Neighbours in the portfolio's newest-first order */
+  prev?: Post;
+  next?: Post;
   locale: Locale;
   dict: Dictionary;
 };
@@ -20,6 +23,8 @@ type Props = {
 export default function PortfolioPostTemplate({
   post,
   related,
+  prev,
+  next,
   locale,
   dict,
 }: Props) {
@@ -108,6 +113,40 @@ export default function PortfolioPostTemplate({
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
+
+      {(prev || next) && (
+        <nav
+          className={`container ${styles.pager}`}
+          aria-label={dict.post.pagerLabel}
+        >
+          {prev ? (
+            <Link
+              className={styles.pagerLink}
+              href={`/${locale}/portfolio/${prev.slug}`}
+            >
+              <span className={styles.pagerDirection}>
+                ← {dict.post.prevProject}
+              </span>
+              <span className={styles.pagerTitle}>{prev.title[locale]}</span>
+            </Link>
+          ) : (
+            <span aria-hidden="true" />
+          )}
+          {next ? (
+            <Link
+              className={`${styles.pagerLink} ${styles.pagerLinkNext}`}
+              href={`/${locale}/portfolio/${next.slug}`}
+            >
+              <span className={styles.pagerDirection}>
+                {dict.post.nextProject} →
+              </span>
+              <span className={styles.pagerTitle}>{next.title[locale]}</span>
+            </Link>
+          ) : (
+            <span aria-hidden="true" />
+          )}
+        </nav>
+      )}
 
       {related.length > 0 && (
         <section className={`container ${styles.related}`}>

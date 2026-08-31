@@ -21,6 +21,7 @@ type Props = InputProps | TextAreaProps | SelectProps;
 
 export default function FormField(props: Props) {
   const { label, name, error, hint } = props;
+  const required = Boolean(props.required);
   const id = `field-${name}`;
   const errorId = `${id}-error`;
 
@@ -72,6 +73,14 @@ export default function FormField(props: Props) {
     <div className={styles.field}>
       <label className={styles.label} htmlFor={id}>
         {label}
+        {/* The input's required attribute carries the semantics; this is
+            the visible mark. */}
+        {required && (
+          <span className={styles.requiredMark} aria-hidden="true">
+            {" "}
+            *
+          </span>
+        )}
       </label>
       {control}
       {hint && !error && <p className={styles.hint}>{hint}</p>}

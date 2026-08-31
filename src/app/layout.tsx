@@ -18,7 +18,7 @@ const sans = Mulish({
 });
 
 const SITE_URL = "https://www.johnedmondson.dev";
-const TITLE = "John Edmondson — Software Engineer & Maker";
+const TITLE = "John Edmondson — Full-Stack Software Engineer";
 const DESCRIPTION =
   "Portfolio and writing of John Edmondson, a software engineer based in Freiburg, Germany.";
 

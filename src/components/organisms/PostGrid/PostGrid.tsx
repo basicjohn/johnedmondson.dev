@@ -21,10 +21,20 @@ export default function PostGrid({
 }: Props) {
   const [activeTag, setActiveTag] = useState<string | null>(null);
 
-  const tags = useMemo(
-    () => [...new Set(posts.flatMap((p) => p.tags))].sort(),
-    [posts],
-  );
+  // Only tags that actually filter — a tag on a single post would just
+  // reproduce that post's card with extra steps.
+  const tags = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const post of posts) {
+      for (const tag of new Set(post.tags)) {
+        counts.set(tag, (counts.get(tag) ?? 0) + 1);
+      }
+    }
+    return [...counts]
+      .filter(([, count]) => count > 1)
+      .map(([tag]) => tag)
+      .sort();
+  }, [posts]);
 
   const visible = activeTag
     ? posts.filter((p) => p.tags.includes(activeTag))
