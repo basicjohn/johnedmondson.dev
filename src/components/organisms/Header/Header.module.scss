@@ -34,9 +34,10 @@
   height: 2rem;
   border-radius: 50%;
   flex: none;
-  // The source PNG has 7px of transparent padding below the artwork on its
-  // 64px canvas; shift down so the visible bottom sits on the wordmark baseline.
-  transform: translateY(calc(2rem * 7 / 64));
+  // Align the artwork's chin (row 46 of the 64px canvas, its bottom edge 17px
+  // above the file's bottom) with the wordmark baseline; the neck/shirt hang
+  // below like a descender. Recalibrate if the PNG changes.
+  transform: translateY(calc(2rem * 17 / 64));
 }
 
 .logoDot {

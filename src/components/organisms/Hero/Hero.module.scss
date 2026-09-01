@@ -74,6 +74,7 @@
 .portrait {
   width: 7.5rem;
   height: auto;
+  border-radius: 50%;
 
   @include respond($bp-lg) {
     width: min(19rem, 100%);

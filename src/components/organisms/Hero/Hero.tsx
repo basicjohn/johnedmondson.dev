@@ -36,15 +36,13 @@ export default function Hero({
             </Button>
           </div>
         </div>
-        {/* Swap the file for a photographed headshot when one exists —
-            same slot, same sizing. */}
         <div className={styles.portraitWrap}>
           <img
             className={styles.portrait}
-            src="/images/john-avatar.png"
+            src="/images/john-headshot.jpg"
             alt={portraitAlt}
-            width={560}
-            height={560}
+            width={720}
+            height={720}
           />
         </div>
       </div>
