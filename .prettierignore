@@ -3,3 +3,5 @@ out
 node_modules
 package-lock.json
 amplify
+# Point-in-time page captures for design reviews, not source
+screenshots
