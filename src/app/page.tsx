@@ -1,18 +1,18 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { locales } from "@/lib/types";
 
-// A bare "/" is normally handled before this page is ever served: middleware
-// does it in dev, and a CDN redirect to /<defaultLocale> does it in
-// production. This page is the fallback for when neither runs.
+// The bare "/" should never be *seen*: middleware redirects it in dev, the
+// CDN redirect ("/" -> "/en", 302) does in production, and if neither runs
+// the inline script below forwards the visitor before first paint. What
+// remains in the markup is not a landing page — just two plain links, the
+// fallback for scriptless visitors.
 //
-// It must never redirect UNCONDITIONALLY. It used to carry a meta refresh,
-// which is correct in isolation but became an infinite reload the moment a
-// catch-all rewrite started serving this file for every path: refresh to
-// /en, get this page again, refresh again. The script below therefore checks
-// the real pathname first — served for "/" it forwards the visitor to their
-// browser's language and no recruiter ever sees an interstitial; served for
-// any other path it does nothing, and the visible links cannot loop.
+// It must never redirect UNCONDITIONALLY. This page once carried a meta
+// refresh, which became an infinite reload when a catch-all rewrite started
+// serving this file for every path: refresh to /en, get this page again,
+// refresh again. The script checks the real pathname first — served for "/"
+// it redirects; served for any other path it does nothing, and links cannot
+// loop.
 export const metadata: Metadata = {
   title: "John Edmondson",
   robots: { index: false, follow: true },
@@ -48,40 +48,30 @@ export default function RootPage() {
       style={{
         minHeight: "60vh",
         display: "flex",
-        flexDirection: "column",
+        alignItems: "center",
         justifyContent: "center",
-        gap: "1.5rem",
-        maxWidth: "32rem",
-        margin: "0 auto",
         padding: "4rem 1.5rem",
       }}
     >
       <script dangerouslySetInnerHTML={{ __html: LOCALE_REDIRECT }} />
-      <h1 style={{ fontFamily: "var(--font-serif)", margin: 0 }}>
-        John Edmondson
-      </h1>
-      <p style={{ color: "var(--color-ink-soft)", margin: 0 }}>
-        Software engineer, based in Freiburg. Choose a language to continue.
-      </p>
-      <nav
-        aria-label="Language"
-        style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap" }}
-      >
-        {locales.map((locale) => (
-          <Link
-            key={locale}
-            href={`/${locale}`}
-            style={{
-              fontWeight: 700,
-              color: "var(--color-accent-strong)",
-              textDecoration: "underline",
-              textUnderlineOffset: "3px",
-            }}
-          >
-            {LABELS[locale]}
-          </Link>
+      <p style={{ color: "var(--color-ink-soft)" }}>
+        {locales.map((locale, i) => (
+          <span key={locale}>
+            {i > 0 && <span aria-hidden="true"> · </span>}
+            <a
+              href={`/${locale}`}
+              style={{
+                fontWeight: 700,
+                color: "var(--color-accent-strong)",
+                textDecoration: "underline",
+                textUnderlineOffset: "3px",
+              }}
+            >
+              {LABELS[locale]}
+            </a>
+          </span>
         ))}
-      </nav>
+      </p>
     </main>
   );
 }

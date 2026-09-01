@@ -57,11 +57,13 @@ describe("root landing page", () => {
     }
   });
 
-  it("renders something legible rather than an empty document", () => {
+  it("renders no landing-page content — only the scriptless fallback links", () => {
     render(<RootPage />);
 
-    expect(screen.getByRole("heading")).toHaveTextContent("John Edmondson");
-    expect(document.body.textContent!.trim().length).toBeGreaterThan(20);
+    // The chooser page is gone deliberately: no heading, no copy. A visitor
+    // should reach this markup only when the redirect could not run.
+    expect(screen.queryByRole("heading")).not.toBeInTheDocument();
+    expect(screen.queryByText(/choose a language/i)).not.toBeInTheDocument();
   });
 
   it("is excluded from indexing but still passes link equity", () => {
