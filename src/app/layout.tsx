@@ -18,9 +18,11 @@ const sans = Mulish({
 });
 
 const SITE_URL = "https://www.johnedmondson.dev";
-const TITLE = "John Edmondson — Full-Stack Software Engineer";
+const TITLE = "John Edmondson — Product Engineer · Full-Stack";
+// Same positioning as the LinkedIn headline: the title, the stack, and the
+// kind of work — this is the snippet search results and link previews show.
 const DESCRIPTION =
-  "Portfolio and writing of John Edmondson, a software engineer based in Freiburg, Germany.";
+  "John Edmondson, product engineer in Freiburg, Germany. Full-stack work in React, TypeScript, Go and PostgreSQL: scalable, data-driven systems for mission-driven teams. Portfolio and writing.";
 
 // Carried over from the CRA app's index.html so the cutover does not break
 // the property's traffic history.

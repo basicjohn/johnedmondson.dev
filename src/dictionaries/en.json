@@ -9,9 +9,9 @@
     "menuClose": "Close menu"
   },
   "home": {
-    "role": "Full-Stack Software Engineer",
+    "role": "Product Engineer · Full-Stack",
     "bioLead": "I build scalable, data-driven systems that support real teams in production — happiest on mission-driven work like sustainability and waste reduction.",
-    "bio": "Relational data models, APIs, and background processing, alongside React and TypeScript frontends. A background in UX/UI design means I think through user experience, data integrity, and system reliability together rather than in isolation. Originally from Portland, Oregon, now based in Freiburg, Germany — in my free time you'll find me traveling, doing house projects, and building apps to improve my day-to-day life.",
+    "bio": "Relational data models, APIs, and background processing in Go and PostgreSQL, alongside React and TypeScript frontends. I build systems that stay reliable, understandable, and able to evolve as product needs grow, working closely with product and design partners to turn complex requirements into clear, usable tools. A background in UX/UI design means I think through user experience, data integrity, and system reliability together rather than in isolation. Originally from Portland, Oregon, now based in Freiburg, Germany — in my free time you'll find me traveling, doing house projects, and building apps to improve my day-to-day life.",
     "portraitAlt": "Portrait of John Edmondson",
     "ctaWork": "See my work",
     "ctaContact": "Get in touch",
