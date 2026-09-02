@@ -12,6 +12,7 @@ const LABELS: Record<Locale, Record<string, string>> = {
     "Data Visualization": "Datenvisualisierung",
     "Design System": "Designsystem",
     "Design Systems": "Designsysteme",
+    "Game Design": "Spieldesign",
     Process: "Prozess",
     Security: "Sicherheit",
   },

@@ -34,6 +34,8 @@ describe("tagLabel", () => {
       "Operations",
       "PostgreSQL",
       "SaaS",
+      "TypeScript",
+      "WebGL",
       "i18n",
     ]);
     const untranslated = [

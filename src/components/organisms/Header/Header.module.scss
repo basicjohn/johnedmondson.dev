@@ -27,6 +27,10 @@
   display: inline-flex;
   align-items: baseline;
   gap: var(--space-2);
+  // The chin-on-baseline offset below drags the whole group low in the bar.
+  // Lift it so the visible top of the gold circle lines up with the top of
+  // the language toggle at the other end (measured: 8.6px at 16px root).
+  transform: translateY(-0.54rem);
   font-family: var(--font-serif), Georgia, serif;
   font-size: var(--text-lg);
   font-weight: 700;

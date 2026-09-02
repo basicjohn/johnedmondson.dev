@@ -84,7 +84,8 @@
   border-radius: 50%;
 
   @include respond($bp-lg) {
-    width: min(19rem, 100%);
+    // 19rem × 1.15 — sized up a step so it holds its own against the bio.
+    width: min(21.85rem, 100%);
   }
 }
 
