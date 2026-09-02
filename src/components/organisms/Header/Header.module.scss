@@ -34,15 +34,26 @@
   text-decoration: none;
 }
 
+// The gold circle should read at the same height as the language toggle at
+// the other end of the header (0.875rem text × 1.65 line-height + 0.5rem
+// padding + 4px pill padding + 2px border ≈ 37px = 2.32rem). The PNG has a
+// transparent margin: the circle spans 50 of its 64 canvas pixels, so the
+// box is scaled by 64/50 to make the *visible* circle 2.32rem.
+$avatar-size: calc(2.32rem * 64 / 50);
+
 .avatar {
-  width: 2rem;
-  height: 2rem;
+  width: $avatar-size;
+  height: $avatar-size;
   border-radius: 50%;
   flex: none;
   // Align the artwork's chin (row 46 of the 64px canvas, its bottom edge 17px
   // above the file's bottom) with the wordmark baseline; the neck/shirt hang
-  // below like a descender. Recalibrate if the PNG changes.
-  transform: translateY(calc(2rem * 17 / 64));
+  // below like a descender. The offset scales with the size, so only a
+  // change to the PNG itself needs a recalibration.
+  transform: translateY(calc(#{$avatar-size} * 17 / 64));
+  // The transparent margin is ~7/64 of the box; pull the wordmark in by
+  // that much so the visible gap stays what it was.
+  margin-right: calc(#{$avatar-size} * -7 / 64);
 }
 
 .logoDot {

@@ -63,10 +63,10 @@ export default function Header({ locale, nav, languageLabel }: Props) {
           {/* Decorative — the wordmark beside it carries the name */}
           <img
             className={styles.avatar}
-            src="/images/john-avatar-64.png"
+            src="/images/john-avatar-128.png"
             alt=""
-            width={32}
-            height={32}
+            width={48}
+            height={48}
           />
           <span>
             John Edmondson<span className={styles.logoDot}>.</span>

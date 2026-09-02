@@ -18,7 +18,10 @@
   gap: var(--space-6);
 
   @include respond($bp-lg) {
-    grid-template-columns: minmax(0, 46rem) 1fr;
+    // The text column is exactly as wide as the bio's measure (38rem), so
+    // the portrait is centred in the other half of the section rather than
+    // pushed to the container edge by empty column space.
+    grid-template-columns: minmax(0, 38rem) 1fr;
     align-items: center;
     column-gap: var(--space-8);
   }
@@ -67,7 +70,11 @@
 
   @include respond($bp-lg) {
     order: 0;
-    justify-self: center;
+    // The wrap fills its column (the image's percentage width makes it
+    // shrink-to-fit the column), so centre the image inside it rather
+    // than the wrap inside the column.
+    display: grid;
+    place-items: center;
   }
 }
 
