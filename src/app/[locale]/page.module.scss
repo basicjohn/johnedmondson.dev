@@ -4,14 +4,20 @@
   padding-block: var(--space-7);
 }
 
+// Lead project full width, the other two side by side beneath it.
 .workGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-5);
 
   @include respond($bp-md) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.lead {
+  display: grid; // so the card stretches to the cell
+  grid-column: 1 / -1;
 }
 
 .writingList {

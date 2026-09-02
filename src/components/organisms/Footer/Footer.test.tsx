@@ -113,6 +113,32 @@ describe("Footer — elements Phase 2 removed", () => {
   });
 });
 
+// The résumé link is the one document a recruiter asks for. It must not
+// appear until a scrubbed PDF exists — the current one carries a phone
+// number and a home address — so it keys off site.json, not a label.
+describe("Footer — résumé link", () => {
+  it("renders no résumé link when no file is configured", () => {
+    renderFooter();
+    expect(
+      screen.queryByRole("link", { name: en.footer.resume }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("links the résumé under the availability line once configured", () => {
+    render(
+      <Footer
+        labels={en.footer}
+        socials={socials}
+        email="contact@example.dev"
+        resume="/files/resume.pdf"
+      />,
+    );
+    expect(
+      screen.getByRole("link", { name: en.footer.resume }),
+    ).toHaveAttribute("href", "/files/resume.pdf");
+  });
+});
+
 describe("Footer — social links", () => {
   it("renders only the socials it is given", () => {
     render(

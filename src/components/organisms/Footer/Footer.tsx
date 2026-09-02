@@ -4,6 +4,7 @@ import styles from "./Footer.module.scss";
 type FooterLabels = {
   availabilityHeading: string;
   availabilityText: string;
+  resume: string;
   elsewhere: string;
   rights: string;
   builtWith: string;
@@ -13,9 +14,11 @@ type Props = {
   labels: FooterLabels;
   socials: SocialLink[];
   email: string;
+  /** Public résumé PDF; the link is omitted until one is published */
+  resume?: string;
 };
 
-export default function Footer({ labels, socials, email }: Props) {
+export default function Footer({ labels, socials, email, resume }: Props) {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
@@ -31,6 +34,14 @@ export default function Footer({ labels, socials, email }: Props) {
           <a className={styles.email} href={`mailto:${email}`}>
             {email}
           </a>
+          {/* The one document a recruiter asks for, next to the address
+              they would ask for it at. Rendered only once a scrubbed PDF
+              exists at site.json's `resume` path. */}
+          {resume && (
+            <a className={styles.resume} href={resume}>
+              {labels.resume}
+            </a>
+          )}
         </div>
 
         {/* Text links, not icon circles: the two links a hiring manager will

@@ -81,6 +81,19 @@
   }
 }
 
+// Second half of the load intro: the portrait settles onto the grid as the
+// lines come up. Opacity and one transform, nothing else.
+:global(html[data-grid-intro]) .portrait {
+  animation: settle 600ms var(--ease) both;
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.98);
+  }
+}
+
 .glow {
   position: absolute;
   top: -20%;

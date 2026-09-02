@@ -5,6 +5,7 @@ import { WRITING_SECTION_PUBLIC } from "@/lib/config";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { getFeaturedPosts, getPostsByType } from "@/lib/content";
 import Hero from "@/components/organisms/Hero/Hero";
+import GridIntro from "@/components/organisms/Hero/GridIntro";
 import SectionHeading from "@/components/molecules/SectionHeading/SectionHeading";
 import ProjectCard from "@/components/molecules/ProjectCard/ProjectCard";
 import PostCard from "@/components/molecules/PostCard/PostCard";
@@ -23,11 +24,15 @@ export default async function HomePage({ params }: Props) {
   if (!isLocale(locale)) notFound();
 
   const dict = getDictionary(locale);
-  const featuredWork = getFeaturedPosts("portfolio", 3);
+  // One lead project shown large, two beneath — see ProjectCard's `feature`
+  // variant. getFeaturedPosts honours each post's `order`, so the lead is
+  // chosen in the content, not here.
+  const [lead, ...rest] = getFeaturedPosts("portfolio", 3);
   const recentWriting = getPostsByType("writing").slice(0, 3);
 
   return (
     <>
+      <GridIntro />
       <Hero
         locale={locale}
         role={dict.home.role}
@@ -38,7 +43,7 @@ export default async function HomePage({ params }: Props) {
         ctaContact={dict.home.ctaContact}
       />
 
-      {featuredWork.length > 0 && (
+      {lead && (
         <section className={`container ${styles.section}`}>
           <SectionHeading
             title={dict.home.featuredWork}
@@ -46,7 +51,10 @@ export default async function HomePage({ params }: Props) {
             linkLabel={dict.home.viewAllWork}
           />
           <div className={styles.workGrid}>
-            {featuredWork.map((post) => (
+            <div className={styles.lead}>
+              <ProjectCard post={lead} locale={locale} variant="feature" />
+            </div>
+            {rest.map((post) => (
               <ProjectCard key={post.id} post={post} locale={locale} />
             ))}
           </div>

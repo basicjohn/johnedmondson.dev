@@ -38,18 +38,22 @@ export default async function ContactPage({ params }: Props) {
         <p className={styles.intro}>{dict.contact.intro}</p>
       </header>
 
-      <div className={styles.grid}>
+      <div className={styles.stack}>
         <ContactForm
           labels={dict.contact}
           endpoint={process.env.NEXT_PUBLIC_CONTACT_ENDPOINT}
           fallbackEmail={email}
         />
 
+        {/* Below the form rather than beside it: it is the alternative to
+            writing, so it reads in sequence — form, then "or talk live". */}
         <aside className={styles.schedule}>
-          <h2 className={styles.scheduleHeading}>
-            {dict.contact.scheduleHeading}
-          </h2>
-          <p className={styles.scheduleText}>{dict.contact.scheduleText}</p>
+          <div>
+            <h2 className={styles.scheduleHeading}>
+              {dict.contact.scheduleHeading}
+            </h2>
+            <p className={styles.scheduleText}>{dict.contact.scheduleText}</p>
+          </div>
           <Button variant="secondary" href={CALENDLY_URL} external>
             {dict.contact.scheduleCta}
           </Button>

@@ -18,7 +18,7 @@
     width: 2.75rem;
     height: 3px;
     border-radius: var(--radius-pill);
-    background: var(--color-accent);
+    background: var(--color-accent-strong);
     margin-top: var(--space-2);
   }
 }
@@ -30,29 +30,33 @@
   max-width: var(--content-max);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-6);
-  align-items: start;
-
-  @include respond($bp-lg) {
-    grid-template-columns: minmax(0, 1fr) 20rem;
-    column-gap: var(--space-8);
-  }
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+  // Matches the form's own max-width in ContactForm.
+  max-width: 32rem;
 }
 
 .schedule {
   @include card;
   padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+
+  @include respond($bp-sm) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .scheduleHeading {
   font-size: var(--text-lg);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
 }
 
 .scheduleText {
   color: var(--color-ink-soft);
-  margin-bottom: var(--space-4);
 }

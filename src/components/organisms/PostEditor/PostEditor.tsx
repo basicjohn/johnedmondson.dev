@@ -175,6 +175,19 @@ export default function PostEditor({ initial, isNew }: Props) {
                 onChange={(e) => set("year", e.target.value || undefined)}
               />
               <FormField
+                label="Listing position"
+                name="order"
+                type="number"
+                value={post.order === undefined ? "" : String(post.order)}
+                hint="Optional — ordered projects list first (1, 2, 3…); the rest follow newest-first"
+                onChange={(e) =>
+                  set(
+                    "order",
+                    e.target.value === "" ? undefined : Number(e.target.value),
+                  )
+                }
+              />
+              <FormField
                 label="Live URL"
                 name="link"
                 value={post.link ?? ""}

@@ -70,7 +70,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
+    // suppressHydrationWarning: the home page's GridIntro sets an attribute
+    // on <html> before React loads (it has to, to beat first paint), which
+    // is otherwise reported as a server/client mismatch. Scoped to this
+    // element's attributes only; children are still checked.
+    <html
+      lang="en"
+      className={`${serif.variable} ${sans.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         {children}
         <Script

@@ -1,7 +1,9 @@
 @use "tokens" as *;
 
 .footer {
-  margin-top: var(--space-8);
+  // Pages carry their own bottom padding; a margin here on top of it left a
+  // band of bare grid before the footer on short pages.
+  margin-top: 0;
   border-top: 1px solid var(--color-border);
   background: var(--color-surface-tint);
   padding-top: var(--space-7);
@@ -41,19 +43,26 @@
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background: var(--color-accent);
+  background: var(--color-accent-strong);
   box-shadow: 0 0 0 3px var(--color-accent-soft);
   margin-right: var(--space-2);
   vertical-align: 0.0625rem;
 }
 
-.email {
+.email,
+.resume {
   font-weight: 700;
   color: var(--color-accent-strong);
 
   &:hover {
     text-decoration: underline;
   }
+}
+
+.resume {
+  display: block;
+  width: fit-content;
+  margin-top: var(--space-2);
 }
 
 .socials {

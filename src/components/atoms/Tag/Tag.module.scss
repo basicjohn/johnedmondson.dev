@@ -16,6 +16,14 @@
     border-color 0.15s var(--ease);
 }
 
+// Two sizes only: passive chips (cards, posts, fact sheets) above, and
+// interactive ones — the filters here, the contact topics in ContactForm —
+// at the same larger size so every clickable chip on the site matches.
+button.tag {
+  padding: 0.375rem 0.875rem;
+  cursor: pointer;
+}
+
 button.tag:hover {
   border-color: var(--color-accent-strong);
   color: var(--color-accent-strong);

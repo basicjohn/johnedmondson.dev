@@ -43,9 +43,12 @@ Two post types share one model, rendered by different templates:
 - `writing` — editorial reading column with reading time and related posts
 
 Standard CMS features: draft/published status, publish date, tags (with
-listing-page filters), featured flag (drives the home page), slug
-auto-generation, cover image (with generated-gradient fallback), EN/DE fields
-side by side with live Markdown preview.
+listing-page filters, shown only for tags that match more than one post),
+featured flag (drives the home page), slug auto-generation, cover image (with
+generated-gradient fallback) and an optional bilingual `coverCaption`, EN/DE
+fields side by side with live Markdown preview. Portfolio posts also take an
+`order` — ordered projects list first (and the first one leads the home page
+large); unordered ones follow newest-first.
 
 ## Project structure
 

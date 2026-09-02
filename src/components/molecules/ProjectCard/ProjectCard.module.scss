@@ -19,6 +19,29 @@
   display: block;
 }
 
+// The lead card: one project shown large, so the row reads as "look at
+// this" rather than "here is a list". Wide 2:1 image, bigger title.
+.feature {
+  .cover {
+    aspect-ratio: 2 / 1;
+  }
+
+  .body {
+    @include respond($bp-md) {
+      padding: var(--space-6);
+    }
+  }
+
+  .title {
+    font-size: var(--text-2xl);
+  }
+
+  .excerpt {
+    font-size: var(--text-lg);
+    max-width: var(--content-max);
+  }
+}
+
 .cover {
   width: 100%;
   aspect-ratio: 16 / 9;

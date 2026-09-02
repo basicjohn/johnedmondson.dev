@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { Locale, Post } from "@/lib/types";
 import ProjectCard from "@/components/molecules/ProjectCard/ProjectCard";
 import Tag from "@/components/atoms/Tag/Tag";
+import { tagLabel } from "@/lib/tags";
 import styles from "./PostGrid.module.scss";
 
 type Props = {
@@ -56,7 +57,7 @@ export default function PostGrid({
           {tags.map((tag) => (
             <Tag
               key={tag}
-              label={tag}
+              label={tagLabel(tag, locale)}
               active={activeTag === tag}
               onClick={() => setActiveTag(activeTag === tag ? null : tag)}
             />

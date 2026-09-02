@@ -2,7 +2,8 @@ import Link from "next/link";
 import type { Locale, Post } from "@/lib/types";
 import type { Dictionary } from "@/lib/i18n";
 import { markdownToHtml } from "@/lib/markdown";
-import { coverGradient, formatDate } from "@/lib/utils";
+import { formatYear } from "@/lib/utils";
+import { tagLabel } from "@/lib/tags";
 import Tag from "@/components/atoms/Tag/Tag";
 import Badge from "@/components/atoms/Badge/Badge";
 import Button from "@/components/atoms/Button/Button";
@@ -33,25 +34,11 @@ export default function PortfolioPostTemplate({
   const facts: { label: string; value: string }[] = [];
   if (post.client) facts.push({ label: dict.post.client, value: post.client });
   if (post.role) facts.push({ label: dict.post.role, value: post.role });
-  if (post.year) facts.push({ label: dict.post.year, value: post.year });
+  if (post.year)
+    facts.push({ label: dict.post.year, value: formatYear(post.year, locale) });
 
   return (
     <article>
-      <div className={styles.coverWrap}>
-        {post.cover ? (
-          <img
-            className={styles.cover}
-            src={post.cover}
-            alt={post.title[locale]}
-          />
-        ) : (
-          <div
-            className={styles.cover}
-            style={{ background: coverGradient(post.slug) }}
-          />
-        )}
-      </div>
-
       <div className={`container ${styles.layout}`}>
         <header className={styles.header}>
           <Link className={styles.back} href={`/${locale}/portfolio`}>
@@ -67,6 +54,25 @@ export default function PortfolioPostTemplate({
           <p className={styles.excerpt}>{post.excerpt[locale]}</p>
         </header>
 
+        {/* In the column, not full-bleed: a screenshot whose top edge is a
+            nav bar, stacked under the real header, read as two headers.
+            No cover, no figure — an empty gradient band said "nothing to
+            show". */}
+        {post.cover && (
+          <figure className={styles.figure}>
+            <img
+              className={styles.cover}
+              src={post.cover}
+              alt={post.coverCaption ? "" : post.title[locale]}
+            />
+            {post.coverCaption && (
+              <figcaption className={styles.caption}>
+                {post.coverCaption[locale]}
+              </figcaption>
+            )}
+          </figure>
+        )}
+
         <aside className={styles.facts}>
           {facts.length > 0 && (
             <dl className={styles.factList}>
@@ -76,10 +82,6 @@ export default function PortfolioPostTemplate({
                   <dd>{fact.value}</dd>
                 </div>
               ))}
-              <div className={styles.fact}>
-                <dt>{dict.post.publishedOn}</dt>
-                <dd>{formatDate(post.date, locale)}</dd>
-              </div>
             </dl>
           )}
           {post.stack && post.stack.length > 0 && (
@@ -88,15 +90,18 @@ export default function PortfolioPostTemplate({
               <ul className={styles.tags}>
                 {post.stack.map((item) => (
                   <li key={item}>
-                    <Tag label={item} />
+                    <Tag label={tagLabel(item, locale)} />
                   </li>
                 ))}
               </ul>
             </div>
           )}
+          {/* One treatment for the fact-sheet action, whichever link a
+              project has: outlined, because the primary action on this
+              page is reading. */}
           <div className={styles.links}>
             {post.link && (
-              <Button href={post.link} external>
+              <Button variant="secondary" href={post.link} external>
                 {dict.post.visitSite}
               </Button>
             )}
@@ -150,7 +155,7 @@ export default function PortfolioPostTemplate({
 
       {related.length > 0 && (
         <section className={`container ${styles.related}`}>
-          <SectionHeading title={dict.post.related} />
+          <SectionHeading title={dict.post.relatedProjects} />
           <div className={styles.relatedGrid}>
             {related.map((p) => (
               <ProjectCard key={p.id} post={p} locale={locale} />

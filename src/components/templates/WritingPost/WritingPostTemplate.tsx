@@ -3,6 +3,7 @@ import type { Locale, Post } from "@/lib/types";
 import type { Dictionary } from "@/lib/i18n";
 import { markdownToHtml } from "@/lib/markdown";
 import { formatDate, readingTime } from "@/lib/utils";
+import { tagLabel } from "@/lib/tags";
 import Badge from "@/components/atoms/Badge/Badge";
 import Tag from "@/components/atoms/Tag/Tag";
 import PostMeta from "@/components/molecules/PostMeta/PostMeta";
@@ -56,7 +57,7 @@ export default function WritingPostTemplate({
         <ul className={styles.tags}>
           {post.tags.map((tag) => (
             <li key={tag}>
-              <Tag label={tag} />
+              <Tag label={tagLabel(tag, locale)} />
             </li>
           ))}
         </ul>
@@ -64,7 +65,7 @@ export default function WritingPostTemplate({
 
       {related.length > 0 && (
         <section className={styles.related}>
-          <SectionHeading title={dict.post.related} />
+          <SectionHeading title={dict.post.relatedWriting} />
           {related.map((p) => (
             <PostCard
               key={p.id}

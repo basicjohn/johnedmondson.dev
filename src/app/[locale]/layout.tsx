@@ -42,7 +42,12 @@ export default async function LocaleLayout({ children, params }: Props) {
         languageLabel={dict.common.languageLabel}
       />
       <main id="main">{children}</main>
-      <Footer labels={dict.footer} socials={site.socials} email={site.email} />
+      <Footer
+        labels={dict.footer}
+        socials={site.socials}
+        email={site.email}
+        resume={site.resume}
+      />
     </div>
   );
 }

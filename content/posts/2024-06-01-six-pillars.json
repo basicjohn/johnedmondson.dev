@@ -4,6 +4,7 @@
   "type": "portfolio",
   "status": "published",
   "featured": true,
+  "order": 1,
   "date": "2024-06-01",
   "tags": ["Next.js", "AWS", "SaaS", "Design System"],
   "title": {
@@ -23,5 +24,9 @@
   "year": "2023 – 2025",
   "stack": ["Next.js", "TypeScript", "AWS", "WorkOS", "Storybook"],
   "cover": "/images/portfolio/six-pillars-cover.jpg",
+  "coverCaption": {
+    "en": "The Six Pillars web app — the product I owned end to end as co-founder.",
+    "de": "Die Six-Pillars-Web-App — das Produkt, das ich als Mitgründer von Anfang bis Ende verantwortet habe."
+  },
   "updated": "2026-09-01"
 }

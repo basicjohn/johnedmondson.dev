@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { Locale, Post } from "@/lib/types";
 import PostCard from "@/components/molecules/PostCard/PostCard";
 import Tag from "@/components/atoms/Tag/Tag";
+import { tagLabel } from "@/lib/tags";
 import styles from "./PostList.module.scss";
 
 type Props = {
@@ -23,10 +24,21 @@ export default function PostList({
 }: Props) {
   const [activeTag, setActiveTag] = useState<string | null>(null);
 
-  const tags = useMemo(
-    () => [...new Set(posts.flatMap((p) => p.tags))].sort(),
-    [posts],
-  );
+  // Same rule as the portfolio grid: a tag only earns a filter button once
+  // it matches more than one post. With two posts and six distinct tags,
+  // every button was a way to see less.
+  const tags = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const post of posts) {
+      for (const tag of new Set(post.tags)) {
+        counts.set(tag, (counts.get(tag) ?? 0) + 1);
+      }
+    }
+    return [...counts]
+      .filter(([, count]) => count > 1)
+      .map(([tag]) => tag)
+      .sort();
+  }, [posts]);
 
   const visible = activeTag
     ? posts.filter((p) => p.tags.includes(activeTag))
@@ -48,7 +60,7 @@ export default function PostList({
           {tags.map((tag) => (
             <Tag
               key={tag}
-              label={tag}
+              label={tagLabel(tag, locale)}
               active={activeTag === tag}
               onClick={() => setActiveTag(activeTag === tag ? null : tag)}
             />

@@ -74,6 +74,35 @@ describe("lookups", () => {
   });
 });
 
+// The portfolio is curated: `order` decides the listing, and the site's own
+// entry — which has none — falls to the back instead of leading.
+describe("portfolio order", () => {
+  it("lists ordered projects first, ascending", () => {
+    const ranks = getPostsByType("portfolio").map(
+      (p) => p.order ?? Number.POSITIVE_INFINITY,
+    );
+    expect(ranks).toEqual([...ranks].sort((a, b) => a - b));
+  });
+
+  it("keeps unordered projects newest-first behind them", () => {
+    const unordered = getPostsByType("portfolio").filter(
+      (p) => p.order === undefined,
+    );
+    const dates = unordered.map((p) => p.date);
+    expect(dates).toEqual([...dates].sort().reverse());
+  });
+
+  it("does not lead with this website", () => {
+    const [first] = getPostsByType("portfolio");
+    expect(first.slug).not.toBe("johnedmondson-dev-v2");
+  });
+
+  it("leaves writing chronological", () => {
+    const dates = getPostsByType("writing").map((p) => p.date);
+    expect(dates).toEqual([...dates].sort().reverse());
+  });
+});
+
 describe("getFeaturedPosts", () => {
   it("respects the limit", () => {
     expect(getFeaturedPosts("portfolio", 2).length).toBeLessThanOrEqual(2);

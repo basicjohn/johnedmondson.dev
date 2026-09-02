@@ -33,15 +33,16 @@
     "filterAll": "Alle"
   },
   "post": {
-    "publishedOn": "Veröffentlicht",
     "updatedOn": "Aktualisiert",
     "minRead": "Min. Lesezeit",
     "backToPortfolio": "Zurück zum Portfolio",
     "backToWriting": "Zurück zu den Texten",
-    "related": "Mehr davon",
+    "relatedProjects": "Andere Projekte",
+    "relatedWriting": "Weitere Texte",
     "client": "Kunde",
     "role": "Rolle",
     "year": "Jahr",
+    "present": "heute",
     "stack": "Stack",
     "visitSite": "Website besuchen",
     "viewCode": "Code ansehen",
@@ -79,6 +80,7 @@
   "footer": {
     "availabilityHeading": "Verfügbarkeit",
     "availabilityText": "Offen für eine Festanstellung als Product Engineer.",
+    "resume": "Lebenslauf (PDF)",
     "elsewhere": "Anderswo",
     "rights": "Alle Rechte vorbehalten.",
     "builtWith": "Gestaltet & entwickelt von John Edmondson."

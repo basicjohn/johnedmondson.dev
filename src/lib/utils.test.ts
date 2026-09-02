@@ -1,5 +1,11 @@
 import { describe, it, expect } from "vitest";
-import { formatDate, readingTime, slugify, coverGradient } from "./utils";
+import {
+  formatDate,
+  formatYear,
+  readingTime,
+  slugify,
+  coverGradient,
+} from "./utils";
 
 describe("slugify", () => {
   it("lowercases and hyphenates", () => {
@@ -79,5 +85,22 @@ describe("coverGradient", () => {
     expect(coverGradient("anything")).toMatch(
       /^linear-gradient\(135deg, hsl\(\d+ \d+% \d+%\), hsl\(\d+ \d+% \d+%\)\)$/,
     );
+  });
+});
+
+// "2025 – present" leaked onto the German pages untranslated; the year is
+// stored once in English and localised on display.
+describe("formatYear", () => {
+  it("leaves closed ranges alone", () => {
+    expect(formatYear("2022 – 2023", "de")).toBe("2022 – 2023");
+    expect(formatYear("2026", "de")).toBe("2026");
+  });
+
+  it("translates the open end for German", () => {
+    expect(formatYear("2025 – present", "de")).toBe("2025 – heute");
+  });
+
+  it("keeps English as written", () => {
+    expect(formatYear("2025 – present", "en")).toBe("2025 – present");
   });
 });

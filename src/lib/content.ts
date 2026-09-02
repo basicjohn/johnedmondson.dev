@@ -20,7 +20,17 @@ export function getAllPosts(opts: { includeDrafts?: boolean } = {}): Post[] {
 }
 
 export function getPostsByType(type: PostType): Post[] {
-  return getAllPosts().filter((p) => p.type === type);
+  const posts = getAllPosts().filter((p) => p.type === type);
+  return type === "portfolio" ? sortByOrder(posts) : posts;
+}
+
+// Portfolio listings are curated, not chronological: a project with an
+// `order` outranks one without, and unordered projects keep the newest-first
+// order they arrive in. The site itself ("johnedmondson.dev v2") has no
+// order, so it lands last rather than leading its own portfolio.
+function sortByOrder(posts: Post[]): Post[] {
+  const rank = (p: Post) => p.order ?? Number.POSITIVE_INFINITY;
+  return [...posts].sort((a, b) => rank(a) - rank(b));
 }
 
 export function getPostBySlug(slug: string): Post | undefined {

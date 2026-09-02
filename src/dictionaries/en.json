@@ -33,15 +33,16 @@
     "filterAll": "All"
   },
   "post": {
-    "publishedOn": "Published",
     "updatedOn": "Updated",
     "minRead": "min read",
     "backToPortfolio": "Back to portfolio",
     "backToWriting": "Back to writing",
-    "related": "More like this",
+    "relatedProjects": "Other projects",
+    "relatedWriting": "More writing",
     "client": "Client",
     "role": "Role",
     "year": "Year",
+    "present": "present",
     "stack": "Stack",
     "visitSite": "Visit site",
     "viewCode": "View code",
@@ -79,6 +80,7 @@
   "footer": {
     "availabilityHeading": "Availability",
     "availabilityText": "Open to full-time product engineering roles.",
+    "resume": "Résumé (PDF)",
     "elsewhere": "Elsewhere",
     "rights": "All rights reserved.",
     "builtWith": "Designed & built by John Edmondson."

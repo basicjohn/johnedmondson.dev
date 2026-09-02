@@ -14,10 +14,17 @@ export interface Post {
   type: PostType;
   status: PostStatus;
   featured: boolean;
+  /**
+   * Manual position in portfolio listings and on the home page. Posts with
+   * an order come first, ascending; the rest follow newest-first. Writing
+   * ignores it — a blog is chronological.
+   */
+  order?: number;
   date: string; // ISO yyyy-mm-dd
   updated?: string;
   tags: string[];
   cover?: string; // optional image URL/path; cards fall back to a generated gradient
+  coverCaption?: Localized; // one line under the cover on the project page
   title: Localized;
   excerpt: Localized;
   body: Localized; // markdown
@@ -38,6 +45,8 @@ export interface SocialLink {
 export interface SiteData {
   socials: SocialLink[];
   email: string;
+  /** Path to the public résumé PDF; the footer link appears once this is set */
+  resume?: string;
 }
 
 /** Blank post used by the CMS "new post" form */

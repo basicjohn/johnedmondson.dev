@@ -3,7 +3,8 @@
   "slug": "ion-channel",
   "type": "portfolio",
   "status": "published",
-  "featured": false,
+  "featured": true,
+  "order": 3,
   "date": "2023-06-15",
   "tags": ["Dashboard", "Data Visualization", "Security"],
   "title": {
@@ -22,5 +23,9 @@
   "role": "Front-End Software Engineer",
   "year": "2022 – 2023",
   "stack": ["React", "TypeScript", "GraphQL", "Nx", "Graphcache"],
-  "cover": "/images/portfolio/ion-channel-dependency-health.jpg"
+  "cover": "/images/portfolio/ion-channel-dependency-health.jpg",
+  "coverCaption": {
+    "en": "Dependency health view: one of the dashboard screens I built and maintained.",
+    "de": "Ansicht „Dependency Health“: einer der Dashboard-Screens, die ich gebaut und gepflegt habe."
+  }
 }

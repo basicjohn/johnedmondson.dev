@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Locale, Post } from "@/lib/types";
 import { formatDate, readingTime } from "@/lib/utils";
+import { tagLabel } from "@/lib/tags";
 import PostMeta from "@/components/molecules/PostMeta/PostMeta";
 import Tag from "@/components/atoms/Tag/Tag";
 import styles from "./PostCard.module.scss";
@@ -29,7 +30,7 @@ export default function PostCard({ post, locale, minReadLabel }: Props) {
         <ul className={styles.tags}>
           {post.tags.slice(0, 4).map((tag) => (
             <li key={tag}>
-              <Tag label={tag} />
+              <Tag label={tagLabel(tag, locale)} />
             </li>
           ))}
         </ul>

@@ -1,4 +1,5 @@
 import type { Locale } from "./types";
+import { getDictionary } from "./i18n";
 
 export function formatDate(iso: string, locale: Locale): string {
   const date = new Date(`${iso}T00:00:00`);
@@ -7,6 +8,14 @@ export function formatDate(iso: string, locale: Locale): string {
     month: "long",
     day: "numeric",
   }).format(date);
+}
+
+/**
+ * Project years are stored once, in English ("2025 – present"); the open
+ * end is the only word in them, so it is the only thing to translate.
+ */
+export function formatYear(year: string, locale: Locale): string {
+  return year.replace(/\bpresent\b/i, getDictionary(locale).post.present);
 }
 
 /** Rough reading time in minutes from markdown source */

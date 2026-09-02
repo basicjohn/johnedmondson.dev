@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Locale } from "@/lib/types";
@@ -26,7 +26,17 @@ type Props = {
 
 export default function Header({ locale, nav, languageLabel }: Props) {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname() ?? "";
+
+  // Translucent at the top of the page, opaque once content passes under
+  // it — otherwise a scrolled-under image or title smears through the blur.
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 8);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
 
   const links = [
     { href: `/${locale}`, label: nav.home, exact: true },
@@ -41,7 +51,9 @@ export default function Header({ locale, nav, languageLabel }: Props) {
     exact ? pathname === href : pathname.startsWith(href);
 
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${scrolled || open ? styles.solid : ""}`}
+    >
       <div className={`container ${styles.inner}`}>
         <Link
           href={`/${locale}`}

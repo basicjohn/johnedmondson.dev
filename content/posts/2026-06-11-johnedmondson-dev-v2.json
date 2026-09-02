@@ -3,7 +3,7 @@
   "slug": "johnedmondson-dev-v2",
   "type": "portfolio",
   "status": "published",
-  "featured": true,
+  "featured": false,
   "date": "2026-06-11",
   "tags": ["Next.js", "Design System", "i18n"],
   "title": {
@@ -22,5 +22,9 @@
   "year": "2026",
   "repo": "https://github.com/basicjohn/johnedmondson.dev",
   "stack": ["Next.js", "TypeScript", "Sass/SCSS", "React"],
-  "cover": "/images/portfolio/johnedmondson-dev-v2-home.jpg"
+  "cover": "/images/portfolio/johnedmondson-dev-v2-home.jpg",
+  "coverCaption": {
+    "en": "The home page of this site, captured from the current build.",
+    "de": "Die Startseite dieser Website, aufgenommen aus dem aktuellen Build."
+  }
 }

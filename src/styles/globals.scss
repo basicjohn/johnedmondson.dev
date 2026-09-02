@@ -12,6 +12,8 @@
   --color-ink: #2b2926;
   --color-ink-soft: #6b6560;
   --color-ink-faint: #97918a;
+  // Kept only for the hero glow tint; every drawn accent (heading rules,
+  // dots, underlines) uses --color-accent-strong so they match link text.
   --color-accent: #f2a934; // decorative gold
   // Darkened from #b06f10, which measured 4.03:1 on surface and 3.63:1
   // on the page background — under AA's 4.5:1 for body text despite the
@@ -57,6 +59,28 @@
 
   // Motion
   --ease: cubic-bezier(0.25, 0.6, 0.3, 1);
+}
+
+// Registered so the grid colour can be animated — an unregistered custom
+// property flips, it does not tween. Browsers without @property simply show
+// the grid at full strength from the first frame.
+@property --color-grid-line {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+// The home page's load-only intro (see GridIntro.tsx): the grid draws in
+// over 600ms. Home only, once, and never for reduced-motion users — the
+// attribute is only set when their preference allows it.
+@keyframes grid-in {
+  from {
+    --color-grid-line: transparent;
+  }
+}
+
+html[data-grid-intro] body {
+  animation: grid-in 600ms var(--ease) both;
 }
 
 // ============================================
@@ -210,7 +234,7 @@ h4 {
   }
 
   blockquote {
-    border-left: 3px solid var(--color-accent);
+    border-left: 3px solid var(--color-accent-strong);
     padding-left: var(--space-4);
     color: var(--color-ink-soft);
     font-style: italic;
