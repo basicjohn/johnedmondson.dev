@@ -27,7 +27,7 @@
 }
 
 .logoDot {
-  color: var(--color-accent);
+  color: var(--color-accent-strong);
 }
 
 .nav {
@@ -41,7 +41,7 @@
     font-size: var(--text-sm);
 
     &:hover {
-      color: var(--color-accent);
+      color: var(--color-accent-strong);
     }
   }
 }

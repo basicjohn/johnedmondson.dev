@@ -12,9 +12,9 @@
   --color-ink: #2b2926;
   --color-ink-soft: #6b6560;
   --color-ink-faint: #97918a;
-  // Kept only for the hero glow tint; every drawn accent (heading rules,
-  // dots, underlines) uses --color-accent-strong so they match link text.
-  --color-accent: #f2a934; // decorative gold
+  // One gold only. The lighter decorative #f2a934 used to sit beside this
+  // for rules, dots and the hero glow; it read as a second colour next to
+  // link text, so everything now draws with the accessible value.
   // Darkened from #b06f10, which measured 4.03:1 on surface and 3.63:1
   // on the page background — under AA's 4.5:1 for body text despite the
   // name. This value clears 5.1:1 on every surface in the palette.
