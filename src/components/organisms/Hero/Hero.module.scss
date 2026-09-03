@@ -3,36 +3,67 @@
 .hero {
   position: relative;
   overflow: hidden;
-  padding-block: var(--space-8);
+  padding-block: var(--space-7);
 
   @include respond($bp-md) {
+    padding-block: var(--space-8);
+  }
+
+  @include respond($bp-lg) {
     padding-block: calc(var(--space-8) * 1.4);
   }
 }
 
+// Phone: the portrait sits beside the (two-line) name as a masthead, the
+// role and bio run full width beneath — face and name land in the first
+// screen instead of a small circle floating above everything. Tablet: the
+// portrait spans name and role. Desktop: the text column is exactly the
+// bio's measure (38rem) and the portrait is centred in the other half,
+// spanning all three text rows.
 .inner {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: var(--space-6);
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "portrait name"
+    "role role"
+    "copy copy";
+  column-gap: var(--space-4);
+  align-items: center;
+
+  @include respond($bp-md) {
+    grid-template-areas:
+      "portrait name"
+      "portrait role"
+      "copy copy";
+    column-gap: var(--space-6);
+  }
 
   @include respond($bp-lg) {
-    // The text column is exactly as wide as the bio's measure (38rem), so
-    // the portrait is centred in the other half of the section rather than
-    // pushed to the container edge by empty column space.
     grid-template-columns: minmax(0, 38rem) 1fr;
-    align-items: center;
+    grid-template-areas:
+      "name portrait"
+      "role portrait"
+      "copy portrait";
     column-gap: var(--space-8);
   }
 }
 
+.copy {
+  grid-area: copy;
+  margin-top: var(--space-5);
+}
+
 .name {
+  grid-area: name;
+  align-self: center;
   font-size: var(--text-4xl);
   letter-spacing: -0.02em;
 }
 
 .role {
+  grid-area: role;
   font-family: var(--font-serif), Georgia, serif;
   font-style: italic;
   font-size: var(--text-xl);
@@ -46,7 +77,6 @@
   font-weight: 500;
   line-height: 1.5;
   color: var(--color-ink);
-  margin-top: var(--space-5);
   max-width: 36rem;
   text-wrap: pretty;
 }
@@ -66,22 +96,23 @@
 }
 
 .portraitWrap {
-  order: -1;
-
-  @include respond($bp-lg) {
-    order: 0;
-    // The wrap fills its column (the image's percentage width makes it
-    // shrink-to-fit the column), so centre the image inside it rather
-    // than the wrap inside the column.
-    display: grid;
-    place-items: center;
-  }
+  grid-area: portrait;
+  // The wrap fills its column (the image's percentage width makes it
+  // shrink-to-fit the column), so centre the image inside it rather than
+  // the wrap inside the column.
+  display: grid;
+  place-items: center;
 }
 
 .portrait {
-  width: 7.5rem;
+  // Beside the name: roughly the height of the name-and-role block.
+  width: 5.5rem;
   height: auto;
   border-radius: 50%;
+
+  @include respond($bp-md) {
+    width: 8rem;
+  }
 
   @include respond($bp-lg) {
     // 19rem × 1.15 — sized up a step so it holds its own against the bio.

@@ -23,19 +23,14 @@ export default function Hero({
 }: Props) {
   return (
     <section className={styles.hero}>
+      {/* Name, role, portrait and copy are separate grid items so the
+          portrait can sit beside the name on a phone, beside name and role
+          on a tablet, and beside the whole text block on a desktop — see the
+          grid-template-areas in the stylesheet. DOM order is the reading
+          order. */}
       <div className={`container ${styles.inner}`}>
-        <div>
-          <h1 className={styles.name}>John Edmondson</h1>
-          <p className={styles.role}>{role}</p>
-          <p className={styles.bioLead}>{bioLead}</p>
-          <p className={styles.bio}>{bio}</p>
-          <div className={styles.actions}>
-            <Button href={`/${locale}/portfolio`}>{ctaWork}</Button>
-            <Button variant="secondary" href={`/${locale}/contact`}>
-              {ctaContact}
-            </Button>
-          </div>
-        </div>
+        <h1 className={styles.name}>John Edmondson</h1>
+        <p className={styles.role}>{role}</p>
         <div className={styles.portraitWrap}>
           <img
             className={styles.portrait}
@@ -44,6 +39,16 @@ export default function Hero({
             width={720}
             height={720}
           />
+        </div>
+        <div className={styles.copy}>
+          <p className={styles.bioLead}>{bioLead}</p>
+          <p className={styles.bio}>{bio}</p>
+          <div className={styles.actions}>
+            <Button href={`/${locale}/portfolio`}>{ctaWork}</Button>
+            <Button variant="secondary" href={`/${locale}/contact`}>
+              {ctaContact}
+            </Button>
+          </div>
         </div>
       </div>
       <div className={styles.glow} aria-hidden="true" />
