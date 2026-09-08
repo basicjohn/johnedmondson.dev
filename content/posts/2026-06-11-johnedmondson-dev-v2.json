@@ -10,6 +10,10 @@
     "en": "johnedmondson.dev v2 — This Website",
     "de": "johnedmondson.dev v2 — Diese Website"
   },
+  "summary": {
+    "en": "This site: a bilingual Next.js portfolio with an atomic component library and a git-based CMS.",
+    "de": "Diese Website: ein zweisprachiges Next.js-Portfolio mit Atomic-Komponentenbibliothek und Git-basiertem CMS."
+  },
   "excerpt": {
     "en": "A bilingual portfolio and writing site built on Next.js with an atomic design component library and a file-based CMS.",
     "de": "Eine zweisprachige Portfolio- und Schreib-Website auf Next.js-Basis, mit Atomic-Design-Komponentenbibliothek und dateibasiertem CMS."

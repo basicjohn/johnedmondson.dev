@@ -1,8 +1,8 @@
 {
   "short_name": "John Edmondson",
-  "name": "John Edmondson - Product Engineer & Maker",
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#323232",
-  "background_color": "#f2f0ef"
+  "name": "John Edmondson — Product Engineer · Full-Stack",
+  "start_url": "/en",
+  "display": "browser",
+  "theme_color": "#f4f1eb",
+  "background_color": "#f4f1eb"
 }

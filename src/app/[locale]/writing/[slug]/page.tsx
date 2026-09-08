@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary, isLocale, locales } from "@/lib/i18n";
 import { getPostBySlug, getPostsByType, getRelatedPosts } from "@/lib/content";
-import { alternatesFor } from "@/lib/seo";
+import { alternatesFor, openGraphFor, twitterFor } from "@/lib/seo";
 import { WRITING_SECTION_PUBLIC } from "@/lib/config";
 import WritingPostTemplate from "@/components/templates/WritingPost/WritingPostTemplate";
 
@@ -19,11 +19,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!isLocale(locale)) return {};
   const post = getPostBySlug(slug);
   if (!post) return {};
+  const path = `/writing/${post.slug}`;
   return {
     title: post.title[locale],
     description: post.excerpt[locale],
     robots: WRITING_SECTION_PUBLIC ? undefined : { index: false, follow: true },
-    alternates: alternatesFor(locale, `/writing/${post.slug}`),
+    alternates: alternatesFor(locale, path),
+    openGraph: openGraphFor(locale, path, {
+      type: "article",
+      image: post.cover,
+      imageAlt: post.title[locale],
+    }),
+    twitter: twitterFor(post.cover),
   };
 }
 

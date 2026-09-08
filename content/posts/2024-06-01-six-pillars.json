@@ -11,6 +11,10 @@
     "en": "Six Pillars — Cloud Optimization Platform",
     "de": "Six Pillars — Cloud-Optimierungsplattform"
   },
+  "summary": {
+    "en": "Co-founded a multi-tenant cloud cost optimization SaaS: the Next.js product, its AWS Marketplace listing, and its design system.",
+    "de": "Mitgegründete Cloud-Kostenoptimierung als mandantenfähiges SaaS: Next.js-Produkt, AWS-Marketplace-Listing und Designsystem."
+  },
   "excerpt": {
     "en": "Co-founded and built a complete cloud optimization platform: Next.js/TypeScript product, multi-tenant B2B SaaS architecture, AWS Marketplace integration, and an atomic design system.",
     "de": "Mitgegründet und komplett aufgebaut: eine Cloud-Optimierungsplattform mit Next.js/TypeScript, mandantenfähiger B2B-SaaS-Architektur, AWS-Marketplace-Integration und einem Atomic-Design-System."

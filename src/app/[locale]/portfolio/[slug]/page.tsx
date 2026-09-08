@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary, isLocale, locales } from "@/lib/i18n";
 import { getPostBySlug, getPostsByType, getRelatedPosts } from "@/lib/content";
-import { alternatesFor } from "@/lib/seo";
+import { alternatesFor, openGraphFor, twitterFor } from "@/lib/seo";
 import PortfolioPostTemplate from "@/components/templates/PortfolioPost/PortfolioPostTemplate";
+import JsonLd, { projectSchema } from "@/components/atoms/JsonLd/JsonLd";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -18,10 +19,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!isLocale(locale)) return {};
   const post = getPostBySlug(slug);
   if (!post) return {};
+  const path = `/portfolio/${post.slug}`;
   return {
     title: post.title[locale],
     description: post.excerpt[locale],
-    alternates: alternatesFor(locale, `/portfolio/${post.slug}`),
+    alternates: alternatesFor(locale, path),
+    // A shared project link previews the project, not the portrait card
+    openGraph: openGraphFor(locale, path, {
+      type: "article",
+      image: post.cover,
+      imageAlt: post.title[locale],
+    }),
+    twitter: twitterFor(post.cover),
   };
 }
 
@@ -47,13 +56,16 @@ export default async function PortfolioPostPage({ params }: Props) {
     index >= 0 && index < ordered.length - 1 ? ordered[index + 1] : undefined;
 
   return (
-    <PortfolioPostTemplate
-      post={post}
-      related={related}
-      prev={prev}
-      next={next}
-      locale={locale}
-      dict={dict}
-    />
+    <>
+      <JsonLd data={projectSchema(post, locale)} />
+      <PortfolioPostTemplate
+        post={post}
+        related={related}
+        prev={prev}
+        next={next}
+        locale={locale}
+        dict={dict}
+      />
+    </>
   );
 }

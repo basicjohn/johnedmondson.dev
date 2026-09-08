@@ -54,7 +54,9 @@ export default function ProjectCard({
         <h3 className={styles.title}>
           <Link href={href}>{post.title[locale]}</Link>
         </h3>
-        <p className={styles.excerpt}>{post.excerpt[locale]}</p>
+        <p className={styles.excerpt}>
+          {post.summary?.[locale] || post.excerpt[locale]}
+        </p>
         {post.tags.length > 0 && (
           <ul className={styles.tags}>
             {post.tags.slice(0, 4).map((tag) => (

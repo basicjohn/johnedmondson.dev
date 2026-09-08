@@ -4,12 +4,16 @@
   "type": "portfolio",
   "status": "published",
   "featured": true,
-  "order": 3,
+  "order": 4,
   "date": "2023-06-15",
   "tags": ["Dashboard", "Data Visualization", "Security"],
   "title": {
     "en": "Ion Channel — Software Supply Chain Dashboard",
     "de": "Ion Channel — Dashboard für die Software-Lieferkette"
+  },
+  "summary": {
+    "en": "Frontend for a software supply-chain security platform: dependency health, repository metrics, user and feature management.",
+    "de": "Frontend für eine Software-Supply-Chain-Sicherheitsplattform: Abhängigkeits-Gesundheit, Repository-Metriken, Nutzerverwaltung."
   },
   "excerpt": {
     "en": "Frontend work on a security intelligence platform: dependency health, repository metrics, and user & feature management at a glance.",

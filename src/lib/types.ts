@@ -26,6 +26,12 @@ export interface Post {
   cover?: string; // optional image URL/path; cards fall back to a generated gradient
   coverCaption?: Localized; // one line under the cover on the project page
   title: Localized;
+  /**
+   * One line for cards, 140 characters at most. The excerpt is the project
+   * page's standfirst and the meta description; it runs to 250 characters,
+   * which is five lines on a card.
+   */
+  summary?: Localized;
   excerpt: Localized;
   body: Localized; // markdown
   // Portfolio-specific (optional for writings)

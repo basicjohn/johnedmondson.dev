@@ -88,4 +88,38 @@ describe("portfolio posts", () => {
       expect(post.role?.trim()).toBeTruthy();
     },
   );
+
+  // Two projects once shared an order and the home page's third slot was
+  // decided by whichever file the sort happened to see first.
+  it("gives no two projects the same order", () => {
+    const orders = portfolio
+      .map((p) => p.order)
+      .filter((o): o is number => o !== undefined);
+    expect(new Set(orders).size).toBe(orders.length);
+  });
+
+  // Cards show the summary; the excerpt is the project page's standfirst
+  // and runs to 250 characters, which is five lines on a card.
+  describe.each(portfolio.map((p) => [p.slug, p] as const))(
+    "%s card summary",
+    (_slug, post) => {
+      it.each([...locales])("exists in %s", (locale) => {
+        expect(post.summary?.[locale]?.trim()).toBeTruthy();
+      });
+
+      it.each([...locales])("fits on a card in %s", (locale) => {
+        expect(post.summary![locale].length).toBeLessThanOrEqual(140);
+      });
+    },
+  );
 });
+
+// Any post may carry a summary; when it does, it must be a card's worth.
+describe.each(all.filter((p) => p.summary).map((p) => [p.slug, p] as const))(
+  "summary on %s",
+  (_slug, post) => {
+    it("is present for every locale, not just one", () => {
+      expect(Object.keys(post.summary!).sort()).toEqual([...locales].sort());
+    });
+  },
+);

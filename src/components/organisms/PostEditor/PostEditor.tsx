@@ -26,8 +26,15 @@ export default function PostEditor({ initial, isNew }: Props) {
   const set = <K extends keyof Post>(key: K, value: Post[K]) =>
     setPost((p) => ({ ...p, [key]: value }));
 
-  const setLocalized = (key: "title" | "excerpt" | "body", value: string) =>
-    setPost((p) => ({ ...p, [key]: { ...p[key], [lang]: value } }));
+  const setLocalized = (
+    key: "title" | "summary" | "excerpt" | "body",
+    value: string,
+  ) =>
+    setPost((p) => ({
+      ...p,
+      // `summary` is optional on older posts, so start it from empty strings
+      [key]: { en: "", de: "", ...p[key], [lang]: value },
+    }));
 
   function handleTitleChange(value: string) {
     setPost((p) => {
@@ -244,6 +251,16 @@ export default function PostEditor({ initial, isNew }: Props) {
             value={post.title[lang]}
             onChange={(e) => handleTitleChange(e.target.value)}
           />
+
+          {post.type === "portfolio" && (
+            <FormField
+              label={`Card summary (${lang.toUpperCase()}, ≤ 140 characters)`}
+              name={`summary-${lang}`}
+              value={post.summary?.[lang] ?? ""}
+              maxLength={140}
+              onChange={(e) => setLocalized("summary", e.target.value)}
+            />
+          )}
 
           <FormField
             as="textarea"

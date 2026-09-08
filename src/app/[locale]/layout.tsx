@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary, isLocale, locales } from "@/lib/i18n";
 import { getSiteData } from "@/lib/content";
+import { openGraphFor } from "@/lib/seo";
 import Header from "@/components/organisms/Header/Header";
 import Footer from "@/components/organisms/Footer/Footer";
+import JsonLd, {
+  personSchema,
+  websiteSchema,
+} from "@/components/atoms/JsonLd/JsonLd";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -15,9 +20,10 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const current = isLocale(locale) ? locale : "en";
-  return {
-    openGraph: { locale: current === "de" ? "de_DE" : "en_US" },
-  };
+  // The full block, not just `locale`: setting one Open Graph field here
+  // replaced the root layout's whole object, so every locale page shipped
+  // without an og:image at all.
+  return { openGraph: openGraphFor(current) };
 }
 
 type Props = {
@@ -33,7 +39,17 @@ export default async function LocaleLayout({ children, params }: Props) {
   const site = getSiteData();
   return (
     <div lang={locale}>
-      <a className="visually-hidden" href="#main">
+      <JsonLd
+        data={[
+          websiteSchema(locale),
+          personSchema({
+            jobTitle: dict.home.role,
+            email: site.email,
+            sameAs: site.socials.map((s) => s.url),
+          }),
+        ]}
+      />
+      <a className="skip-link" href="#main">
         {dict.common.skipToContent}
       </a>
       <Header

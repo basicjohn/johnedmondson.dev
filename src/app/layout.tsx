@@ -1,11 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Merriweather, Mulish } from "next/font/google";
 import "@/styles/globals.scss";
+import { DEFAULT_OG_IMAGE, SITE_URL } from "@/lib/seo";
 
+// 400 and 700 only: nothing sets weight 900, and the two files for it were
+// on every first visit.
 const serif = Merriweather({
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  weight: ["400", "700"],
   style: ["normal", "italic"],
   variable: "--font-serif",
   display: "swap",
@@ -17,7 +20,6 @@ const sans = Mulish({
   display: "swap",
 });
 
-const SITE_URL = "https://www.johnedmondson.dev";
 const TITLE = "John Edmondson — Product Engineer · Full-Stack";
 // Same positioning as the LinkedIn headline: the title, the stack, and the
 // kind of work — this is the snippet search results and link previews show.
@@ -42,20 +44,13 @@ export const metadata: Metadata = {
     alternateLocale: ["de_DE"],
     // Kept as JPEG rather than WebP: crawler support for WebP share cards
     // is still uneven where it matters most.
-    images: [
-      {
-        url: "/preview-image.jpg",
-        width: 1200,
-        height: 1181,
-        alt: "John Edmondson",
-      },
-    ],
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/preview-image.jpg"],
+    images: [DEFAULT_OG_IMAGE.url],
   },
   icons: {
     icon: [
@@ -64,6 +59,12 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/manifest.json",
+};
+
+// Browser chrome matches the paper; the page is light-only by design.
+export const viewport: Viewport = {
+  themeColor: "#f4f1eb",
+  colorScheme: "light",
 };
 
 export default function RootLayout({

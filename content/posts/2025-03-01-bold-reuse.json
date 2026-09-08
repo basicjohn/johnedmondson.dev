@@ -11,6 +11,10 @@
     "en": "Bold Reuse — Reuse Logistics Platform",
     "de": "Bold Reuse — Plattform für Mehrweg-Logistik"
   },
+  "summary": {
+    "en": "Onboarding, bulk imports, role-based access and the wash-pack-ship workflows a live fulfillment team runs on every day.",
+    "de": "Onboarding, Massenimporte, Rollenrechte und die Wasch-Pack-Versand-Workflows, mit denen ein Fulfillment-Team täglich arbeitet."
+  },
   "excerpt": {
     "en": "Full-stack product engineering for a reusable packaging company: client onboarding, CRM-style data management, bulk imports, role-based access control, and multi-step operational workflows used daily by live fulfillment teams.",
     "de": "Full-Stack-Produktentwicklung für ein Mehrwegverpackungs-Unternehmen: Kunden-Onboarding, CRM-artige Datenverwaltung, Massenimporte, rollenbasierte Zugriffskontrolle und mehrstufige operative Workflows im täglichen Einsatz bei Fulfillment-Teams."
