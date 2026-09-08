@@ -4,6 +4,7 @@
   "type": "portfolio",
   "status": "published",
   "featured": false,
+  "kind": "personal",
   "date": "2026-06-11",
   "tags": ["Next.js", "Design System", "i18n"],
   "title": {

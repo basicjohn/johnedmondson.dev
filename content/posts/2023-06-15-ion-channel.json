@@ -5,6 +5,7 @@
   "status": "published",
   "featured": true,
   "order": 4,
+  "kind": "employee",
   "date": "2023-06-15",
   "tags": ["Dashboard", "Data Visualization", "Security"],
   "title": {

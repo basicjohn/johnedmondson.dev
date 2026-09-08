@@ -43,3 +43,6 @@ amplifyconfiguration.json
 amplify-build-config.json
 amplifytools.xcconfig
 .secret-*
+
+# Responsive image renditions — rebuilt by scripts/images.mjs on predev/prebuild
+/public/images/_opt/

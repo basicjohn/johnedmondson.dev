@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import FormField from "@/components/molecules/FormField/FormField";
 import Button from "@/components/atoms/Button/Button";
 import styles from "./ContactForm.module.scss";
@@ -36,6 +36,9 @@ type Props = {
 
 type Status = "idle" | "sending" | "success" | "error";
 
+/** Nobody reads the page, types a name, an address and a message in less */
+export const MIN_FILL_MS = 3000;
+
 export default function ContactForm({
   labels,
   endpoint,
@@ -44,6 +47,10 @@ export default function ContactForm({
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [topic, setTopic] = useState<string | null>(null);
+  // The endpoint accepts any POST and sends mail, so the form does the
+  // filtering a bot would not expect: a field people never see, and a floor
+  // on how fast a person could plausibly fill three fields.
+  const openedAt = useRef(Date.now());
 
   const topics = [
     labels.topicHiring,
@@ -68,6 +75,15 @@ export default function ContactForm({
     if (!message) nextErrors.message = labels.required;
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) return;
+
+    // A filled honeypot or a sub-3-second submission is not a person. Show
+    // the success panel anyway: telling a bot it was caught only helps it.
+    const trapped = String(data.get("website") ?? "").length > 0;
+    const tooFast = Date.now() - openedAt.current < MIN_FILL_MS;
+    if (trapped || tooFast) {
+      setStatus("success");
+      return;
+    }
 
     // The backend forwards `message` verbatim, so the chosen topic rides
     // inside it rather than needing a Lambda change.
@@ -110,6 +126,18 @@ export default function ContactForm({
 
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
+      {/* Honeypot: off-screen, out of the tab order, hidden from assistive
+          tech. A bot filling every field it finds fills this one. */}
+      <div className={styles.trap} aria-hidden="true">
+        <label htmlFor="contact-website">Website</label>
+        <input
+          id="contact-website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
       <FormField
         label={labels.name}
         name="name"

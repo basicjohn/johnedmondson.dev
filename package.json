@@ -7,6 +7,8 @@
   },
   "scripts": {
     "dev": "next dev -p 3000",
+    "predev": "node scripts/images.mjs",
+    "prebuild": "node scripts/images.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",

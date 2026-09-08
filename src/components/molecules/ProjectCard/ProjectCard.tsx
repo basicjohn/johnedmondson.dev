@@ -1,8 +1,10 @@
 import Link from "next/link";
 import type { Locale, Post } from "@/lib/types";
-import { coverGradient, formatYear } from "@/lib/utils";
+import { coverGradient, formatYear, kindLabel } from "@/lib/utils";
 import { tagLabel } from "@/lib/tags";
+import { SIZES } from "@/lib/images";
 import Tag from "@/components/atoms/Tag/Tag";
+import CoverMedia from "@/components/atoms/CoverMedia/CoverMedia";
 import styles from "./ProjectCard.module.scss";
 
 type Props = {
@@ -30,11 +32,12 @@ export default function ProjectCard({
         aria-hidden="true"
       >
         {post.cover ? (
-          <img
+          <CoverMedia
             className={styles.cover}
-            src={post.cover}
+            cover={post.cover}
+            video={post.coverVideo}
             alt=""
-            loading="lazy"
+            sizes={variant === "feature" ? SIZES.feature : SIZES.card}
           />
         ) : (
           <div
@@ -48,8 +51,17 @@ export default function ProjectCard({
         )}
       </Link>
       <div className={styles.body}>
-        {post.year && (
-          <p className={styles.year}>{formatYear(post.year, locale)}</p>
+        {/* "2025 – present · Contract": the year alone could not separate
+            the paid roles from the side projects without opening each one. */}
+        {(post.year || post.kind) && (
+          <p className={styles.year}>
+            {[
+              post.year && formatYear(post.year, locale),
+              post.kind && kindLabel(post.kind, locale),
+            ]
+              .filter(Boolean)
+              .join(" · ")}
+          </p>
         )}
         <h3 className={styles.title}>
           <Link href={href}>{post.title[locale]}</Link>

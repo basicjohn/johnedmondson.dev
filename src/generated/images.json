@@ -1,0 +1,241 @@
+{
+  "/images/john-avatar-128.png": {
+    "width": 128,
+    "height": 128,
+    "widths": [
+      128
+    ]
+  },
+  "/images/john-avatar-64.png": {
+    "width": 64,
+    "height": 64,
+    "widths": [
+      64
+    ]
+  },
+  "/images/john-avatar.png": {
+    "width": 560,
+    "height": 560,
+    "widths": [
+      560
+    ]
+  },
+  "/images/john-headshot.jpg": {
+    "width": 720,
+    "height": 720,
+    "widths": [
+      640,
+      720
+    ]
+  },
+  "/images/portfolio/ion-channel-dependency-health.jpg": {
+    "width": 1458,
+    "height": 628,
+    "widths": [
+      640,
+      1024,
+      1458
+    ]
+  },
+  "/images/portfolio/ion-channel-repository-metric.jpg": {
+    "width": 1458,
+    "height": 649,
+    "widths": [
+      640,
+      1024,
+      1458
+    ]
+  },
+  "/images/portfolio/ion-channel-user-management.jpg": {
+    "width": 933,
+    "height": 486,
+    "widths": [
+      640,
+      933
+    ]
+  },
+  "/images/portfolio/johnedmondson-dev-v2-home.jpg": {
+    "width": 1600,
+    "height": 900,
+    "widths": [
+      640,
+      1024,
+      1600
+    ]
+  },
+  "/images/portfolio/six-pillars-account-dashboard.png": {
+    "width": 1100,
+    "height": 1869,
+    "widths": [
+      640,
+      1024,
+      1100
+    ]
+  },
+  "/images/portfolio/six-pillars-app-airflow-dags.png": {
+    "width": 840,
+    "height": 948,
+    "widths": [
+      640,
+      840
+    ]
+  },
+  "/images/portfolio/six-pillars-app-login.png": {
+    "width": 1600,
+    "height": 1380,
+    "widths": [
+      640,
+      1024,
+      1600
+    ]
+  },
+  "/images/portfolio/six-pillars-app-performance-comparison.png": {
+    "width": 1600,
+    "height": 1061,
+    "widths": [
+      640,
+      1024,
+      1600
+    ]
+  },
+  "/images/portfolio/six-pillars-app-recommendation.png": {
+    "width": 1210,
+    "height": 642,
+    "widths": [
+      640,
+      1024,
+      1210
+    ]
+  },
+  "/images/portfolio/six-pillars-app-resource-inventory.png": {
+    "width": 1383,
+    "height": 1014,
+    "widths": [
+      640,
+      1024,
+      1383
+    ]
+  },
+  "/images/portfolio/six-pillars-backup-retention.png": {
+    "width": 1100,
+    "height": 1304,
+    "widths": [
+      640,
+      1024,
+      1100
+    ]
+  },
+  "/images/portfolio/six-pillars-cover.jpg": {
+    "width": 1100,
+    "height": 619,
+    "widths": [
+      640,
+      1024,
+      1100
+    ]
+  },
+  "/images/portfolio/six-pillars-optimization-results.png": {
+    "width": 1100,
+    "height": 3594,
+    "widths": [
+      640,
+      1024,
+      1100
+    ]
+  },
+  "/images/portfolio/six-pillars-pitch-persona.png": {
+    "width": 1600,
+    "height": 1106,
+    "widths": [
+      640,
+      1024,
+      1600
+    ]
+  },
+  "/images/portfolio/six-pillars-pitch-pricing.png": {
+    "width": 1633,
+    "height": 1129,
+    "widths": [
+      640,
+      1024,
+      1600,
+      1633
+    ]
+  },
+  "/images/portfolio/six-pillars-pitch-roadmap.png": {
+    "width": 1350,
+    "height": 330,
+    "widths": [
+      640,
+      1024,
+      1350
+    ]
+  },
+  "/images/portfolio/six-pillars-resource-analysis.png": {
+    "width": 1100,
+    "height": 2464,
+    "widths": [
+      640,
+      1024,
+      1100
+    ]
+  },
+  "/images/portfolio/six-pillars-safety-confirmation.png": {
+    "width": 1100,
+    "height": 1277,
+    "widths": [
+      640,
+      1024,
+      1100
+    ]
+  },
+  "/images/portfolio/six-pillars-volume-management.png": {
+    "width": 1100,
+    "height": 1474,
+    "widths": [
+      640,
+      1024,
+      1100
+    ]
+  },
+  "/images/portfolio/top-shot-reloaded-cover.jpg": {
+    "width": 1920,
+    "height": 1080,
+    "widths": [
+      640,
+      1024,
+      1600,
+      1920
+    ]
+  },
+  "/images/portfolio/top-shot-reloaded-duel.jpg": {
+    "width": 1800,
+    "height": 1228,
+    "widths": [
+      640,
+      1024,
+      1600,
+      1800
+    ]
+  },
+  "/images/portfolio/top-shot-reloaded-menus.jpg": {
+    "width": 1800,
+    "height": 1228,
+    "widths": [
+      640,
+      1024,
+      1600,
+      1800
+    ]
+  },
+  "/images/portfolio/top-shot-reloaded-paper.jpg": {
+    "width": 1800,
+    "height": 1228,
+    "widths": [
+      640,
+      1024,
+      1600,
+      1800
+    ]
+  }
+}

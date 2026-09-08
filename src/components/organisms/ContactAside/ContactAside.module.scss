@@ -1,0 +1,96 @@
+@use "tokens" as *;
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.card {
+  @include card;
+  padding: var(--space-5);
+}
+
+.heading {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-3);
+}
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+
+  dt {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-faint);
+    margin-bottom: var(--space-1);
+  }
+
+  dd {
+    margin: 0;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+}
+
+.emailRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+}
+
+.email {
+  color: var(--color-accent-strong);
+  overflow-wrap: anywhere;
+}
+
+.copy {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-tint);
+  color: var(--color-ink-soft);
+  min-width: 4.5rem;
+
+  &:hover {
+    border-color: var(--color-accent-strong);
+    color: var(--color-accent-strong);
+  }
+}
+
+.time {
+  font-weight: 400;
+  color: var(--color-ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.socials {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: var(--space-4);
+
+  a {
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.text {
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-4);
+}

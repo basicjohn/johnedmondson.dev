@@ -13,3 +13,13 @@
  * change; the tests assert both states.
  */
 export const WRITING_SECTION_PUBLIC = false;
+
+/**
+ * Whether the portfolio index shows its tag filter.
+ *
+ * Off because with five projects the two chips that survive the "must
+ * filter something" rule cut the list to three or two cards, which is not a
+ * filter so much as a shuffle. The code stays; flip this once there are
+ * eight or more projects and the tags carry real weight.
+ */
+export const PORTFOLIO_TAG_FILTER = false;

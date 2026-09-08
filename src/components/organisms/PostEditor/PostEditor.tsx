@@ -2,9 +2,16 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import type { Locale, Post, PostStatus, PostType } from "@/lib/types";
+import {
+  projectKinds,
+  type Locale,
+  type Post,
+  type PostStatus,
+  type PostType,
+  type ProjectKind,
+} from "@/lib/types";
 import { markdownToHtml } from "@/lib/markdown";
-import { slugify } from "@/lib/utils";
+import { kindLabel, slugify } from "@/lib/utils";
 import FormField from "@/components/molecules/FormField/FormField";
 import Button from "@/components/atoms/Button/Button";
 import styles from "./PostEditor.module.scss";
@@ -151,6 +158,14 @@ export default function PostEditor({ initial, isNew }: Props) {
             onChange={(e) => set("cover", e.target.value || undefined)}
           />
 
+          <FormField
+            label="Cover video URL (MP4)"
+            name="coverVideo"
+            value={post.coverVideo ?? ""}
+            hint="Optional — a short muted loop; the cover image is its poster"
+            onChange={(e) => set("coverVideo", e.target.value || undefined)}
+          />
+
           <label className={styles.checkbox}>
             <input
               type="checkbox"
@@ -163,6 +178,23 @@ export default function PostEditor({ initial, isNew }: Props) {
           {isPortfolio && (
             <fieldset className={styles.fieldset}>
               <legend>Project details</legend>
+              <FormField
+                as="select"
+                label="Kind of engagement"
+                name="kind"
+                value={post.kind ?? ""}
+                hint="Shown beside the year on cards"
+                onChange={(e) =>
+                  set("kind", (e.target.value || undefined) as ProjectKind)
+                }
+              >
+                <option value="">—</option>
+                {projectKinds.map((kind) => (
+                  <option key={kind} value={kind}>
+                    {kindLabel(kind, "en")}
+                  </option>
+                ))}
+              </FormField>
               <FormField
                 label="Client"
                 name="client"

@@ -105,3 +105,14 @@
   color: var(--color-danger);
   font-weight: 600;
 }
+
+// The honeypot: positioned off the canvas rather than display: none, which
+// some bots treat as a signal to skip the field.
+.trap {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

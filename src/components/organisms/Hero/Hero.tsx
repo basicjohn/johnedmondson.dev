@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/types";
+import { imageAttrs } from "@/lib/images";
 import Button from "@/components/atoms/Button/Button";
 import styles from "./Hero.module.scss";
 
@@ -34,10 +35,11 @@ export default function Hero({
         <div className={styles.portraitWrap}>
           <img
             className={styles.portrait}
-            src="/images/john-headshot.jpg"
             alt={portraitAlt}
-            width={720}
-            height={720}
+            {...imageAttrs(
+              "/images/john-headshot.jpg",
+              "(min-width: 1024px) 22rem, 8rem",
+            )}
           />
         </div>
         <div className={styles.copy}>

@@ -11,14 +11,25 @@
   "home": {
     "role": "Product Engineer · Full-Stack",
     "bioLead": "I build scalable, data-driven systems that support real teams in production — happiest on mission-driven work like sustainability and waste reduction.",
-    "bio": "Relational data models, APIs, and background processing in Go and PostgreSQL, alongside React and TypeScript frontends. I build systems that stay reliable, understandable, and able to evolve as product needs grow, working closely with product and design partners to turn complex requirements into clear, usable tools. A background in UX/UI design means I think through user experience, data integrity, and system reliability together rather than in isolation. Originally from Portland, Oregon, now based in Freiburg, Germany — in my free time you'll find me traveling, doing house projects, and building apps to improve my day-to-day life.",
+    "bio": "Relational data models, APIs, and background processing in Go and PostgreSQL, alongside React and TypeScript frontends. A background in UX/UI design means I think through user experience, data integrity, and system reliability together rather than in isolation.",
     "portraitAlt": "Portrait of John Edmondson",
     "ctaWork": "See my work",
     "ctaContact": "Get in touch",
     "featuredWork": "Featured work",
     "recentWriting": "Recent writing",
     "viewAllWork": "All projects",
-    "viewAllWriting": "All writing"
+    "viewAllWriting": "All writing",
+    "aboutHeading": "About",
+    "aboutWork": "I build systems that stay reliable, understandable, and able to evolve as product needs grow, working closely with product and design partners to turn complex requirements into clear, usable tools.",
+    "aboutLife": "Originally from Portland, Oregon, now based in Freiburg, Germany — in my free time you'll find me traveling, doing house projects, and building apps to improve my day-to-day life.",
+    "nowHeading": "Currently",
+    "nowWorkingLabel": "Working",
+    "nowWorking": "Full-stack contract at Bold Reuse, a reusable packaging company",
+    "nowBuildingLabel": "Building",
+    "nowBuilding": "Top Shot Reloaded, a 1v1 paintball duel, now in beta",
+    "nowLookingLabel": "Looking for",
+    "nowLooking": "A full-time product engineering role",
+    "nowUpdated": "Updated"
   },
   "portfolio": {
     "title": "Portfolio",
@@ -43,6 +54,14 @@
     "role": "Role",
     "year": "Year",
     "present": "present",
+    "kinds": {
+      "contract": "Contract",
+      "founder": "Co-founder",
+      "employee": "Full-time",
+      "personal": "Personal project"
+    },
+    "onThisPage": "On this page",
+    "facts": "Project details",
     "stack": "Stack",
     "visitSite": "Visit site",
     "viewCode": "View code",
@@ -75,7 +94,16 @@
     "invalidEmail": "Please enter a valid email address",
     "scheduleHeading": "Prefer to talk live?",
     "scheduleText": "Grab a time on my calendar.",
-    "scheduleCta": "Schedule a chat"
+    "scheduleCta": "Schedule a chat",
+    "detailsHeading": "Details",
+    "emailLabel": "Email",
+    "copy": "Copy",
+    "copied": "Copied",
+    "locationLabel": "Location",
+    "location": "Freiburg, Germany",
+    "localTime": "local time",
+    "responseLabel": "Response time",
+    "response": "Usually within two working days"
   },
   "footer": {
     "availabilityHeading": "Availability",

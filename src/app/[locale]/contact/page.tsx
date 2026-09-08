@@ -4,7 +4,7 @@ import { alternatesFor } from "@/lib/seo";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { getSiteData } from "@/lib/content";
 import ContactForm from "@/components/organisms/ContactForm/ContactForm";
-import Button from "@/components/atoms/Button/Button";
+import ContactAside from "@/components/organisms/ContactAside/ContactAside";
 import styles from "./page.module.scss";
 
 const CALENDLY_URL = "https://calendly.com/johnedmondsondev/lets-chat";
@@ -29,7 +29,7 @@ export default async function ContactPage({ params }: Props) {
   const dict = getDictionary(locale);
   // The published address, not a personal one — this renders into a
   // mailto: link in the static export when no endpoint is configured.
-  const { email } = getSiteData();
+  const site = getSiteData();
 
   return (
     <div className={`container ${styles.page}`}>
@@ -38,26 +38,21 @@ export default async function ContactPage({ params }: Props) {
         <p className={styles.intro}>{dict.contact.intro}</p>
       </header>
 
-      <div className={styles.stack}>
+      {/* Form left, the facts a recruiter checks first on the right. The
+          right column used to be bare grid on every desktop. */}
+      <div className={styles.columns}>
         <ContactForm
           labels={dict.contact}
           endpoint={process.env.NEXT_PUBLIC_CONTACT_ENDPOINT}
-          fallbackEmail={email}
+          fallbackEmail={site.email}
         />
-
-        {/* Below the form rather than beside it: it is the alternative to
-            writing, so it reads in sequence — form, then "or talk live". */}
-        <aside className={styles.schedule}>
-          <div>
-            <h2 className={styles.scheduleHeading}>
-              {dict.contact.scheduleHeading}
-            </h2>
-            <p className={styles.scheduleText}>{dict.contact.scheduleText}</p>
-          </div>
-          <Button variant="secondary" href={CALENDLY_URL} external>
-            {dict.contact.scheduleCta}
-          </Button>
-        </aside>
+        <ContactAside
+          locale={locale}
+          labels={{ ...dict.contact, elsewhere: dict.footer.elsewhere }}
+          email={site.email}
+          socials={site.socials}
+          calendarUrl={CALENDLY_URL}
+        />
       </div>
     </div>
   );

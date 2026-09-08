@@ -5,6 +5,7 @@ import type { Locale, Post } from "@/lib/types";
 import ProjectCard from "@/components/molecules/ProjectCard/ProjectCard";
 import Tag from "@/components/atoms/Tag/Tag";
 import { tagLabel } from "@/lib/tags";
+import { PORTFOLIO_TAG_FILTER } from "@/lib/config";
 import styles from "./PostGrid.module.scss";
 
 type Props = {
@@ -47,7 +48,7 @@ export default function PostGrid({
 
   return (
     <div>
-      {tags.length > 1 && (
+      {PORTFOLIO_TAG_FILTER && tags.length > 1 && (
         <div className={styles.filters} role="group">
           <Tag
             label={allLabel}

@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { getAllPosts } from "./content";
-import { locales } from "./types";
+import { locales, projectKinds } from "./types";
 
 // The CMS writes these files, and nothing between it and a deploy checks
 // them. A missing German body or a duplicated slug does not fail the build;
@@ -86,6 +86,15 @@ describe("portfolio posts", () => {
     "%s names the role held",
     (_slug, post) => {
       expect(post.role?.trim()).toBeTruthy();
+    },
+  );
+
+  // The eyebrow reads "year · kind"; a project without a kind is the one
+  // card a reader cannot place.
+  it.each(portfolio.map((p) => [p.slug, p] as const))(
+    "%s says what kind of engagement it was",
+    (_slug, post) => {
+      expect(projectKinds).toContain(post.kind);
     },
   );
 

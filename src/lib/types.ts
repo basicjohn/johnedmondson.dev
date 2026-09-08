@@ -6,6 +6,20 @@ export const defaultLocale: Locale = "en";
 export type Localized = Record<Locale, string>;
 
 export type PostType = "portfolio" | "writing";
+
+/**
+ * What kind of engagement a project was. Shown beside the year on cards so
+ * a reader can tell paid client work from founder work from a side project
+ * without opening each one. Labels live in the dictionaries under
+ * `post.kinds`.
+ */
+export const projectKinds = [
+  "contract",
+  "founder",
+  "employee",
+  "personal",
+] as const;
+export type ProjectKind = (typeof projectKinds)[number];
 export type PostStatus = "draft" | "published";
 
 export interface Post {
@@ -24,6 +38,12 @@ export interface Post {
   updated?: string;
   tags: string[];
   cover?: string; // optional image URL/path; cards fall back to a generated gradient
+  /**
+   * A short, muted, looping MP4 shown in place of the cover where motion is
+   * allowed; the cover is its poster and its fallback. For the projects
+   * that move.
+   */
+  coverVideo?: string;
   coverCaption?: Localized; // one line under the cover on the project page
   title: Localized;
   /**
@@ -35,6 +55,7 @@ export interface Post {
   excerpt: Localized;
   body: Localized; // markdown
   // Portfolio-specific (optional for writings)
+  kind?: ProjectKind;
   client?: string;
   role?: string;
   year?: string;
@@ -53,6 +74,8 @@ export interface SiteData {
   email: string;
   /** Path to the public résumé PDF; the footer link appears once this is set */
   resume?: string;
+  /** ISO date the home page's "Currently" block was last true */
+  nowUpdated?: string;
 }
 
 /** Blank post used by the CMS "new post" form */

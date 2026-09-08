@@ -5,6 +5,7 @@
   "status": "published",
   "featured": true,
   "order": 2,
+  "kind": "contract",
   "date": "2025-03-01",
   "tags": ["Full-Stack", "GraphQL", "PostgreSQL", "Operations"],
   "title": {

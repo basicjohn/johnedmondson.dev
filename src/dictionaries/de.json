@@ -11,14 +11,25 @@
   "home": {
     "role": "Product Engineer · Full-Stack",
     "bioLead": "Ich baue skalierbare, datengetriebene Systeme, die Teams im Produktivbetrieb wirklich unterstützen — am liebsten für sinnstiftende Arbeit wie Nachhaltigkeit und Abfallvermeidung.",
-    "bio": "Relationale Datenmodelle, APIs und Hintergrundverarbeitung mit Go und PostgreSQL, dazu Frontends mit React und TypeScript. Ich baue Systeme, die zuverlässig und verständlich bleiben und mit den Anforderungen des Produkts wachsen können — in enger Zusammenarbeit mit Produkt- und Designpartnern, um komplexe Anforderungen in klare, brauchbare Werkzeuge zu übersetzen. Durch meinen Hintergrund im UX/UI-Design denke ich Nutzererlebnis, Datenintegrität und Systemzuverlässigkeit zusammen statt isoliert. Ursprünglich aus Portland, Oregon, heute zu Hause in Freiburg — in meiner Freizeit reise ich gern, arbeite an Hausprojekten und baue Apps, die meinen Alltag verbessern.",
+    "bio": "Relationale Datenmodelle, APIs und Hintergrundverarbeitung mit Go und PostgreSQL, dazu Frontends mit React und TypeScript. Durch meinen Hintergrund im UX/UI-Design denke ich Nutzererlebnis, Datenintegrität und Systemzuverlässigkeit zusammen statt isoliert.",
     "portraitAlt": "Porträt von John Edmondson",
     "ctaWork": "Meine Arbeiten",
     "ctaContact": "Kontakt aufnehmen",
     "featuredWork": "Ausgewählte Arbeiten",
     "recentWriting": "Neueste Texte",
     "viewAllWork": "Alle Projekte",
-    "viewAllWriting": "Alle Texte"
+    "viewAllWriting": "Alle Texte",
+    "aboutHeading": "Über mich",
+    "aboutWork": "Ich baue Systeme, die zuverlässig und verständlich bleiben und mit den Anforderungen des Produkts wachsen können — in enger Zusammenarbeit mit Produkt- und Designpartnern, um komplexe Anforderungen in klare, brauchbare Werkzeuge zu übersetzen.",
+    "aboutLife": "Ursprünglich aus Portland, Oregon, heute zu Hause in Freiburg — in meiner Freizeit reise ich gern, arbeite an Hausprojekten und baue Apps, die meinen Alltag verbessern.",
+    "nowHeading": "Aktuell",
+    "nowWorkingLabel": "Auftrag",
+    "nowWorking": "Full-Stack-Auftrag bei Bold Reuse, einem Mehrwegverpackungs-Unternehmen",
+    "nowBuildingLabel": "Nebenprojekt",
+    "nowBuilding": "Top Shot Reloaded, ein 1v1-Paintball-Duell, jetzt in der Beta",
+    "nowLookingLabel": "Gesucht",
+    "nowLooking": "Eine Festanstellung als Product Engineer",
+    "nowUpdated": "Stand"
   },
   "portfolio": {
     "title": "Portfolio",
@@ -43,6 +54,14 @@
     "role": "Rolle",
     "year": "Jahr",
     "present": "heute",
+    "kinds": {
+      "contract": "Freiberuflich",
+      "founder": "Mitgründer",
+      "employee": "Festanstellung",
+      "personal": "Eigenes Projekt"
+    },
+    "onThisPage": "Auf dieser Seite",
+    "facts": "Projektdetails",
     "stack": "Stack",
     "visitSite": "Website besuchen",
     "viewCode": "Code ansehen",
@@ -75,7 +94,16 @@
     "invalidEmail": "Bitte gib eine gültige E-Mail-Adresse ein",
     "scheduleHeading": "Lieber direkt sprechen?",
     "scheduleText": "Such dir einen Termin in meinem Kalender aus.",
-    "scheduleCta": "Termin vereinbaren"
+    "scheduleCta": "Termin vereinbaren",
+    "detailsHeading": "Kurz & knapp",
+    "emailLabel": "E-Mail",
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "locationLabel": "Standort",
+    "location": "Freiburg, Deutschland",
+    "localTime": "Ortszeit",
+    "responseLabel": "Antwortzeit",
+    "response": "In der Regel innerhalb von zwei Werktagen"
   },
   "footer": {
     "availabilityHeading": "Verfügbarkeit",

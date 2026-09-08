@@ -1,4 +1,4 @@
-import type { Locale } from "./types";
+import type { Locale, ProjectKind } from "./types";
 import { getDictionary } from "./i18n";
 
 export function formatDate(iso: string, locale: Locale): string {
@@ -16,6 +16,11 @@ export function formatDate(iso: string, locale: Locale): string {
  */
 export function formatYear(year: string, locale: Locale): string {
   return year.replace(/\bpresent\b/i, getDictionary(locale).post.present);
+}
+
+/** The card eyebrow's second half: "Contract", "Co-founder", … */
+export function kindLabel(kind: ProjectKind, locale: Locale): string {
+  return getDictionary(locale).post.kinds[kind];
 }
 
 /** Rough reading time in minutes from markdown source */

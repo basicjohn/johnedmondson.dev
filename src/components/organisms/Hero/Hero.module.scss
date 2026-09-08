@@ -9,8 +9,11 @@
     padding-block: var(--space-8);
   }
 
+  // Not stretched beyond the largest step: at 1440×900 the hero used to
+  // own the whole first screen and nothing said there was work below it.
+  // With the shorter bio this lets "Featured work" reach the first frame.
   @include respond($bp-lg) {
-    padding-block: calc(var(--space-8) * 1.4);
+    padding-block: var(--space-8);
   }
 }
 

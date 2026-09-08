@@ -1,9 +1,12 @@
 import Link from "next/link";
 import type { Locale, Post } from "@/lib/types";
 import type { Dictionary } from "@/lib/i18n";
-import { markdownToHtml } from "@/lib/markdown";
+import { extractHeadings, markdownToHtml } from "@/lib/markdown";
 import { formatYear } from "@/lib/utils";
 import { tagLabel } from "@/lib/tags";
+import { SIZES } from "@/lib/images";
+import CoverMedia from "@/components/atoms/CoverMedia/CoverMedia";
+import TableOfContents from "@/components/molecules/TableOfContents/TableOfContents";
 import Tag from "@/components/atoms/Tag/Tag";
 import Badge from "@/components/atoms/Badge/Badge";
 import Button from "@/components/atoms/Button/Button";
@@ -30,6 +33,9 @@ export default function PortfolioPostTemplate({
   dict,
 }: Props) {
   const html = markdownToHtml(post.body[locale]);
+  const headings = extractHeadings(post.body[locale]).filter(
+    (h) => h.level === 2,
+  );
 
   const facts: { label: string; value: string }[] = [];
   if (post.client) facts.push({ label: dict.post.client, value: post.client });
@@ -60,10 +66,13 @@ export default function PortfolioPostTemplate({
             show". */}
         {post.cover && (
           <figure className={styles.figure}>
-            <img
+            <CoverMedia
               className={styles.cover}
-              src={post.cover}
+              cover={post.cover}
+              video={post.coverVideo}
               alt={post.coverCaption ? "" : post.title[locale]}
+              sizes={SIZES.prose}
+              loading="eager"
             />
             {post.coverCaption && (
               <figcaption className={styles.caption}>
@@ -73,7 +82,10 @@ export default function PortfolioPostTemplate({
           </figure>
         )}
 
-        <aside className={styles.facts}>
+        {/* A named region, not an <aside>: a complementary landmark nested
+            inside the article is flagged by every audit tool, and a labelled
+            region gives screen-reader users the same jump target. */}
+        <section className={styles.facts} aria-label={dict.post.facts}>
           {facts.length > 0 && (
             <dl className={styles.factList}>
               {facts.map((fact) => (
@@ -96,6 +108,13 @@ export default function PortfolioPostTemplate({
               </ul>
             </div>
           )}
+          {/* Long case studies get an outline here, where the sticky aside
+              would otherwise sit idle for twelve thousand pixels. Three
+              headings is the floor: below that the list is longer than the
+              scroll it saves. */}
+          {headings.length >= 3 && (
+            <TableOfContents label={dict.post.onThisPage} headings={headings} />
+          )}
           {/* One treatment for the fact-sheet action, whichever link a
               project has: outlined, because the primary action on this
               page is reading. */}
@@ -111,7 +130,7 @@ export default function PortfolioPostTemplate({
               </Button>
             )}
           </div>
-        </aside>
+        </section>
 
         <div
           className={`prose ${styles.body}`}

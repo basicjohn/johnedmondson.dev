@@ -4,6 +4,7 @@
   "type": "portfolio",
   "status": "draft",
   "featured": false,
+  "kind": "contract",
   "date": "2024-02-10",
   "tags": ["Product", "UI/UX", "Frontend"],
   "title": {

@@ -30,33 +30,16 @@
   max-width: var(--content-max);
 }
 
-.stack {
-  display: flex;
-  flex-direction: column;
+// One column until the desktop, where the form keeps its 32rem measure and
+// the details take the space that used to be empty beside it.
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 32rem);
   gap: var(--space-7);
-  // Matches the form's own max-width in ContactForm.
-  max-width: 32rem;
-}
+  align-items: start;
 
-.schedule {
-  @include card;
-  padding: var(--space-5);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-
-  @include respond($bp-sm) {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  @include respond($bp-lg) {
+    grid-template-columns: minmax(0, 32rem) minmax(0, 24rem);
+    column-gap: var(--space-8);
   }
-}
-
-.scheduleHeading {
-  font-size: var(--text-lg);
-  margin-bottom: var(--space-1);
-}
-
-.scheduleText {
-  color: var(--color-ink-soft);
 }

@@ -5,6 +5,7 @@
   "status": "published",
   "featured": true,
   "order": 3,
+  "kind": "personal",
   "date": "2026-06-16",
   "tags": ["TypeScript", "Game Design", "Design System", "WebGL"],
   "title": {

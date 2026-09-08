@@ -23,3 +23,14 @@
 .writingList {
   max-width: var(--content-max);
 }
+
+.about {
+  max-width: var(--content-max);
+  color: var(--color-ink-soft);
+  font-size: var(--text-lg);
+  text-wrap: pretty;
+
+  p + p {
+    margin-top: var(--space-4);
+  }
+}

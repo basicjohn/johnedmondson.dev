@@ -3,8 +3,9 @@ import { notFound } from "next/navigation";
 import { alternatesFor } from "@/lib/seo";
 import { WRITING_SECTION_PUBLIC } from "@/lib/config";
 import { getDictionary, isLocale } from "@/lib/i18n";
-import { getFeaturedPosts, getPostsByType } from "@/lib/content";
+import { getFeaturedPosts, getPostsByType, getSiteData } from "@/lib/content";
 import Hero from "@/components/organisms/Hero/Hero";
+import Now from "@/components/organisms/Now/Now";
 import GridIntro from "@/components/organisms/Hero/GridIntro";
 import SectionHeading from "@/components/molecules/SectionHeading/SectionHeading";
 import ProjectCard from "@/components/molecules/ProjectCard/ProjectCard";
@@ -24,6 +25,7 @@ export default async function HomePage({ params }: Props) {
   if (!isLocale(locale)) notFound();
 
   const dict = getDictionary(locale);
+  const site = getSiteData();
   // One lead project shown large, two beneath — see ProjectCard's `feature`
   // variant. getFeaturedPosts honours each post's `order`, so the lead is
   // chosen in the content, not here.
@@ -43,6 +45,30 @@ export default async function HomePage({ params }: Props) {
         ctaContact={dict.home.ctaContact}
       />
 
+      <Now
+        locale={locale}
+        heading={dict.home.nowHeading}
+        updatedLabel={dict.home.nowUpdated}
+        updated={site.nowUpdated}
+        items={[
+          {
+            label: dict.home.nowWorkingLabel,
+            text: dict.home.nowWorking,
+            href: `/${locale}/portfolio/bold-reuse`,
+          },
+          {
+            label: dict.home.nowBuildingLabel,
+            text: dict.home.nowBuilding,
+            href: `/${locale}/portfolio/top-shot-reloaded`,
+          },
+          {
+            label: dict.home.nowLookingLabel,
+            text: dict.home.nowLooking,
+            href: `/${locale}/contact`,
+          },
+        ]}
+      />
+
       {lead && (
         <section className={`container ${styles.section}`}>
           <SectionHeading
@@ -60,6 +86,17 @@ export default async function HomePage({ params }: Props) {
           </div>
         </section>
       )}
+
+      {/* The two hero sentences that were about the person rather than the
+          work. Below the projects, where personality belongs, so the hero
+          can be scanned instead of read. */}
+      <section className={`container ${styles.section}`}>
+        <SectionHeading title={dict.home.aboutHeading} />
+        <div className={styles.about}>
+          <p>{dict.home.aboutWork}</p>
+          <p>{dict.home.aboutLife}</p>
+        </div>
+      </section>
 
       {WRITING_SECTION_PUBLIC && recentWriting.length > 0 && (
         <section className={`container ${styles.section}`}>
