@@ -28,11 +28,19 @@ exports.handler = async (event) => {
   const topicLine = topic ? `Topic: ${topic}\n` : "";
   const body = `Name: ${name}\nEmail: ${email}\n${topicLine}\nMessage:\n${message}`;
 
+  // Replying to the notification should reach the visitor, not loop back to
+  // the inbox. Only set it for a plausible address - SES rejects the whole
+  // send if Reply-To is malformed.
+  const replyTo = /^[^\s@<>",]+@[^\s@<>",]+\.[^\s@<>",]+$/.test(email || "")
+    ? [email]
+    : undefined;
+
   const params = {
-    Source: receivingEmail,
+    Source: `"johnedmondson.dev contact form" <${receivingEmail}>`,
     Destination: {
       ToAddresses: [receivingEmail],
     },
+    ReplyToAddresses: replyTo,
     Message: {
       Subject: {
         Data: subject,
