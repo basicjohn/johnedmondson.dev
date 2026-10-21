@@ -16,7 +16,8 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "next": "^15.3.3",
@@ -36,6 +37,7 @@
     "eslint": "^9.39.5",
     "eslint-config-next": "^15.5.24",
     "jsdom": "^29.1.1",
+    "patch-package": "8.0.1",
     "prettier": "^3.9.6",
     "sass": "^1.89.0",
     "typescript": "^5.8.3",
