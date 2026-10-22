@@ -36,15 +36,15 @@
   max-width: 24rem;
 }
 
-// The accent doing structural work: a small "open" indicator on the
-// availability line, echoing the wordmark dot.
+// A small green "open" indicator on the availability line — the status
+// light convention reads faster than the gold accent did.
 .dot {
   display: inline-block;
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background: var(--color-accent-strong);
-  box-shadow: 0 0 0 3px var(--color-accent-soft);
+  background: var(--color-success);
+  box-shadow: 0 0 0 3px var(--color-success-soft);
   margin-right: var(--space-2);
   vertical-align: 0.0625rem;
 }
