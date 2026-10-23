@@ -216,9 +216,12 @@ Lessons:
 
 - **Light to dark again:**
   - The "Let's talk" poster title and intro are on the grid.
-  - The form and Details are on the off-white sheet.
-  - "Prefer to talk live?" and the calendar button sit on a dark band.
-  - The footer comes last.
+  - The form and Details are on the off-white sheet, which runs straight into
+    the footer's marigold stripe.
+- **No "Prefer to talk live?" / calendar booking.** In his words: "I'm not so
+  busy that I need people schedule time slots with me." Positioning note:
+  invite a direct message, not a booking flow. Don't add scheduling prompts
+  elsewhere either.
 - **Form:** mono labels, square ink-ruled fields, mono topic chips that turn
   marigold with a small hard shadow when chosen. Focus shows as a
   darker-gold block offset behind the field.

@@ -19,10 +19,13 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        # v5 of both actions run on Node 24; v4 ran on Node 20, which GitHub
+        # now forces up to 24 with a deprecation warning. The app itself
+        # still builds on Node 20, matching amplify.yml.
+        uses: actions/setup-node@v5
         with:
           node-version: 20.x
           cache: npm

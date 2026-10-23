@@ -24,6 +24,11 @@ type Props = {
   shell: ShellData;
   /** Which nav item is this page */
   current?: "home" | "portfolio" | "contact";
+  /**
+   * For a page that ends on a light section: no dark gap above the footer,
+   * so the sheet meets the footer's marigold stripe directly.
+   */
+  flushFooter?: boolean;
   children: React.ReactNode;
 };
 
@@ -36,6 +41,7 @@ type Props = {
 export default function BroadsheetShell({
   shell,
   current = "home",
+  flushFooter = false,
   children,
 }: Props) {
   const { footer } = shell;
@@ -56,7 +62,9 @@ export default function BroadsheetShell({
 
       <main id="main">{children}</main>
 
-      <footer className={styles.footer}>
+      <footer
+        className={`${styles.footer} ${flushFooter ? styles.footerFlush : ""}`}
+      >
         <div className={`container ${styles.footerGrid}`}>
           <div>
             <h2 className={styles.footerHeading}>

@@ -8,15 +8,15 @@ import page from "./Contact.module.scss";
 
 /**
  * Contact as the Broadsheet sets it, light to dark: the title and intro on
- * the drafting grid, the form and the details on the off-white sheet, then
- * the calendar as a dark band above the footer — the heaviest call to
- * action sits lowest, like the footer itself.
+ * the drafting grid, then the form and the details reversed out of the dark
+ * ground, then the footer. (The live page's "Prefer to talk live?"
+ * calendar panel is left out: John doesn't want visitors booking slots.)
  */
 export default function ContactPage({ data }: { data: ContactPageData }) {
   const { labels } = data;
 
   return (
-    <BroadsheetShell shell={data.shell} current="contact">
+    <BroadsheetShell shell={data.shell} current="contact" flushFooter>
       <header className={projects.intro}>
         <div className="container">
           <h1 className={projects.pageTitle}>{labels.title}</h1>
@@ -24,7 +24,7 @@ export default function ContactPage({ data }: { data: ContactPageData }) {
         </div>
       </header>
 
-      <div className={page.sheet}>
+      <div className={`${styles.inverse} ${page.formSection}`}>
         <div className={`container ${page.columns}`}>
           <ContactForm
             labels={labels}
@@ -39,28 +39,6 @@ export default function ContactPage({ data }: { data: ContactPageData }) {
           />
         </div>
       </div>
-
-      <section
-        className={`${styles.inverse} ${projects.dark} ${page.schedule}`}
-        aria-labelledby="contact-schedule"
-      >
-        <div className={`container ${page.scheduleInner}`}>
-          <div>
-            <h2 id="contact-schedule" className={page.scheduleHeading}>
-              {labels.scheduleHeading}
-            </h2>
-            <p className={page.scheduleText}>{labels.scheduleText}</p>
-          </div>
-          <a
-            className={styles.ctaPrimary}
-            href={data.calendarUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {labels.scheduleCta} <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
     </BroadsheetShell>
   );
 }

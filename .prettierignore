@@ -5,3 +5,7 @@ package-lock.json
 amplify
 # Point-in-time page captures for design reviews, not source
 screenshots
+# Written by scripts/images.mjs on every dev and build run. Formatting it
+# by hand would be undone by the next run, and its unformatted copy has
+# failed `format:check` on every push since 55449a1.
+src/generated

@@ -2,14 +2,20 @@
 
 // ============================================
 // Broadsheet — the contact page. Colour, type and line tokens come from
-// .root in Broadsheet.module.scss; the gridded intro and the dark band
-// reuse the projects pages' classes. This file lays out the sheet: the
-// form and the details beside it.
+// .root in Broadsheet.module.scss; the gridded intro reuses the projects
+// pages' class. The form section is reversed out of the dark ground (it
+// carries .inverse, so --ink is light and the gold jobs are marigold), with
+// a marigold stripe at the seam like the projects pages.
 // ============================================
 
-.sheet {
+.formSection {
+  // Readable on the dark ground: the light-theme red is 2.6:1 on ink,
+  // this one 6.4:1.
+  --color-danger: #ff9a85;
+
   padding-block: clamp(3.5rem, 2rem + 4vw, 6rem);
-  background: var(--sheet);
+  background: var(--color-ink);
+  border-top: 0.5rem solid var(--marigold);
 }
 
 // The form at a comfortable measure; the details beside it from desktop
@@ -63,9 +69,9 @@
   color: var(--gold);
 }
 
-// Square, ink-ruled fields. Focus shows as a hard darker-gold block offset
-// behind the field (5.6:1 against the sheet), the same move as the hover
-// on the project images.
+// Light fields on the dark ground, with dark text, so typing reads as it
+// does anywhere else. Focus shows as a hard marigold block offset behind
+// the field, the same move as the hover on the project images.
 .control {
   width: 100%;
   padding: 0.8rem 1rem;
@@ -74,7 +80,7 @@
   background: var(--color-surface);
   font-size: 1.0625rem;
   line-height: 1.5;
-  color: var(--ink);
+  color: var(--color-ink);
   transition: box-shadow 0.2s var(--ease);
 
   &::placeholder {
@@ -106,7 +112,7 @@ textarea.control {
 .formError {
   padding: 0.75rem 1rem;
   border-left: 4px solid var(--color-danger);
-  background: rgb(179 66 47 / 8%);
+  background: rgb(255 154 133 / 10%);
 }
 
 .topics {
@@ -137,11 +143,12 @@ textarea.control {
   opacity: 0;
 }
 
+// Outlined in the light ink on the dark ground; marigold once chosen.
 .topicChip {
   display: inline-block;
   padding: 0.4rem 0.8rem;
   border: 1.5px solid var(--ink);
-  background: var(--color-surface);
+  background: transparent;
   font-family: var(--mono);
   font-size: 0.875rem;
   font-weight: 500;
@@ -151,11 +158,13 @@ textarea.control {
 }
 
 .topic:hover .topicChip {
-  background: var(--color-accent-soft);
+  background: rgb(244 241 235 / 10%);
 }
 
 .topicInput:checked + .topicChip {
   background: var(--marigold);
+  border-color: var(--marigold);
+  color: var(--on-marigold);
   box-shadow: 3px 3px 0 var(--ink);
 }
 
@@ -199,7 +208,8 @@ textarea.control {
   right: -1.5rem;
   width: 3.5rem;
   height: 3.5rem;
-  color: var(--gold);
+  // The light ink: it reads on the dark ground where it overhangs the panel
+  color: var(--ink);
 }
 
 .successHeading {
@@ -282,6 +292,8 @@ textarea.control {
 
   &:hover {
     background: var(--marigold);
+    border-color: var(--marigold);
+    color: var(--on-marigold);
   }
 }
 
@@ -311,30 +323,4 @@ textarea.control {
       text-underline-offset: 0.2em;
     }
   }
-}
-
-// ============================================
-// Schedule — the calendar as a dark band above the footer
-// ============================================
-.scheduleInner {
-  display: grid;
-  gap: var(--space-5);
-  align-items: end;
-
-  @include respond($bp-md) {
-    grid-template-columns: minmax(0, 1fr) auto;
-  }
-}
-
-.scheduleHeading {
-  font-size: clamp(2rem, 1.2rem + 3vw, 3.75rem);
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 0.95;
-}
-
-.scheduleText {
-  margin-top: var(--space-3);
-  font-size: var(--text-lg);
-  color: var(--ink-soft);
 }

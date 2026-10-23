@@ -46,7 +46,9 @@ current pages do. Design rules live in `planning/taste-profile.md`.
 
 Status 2026-10-23: **Contact is built in the lab** at
 `/lab/{en,de}/broadsheet/contact`, awaiting your review. 404 and Writing are
-next.
+next. The "Prefer to talk live?" calendar panel is **dropped** from the
+redesign (your call). At launch, remove it from `ContactAside`, and decide
+whether `CALENDLY_URL` and the `schedule*` dictionary keys go with it.
 
 1. **Contact**: the biggest open item. Form, topic chips, success panel,
    hidden spam field and side panel. Likely shape: intro on the grid, the
@@ -183,8 +185,9 @@ Build Phase 1's approved designs into the live components:
   the CMS and the hidden Writing pages. Phases 2 and 6 cover them.
 - **Font weight:** Fraunces plus Plex Mono come in, Merriweather goes out.
   Measure the change.
-- **The Prettier workflow pushes formatting commits back to the branch.**
-  Pull before follow-up commits.
+- **CI is the only check before deploy, and it doesn't block one.** Amplify
+  deploys `main` even when CI is red, and nothing auto-fixes formatting.
+  Run `npm run format:check`, lint, test and build before merging.
 - **No preview environment for branches is known.** The check before merge
   is a local run of the static export.
 

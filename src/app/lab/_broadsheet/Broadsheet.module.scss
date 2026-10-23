@@ -988,6 +988,12 @@ $avatar-size: calc(2.32rem * 64 / 50);
   border-top: 0.5rem solid var(--marigold);
 }
 
+// After a light section (Contact), with no dark gap: light meets the
+// footer's marigold stripe directly.
+.footerFlush {
+  margin-top: 0;
+}
+
 .footerGrid {
   display: grid;
   gap: var(--space-7);
