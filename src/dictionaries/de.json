@@ -2,7 +2,7 @@
   "nav": {
     "label": "Hauptnavigation",
     "home": "Start",
-    "portfolio": "Portfolio",
+    "portfolio": "Projekte",
     "writing": "Texte",
     "contact": "Kontakt",
     "menuOpen": "Menü öffnen",
@@ -15,7 +15,7 @@
     "portraitAlt": "Porträt von John Edmondson",
     "ctaWork": "Meine Arbeiten",
     "ctaContact": "Kontakt aufnehmen",
-    "featuredWork": "Ausgewählte Arbeiten",
+    "featuredWork": "Projekte",
     "recentWriting": "Neueste Texte",
     "viewAllWork": "Alle Projekte",
     "viewAllWriting": "Alle Texte",
@@ -32,7 +32,7 @@
     "nowUpdated": "Stand"
   },
   "portfolio": {
-    "title": "Portfolio",
+    "title": "Projekte",
     "intro": "Ausgewählte Projekte — Produktarbeit, Dashboards und Experimente.",
     "empty": "Noch keine Projekte veröffentlicht. Schau bald wieder vorbei.",
     "filterAll": "Alle"
@@ -46,7 +46,7 @@
   "post": {
     "updatedOn": "Aktualisiert",
     "minRead": "Min. Lesezeit",
-    "backToPortfolio": "Zurück zum Portfolio",
+    "backToPortfolio": "Zurück zu den Projekten",
     "backToWriting": "Zurück zu den Texten",
     "relatedProjects": "Andere Projekte",
     "relatedWriting": "Weitere Texte",

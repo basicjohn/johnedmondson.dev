@@ -1,0 +1,454 @@
+@use "tokens" as *;
+
+// ============================================
+// Broadsheet — the projects list and project pages. The colour, type and
+// line tokens come from .root in Broadsheet.module.scss, and the dark
+// stretches use its .inverse scope; this file only lays the pages out.
+// Same order as the home page: light at the top, dark at the bottom.
+// ============================================
+
+// How far a project's cover reaches back up into the gridded intro
+$overlap: clamp(4rem, 2rem + 8vw, 10rem);
+
+// ============================================
+// Intro — on the drafting grid, like the home page's hero
+// ============================================
+.intro {
+  padding-block: var(--space-7) clamp(3rem, 1rem + 5vw, 6rem);
+  background-color: var(--color-bg);
+  background-image:
+    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+  background-position: center top;
+
+  @include respond($bp-lg) {
+    padding-top: var(--space-8);
+  }
+}
+
+// Room at the foot for the cover to overlap
+.introWithCover {
+  padding-bottom: calc(#{$overlap} + var(--space-7));
+}
+
+.introInner {
+  display: flow-root;
+}
+
+// The projects list's title: poster-size, like the name on the home page
+.pageTitle {
+  font-size: clamp(3.5rem, 0.5rem + 11vw, 9rem);
+  font-weight: 800;
+  font-variation-settings:
+    "SOFT" 30,
+    "opsz" 144;
+  letter-spacing: -0.045em;
+  line-height: 0.85;
+}
+
+.projectTitle {
+  margin-top: var(--space-3);
+  font-size: clamp(2.25rem, 0.5rem + 7vw, 6.5rem);
+  font-weight: 800;
+  font-variation-settings:
+    "SOFT" 30,
+    "opsz" 144;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  // "johnedmondson.dev" is one long word; better broken than overflowing
+  overflow-wrap: break-word;
+}
+
+.projectSubtitle {
+  margin-top: var(--space-4);
+  font-size: clamp(1.25rem, 1rem + 0.8vw, 1.625rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+// The intro sentence under a title, set like the home page's bio lead
+.lede {
+  max-width: 44rem;
+  margin-top: var(--space-6);
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: var(--space-6);
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  background: linear-gradient(var(--marigold) 0 0) 0 88% / 100% 0.45em no-repeat;
+  transition: background-size 0.3s var(--ease);
+
+  &:hover {
+    background-size: 100% 100%;
+  }
+}
+
+.draft {
+  margin-bottom: var(--space-4);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-danger);
+
+  span {
+    padding: 0.1rem 0.45rem;
+    border: 1.5px solid currentColor;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+}
+
+// Client, role, year: a ruled strip, mono labels over the values
+.facts {
+  margin-top: var(--space-7);
+
+  dl {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: var(--space-4) var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 2px solid var(--color-ink);
+  }
+
+  dt {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  dd {
+    margin: var(--space-1) 0 0;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+}
+
+// ============================================
+// The sheet — off-white, where the case study is read
+// ============================================
+.sheet {
+  // A new block formatting context, so the cover's negative top margin
+  // pulls the cover up rather than the whole sheet.
+  display: flow-root;
+  padding-bottom: clamp(4rem, 2rem + 5vw, 7rem);
+  background: var(--sheet);
+}
+
+.figure {
+  position: relative;
+  z-index: 1;
+  margin: calc(#{$overlap} * -1) 0 0;
+}
+
+.frame {
+  overflow: hidden;
+  border: var(--rule);
+  background: var(--color-surface);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.cover {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.caption {
+  margin-top: var(--space-4);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.bodyGrid {
+  display: grid;
+  gap: var(--space-7);
+  padding-top: clamp(3rem, 2rem + 3vw, 5rem);
+
+  @include respond($bp-lg) {
+    grid-template-columns: minmax(0, 1fr) 16rem;
+    column-gap: var(--space-8);
+    align-items: start;
+  }
+}
+
+// Stack, outline and links. Before the case study in the page order (so a
+// phone sees the stack first); beside it, pinned, from desktop width.
+.aside {
+  display: grid;
+  gap: var(--space-6);
+  align-content: start;
+
+  @include respond($bp-lg) {
+    grid-column: 2;
+    grid-row: 1;
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-6));
+  }
+}
+
+.asideHeading {
+  margin-bottom: var(--space-3);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+// Desktop only, like the live outline: on a phone it would scroll away
+// before the second heading.
+.toc {
+  display: none;
+
+  @include respond($bp-lg) {
+    display: block;
+  }
+}
+
+.tocList {
+  display: grid;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid var(--color-border);
+}
+
+.tocLink,
+.tocActive {
+  display: block;
+  margin-left: -2px;
+  padding: 0.3rem 0 0.3rem 0.9rem;
+  border-left: 2px solid transparent;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink-soft);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--ink);
+  }
+}
+
+// The current section: ink, with the marigold bar on the rule
+.tocActive {
+  color: var(--ink);
+  border-left-color: var(--marigold);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+// The case study itself: the global .prose, re-set in the Broadsheet's
+// faces. Mulish for reading; Fraunces only for the headings.
+.article {
+  max-width: 44rem;
+
+  @include respond($bp-lg) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  h2 {
+    margin-top: 3.5rem;
+    padding-top: var(--space-4);
+    border-top: var(--divider);
+    font-size: clamp(1.75rem, 1.3rem + 1.5vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    scroll-margin-top: calc(var(--header-h) + var(--space-5));
+  }
+
+  h3 {
+    font-size: clamp(1.3rem, 1.15rem + 0.6vw, 1.6rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    scroll-margin-top: calc(var(--header-h) + var(--space-5));
+  }
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  blockquote {
+    padding-left: var(--space-5);
+    border-left: 4px solid var(--marigold);
+    font-family: var(--display);
+    font-style: normal;
+    font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.6rem);
+    line-height: 1.35;
+    color: var(--ink);
+  }
+
+  code {
+    font-family: var(--mono);
+    background: #f1ece2;
+    border: none;
+  }
+
+  pre {
+    border-radius: 0;
+    box-shadow: 6px 6px 0 var(--marigold);
+
+    code {
+      background: none;
+    }
+  }
+
+  img {
+    border: var(--rule);
+    border-radius: 0;
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+
+  figcaption {
+    margin-top: var(--space-3);
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--ink-soft);
+  }
+
+  // Room between screenshots for their shadows
+  :global(.image-grid) {
+    gap: var(--space-6);
+  }
+
+  :global(.prose-details) {
+    padding: var(--space-4) 0;
+    border: none;
+    border-block: var(--divider);
+    border-radius: 0;
+    background: transparent;
+
+    summary {
+      font-family: var(--mono);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+  }
+
+  hr {
+    border-top: var(--divider);
+  }
+
+  th {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
+
+// ============================================
+// The dark ground — the projects on the list page; the neighbours and
+// related projects under a case study
+// ============================================
+.dark {
+  padding-top: clamp(3.5rem, 2rem + 4vw, 6rem);
+  border-top: 0.5rem solid var(--marigold);
+}
+
+.empty {
+  font-size: var(--text-lg);
+  color: var(--ink-soft);
+}
+
+.pager {
+  display: grid;
+  gap: var(--space-7);
+
+  @include respond($bp-md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+}
+
+.pagerLink {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: var(--divider);
+  color: var(--ink);
+  text-decoration: none;
+
+  &:hover .pagerTitle > span {
+    background-size: 100% 0.35em;
+  }
+}
+
+.pagerNext {
+  @include respond($bp-md) {
+    justify-items: end;
+    text-align: right;
+  }
+}
+
+.pagerDirection {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.pagerTitle {
+  font-family: var(--display);
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+
+  // The project titles' highlighter, swept in on hover
+  > span {
+    background: linear-gradient(var(--marigold) 0 0) 0 90% / 0 0.35em no-repeat;
+    transition: var(--sweep);
+  }
+}
+
+.pagerSubtitle {
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.related {
+  padding-top: clamp(4rem, 2rem + 5vw, 7rem);
+}
+
+.relatedGrid {
+  display: grid;
+  gap: var(--space-7);
+
+  @include respond($bp-md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+
+  @include respond($bp-lg) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

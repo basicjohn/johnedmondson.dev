@@ -8,8 +8,12 @@
   "date": "2026-06-11",
   "tags": ["Next.js", "Design System", "i18n"],
   "title": {
-    "en": "johnedmondson.dev v2 — This Website",
-    "de": "johnedmondson.dev v2 — Diese Website"
+    "en": "johnedmondson.dev v2",
+    "de": "johnedmondson.dev v2"
+  },
+  "subtitle": {
+    "en": "This Website",
+    "de": "Diese Website"
   },
   "summary": {
     "en": "This site: a bilingual Next.js portfolio with an atomic component library and a git-based CMS.",

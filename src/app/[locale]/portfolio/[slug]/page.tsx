@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getDictionary, isLocale, locales } from "@/lib/i18n";
 import { getPostBySlug, getPostsByType, getRelatedPosts } from "@/lib/content";
 import { alternatesFor, openGraphFor, twitterFor } from "@/lib/seo";
+import { fullTitle } from "@/lib/utils";
 import PortfolioPostTemplate from "@/components/templates/PortfolioPost/PortfolioPostTemplate";
 import JsonLd, { projectSchema } from "@/components/atoms/JsonLd/JsonLd";
 
@@ -21,14 +22,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {};
   const path = `/portfolio/${post.slug}`;
   return {
-    title: post.title[locale],
+    title: fullTitle(post, locale),
     description: post.excerpt[locale],
     alternates: alternatesFor(locale, path),
     // A shared project link previews the project, not the portrait card
     openGraph: openGraphFor(locale, path, {
       type: "article",
       image: post.cover,
-      imageAlt: post.title[locale],
+      imageAlt: fullTitle(post, locale),
     }),
     twitter: twitterFor(post.cover),
   };

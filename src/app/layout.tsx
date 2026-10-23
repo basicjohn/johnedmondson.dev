@@ -24,7 +24,7 @@ const TITLE = "John Edmondson — Product Engineer · Full-Stack";
 // Same positioning as the LinkedIn headline: the title, the stack, and the
 // kind of work — this is the snippet search results and link previews show.
 const DESCRIPTION =
-  "John Edmondson, product engineer in Freiburg, Germany. Full-stack work in React, TypeScript, Go and PostgreSQL: scalable, data-driven systems for mission-driven teams. Portfolio and writing.";
+  "John Edmondson, product engineer in Freiburg, Germany. Full-stack work in React, TypeScript, Go and PostgreSQL: scalable, data-driven systems for mission-driven teams. Projects and writing.";
 
 // Carried over from the CRA app's index.html so the cutover does not break
 // the property's traffic history.

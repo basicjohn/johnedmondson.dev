@@ -75,8 +75,6 @@ describe("dictionary parity", () => {
         // The job title is deliberately kept in English on the German site,
         // as German tech CVs and job ads do.
         "home.role",
-        "nav.portfolio",
-        "portfolio.title",
         "post.stack",
       ].sort(),
     );

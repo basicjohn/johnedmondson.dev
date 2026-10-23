@@ -9,8 +9,12 @@
   "date": "2025-03-01",
   "tags": ["Full-Stack", "GraphQL", "PostgreSQL", "Operations"],
   "title": {
-    "en": "Bold Reuse — Reuse Logistics Platform",
-    "de": "Bold Reuse — Plattform für Mehrweg-Logistik"
+    "en": "Bold Reuse",
+    "de": "Bold Reuse"
+  },
+  "subtitle": {
+    "en": "Reuse Logistics Platform",
+    "de": "Plattform für Mehrweg-Logistik"
   },
   "summary": {
     "en": "Onboarding, bulk imports, role-based access and the wash-pack-ship workflows a live fulfillment team runs on every day.",

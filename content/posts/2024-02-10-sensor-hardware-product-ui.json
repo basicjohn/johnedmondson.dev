@@ -8,8 +8,12 @@
   "date": "2024-02-10",
   "tags": ["Product", "UI/UX", "Frontend"],
   "title": {
-    "en": "Sensor Hardware — Product Experience",
-    "de": "Sensorhardware — Produkterlebnis"
+    "en": "Sensor Hardware",
+    "de": "Sensorhardware"
+  },
+  "subtitle": {
+    "en": "Product Experience",
+    "de": "Produkterlebnis"
   },
   "excerpt": {
     "en": "Product UI work for a hardware company: presenting technical sensor products clearly across devices.",

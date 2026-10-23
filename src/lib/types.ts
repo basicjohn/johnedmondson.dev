@@ -47,6 +47,12 @@ export interface Post {
   coverCaption?: Localized; // one line under the cover on the project page
   title: Localized;
   /**
+   * What the project is, in a few words ("Cloud Optimization Platform"),
+   * shown as a subhead under the title on cards and the project page. Kept
+   * out of the title itself, which is just the name. Portfolio only.
+   */
+  subtitle?: Localized;
+  /**
    * One line for cards, 140 characters at most. The excerpt is the project
    * page's standfirst and the meta description; it runs to 250 characters,
    * which is five lines on a card.

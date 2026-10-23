@@ -9,8 +9,12 @@
   "date": "2026-06-16",
   "tags": ["TypeScript", "Game Design", "Design System", "WebGL"],
   "title": {
-    "en": "Top Shot Reloaded — 1v1 Speedball Duel",
-    "de": "Top Shot Reloaded — 1v1-Speedball-Duell"
+    "en": "Top Shot Reloaded",
+    "de": "Top Shot Reloaded"
+  },
+  "subtitle": {
+    "en": "1v1 Speedball Duel",
+    "de": "1v1-Speedball-Duell"
   },
   "summary": {
     "en": "A phone-first 1v1 paintball duel built solo: deterministic 120 Hz sim, WebGL renderer, lockstep multiplayer, native shells.",

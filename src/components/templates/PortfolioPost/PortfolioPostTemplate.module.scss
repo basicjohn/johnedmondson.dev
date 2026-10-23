@@ -67,6 +67,15 @@
   font-size: var(--text-3xl);
 }
 
+// What the project is, under its name
+.subtitle {
+  margin-top: var(--space-2);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-ink);
+}
+
 .excerpt {
   font-size: var(--text-xl);
   color: var(--color-ink-soft);

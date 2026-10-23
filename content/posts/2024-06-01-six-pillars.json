@@ -9,8 +9,12 @@
   "date": "2024-06-01",
   "tags": ["Next.js", "AWS", "SaaS", "Design System"],
   "title": {
-    "en": "Six Pillars — Cloud Optimization Platform",
-    "de": "Six Pillars — Cloud-Optimierungsplattform"
+    "en": "Six Pillars",
+    "de": "Six Pillars"
+  },
+  "subtitle": {
+    "en": "Cloud Optimization Platform",
+    "de": "Cloud-Optimierungsplattform"
   },
   "summary": {
     "en": "Co-founded a multi-tenant cloud cost optimization SaaS: the Next.js product, its AWS Marketplace listing, and its design system.",

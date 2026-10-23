@@ -1,0 +1,51 @@
+@use "tokens" as *;
+
+.index {
+  padding-block: var(--space-8);
+
+  h1 {
+    font-size: var(--text-3xl);
+  }
+}
+
+.lede {
+  max-width: var(--content-max);
+  margin-top: var(--space-3);
+  color: var(--color-ink-soft);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+
+  @include respond($bp-md) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.item {
+  @include card;
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  h2 {
+    font-size: var(--text-xl);
+  }
+
+  p {
+    color: var(--color-ink-soft);
+  }
+}
+
+.links {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: auto;
+  padding-top: var(--space-2);
+  font-weight: 700;
+}

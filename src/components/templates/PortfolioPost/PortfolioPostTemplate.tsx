@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Locale, Post } from "@/lib/types";
 import type { Dictionary } from "@/lib/i18n";
 import { extractHeadings, markdownToHtml } from "@/lib/markdown";
-import { formatYear } from "@/lib/utils";
+import { formatYear, fullTitle } from "@/lib/utils";
 import { tagLabel } from "@/lib/tags";
 import { SIZES } from "@/lib/images";
 import CoverMedia from "@/components/atoms/CoverMedia/CoverMedia";
@@ -57,6 +57,9 @@ export default function PortfolioPostTemplate({
             </p>
           )}
           <h1 className={styles.title}>{post.title[locale]}</h1>
+          {post.subtitle?.[locale] && (
+            <p className={styles.subtitle}>{post.subtitle[locale]}</p>
+          )}
           <p className={styles.excerpt}>{post.excerpt[locale]}</p>
         </header>
 
@@ -70,7 +73,7 @@ export default function PortfolioPostTemplate({
               className={styles.cover}
               cover={post.cover}
               video={post.coverVideo}
-              alt={post.coverCaption ? "" : post.title[locale]}
+              alt={post.coverCaption ? "" : fullTitle(post, locale)}
               sizes={SIZES.prose}
               loading="eager"
             />

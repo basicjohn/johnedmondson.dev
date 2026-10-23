@@ -2,10 +2,12 @@ import { describe, it, expect } from "vitest";
 import {
   formatDate,
   formatYear,
+  fullTitle,
   readingTime,
   slugify,
   coverGradient,
 } from "./utils";
+import type { Post } from "./types";
 
 describe("slugify", () => {
   it("lowercases and hyphenates", () => {
@@ -102,5 +104,32 @@ describe("formatYear", () => {
 
   it("keeps English as written", () => {
     expect(formatYear("2025 – present", "en")).toBe("2025 – present");
+  });
+});
+
+describe("fullTitle", () => {
+  const base = { title: { en: "Six Pillars", de: "Six Pillars" } } as Post;
+
+  it("joins the name and subhead with a dash", () => {
+    const post = {
+      ...base,
+      subtitle: {
+        en: "Cloud Optimization Platform",
+        de: "Cloud-Optimierungsplattform",
+      },
+    } as Post;
+    expect(fullTitle(post, "en")).toBe(
+      "Six Pillars — Cloud Optimization Platform",
+    );
+    expect(fullTitle(post, "de")).toBe(
+      "Six Pillars — Cloud-Optimierungsplattform",
+    );
+  });
+
+  it("is just the name when there is no subhead", () => {
+    expect(fullTitle(base, "en")).toBe("Six Pillars");
+    expect(
+      fullTitle({ ...base, subtitle: { en: " ", de: "" } } as Post, "en"),
+    ).toBe("Six Pillars");
   });
 });

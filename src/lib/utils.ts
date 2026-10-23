@@ -1,4 +1,4 @@
-import type { Locale, ProjectKind } from "./types";
+import type { Locale, Post, ProjectKind } from "./types";
 import { getDictionary } from "./i18n";
 
 export function formatDate(iso: string, locale: Locale): string {
@@ -21,6 +21,16 @@ export function formatYear(year: string, locale: Locale): string {
 /** The card eyebrow's second half: "Contract", "Co-founder", … */
 export function kindLabel(kind: ProjectKind, locale: Locale): string {
   return getDictionary(locale).post.kinds[kind];
+}
+
+/**
+ * Name and subhead as one line ("Six Pillars — Cloud Optimization
+ * Platform"), for the places a single string has to say what the project
+ * is: the page title, link previews, structured data, cover alt text.
+ */
+export function fullTitle(post: Post, locale: Locale): string {
+  const subtitle = post.subtitle?.[locale]?.trim();
+  return subtitle ? `${post.title[locale]} — ${subtitle}` : post.title[locale];
 }
 
 /** Rough reading time in minutes from markdown source */

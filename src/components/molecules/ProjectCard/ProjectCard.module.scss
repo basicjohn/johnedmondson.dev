@@ -36,6 +36,10 @@
     font-size: var(--text-2xl);
   }
 
+  .subtitle {
+    font-size: var(--text-lg);
+  }
+
   .excerpt {
     font-size: var(--text-lg);
     max-width: var(--content-max);
@@ -85,6 +89,13 @@
       color: var(--color-accent-strong);
     }
   }
+}
+
+// What the project is, under its name: "Cloud Optimization Platform"
+.subtitle {
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.4;
 }
 
 .excerpt {

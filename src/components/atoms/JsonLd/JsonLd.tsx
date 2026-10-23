@@ -1,5 +1,6 @@
 import type { Locale, Post } from "@/lib/types";
 import { SITE_URL } from "@/lib/seo";
+import { fullTitle } from "@/lib/utils";
 
 type Schema = Record<string, unknown>;
 
@@ -69,7 +70,7 @@ export function projectSchema(post: Post, locale: Locale): Schema {
   const startYear = post.year?.match(/\d{4}/)?.[0];
   return {
     "@type": "CreativeWork",
-    name: post.title[locale],
+    name: fullTitle(post, locale),
     description: post.excerpt[locale],
     url: `${SITE_URL}/${locale}/portfolio/${post.slug}`,
     inLanguage: locale,

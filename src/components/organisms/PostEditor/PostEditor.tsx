@@ -34,12 +34,13 @@ export default function PostEditor({ initial, isNew }: Props) {
     setPost((p) => ({ ...p, [key]: value }));
 
   const setLocalized = (
-    key: "title" | "summary" | "excerpt" | "body",
+    key: "title" | "subtitle" | "summary" | "excerpt" | "body",
     value: string,
   ) =>
     setPost((p) => ({
       ...p,
-      // `summary` is optional on older posts, so start it from empty strings
+      // `subtitle` and `summary` are optional on older posts, so start them
+      // from empty strings
       [key]: { en: "", de: "", ...p[key], [lang]: value },
     }));
 
@@ -283,6 +284,15 @@ export default function PostEditor({ initial, isNew }: Props) {
             value={post.title[lang]}
             onChange={(e) => handleTitleChange(e.target.value)}
           />
+
+          {post.type === "portfolio" && (
+            <FormField
+              label={`Subhead (${lang.toUpperCase()}) — what it is, e.g. "Cloud Optimization Platform"`}
+              name={`subtitle-${lang}`}
+              value={post.subtitle?.[lang] ?? ""}
+              onChange={(e) => setLocalized("subtitle", e.target.value)}
+            />
+          )}
 
           {post.type === "portfolio" && (
             <FormField

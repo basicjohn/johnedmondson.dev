@@ -66,6 +66,9 @@ export default function ProjectCard({
         <h3 className={styles.title}>
           <Link href={href}>{post.title[locale]}</Link>
         </h3>
+        {post.subtitle?.[locale] && (
+          <p className={styles.subtitle}>{post.subtitle[locale]}</p>
+        )}
         <p className={styles.excerpt}>
           {post.summary?.[locale] || post.excerpt[locale]}
         </p>

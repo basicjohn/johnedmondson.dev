@@ -132,3 +132,20 @@ describe.each(all.filter((p) => p.summary).map((p) => [p.slug, p] as const))(
     });
   },
 );
+
+// A project's title is its name; what it is goes in the subhead. The two
+// used to share one string ("Six Pillars — Cloud Optimization Platform"),
+// and a dash creeping back into a title would print the description twice.
+describe.each(
+  published
+    .filter((p) => p.type === "portfolio")
+    .map((p) => [p.slug, p] as const),
+)("project subhead on %s", (_slug, post) => {
+  it.each([...locales])("exists in %s", (locale) => {
+    expect(post.subtitle?.[locale]?.trim()).toBeTruthy();
+  });
+
+  it.each([...locales])("is not repeated in the %s title", (locale) => {
+    expect(post.title[locale]).not.toMatch(/ [—–-] /);
+  });
+});
