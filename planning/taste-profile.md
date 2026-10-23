@@ -231,6 +231,22 @@ Lessons:
 - Behaviour is identical to the live form: validation, the honeypot, the
   3-second floor, the topic carried in the message, the mailto fallback.
 
+## Round 9 (2026-10-23): contact refinements and positioning
+
+- **The contact form section is on the dark grey with light text**, the
+  same `.inverse` scope as Projects and About. The fields stay white with
+  dark text, and errors use a lighter red (#ff9a85, 7.1:1).
+- **Intro lines under page titles use the body sans, not Fraunces:** "it's
+  smaller", so it isn't display text. This applies to every page title's
+  intro (Contact, Projects, project pages).
+- **The gap under a poster title is tight (16px)** unless the title has
+  descenders (g, j, p, q, y). Those keep 32px, or the tail hits the line
+  below. Done per title in `typography.ts`.
+- **Positioning:** the footer now says "Open to new opportunities" (DE: "Offen
+  für neue Möglichkeiten"), broader than the old "full-time product
+  engineering roles". The home ticker matches: "Looking for: New
+  opportunities".
+
 ## Content structure
 
 - **A project's title is just its name; what it is goes in a subhead.**

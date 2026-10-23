@@ -2,6 +2,7 @@ import BroadsheetShell from "./BroadsheetShell";
 import ContactDetails from "./ContactDetails";
 import ContactForm from "./ContactForm";
 import type { ContactPageData } from "./contactData";
+import { hasDescender } from "./typography";
 import styles from "./Broadsheet.module.scss";
 import projects from "./Projects.module.scss";
 import page from "./Contact.module.scss";
@@ -19,7 +20,11 @@ export default function ContactPage({ data }: { data: ContactPageData }) {
     <BroadsheetShell shell={data.shell} current="contact" flushFooter>
       <header className={projects.intro}>
         <div className="container">
-          <h1 className={projects.pageTitle}>{labels.title}</h1>
+          <h1
+            className={`${projects.pageTitle} ${hasDescender(labels.title) ? projects.descends : ""}`}
+          >
+            {labels.title}
+          </h1>
           <p className={projects.lede}>{labels.intro}</p>
         </div>
       </header>

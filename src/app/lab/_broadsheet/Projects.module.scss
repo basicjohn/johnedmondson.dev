@@ -73,6 +73,19 @@ $overlap: clamp(4rem, 2rem + 8vw, 10rem);
 .lede {
   max-width: 40rem;
   margin-top: var(--space-6);
+
+  // Closer under a poster-size page title, so the line reads as the
+  // title's own standfirst rather than a new block (Let's talk). A title
+  // with descenders (Projects, Sag Hallo) keeps the full gap: at this size
+  // its "j" or "g" hangs 0.19em below the title's box, into the line.
+  .pageTitle + & {
+    margin-top: var(--space-4);
+  }
+
+  // .descends is set from typography.ts's hasDescender()
+  .pageTitle.descends + & {
+    margin-top: var(--space-6);
+  }
   font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
   font-weight: 500;
   line-height: 1.5;

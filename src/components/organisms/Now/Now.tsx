@@ -15,8 +15,8 @@ type Props = {
 
 /**
  * Three lines under the hero that connect what the year ranges only imply:
- * on a contract now, building something on the side, looking for a
- * full-time role. The date is the cheapest possible sign the site is alive.
+ * on a contract now, building something on the side, open to new
+ * opportunities. The date is the cheapest possible sign the site is alive.
  */
 export default function Now({
   locale,

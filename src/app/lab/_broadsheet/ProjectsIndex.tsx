@@ -1,6 +1,7 @@
 import BroadsheetShell from "./BroadsheetShell";
 import ProjectCard from "./ProjectCard";
 import type { ProjectsIndexData } from "./projectsData";
+import { hasDescender } from "./typography";
 import styles from "./Broadsheet.module.scss";
 import page from "./Projects.module.scss";
 
@@ -16,7 +17,11 @@ export default function ProjectsIndex({ data }: { data: ProjectsIndexData }) {
     <BroadsheetShell shell={data.shell} current="portfolio">
       <header className={page.intro}>
         <div className={`container ${page.introInner}`}>
-          <h1 className={page.pageTitle}>{data.title}</h1>
+          <h1
+            className={`${page.pageTitle} ${hasDescender(data.title) ? page.descends : ""}`}
+          >
+            {data.title}
+          </h1>
           <p className={page.lede}>{data.intro}</p>
         </div>
       </header>

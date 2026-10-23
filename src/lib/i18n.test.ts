@@ -83,7 +83,7 @@ describe("dictionary parity", () => {
   it("carries the availability copy Phase 2 introduced, in both languages", () => {
     expect(flatEn["footer.availabilityHeading"]).toBeTruthy();
     expect(flatDe["footer.availabilityHeading"]).toBeTruthy();
-    expect(flatEn["footer.availabilityText"]).toMatch(/full-time/i);
+    expect(flatEn["footer.availabilityText"]).toMatch(/opportunities/i);
     expect(flatDe["footer.availabilityText"]).not.toBe(
       flatEn["footer.availabilityText"],
     );
