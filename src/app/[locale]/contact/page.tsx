@@ -3,11 +3,10 @@ import { notFound } from "next/navigation";
 import { alternatesFor } from "@/lib/seo";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { getSiteData } from "@/lib/content";
+import { CALENDLY_URL } from "@/lib/config";
 import ContactForm from "@/components/organisms/ContactForm/ContactForm";
 import ContactAside from "@/components/organisms/ContactAside/ContactAside";
 import styles from "./page.module.scss";
-
-const CALENDLY_URL = "https://calendly.com/johnedmondsondev/lets-chat";
 
 type Props = { params: Promise<{ locale: string }> };
 

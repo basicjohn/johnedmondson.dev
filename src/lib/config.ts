@@ -23,3 +23,6 @@ export const WRITING_SECTION_PUBLIC = false;
  * eight or more projects and the tags carry real weight.
  */
 export const PORTFOLIO_TAG_FILTER = false;
+
+/** The "Schedule a chat" link on the contact page */
+export const CALENDLY_URL = "https://calendly.com/johnedmondsondev/lets-chat";

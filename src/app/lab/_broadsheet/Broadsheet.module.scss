@@ -478,7 +478,8 @@ $avatar-size: calc(2.32rem * 64 / 50);
   border: var(--rule);
   font-weight: 700;
   text-decoration: none;
-  color: var(--ink);
+  // Both are light fields, so their text is ink even on the dark ground
+  color: var(--on-marigold);
   box-shadow: 4px 4px 0 var(--ink);
   transition:
     translate 0.15s var(--ease),

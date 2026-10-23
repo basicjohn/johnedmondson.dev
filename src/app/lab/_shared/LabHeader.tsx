@@ -26,7 +26,7 @@ type Props = {
     locales: Record<Locale, string>;
   };
   /** Which nav item is the current page; Home unless a page says otherwise */
-  current?: "home" | "portfolio";
+  current?: "home" | "portfolio" | "contact";
 };
 
 /**
@@ -58,7 +58,11 @@ export default function LabHeader({
       label: labels.portfolio,
       current: current === "portfolio",
     },
-    { href: links.contact, label: labels.contact, current: false },
+    {
+      href: links.contact,
+      label: labels.contact,
+      current: current === "contact",
+    },
   ];
 
   return (

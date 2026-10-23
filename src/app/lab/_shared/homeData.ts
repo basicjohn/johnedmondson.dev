@@ -38,6 +38,13 @@ export function projectsHref(locale: Locale, variant: Variant): string {
     : `/${locale}/portfolio`;
 }
 
+/** Where a variant's Contact links go: Broadsheet's own page, or the live one */
+export function contactHref(locale: Locale, variant: Variant): string {
+  return variant === "broadsheet"
+    ? `/lab/${locale}/broadsheet/contact`
+    : `/${locale}/contact`;
+}
+
 export function toProject(post: Post, locale: Locale, base: string): Project {
   const title = post.title[locale];
   return {
@@ -80,11 +87,12 @@ export function getShellData(
     email: site.email,
     resume: site.resume,
     links: {
-      // Home and (for Broadsheet) Projects stay inside the lab so the
-      // variant can be clicked around; Contact goes to the real page.
+      // Home stays inside the lab so the variant can be clicked around, and
+      // so do Broadsheet's Projects and Contact; Signal's go to the real
+      // pages.
       home: `/lab/${locale}/${variant}`,
       portfolio: projectsHref(locale, variant),
-      contact: `/${locale}/contact`,
+      contact: contactHref(locale, variant),
       locales: localeHrefs,
     },
   };
@@ -130,7 +138,7 @@ export function getHomeData(locale: Locale, variant: Variant) {
         {
           label: dict.home.nowLookingLabel,
           text: dict.home.nowLooking,
-          href: `/${locale}/contact`,
+          href: contactHref(locale, variant),
         },
       ] satisfies NowItem[],
     },

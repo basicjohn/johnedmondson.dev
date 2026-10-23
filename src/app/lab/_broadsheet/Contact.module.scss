@@ -1,0 +1,340 @@
+@use "tokens" as *;
+
+// ============================================
+// Broadsheet — the contact page. Colour, type and line tokens come from
+// .root in Broadsheet.module.scss; the gridded intro and the dark band
+// reuse the projects pages' classes. This file lays out the sheet: the
+// form and the details beside it.
+// ============================================
+
+.sheet {
+  padding-block: clamp(3.5rem, 2rem + 4vw, 6rem);
+  background: var(--sheet);
+}
+
+// The form at a comfortable measure; the details beside it from desktop
+// width, beneath it before that.
+.columns {
+  display: grid;
+  gap: var(--space-8);
+  align-items: start;
+
+  @include respond($bp-lg) {
+    grid-template-columns: minmax(0, 36rem) minmax(0, 1fr);
+    column-gap: clamp(3rem, 2rem + 4vw, 7rem);
+  }
+}
+
+// ============================================
+// Form
+// ============================================
+.form {
+  display: grid;
+  gap: var(--space-6);
+}
+
+// Honeypot: off-screen, out of the tab order (see ContactForm.tsx)
+.trap {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+// Labels in the mono, like every other label on the site
+.label {
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.requiredMark {
+  color: var(--gold);
+}
+
+// Square, ink-ruled fields. Focus shows as a hard darker-gold block offset
+// behind the field (5.6:1 against the sheet), the same move as the hover
+// on the project images.
+.control {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: var(--rule);
+  border-radius: 0;
+  background: var(--color-surface);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--ink);
+  transition: box-shadow 0.2s var(--ease);
+
+  &::placeholder {
+    color: var(--color-ink-faint);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 5px 5px 0 var(--gold);
+  }
+
+  &[aria-invalid="true"] {
+    border-color: var(--color-danger);
+  }
+}
+
+textarea.control {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.fieldError,
+.formError {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-danger);
+}
+
+.formError {
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--color-danger);
+  background: rgb(179 66 47 / 8%);
+}
+
+.topics {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.topicRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.topic {
+  position: relative;
+  cursor: pointer;
+}
+
+// The radio stays in the tab order and the accessibility tree; only its
+// circle is hidden, and the chip beside it shows its state.
+.topicInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.topicChip {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border: 1.5px solid var(--ink);
+  background: var(--color-surface);
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition:
+    background 0.15s var(--ease),
+    box-shadow 0.15s var(--ease);
+}
+
+.topic:hover .topicChip {
+  background: var(--color-accent-soft);
+}
+
+.topicInput:checked + .topicChip {
+  background: var(--marigold);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.topicInput:focus-visible + .topicChip {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
+  padding-top: var(--space-2);
+
+  button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
+}
+
+.note {
+  max-width: 22rem;
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+// Sent: the form gives way to a marigold panel, with the asterisk set on
+// its corner like a stamp.
+.success {
+  position: relative;
+  padding: clamp(2rem, 1.5rem + 2vw, 3rem);
+  border: var(--rule);
+  background: var(--marigold);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.successMark {
+  position: absolute;
+  top: -1.5rem;
+  right: -1.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  color: var(--gold);
+}
+
+.successHeading {
+  font-family: var(--display);
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+  font-weight: 700;
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--on-marigold);
+}
+
+.successText {
+  max-width: 28rem;
+  margin-top: var(--space-3);
+  font-size: var(--text-lg);
+  color: var(--on-marigold);
+}
+
+// ============================================
+// Details — a ruled fact list beside the form
+// ============================================
+.detailsHeading {
+  padding-top: var(--space-4);
+  border-top: var(--divider);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.facts {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+
+  dt {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  dd {
+    margin: var(--space-1) 0 0;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+}
+
+.emailRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+}
+
+.email {
+  color: var(--ink);
+  text-decoration-color: var(--marigold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+
+  &:hover {
+    text-decoration-thickness: 4px;
+  }
+}
+
+.copy {
+  padding: 0.15rem 0.55rem;
+  border: 1.5px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  &:hover {
+    background: var(--marigold);
+  }
+}
+
+.time {
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+.socials {
+  display: flex;
+  gap: var(--space-5);
+  list-style: none;
+  padding: 0;
+
+  a {
+    color: var(--ink);
+    text-decoration: none;
+
+    span {
+      color: var(--gold);
+    }
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: var(--marigold);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.2em;
+    }
+  }
+}
+
+// ============================================
+// Schedule — the calendar as a dark band above the footer
+// ============================================
+.scheduleInner {
+  display: grid;
+  gap: var(--space-5);
+  align-items: end;
+
+  @include respond($bp-md) {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+.scheduleHeading {
+  font-size: clamp(2rem, 1.2rem + 3vw, 3.75rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+
+.scheduleText {
+  margin-top: var(--space-3);
+  font-size: var(--text-lg);
+  color: var(--ink-soft);
+}

@@ -23,7 +23,7 @@ const mono = IBM_Plex_Mono({
 type Props = {
   shell: ShellData;
   /** Which nav item is this page */
-  current?: "home" | "portfolio";
+  current?: "home" | "portfolio" | "contact";
   children: React.ReactNode;
 };
 

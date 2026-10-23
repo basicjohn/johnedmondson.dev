@@ -199,6 +199,35 @@ Lessons:
   WCAG AA (large text needs 3:1). The arrows are decorative. The footer's
   small mono labels (Availability, Elsewhere) stay marigold.
 
+## Round 7 (2026-10-23): projects pages
+
+- **Light to dark is the page structure, not just the home page's.** He
+  likes that it makes the site feel "grounded / weighted". Applied to the
+  projects list (gridded intro, marigold stripe, cards on dark, footer)
+  and project pages (gridded intro, cover overlapping onto an off-white
+  reading sheet, previous/next and other projects on dark, footer).
+- Long case studies are read on the light sheet, not on dark: comfort for
+  long text beats the scheme. The dark ground holds navigation (pager,
+  related cards).
+- Seams between light and dark are marked: the ticker on home, a 0.5rem
+  marigold stripe elsewhere (matching the footer's).
+
+## Round 8 (2026-10-23): contact page (lab, awaiting his review)
+
+- **Light to dark again:**
+  - The "Let's talk" poster title and intro are on the grid.
+  - The form and Details are on the off-white sheet.
+  - "Prefer to talk live?" and the calendar button sit on a dark band.
+  - The footer comes last.
+- **Form:** mono labels, square ink-ruled fields, mono topic chips that turn
+  marigold with a small hard shadow when chosen. Focus shows as a
+  darker-gold block offset behind the field.
+- **Sent:** the form becomes a marigold panel with an ink hard shadow, and
+  the asterisk is stamped on its corner (a third, deliberate use of the
+  motif).
+- Behaviour is identical to the live form: validation, the honeypot, the
+  3-second floor, the topic carried in the message, the mailto fallback.
+
 ## Content structure
 
 - **A project's title is just its name; what it is goes in a subhead.**
