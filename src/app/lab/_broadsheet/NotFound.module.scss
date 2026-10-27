@@ -1,0 +1,67 @@
+@use "tokens" as *;
+
+// ============================================
+// Broadsheet — the 404. Tokens come from .root in Broadsheet.module.scss.
+// ============================================
+
+// The drafting grid, at least a screen tall, with the content set low in
+// it: the page reads as a poster rather than a stub, and the footer starts
+// below the fold instead of floating halfway up.
+.page {
+  display: flex;
+  align-items: center;
+  min-height: calc(100dvh - var(--header-h));
+  padding-block: var(--space-8);
+  background-color: var(--color-bg);
+  background-image:
+    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+  background-position: center top;
+}
+
+.inner {
+  width: 100%;
+}
+
+// "404" as an outlined numeral, like the 01 and 02 that number the home
+// page's sections, at poster size.
+.code {
+  font-family: var(--display);
+  font-size: clamp(8rem, 3rem + 22vw, 20rem);
+  font-weight: 800;
+  font-variation-settings: "opsz" 144;
+  line-height: 0.78;
+  // Not tightened like the solid titles: outlined glyphs that touch show
+  // every crossing line (the 4's diagonal cut through the 0).
+  letter-spacing: 0.02em;
+  color: transparent;
+  -webkit-text-stroke: 3px var(--gold);
+}
+
+.title {
+  margin-top: var(--space-6);
+  font-size: clamp(2.25rem, 1.5rem + 3vw, 4rem);
+  font-weight: 700;
+  font-variation-settings:
+    "SOFT" 30,
+    "opsz" 144;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+
+.text {
+  max-width: 34rem;
+  margin-top: var(--space-4);
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  font-weight: 500;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-4);
+  margin-top: var(--space-7);
+}

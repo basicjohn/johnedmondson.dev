@@ -14,7 +14,7 @@ const OPTIONS = [
   },
   {
     name: "B — Broadsheet",
-    note: "Bold editorial on the existing paper and gold — the chosen direction, refining against planning/taste-profile.md. Includes Projects, every project page and Contact.",
+    note: "Bold editorial on the existing paper and gold — the chosen direction, refining against planning/taste-profile.md. Includes Projects, every project page, Contact and the 404 (at /lab/en/broadsheet/not-found-preview).",
     href: (locale: string) => `/lab/${locale}/broadsheet`,
   },
 ];
