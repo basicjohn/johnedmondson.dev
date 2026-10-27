@@ -57,7 +57,7 @@ export default function Footer({ labels, socials, email, resume }: Props) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {social.label}
+                  {social.label} <span aria-hidden="true">↗</span>
                 </a>
               </li>
             ))}
