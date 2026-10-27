@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { alternatesFor } from "@/lib/seo";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { getSiteData } from "@/lib/content";
-import { CALENDLY_URL } from "@/lib/config";
+import { hasDescender } from "@/lib/utils";
 import ContactForm from "@/components/organisms/ContactForm/ContactForm";
 import ContactAside from "@/components/organisms/ContactAside/ContactAside";
 import styles from "./page.module.scss";
@@ -21,6 +21,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/**
+ * Light to dark: the title on the drafting grid, then the form and the
+ * details reversed out of the dark ground, straight into the footer.
+ */
 export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
@@ -29,30 +33,37 @@ export default async function ContactPage({ params }: Props) {
   // The published address, not a personal one — this renders into a
   // mailto: link in the static export when no endpoint is configured.
   const site = getSiteData();
+  const title = dict.contact.title;
 
   return (
-    <div className={`container ${styles.page}`}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>{dict.contact.title}</h1>
-        <p className={styles.intro}>{dict.contact.intro}</p>
+    <>
+      <header className={styles.intro}>
+        <div className="container">
+          <h1
+            className={`${styles.title} ${hasDescender(title) ? styles.descends : ""}`}
+          >
+            {title}
+          </h1>
+          <p className={styles.lede}>{dict.contact.intro}</p>
+        </div>
       </header>
 
-      {/* Form left, the facts a recruiter checks first on the right. The
-          right column used to be bare grid on every desktop. */}
-      <div className={styles.columns}>
-        <ContactForm
-          labels={dict.contact}
-          endpoint={process.env.NEXT_PUBLIC_CONTACT_ENDPOINT}
-          fallbackEmail={site.email}
-        />
-        <ContactAside
-          locale={locale}
-          labels={{ ...dict.contact, elsewhere: dict.footer.elsewhere }}
-          email={site.email}
-          socials={site.socials}
-          calendarUrl={CALENDLY_URL}
-        />
+      <div className={`inverse ${styles.formSection}`}>
+        {/* Form left, the facts a recruiter checks first on the right */}
+        <div className={`container ${styles.columns}`}>
+          <ContactForm
+            labels={dict.contact}
+            endpoint={process.env.NEXT_PUBLIC_CONTACT_ENDPOINT}
+            fallbackEmail={site.email}
+          />
+          <ContactAside
+            locale={locale}
+            labels={{ ...dict.contact, elsewhere: dict.footer.elsewhere }}
+            email={site.email}
+            socials={site.socials}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
