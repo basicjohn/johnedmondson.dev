@@ -7,6 +7,14 @@ current pages do. Design rules live in `planning/taste-profile.md`.
 
 ## Where things stand
 
+**Status 2026-10-27: Phases 2–6 and 8's checks are done on branch
+`feat/broadsheet`.** It is committed but not pushed. Production build,
+tests, lint and format all pass. Every page was checked in English and
+German from 375 to 1920px, with no overflow. The fresh screenshot set is
+in `screenshots/`. Left before launch: your review, then push and merge.
+Phase 7 content (the v2 cover) and Phase 9 (the lab) are still open. The
+notes below are the original plan.
+
 - **Designed in the lab** (dev-only, never in the static export): home,
   projects list, project pages, in English and German. Code in
   `src/app/lab/_broadsheet/` and `src/app/lab/_shared/`.
