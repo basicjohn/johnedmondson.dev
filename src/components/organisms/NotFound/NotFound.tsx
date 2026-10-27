@@ -16,28 +16,37 @@ function localeFromPath(pathname: string | null): Locale {
   return isLocale(first) ? first : "en";
 }
 
-/** The 404 body: title, one line, and the three places worth going next */
+/**
+ * The 404 body: a poster-size outlined "404" in the section numbers'
+ * style, the title, one line, and the three places worth going next — on
+ * the drafting grid, which fills the screen so the footer never floats
+ * halfway up a short page.
+ */
 export function NotFoundBody() {
   const locale = localeFromPath(usePathname());
   const dict = getDictionary(locale);
 
   return (
-    <div className={`container ${styles.page}`}>
-      <p className={styles.code} aria-hidden="true">
-        404
-      </p>
-      <h1 className={styles.title}>{dict.notFound.title}</h1>
-      <p className={styles.text}>{dict.notFound.text}</p>
-      <div className={styles.actions}>
-        <Button href={`/${locale}`}>{dict.notFound.backHome}</Button>
-        <Button variant="secondary" href={`/${locale}/portfolio`}>
-          {dict.nav.portfolio}
-        </Button>
-        <Button variant="secondary" href={`/${locale}/contact`}>
-          {dict.nav.contact}
-        </Button>
+    <section className={styles.page}>
+      <div className="container">
+        <p className={styles.code} aria-hidden="true">
+          404
+        </p>
+        <h1 className={styles.title}>{dict.notFound.title}</h1>
+        <p className={styles.text}>{dict.notFound.text}</p>
+        <div className={styles.actions}>
+          <Button href={`/${locale}`}>
+            {dict.notFound.backHome} <span aria-hidden="true">→</span>
+          </Button>
+          <Button variant="secondary" href={`/${locale}/portfolio`}>
+            {dict.nav.portfolio}
+          </Button>
+          <Button variant="secondary" href={`/${locale}/contact`}>
+            {dict.nav.contact}
+          </Button>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -53,7 +62,7 @@ export default function NotFoundPage({ site }: PageProps) {
   const dict = getDictionary(locale);
 
   return (
-    <div lang={locale}>
+    <div lang={locale} className="site">
       <Header
         locale={locale}
         nav={dict.nav}
