@@ -1,60 +1,77 @@
 import Link from "next/link";
 import type { Locale, Post } from "@/lib/types";
-import { coverGradient, formatYear, kindLabel } from "@/lib/utils";
+import { formatYear, kindLabel } from "@/lib/utils";
 import { tagLabel } from "@/lib/tags";
-import { SIZES } from "@/lib/images";
 import Tag from "@/components/atoms/Tag/Tag";
 import CoverMedia from "@/components/atoms/CoverMedia/CoverMedia";
 import styles from "./ProjectCard.module.scss";
 
+const SIZES = {
+  feature: "(min-width: 1024px) 40rem, 100vw",
+  default: "(min-width: 1024px) 32rem, (min-width: 768px) 50vw, 100vw",
+  compact: "(min-width: 1024px) 22rem, (min-width: 768px) 50vw, 100vw",
+};
+
 type Props = {
   post: Post;
   locale: Locale;
-  /** `feature` is the one large lead card on the home page: wider image, bigger title */
-  variant?: "default" | "feature";
+  /**
+   * `feature`: the one large lead, image beside the text. `compact`: a
+   * smaller card for rows of three (Other projects).
+   */
+  variant?: "default" | "feature" | "compact";
+  /** Position in its row, for the staggered scroll reveal */
+  index?: number;
 };
 
+/**
+ * A project as the Broadsheet sets it: the image in an edged frame with a
+ * hard shadow, then the dates and kind, the name, the subhead, a one-line
+ * summary and the tags. The whole card is one link.
+ */
 export default function ProjectCard({
   post,
   locale,
   variant = "default",
+  index = 0,
 }: Props) {
   const href = `/${locale}/portfolio/${post.slug}`;
-  const cls =
-    variant === "feature" ? `${styles.card} ${styles.feature}` : styles.card;
+  const title = post.title[locale];
+  const cls = [
+    styles.card,
+    variant === "feature" && styles.feature,
+    variant === "compact" && styles.compact,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <article className={cls}>
-      <Link
-        href={href}
-        className={styles.coverLink}
-        tabIndex={-1}
-        aria-hidden="true"
-      >
+    <article
+      className={cls}
+      data-reveal=""
+      style={{ "--i": index } as React.CSSProperties}
+    >
+      <div className={styles.media}>
         {post.cover ? (
           <CoverMedia
             className={styles.cover}
             cover={post.cover}
             video={post.coverVideo}
             alt=""
-            sizes={variant === "feature" ? SIZES.feature : SIZES.card}
+            sizes={SIZES[variant]}
           />
         ) : (
-          <div
-            className={styles.cover}
-            style={{ background: coverGradient(post.slug) }}
-          >
-            <span className={styles.coverInitial}>
-              {post.title[locale].charAt(0)}
-            </span>
+          // No cover yet: the initial on a marigold field over the grid
+          <div className={styles.fallback} aria-hidden="true">
+            <span>{title.charAt(0)}</span>
           </div>
         )}
-      </Link>
+      </div>
       <div className={styles.body}>
         {/* "2025 – present · Contract": the year alone could not separate
             the paid roles from the side projects without opening each one. */}
         {(post.year || post.kind) && (
-          <p className={styles.year}>
+          <p className={styles.eyebrow}>
             {[
               post.year && formatYear(post.year, locale),
               post.kind && kindLabel(post.kind, locale),
@@ -64,12 +81,13 @@ export default function ProjectCard({
           </p>
         )}
         <h3 className={styles.title}>
-          <Link href={href}>{post.title[locale]}</Link>
+          {/* Stretched over the whole card, so the image is a target too */}
+          <Link href={href}>{title}</Link>
         </h3>
         {post.subtitle?.[locale] && (
           <p className={styles.subtitle}>{post.subtitle[locale]}</p>
         )}
-        <p className={styles.excerpt}>
+        <p className={styles.summary}>
           {post.summary?.[locale] || post.excerpt[locale]}
         </p>
         {post.tags.length > 0 && (
