@@ -285,11 +285,13 @@ h4 {
     height: auto;
     padding: var(--space-2) var(--space-4);
     clip: auto;
-    background: var(--color-surface);
-    color: var(--color-ink);
+    // Dressed like the primary button: marigold, ink-edged, hard shadow
+    border: 2px solid var(--color-ink);
+    background: var(--marigold);
+    color: var(--on-marigold);
     font-weight: 700;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
+    box-shadow: 4px 4px 0 var(--color-ink);
+    outline: none;
   }
 }
 

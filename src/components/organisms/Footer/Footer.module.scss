@@ -8,6 +8,12 @@
   background: var(--night);
   color: var(--color-bg);
   border-top: 0.5rem solid var(--marigold);
+
+  // The darker gold focus ring is 3.1:1 on near-black; marigold reads
+  // clearly, as it does in the .inverse sections above.
+  :focus-visible {
+    outline-color: var(--marigold);
+  }
 }
 
 .grid {
