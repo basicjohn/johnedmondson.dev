@@ -1,29 +1,32 @@
-.page {
-  padding-block: var(--space-7);
-}
+@use "tokens" as *;
 
-.header {
-  margin-bottom: var(--space-6);
-}
+// The projects list's layout: the title on the drafting grid, the list on
+// the dark ground below.
+.intro {
+  @include drafting-grid;
+  padding-block: var(--space-7) clamp(3rem, 1rem + 5vw, 6rem);
 
-.title {
-  font-size: var(--text-3xl);
-
-  // Same gold rule the section headings carry — see SectionHeading.
-  &::after {
-    content: "";
-    display: block;
-    width: 2.75rem;
-    height: 3px;
-    border-radius: var(--radius-pill);
-    background: var(--color-accent-strong);
-    margin-top: var(--space-2);
+  @include respond($bp-lg) {
+    padding-top: var(--space-8);
   }
 }
 
-.intro {
-  margin-top: var(--space-2);
-  font-size: var(--text-lg);
-  color: var(--color-ink-soft);
-  max-width: var(--content-max);
+.title {
+  @include poster-title;
+}
+
+// Close under the title, unless the title has descenders (Writing), whose
+// tails hang below the title's box and need the full gap.
+.lede {
+  @include lede;
+  margin-top: var(--space-4);
+
+  .descends + & {
+    margin-top: var(--space-6);
+  }
+}
+
+.dark {
+  padding-block: clamp(3.5rem, 2rem + 4vw, 6rem) clamp(5rem, 3rem + 6vw, 9rem);
+  border-top: 0.5rem solid var(--marigold);
 }
