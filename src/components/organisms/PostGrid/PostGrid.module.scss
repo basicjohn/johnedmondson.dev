@@ -4,22 +4,31 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-7);
 }
 
-// Two columns, deliberately: four projects in three columns strands one
-// card alone on the second row.
+// Two columns, level: four projects in three columns would strand one card
+// alone on the second row.
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-5);
+  gap: var(--space-7);
 
   @include respond($bp-md) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+
+  @include respond($bp-lg) {
+    gap: var(--space-8);
   }
 }
 
+.afterLead {
+  margin-top: var(--space-8);
+}
+
 .empty {
-  color: var(--color-ink-soft);
   padding-block: var(--space-7);
+  font-size: var(--text-lg);
+  color: var(--ink-soft);
 }
