@@ -1,61 +1,83 @@
 @use "tokens" as *;
 
+// Near-black, the page's last and heaviest block, under a marigold stripe.
+// No margin of its own: a page that ends on the dark ground leaves its own
+// room above the footer, and one that ends light (Contact, the 404) runs
+// straight into the stripe.
 .footer {
-  // Pages carry their own bottom padding; a margin here on top of it left a
-  // band of bare grid before the footer on short pages.
-  margin-top: 0;
-  border-top: 1px solid var(--color-border);
-  background: var(--color-surface-tint);
-  padding-top: var(--space-7);
+  background: var(--night);
+  color: var(--color-bg);
+  border-top: 0.5rem solid var(--marigold);
+
+  // The darker gold focus ring is 3.1:1 on near-black; marigold reads
+  // clearly, as it does in the .inverse sections above.
+  :focus-visible {
+    outline-color: var(--marigold);
+  }
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-6);
-  padding-bottom: var(--space-7);
+  gap: var(--space-7);
+  padding-block: clamp(3rem, 2rem + 3vw, 5rem);
 
   @include respond($bp-md) {
-    // Was 1.2fr 1fr auto, for the quote and newsletter columns.
-    grid-template-columns: 1.4fr auto;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
   }
 }
 
 .availabilityCol {
-  max-width: 28rem;
+  min-width: 0;
 }
 
+// Section names in marigold mono, readable at this size
 .heading {
-  font-size: var(--text-lg);
+  @include mono-label;
   margin-bottom: var(--space-3);
+  font-size: 0.875rem;
+  color: var(--marigold);
 }
 
+// The availability line: a statement, not a second headline
 .text {
-  color: var(--color-ink-soft);
-  margin-bottom: var(--space-4);
-  max-width: 24rem;
+  max-width: 26ch;
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 1.2rem + 1.1vw, 2.125rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
-// A small green "open" indicator on the availability line — the status
-// light convention reads faster than the gold accent did.
+// A green "open" indicator — the status light convention reads at once
 .dot {
   display: inline-block;
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.45em;
+  height: 0.45em;
+  margin-right: 0.4em;
   border-radius: 50%;
-  background: var(--color-success);
-  box-shadow: 0 0 0 3px var(--color-success-soft);
-  margin-right: var(--space-2);
-  vertical-align: 0.0625rem;
+  background: #4ade80;
+  box-shadow: 0 0 0 0.14em rgb(74 222 128 / 25%);
+  vertical-align: 0.1em;
 }
 
+// The darker gold, at 3.2:1 on the footer — under the 4.5:1 body text
+// needs, so the address is set as large text (bold, never under 19px),
+// which needs 3:1.
 .email,
 .resume {
+  display: inline-block;
+  margin-top: var(--space-4);
+  font-size: clamp(1.1875rem, 1.1rem + 0.3vw, 1.3125rem);
   font-weight: 700;
-  color: var(--color-accent-strong);
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.25em;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration-thickness: 3px;
   }
 }
 
@@ -66,30 +88,55 @@
 }
 
 .socials {
+  display: flex;
+  gap: var(--space-5);
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
 }
 
 .socialLink {
-  font-weight: 700;
-  color: var(--color-accent-strong);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-bg);
   text-decoration: none;
 
   &:hover {
     text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+
+  // The ↗ in the darker gold, like the email (decorative)
+  span {
+    display: inline-block;
+    color: var(--gold);
+    transition: translate 0.2s var(--ease);
+  }
+
+  &:hover span {
+    translate: 2px -2px;
   }
 }
 
+// The rule spans the text column, not the container's padding
 .legal {
+  --gutter: var(--space-4);
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: var(--space-2);
   padding-block: var(--space-4);
-  border-top: 1px solid var(--color-border);
+  background: linear-gradient(rgb(244 241 235 / 20%) 0 0) center top /
+    calc(100% - 2 * var(--gutter)) 1px no-repeat;
   font-size: var(--text-sm);
-  color: var(--color-ink-faint);
+  color: #c9c2b8;
+
+  @include respond($bp-md) {
+    --gutter: var(--space-6);
+  }
+}
+
+// Focus has to show on the near-black too
+.footer :focus-visible {
+  outline-color: var(--marigold);
 }

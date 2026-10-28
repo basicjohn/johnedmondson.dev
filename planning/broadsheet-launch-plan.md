@@ -7,6 +7,14 @@ current pages do. Design rules live in `planning/taste-profile.md`.
 
 ## Where things stand
 
+**Status 2026-10-27: Phases 2–6 and 8's checks are done on branch
+`feat/broadsheet`.** It is committed but not pushed. Production build,
+tests, lint and format all pass. Every page was checked in English and
+German from 375 to 1920px, with no overflow. The fresh screenshot set is
+in `screenshots/`. Left before launch: your review, then push and merge.
+Phase 7 content (the v2 cover) and Phase 9 (the lab) are still open. The
+notes below are the original plan.
+
 - **Designed in the lab** (dev-only, never in the static export): home,
   projects list, project pages, in English and German. Code in
   `src/app/lab/_broadsheet/` and `src/app/lab/_shared/`.
@@ -44,9 +52,10 @@ current pages do. Design rules live in `planning/taste-profile.md`.
 
 ## Phase 1 — Design the pages that aren't designed yet (lab, your review)
 
-Status 2026-10-23: **Contact is built in the lab** at
-`/lab/{en,de}/broadsheet/contact`, awaiting your review. 404 and Writing are
-next. The "Prefer to talk live?" calendar panel is **dropped** from the
+Status 2026-10-27: **Contact and the 404 are built in the lab**
+(`/lab/{en,de}/broadsheet/contact`, `/lab/{en,de}/broadsheet/not-found-preview`).
+Writing is not designed separately: it picks up the case-study reading
+styles during the port and gets checked then. The "Prefer to talk live?" calendar panel is **dropped** from the
 redesign (your call). At launch, remove it from `ContactAside`, and decide
 whether `CALENDLY_URL` and the `schedule*` dictionary keys go with it.
 
@@ -157,6 +166,15 @@ Build Phase 1's approved designs into the live components:
 - Delete `src/app/lab/`, including the Signal option, or keep `/lab` as a
   design sandbox.
 - Update the taste profile and memory notes.
+
+## Decisions made (2026-10-27)
+
+- **Language picker contrast: leave as is for now** (about 2:1, a known
+  exception; revisit later).
+- **The hero button reads "View Projects"** (DE "Projekte ansehen"). This is
+  in the live dictionaries, so it ships with the next push.
+- **"Prefer to talk live?" calendar panel: dropped** from the redesign.
+- **`/portfolio` URL rename:** after launch, as its own change.
 
 ## Decisions needed from you
 

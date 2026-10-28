@@ -3,6 +3,7 @@ import {
   formatDate,
   formatYear,
   fullTitle,
+  hasDescender,
   readingTime,
   slugify,
   coverGradient,
@@ -131,5 +132,18 @@ describe("fullTitle", () => {
     expect(
       fullTitle({ ...base, subtitle: { en: " ", de: "" } } as Post, "en"),
     ).toBe("Six Pillars");
+  });
+});
+
+describe("hasDescender", () => {
+  it("finds the letters that hang below the baseline", () => {
+    expect(hasDescender("Projects")).toBe(true);
+    expect(hasDescender("Projekte")).toBe(true);
+    expect(hasDescender("Sag Hallo")).toBe(true);
+  });
+
+  it("passes titles that sit on the line", () => {
+    expect(hasDescender("Let's talk")).toBe(false);
+    expect(hasDescender("Kontakt")).toBe(false);
   });
 });

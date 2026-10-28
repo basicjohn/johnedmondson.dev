@@ -1,31 +1,33 @@
+// EN | DE in marigold: the current language in white on marigold, the
+// other in marigold. John's call; both measure about 2:1, a known
+// exception to AA (see planning/broadsheet-launch-plan.md).
 .toggle {
   display: inline-flex;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
-  background: var(--color-surface);
-  padding: 2px;
-  gap: 2px;
+  border: 2px solid var(--marigold);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+
+  > * + * {
+    border-left: 2px solid var(--marigold);
+  }
 }
 
 .option,
 .active {
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-pill);
-  font-size: var(--text-sm);
-  font-weight: 700;
+  padding: 0.25rem 0.6rem;
   text-decoration: none;
-  color: var(--color-ink-soft);
-  transition:
-    background 0.15s var(--ease),
-    color 0.15s var(--ease);
 }
 
-.option:hover {
-  color: var(--color-ink);
-  background: var(--color-surface-tint);
+.option {
+  color: var(--marigold);
+
+  &:hover {
+    background: var(--color-accent-soft);
+  }
 }
 
 .active {
-  background: var(--color-ink);
-  color: var(--color-bg);
+  background: var(--marigold);
+  color: #fff;
 }

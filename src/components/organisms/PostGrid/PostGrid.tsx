@@ -41,6 +41,9 @@ export default function PostGrid({
   const visible = activeTag
     ? posts.filter((p) => p.tags.includes(activeTag))
     : posts;
+  const [lead, grid] = activeTag
+    ? [undefined, visible]
+    : [visible[0], visible.slice(1)];
 
   if (!posts.length) {
     return <p className={styles.empty}>{emptyLabel}</p>;
@@ -65,11 +68,21 @@ export default function PostGrid({
           ))}
         </div>
       )}
-      <div className={styles.grid}>
-        {visible.map((post) => (
-          <ProjectCard key={post.id} post={post} locale={locale} />
-        ))}
-      </div>
+      {/* Unfiltered, the first project leads as a spread and the rest sit
+          two by two beneath it; a filtered set is just the grid. */}
+      {lead && <ProjectCard post={lead} locale={locale} variant="feature" />}
+      {grid.length > 0 && (
+        <div className={`${styles.grid} ${lead ? styles.afterLead : ""}`}>
+          {grid.map((post, i) => (
+            <ProjectCard
+              key={post.id}
+              post={post}
+              locale={locale}
+              index={i % 2}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

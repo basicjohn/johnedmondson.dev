@@ -1,8 +1,10 @@
 @use "tokens" as *;
 
 // ============================================
-// Design tokens — evolved from v1
-// Warm paper background, charcoal ink, gold accent
+// Design tokens — the Broadsheet design (2026-10)
+// Paper, charcoal ink and gold, with marigold as a field and pages that run
+// from light at the top to dark at the bottom. Rules and reasons:
+// planning/taste-profile.md.
 // ============================================
 :root {
   // Color
@@ -28,6 +30,30 @@
   --color-danger: #b3422f;
   --color-success: #3d7a4a;
   --color-success-soft: #e2efe5;
+
+  // The bright gold, used as a field (the ticker, buttons, highlights) and
+  // as the accent on the dark ground — never as text on light (1.9:1).
+  --marigold: #f2a934;
+  // Off-white behind the header and the reading areas
+  --sheet: #fcfaf6;
+  // The footer: a step darker than the ink sections above it
+  --night: #161514;
+  // Text set on marigold is always ink, whichever ground it sits on
+  --on-marigold: var(--color-ink);
+
+  // The tokens components draw with. .inverse (below) swaps them for the
+  // dark ground, so a component needs no dark-mode rules of its own.
+  --ink: var(--color-ink);
+  --ink-soft: var(--color-ink-soft);
+  --gold: var(--color-accent-strong);
+  // Ink edges outline things (buttons, images, the portrait); gold lines
+  // divide the page (section rules, the header edge's cousins).
+  --rule: 2px solid var(--ink);
+  --divider: 2px solid var(--gold);
+
+  // Faces: display for big type only, mono for small labels, sans for text
+  --display: var(--font-serif), Georgia, serif;
+  --mono: var(--font-mono), ui-monospace, monospace;
 
   // Type scale (fluid)
   --text-xs: 0.75rem;
@@ -60,35 +86,67 @@
   // Layout
   --container-max: 72rem;
   --content-max: 42rem;
+  --header-h: 4.5rem;
 
   // Motion
   --ease: cubic-bezier(0.25, 0.6, 0.3, 1);
+  // The highlighter sweep (project titles, pager): slow, with a long
+  // ease-out — tuned by John.
+  --sweep-timing: 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  --sweep: background-size var(--sweep-timing);
 
   // One light theme, declared: without this a dark-mode OS renders form
   // controls and scrollbars dark on the cream page.
   color-scheme: light;
 }
 
-// Registered so the grid colour can be animated — an unregistered custom
-// property flips, it does not tween. Browsers without @property simply show
-// the grid at full strength from the first frame.
-@property --color-grid-line {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: transparent;
+// ============================================
+// The dark ground
+// ============================================
+
+// Every page is wrapped in .site: the dark ground the lower sections sit
+// on. Intros and reading areas carry their own light backgrounds, so a page
+// runs light at the top to dark at the bottom. (The CMS is not wrapped and
+// keeps the light page.)
+.site {
+  background: var(--color-ink);
+  overflow-x: clip;
 }
 
-// The home page's load-only intro (see GridIntro.tsx): the grid draws in
-// over 600ms. Home only, once, and never for reduced-motion users — the
-// attribute is only set when their preference allows it.
-@keyframes grid-in {
+// A section reversed out of the dark ground: the same tokens with light and
+// dark swapped. The darker gold is too dim on ink (2.3:1), so its jobs —
+// dates, numbers, dividers — move to marigold (7.3:1).
+.inverse {
+  --ink: var(--color-bg);
+  --ink-soft: #c9c2b8; // 8.2:1 on ink
+  --gold: var(--marigold);
+  --rule: 2px solid var(--ink);
+  --divider: 2px solid var(--marigold);
+  // The focus ring and links draw with this
+  --color-accent-strong: var(--marigold);
+
+  color: var(--ink);
+}
+
+// ============================================
+// Motion — scroll reveals (see components/atoms/Motion)
+// Hidden only once the page knows it can show them again, animated only
+// when scrolled to; nothing moves for reduced-motion users.
+// ============================================
+@keyframes rise {
   from {
-    --color-grid-line: transparent;
+    opacity: 0;
+    translate: 0 2rem;
   }
 }
 
-html[data-grid-intro] body {
-  animation: grid-in 600ms var(--ease) both;
+html[data-motion-ready] [data-reveal]:not([data-shown]) {
+  opacity: 0;
+}
+
+html[data-motion-ready] [data-reveal][data-shown="in"] {
+  animation: rise 0.9s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 140ms);
 }
 
 // ============================================
@@ -107,13 +165,9 @@ html {
 }
 
 body {
-  // v1's drafting-table grid, kept at a contrast where it reads as paper
-  // texture rather than lines. Surfaces (cards, header, footer) sit on top.
+  // The drafting grid now belongs to intro sections only (the
+  // drafting-grid mixin); the site's dark ground is .site, below.
   background-color: var(--color-bg);
-  background-image:
-    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
-  background-size: 2rem 2rem;
   color: var(--color-ink);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--text-base);
@@ -170,7 +224,8 @@ h4 {
 }
 
 ::selection {
-  background: var(--color-accent-soft);
+  background: var(--marigold);
+  color: var(--color-ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -230,16 +285,19 @@ h4 {
     height: auto;
     padding: var(--space-2) var(--space-4);
     clip: auto;
-    background: var(--color-surface);
-    color: var(--color-ink);
+    // Dressed like the primary button: marigold, ink-edged, hard shadow
+    border: 2px solid var(--color-ink);
+    background: var(--marigold);
+    color: var(--on-marigold);
     font-weight: 700;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
+    box-shadow: 4px 4px 0 var(--color-ink);
+    outline: none;
   }
 }
 
 // ============================================
-// Prose — rendered markdown (blog/portfolio bodies)
+// Prose — rendered markdown (project and writing bodies), set for reading
+// on the light sheet: Mulish for the text, Fraunces only for headings.
 // ============================================
 .prose {
   font-size: var(--text-lg);
@@ -249,14 +307,28 @@ h4 {
     margin-top: var(--space-5);
   }
 
+  > :first-child {
+    margin-top: 0;
+  }
+
+  // Each section opens under a gold rule, like the numbered sections
   h2 {
-    font-size: var(--text-2xl);
-    margin-top: var(--space-7);
+    margin-top: 3.5rem;
+    padding-top: var(--space-4);
+    border-top: var(--divider);
+    font-size: clamp(1.75rem, 1.3rem + 1.5vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    scroll-margin-top: calc(var(--header-h) + var(--space-5));
   }
 
   h3 {
-    font-size: var(--text-xl);
     margin-top: var(--space-6);
+    font-size: clamp(1.3rem, 1.15rem + 0.6vw, 1.6rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    scroll-margin-top: calc(var(--header-h) + var(--space-5));
   }
 
   ul,
@@ -269,51 +341,52 @@ h4 {
   }
 
   ul li::marker {
-    color: var(--color-accent-strong);
+    color: var(--gold);
   }
 
   blockquote {
-    border-left: 3px solid var(--color-accent-strong);
-    padding-left: var(--space-4);
-    color: var(--color-ink-soft);
-    font-style: italic;
+    padding-left: var(--space-5);
+    border-left: 4px solid var(--marigold);
+    font-family: var(--display);
+    font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.6rem);
+    line-height: 1.35;
+    color: var(--ink);
   }
 
   code {
-    font-family: ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
+    padding: 0.1em 0.35em;
+    background: #f1ece2;
+    font-family: var(--mono);
     font-size: 0.875em;
-    background: var(--color-surface-tint);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    padding: 0.125em 0.375em;
   }
 
   pre {
+    overflow-x: auto;
+    padding: var(--space-4) var(--space-5);
     background: var(--color-ink);
     color: #f4f1eb;
-    border-radius: var(--radius-md);
-    padding: var(--space-4) var(--space-5);
-    overflow-x: auto;
+    box-shadow: 6px 6px 0 var(--marigold);
 
     code {
-      background: none;
-      border: none;
       padding: 0;
+      background: none;
       color: inherit;
     }
   }
 
+  // Screenshots framed like the project images: an ink edge and a hard
+  // shadow
   img {
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    border: var(--rule);
+    box-shadow: 6px 6px 0 var(--ink);
   }
 
-  // A run of screenshots as one set: two up from tablet width, captions
-  // in the small style the cards use for their dates. Tall phone-height
-  // captures sit side by side instead of stacking into a scroll.
+  // A run of screenshots as one set: two up from tablet width, captions in
+  // the mono. Tall phone-height captures sit side by side instead of
+  // stacking into a scroll.
   .image-grid {
     display: grid;
-    gap: var(--space-4);
+    gap: var(--space-6);
     align-items: start;
 
     @include respond($bp-md) {
@@ -325,10 +398,11 @@ h4 {
     }
 
     figcaption {
-      margin-top: var(--space-2);
-      font-size: var(--text-sm);
+      margin-top: var(--space-3);
+      font-family: var(--mono);
+      font-size: 0.8125rem;
       line-height: 1.5;
-      color: var(--color-ink-faint);
+      color: var(--ink-soft);
     }
   }
 
@@ -342,19 +416,21 @@ h4 {
   // Collapsed appendix: the parts most readers skip, one click away for
   // the ones who do not.
   .prose-details {
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    background: var(--color-surface-tint);
-    padding: var(--space-3) var(--space-4);
+    padding: var(--space-4) 0;
+    border-block: var(--divider);
 
     summary {
       cursor: pointer;
-      font-weight: 700;
-      color: var(--color-ink);
+      font-family: var(--mono);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
       list-style-position: inside;
 
       &::marker {
-        color: var(--color-accent-strong);
+        color: var(--gold);
       }
     }
 
@@ -369,7 +445,7 @@ h4 {
 
   hr {
     border: none;
-    border-top: 1px solid var(--color-border);
+    border-top: var(--divider);
     margin-block: var(--space-7);
   }
 
@@ -386,7 +462,11 @@ h4 {
     }
 
     th {
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
   }
 }

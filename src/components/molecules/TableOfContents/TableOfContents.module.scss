@@ -11,12 +11,9 @@
 }
 
 .heading {
-  font-family: var(--font-sans), sans-serif;
-  font-size: var(--text-sm);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-ink-faint);
-  margin-bottom: var(--space-2);
+  @include mono-label;
+  margin-bottom: var(--space-3);
+  color: var(--gold);
 }
 
 .list {
@@ -41,21 +38,23 @@
 .link,
 .linkActive {
   display: block;
-  padding: 0.125rem var(--space-3);
   margin-left: -2px;
+  padding: 0.3rem 0 0.3rem 0.9rem;
   border-left: 2px solid transparent;
-  font-size: var(--text-sm);
+  font-size: 0.9375rem;
   font-weight: 600;
-  color: var(--color-ink-soft);
+  line-height: 1.35;
+  color: var(--ink-soft);
   text-decoration: none;
   text-wrap: balance;
 
   &:hover {
-    color: var(--color-ink);
+    color: var(--ink);
   }
 }
 
+// The current section: ink, with the marigold bar on the rule
 .linkActive {
-  color: var(--color-ink);
-  border-left-color: var(--color-accent-strong);
+  color: var(--ink);
+  border-left-color: var(--marigold);
 }

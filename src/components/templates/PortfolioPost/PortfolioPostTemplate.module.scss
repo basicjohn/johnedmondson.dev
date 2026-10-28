@@ -1,55 +1,37 @@
 @use "tokens" as *;
 
-.layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-6);
-  padding-block: var(--space-7);
+// How far the cover reaches back up into the gridded intro
+$overlap: clamp(4rem, 2rem + 8vw, 10rem);
+
+// ============================================
+// Intro — on the drafting grid, like the home page's hero
+// ============================================
+.intro {
+  @include drafting-grid;
+  padding-block: var(--space-7) clamp(3rem, 1rem + 5vw, 6rem);
 
   @include respond($bp-lg) {
-    grid-template-columns: minmax(0, 1fr) 18rem;
-    column-gap: var(--space-8);
-
-    .header,
-    .figure,
-    .body {
-      grid-column: 1;
-    }
-    .facts {
-      grid-column: 2;
-      grid-row: 1 / span 3;
-    }
+    padding-top: var(--space-8);
   }
 }
 
-// The cover on a surface: thin cream frame, natural aspect ratio (no crop),
-// caption beneath in the small style the cards use for their dates.
-.figure {
-  @include card;
-  padding: var(--space-2);
-}
-
-.cover {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-md);
-}
-
-.caption {
-  padding: var(--space-3) var(--space-2) var(--space-1);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-ink-faint);
+// Room at the foot for the cover to overlap
+.introWithCover {
+  padding-bottom: calc(#{$overlap} + var(--space-7));
 }
 
 .back {
   display: inline-block;
-  font-weight: 700;
+  margin-bottom: var(--space-6);
+  font-weight: 600;
+  color: var(--ink);
   text-decoration: none;
-  margin-bottom: var(--space-4);
+  background: linear-gradient(var(--marigold) 0 0) 0 88% / 100% 0.45em no-repeat;
+  transition: background-size 0.3s var(--ease);
 
   &:hover {
-    text-decoration: underline;
+    background-size: 100% 100%;
+    color: var(--on-marigold);
   }
 }
 
@@ -57,146 +39,249 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  color: var(--color-danger);
+  margin-bottom: var(--space-4);
   font-size: var(--text-sm);
   font-weight: 600;
-  margin-bottom: var(--space-3);
+  color: var(--color-danger);
+}
+
+.kind {
+  @include mono-label;
+  letter-spacing: 0.04em;
+  color: var(--gold);
 }
 
 .title {
-  font-size: var(--text-3xl);
-}
-
-// What the project is, under its name
-.subtitle {
-  margin-top: var(--space-2);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  line-height: 1.35;
-  color: var(--color-ink);
-}
-
-.excerpt {
-  font-size: var(--text-xl);
-  color: var(--color-ink-soft);
   margin-top: var(--space-3);
-  font-family: var(--font-serif), Georgia, serif;
-  font-style: italic;
+  font-size: clamp(2.25rem, 0.5rem + 7vw, 6.5rem);
+  font-weight: 800;
+  font-variation-settings:
+    "SOFT" 30,
+    "opsz" 144;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  // "johnedmondson.dev" is one long word; better broken than overflowing
+  overflow-wrap: break-word;
 }
 
+// What the project is, under its name. Mulish: the display face is for
+// display sizes only.
+.subtitle {
+  margin-top: var(--space-4);
+  font-size: clamp(1.25rem, 1rem + 0.8vw, 1.625rem);
+  font-weight: 700;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.lede {
+  @include lede;
+  margin-top: var(--space-6);
+}
+
+// Client, role, year: a ruled strip, mono labels over the values
 .facts {
-  @include card;
-  align-self: start;
-  padding: var(--space-5);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
+  margin-top: var(--space-7);
 
-  @include respond($bp-lg) {
-    position: sticky;
-    top: 5.5rem;
+  dl {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: var(--space-4) var(--space-6);
+    padding-top: var(--space-4);
+    border-top: var(--rule);
   }
-}
 
-.factList {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.fact {
   dt {
-    font-size: var(--text-xs);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-ink-faint);
+    @include mono-label;
+    color: var(--gold);
   }
 
   dd {
-    margin: 0;
+    margin: var(--space-1) 0 0;
+    font-size: 1.0625rem;
     font-weight: 600;
+    line-height: 1.4;
   }
 }
 
-.factsHeading {
-  font-size: var(--text-sm);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: var(--space-2);
-  font-family: var(--font-sans), sans-serif;
-  color: var(--color-ink-faint);
+// ============================================
+// The sheet — off-white, where the case study is read
+// ============================================
+.sheet {
+  // A new block formatting context, so the cover's negative top margin
+  // pulls the cover up rather than the whole sheet.
+  display: flow-root;
+  padding-bottom: clamp(4rem, 2rem + 5vw, 7rem);
+  background: var(--sheet);
+}
+
+.figure {
+  position: relative;
+  z-index: 1;
+  margin: calc(#{$overlap} * -1) 0 0;
+}
+
+.frame {
+  overflow: hidden;
+  border: var(--rule);
+  background: var(--color-surface);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.cover {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.caption {
+  margin-top: var(--space-4);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.bodyGrid {
+  display: grid;
+  gap: var(--space-7);
+  padding-top: clamp(3rem, 2rem + 3vw, 5rem);
+
+  @include respond($bp-lg) {
+    grid-template-columns: minmax(0, 1fr) 16rem;
+    column-gap: var(--space-8);
+    align-items: start;
+  }
+}
+
+// Stack, outline and links: before the case study in reading order, so a
+// phone sees the stack first; beside it, pinned, from desktop width.
+.aside {
+  display: grid;
+  gap: var(--space-6);
+  align-content: start;
+
+  @include respond($bp-lg) {
+    grid-column: 2;
+    grid-row: 1;
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-6));
+  }
+}
+
+.asideHeading {
+  @include mono-label;
+  margin-bottom: var(--space-3);
+  color: var(--gold);
 }
 
 .tags {
-  list-style: none;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .links {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: var(--space-3);
 }
 
 .body {
-  max-width: var(--content-max);
+  min-width: 0;
+  max-width: 44rem;
+
+  @include respond($bp-lg) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+// ============================================
+// The dark ground — the neighbouring and related projects
+// ============================================
+.dark {
+  padding-block: clamp(3.5rem, 2rem + 4vw, 6rem) clamp(5rem, 3rem + 6vw, 9rem);
+  border-top: 0.5rem solid var(--marigold);
 }
 
 .pager {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-4);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--color-border);
-}
+  gap: var(--space-7);
 
-.pagerLink {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  text-decoration: none;
-  max-width: 22rem;
-
-  &:hover .pagerTitle {
-    color: var(--color-accent-strong);
+  @include respond($bp-md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
   }
 }
 
-.pagerLinkNext {
-  text-align: right;
-  justify-self: end;
+.pagerLink {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: var(--divider);
+  color: var(--ink);
+  text-decoration: none;
+
+  &:hover .pagerTitle > span {
+    background-size: 100% 0.35em;
+  }
+}
+
+.pagerNext {
+  @include respond($bp-md) {
+    justify-items: end;
+    text-align: right;
+  }
 }
 
 .pagerDirection {
-  font-size: var(--text-xs);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-ink-faint);
+  @include mono-label;
+  color: var(--gold);
 }
 
 .pagerTitle {
+  font-family: var(--display);
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 3rem);
   font-weight: 700;
-  color: var(--color-ink);
-  text-wrap: balance;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+
+  // The project titles' highlighter, swept in on hover
+  > span {
+    background: linear-gradient(var(--marigold) 0 0) 0 90% / 0 0.35em no-repeat;
+    transition: var(--sweep);
+  }
+}
+
+.pagerSubtitle {
+  font-weight: 600;
+  color: var(--ink-soft);
 }
 
 .related {
-  margin-top: var(--space-8);
-  // The last thing on the page; the footer follows without its own margin.
-  padding-bottom: var(--space-7);
+  padding-top: clamp(4rem, 2rem + 5vw, 7rem);
+
+  // Straight under the dark section's top stripe when there is no pager
+  &:first-child {
+    padding-top: 0;
+  }
 }
 
 .relatedGrid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-5);
+  gap: var(--space-7);
 
   @include respond($bp-md) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+
+  @include respond($bp-lg) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
