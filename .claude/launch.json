@@ -16,6 +16,16 @@
         "cd '/Users/basicjohn/Documents/sixpillars.dev/sixpillars.io' && exec npx next dev -p 3001"
       ],
       "port": 3001
+    },
+    {
+      "name": "out-static",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "/private/tmp/claude-501/-Users-basicjohn-Documents-JohnEdmondson-workspace-johnedmondson-dev/5ce00a61-89f1-4bbe-bd70-7916117158a6/scratchpad/tools/amplify-static.mjs",
+        "/Users/basicjohn/Documents/JohnEdmondson.workspace/johnedmondson.dev/out",
+        "4320"
+      ],
+      "port": 4320
     }
   ]
 }
