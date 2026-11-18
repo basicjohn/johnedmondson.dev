@@ -1,4 +1,5 @@
 {
+  "email": "contact@johnedmondson.dev",
   "socials": [
     {
       "label": "GitHub",
@@ -9,6 +10,104 @@
       "url": "https://www.linkedin.com/in/johnedmondsondev/"
     }
   ],
-  "email": "contact@johnedmondson.dev",
-  "nowUpdated": "2026-10-23"
+  "home": {
+    "intro": "engineering",
+    "intros": {
+      "engineering": {
+        "role": {
+          "en": "Product Engineer · Full-Stack",
+          "de": "Product Engineer · Full-Stack"
+        },
+        "lead": {
+          "en": "I design and build web products end to end: the data model, the API, and the interface people use every day.",
+          "de": "Ich entwerfe und baue Webprodukte von Anfang bis Ende: das Datenmodell, die API und die Oberfläche, mit der Menschen jeden Tag arbeiten."
+        },
+        "bio": {
+          "en": "I started out in graphic design and have been writing front-end code since 2013, mostly React and TypeScript. Over the last few years I've moved down the stack into Go and PostgreSQL, most recently as the only engineer behind Bold Reuse's operations platform. My strongest work is in design systems and UX engineering, where design decisions become working components.",
+          "de": "Angefangen habe ich im Grafikdesign, und seit 2013 schreibe ich Frontend-Code, vor allem mit React und TypeScript. In den letzten Jahren habe ich mich im Stack nach unten gearbeitet, zu Go und PostgreSQL, zuletzt als einziger Entwickler hinter der Betriebsplattform von Bold Reuse. Am stärksten bin ich bei Designsystemen und im UX Engineering, dort, wo aus Designentscheidungen funktionierende Komponenten werden."
+        },
+        "searchDescription": "John Edmondson, product engineer in Freiburg, Germany. Full-stack work in React, TypeScript, Go and PostgreSQL: web products designed and built end to end, from the data model to the interface."
+      },
+      "design": {
+        "role": {
+          "en": "UI/UX Designer · Front-End Developer",
+          "de": "UI/UX Designer · Front-End Developer"
+        },
+        "lead": {
+          "en": "I'm a designer who builds what I design: interfaces, design systems, and the products behind them.",
+          "de": "Ich bin Designer und baue, was ich gestalte: Oberflächen, Designsysteme und die Produkte dahinter."
+        },
+        "bio": {
+          "en": "I trained in graphic design and have been turning designs into working front ends since 2013. At Six Pillars I led product and UX through several design rounds and built the design system the product runs on. Most recently I designed and built Bold Reuse's operations platform on my own, from the screens its team uses every day down to the data behind them.",
+          "de": "Ich habe Grafikdesign studiert und setze seit 2013 Entwürfe in funktionierende Frontends um. Bei Six Pillars habe ich Produkt und UX durch mehrere Designrunden geführt und das Designsystem gebaut, auf dem das Produkt läuft. Zuletzt habe ich die Betriebsplattform von Bold Reuse allein entworfen und gebaut, von den Oberflächen, mit denen das Team täglich arbeitet, bis zu den Daten dahinter."
+        },
+        "searchDescription": "John Edmondson, UI/UX designer and front-end developer in Freiburg, Germany. Interfaces, design systems and the products behind them, designed and built in React and TypeScript."
+      }
+    },
+    "about": {
+      "work": {
+        "en": "I like working close to product and design. My best work comes from sitting between the two: turning a messy set of requirements into a clear data model, an interface people can follow, and components a team can keep building on. I'm happiest on mission-driven work like sustainability and waste reduction.",
+        "de": "Ich arbeite gern nah an Produkt und Design. Meine beste Arbeit entsteht zwischen den beiden: wenn aus einem Durcheinander von Anforderungen ein klares Datenmodell wird, eine Oberfläche, der man folgen kann, und Komponenten, auf denen ein Team weiterbauen kann. Am liebsten arbeite ich an sinnstiftenden Themen wie Nachhaltigkeit und Abfallvermeidung."
+      },
+      "life": {
+        "en": "I'm originally from Portland, Oregon, and now live just outside Freiburg, Germany. Outside of work I travel, take on house projects, and build small apps that make my own days easier.",
+        "de": "Ich komme ursprünglich aus Portland, Oregon, und lebe heute in der Nähe von Freiburg. In meiner Freizeit reise ich, arbeite an Hausprojekten und baue kleine Apps, die mir den Alltag leichter machen."
+      }
+    }
+  },
+  "now": {
+    "updated": "2026-11-18",
+    "items": [
+      {
+        "label": { "en": "Open to", "de": "Offen für" },
+        "text": {
+          "en": "Full-time, contract and freelance work, in the Freiburg area or remote in Germany",
+          "de": "Festanstellung, Projektverträge und Freelance-Aufträge, im Raum Freiburg oder remote in Deutschland"
+        },
+        "href": "/contact"
+      },
+      {
+        "label": { "en": "Building", "de": "Nebenprojekt" },
+        "text": {
+          "en": "Top Shot Reloaded, a 1v1 paintball duel, now in beta",
+          "de": "Top Shot Reloaded, ein 1v1-Paintball-Duell, jetzt in der Beta"
+        },
+        "href": "/portfolio/top-shot-reloaded"
+      },
+      {
+        "label": { "en": "Learning", "de": "Lerne gerade" },
+        "text": { "en": "German", "de": "Deutsch" }
+      }
+    ]
+  },
+  "availability": {
+    "en": "Open to full-time, contract and freelance work",
+    "de": "Offen für Festanstellung, Projektverträge und Freelance-Aufträge"
+  },
+  "projects": {
+    "intro": {
+      "en": "Products I've designed and built: two platforms I took from idea to production, a security dashboard, and a game I'm making on my own.",
+      "de": "Produkte, die ich entworfen und gebaut habe: zwei Plattformen, die ich von der Idee bis in die Produktion gebracht habe, ein Security-Dashboard und ein Spiel, das ich allein entwickle."
+    }
+  },
+  "writing": {
+    "intro": {
+      "en": "Thoughts and explorations on building software, design, and day-to-day life.",
+      "de": "Gedanken und Erkundungen über Softwareentwicklung, Design und den Alltag."
+    }
+  },
+  "contact": {
+    "intro": {
+      "en": "I'm open to full-time roles, contracts and freelance projects, in the Freiburg area or remote within Germany. If you're hiring, or have a project you'd like to talk through, send me a note. I work in English and I'm learning German.",
+      "de": "Ich bin offen für Festanstellungen, Projektverträge und Freelance-Projekte, im Raum Freiburg oder remote innerhalb Deutschlands. Wenn du jemanden einstellen oder ein Projekt besprechen möchtest, schreib mir. Ich arbeite auf Englisch und lerne Deutsch."
+    },
+    "location": {
+      "en": "Freiburg, Germany",
+      "de": "Freiburg, Deutschland"
+    },
+    "responseTime": {
+      "en": "Usually within two working days",
+      "de": "In der Regel innerhalb von zwei Werktagen"
+    }
+  }
 }

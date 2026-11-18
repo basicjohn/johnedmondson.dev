@@ -9,9 +9,6 @@
     "menuClose": "Menü schließen"
   },
   "home": {
-    "role": "Product Engineer · Full-Stack",
-    "bioLead": "Ich baue skalierbare, datengetriebene Systeme, die Teams im Produktivbetrieb wirklich unterstützen — am liebsten für sinnstiftende Arbeit wie Nachhaltigkeit und Abfallvermeidung.",
-    "bio": "Relationale Datenmodelle, APIs und Hintergrundverarbeitung mit Go und PostgreSQL, dazu Frontends mit React und TypeScript. Durch meinen Hintergrund im UX/UI-Design denke ich Nutzererlebnis, Datenintegrität und Systemzuverlässigkeit zusammen statt isoliert.",
     "portraitAlt": "Porträt von John Edmondson",
     "ctaWork": "Projekte ansehen",
     "ctaContact": "Kontakt aufnehmen",
@@ -20,26 +17,16 @@
     "viewAllWork": "Alle Projekte",
     "viewAllWriting": "Alle Texte",
     "aboutHeading": "Über mich",
-    "aboutWork": "Ich baue Systeme, die zuverlässig und verständlich bleiben und mit den Anforderungen des Produkts wachsen können — in enger Zusammenarbeit mit Produkt- und Designpartnern, um komplexe Anforderungen in klare, brauchbare Werkzeuge zu übersetzen.",
-    "aboutLife": "Ursprünglich aus Portland, Oregon, heute zu Hause in Freiburg — in meiner Freizeit reise ich gern, arbeite an Hausprojekten und baue Apps, die meinen Alltag verbessern.",
     "nowHeading": "Aktuell",
-    "nowWorkingLabel": "Auftrag",
-    "nowWorking": "Full-Stack-Auftrag bei Bold Reuse, einem Mehrwegverpackungs-Unternehmen",
-    "nowBuildingLabel": "Nebenprojekt",
-    "nowBuilding": "Top Shot Reloaded, ein 1v1-Paintball-Duell, jetzt in der Beta",
-    "nowLookingLabel": "Gesucht",
-    "nowLooking": "Neue Möglichkeiten",
     "nowUpdated": "Stand"
   },
   "portfolio": {
     "title": "Projekte",
-    "intro": "Ausgewählte Projekte — Produktarbeit, Dashboards und Experimente.",
     "empty": "Noch keine Projekte veröffentlicht. Schau bald wieder vorbei.",
     "filterAll": "Alle"
   },
   "writing": {
     "title": "Texte",
-    "intro": "Gedanken und Erkundungen über Softwareentwicklung, Design und den Alltag.",
     "empty": "Noch keine Beiträge veröffentlicht. Schau bald wieder vorbei.",
     "filterAll": "Alle"
   },
@@ -72,7 +59,6 @@
   },
   "contact": {
     "title": "Sag Hallo",
-    "intro": "Du hast ein Projekt, eine Frage oder möchtest einfach über Code und Design plaudern? Schreib mir.",
     "name": "Name",
     "namePlaceholder": "Jana Berger",
     "email": "E-Mail",
@@ -97,14 +83,11 @@
     "copy": "Kopieren",
     "copied": "Kopiert",
     "locationLabel": "Standort",
-    "location": "Freiburg, Deutschland",
     "localTime": "Ortszeit",
-    "responseLabel": "Antwortzeit",
-    "response": "In der Regel innerhalb von zwei Werktagen"
+    "responseLabel": "Antwortzeit"
   },
   "footer": {
     "availabilityHeading": "Verfügbarkeit",
-    "availabilityText": "Offen für neue Möglichkeiten",
     "resume": "Lebenslauf (PDF)",
     "elsewhere": "Anderswo",
     "rights": "Alle Rechte vorbehalten.",

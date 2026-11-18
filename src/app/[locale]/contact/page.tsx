@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dict = getDictionary(locale);
   return {
     title: dict.contact.title,
-    description: dict.contact.intro,
+    description: getSiteData().contact.intro[locale],
     alternates: alternatesFor(locale, "/contact"),
   };
 }
@@ -44,7 +44,7 @@ export default async function ContactPage({ params }: Props) {
           >
             {title}
           </h1>
-          <p className={styles.lede}>{dict.contact.intro}</p>
+          <p className={styles.lede}>{site.contact.intro[locale]}</p>
         </div>
       </header>
 
@@ -58,7 +58,12 @@ export default async function ContactPage({ params }: Props) {
           />
           <ContactAside
             locale={locale}
-            labels={{ ...dict.contact, elsewhere: dict.footer.elsewhere }}
+            labels={{
+              ...dict.contact,
+              elsewhere: dict.footer.elsewhere,
+              location: site.contact.location[locale],
+              response: site.contact.responseTime[locale],
+            }}
             email={site.email}
             socials={site.socials}
           />

@@ -50,11 +50,30 @@ fields side by side with live Markdown preview. Portfolio posts also take an
 `order` — ordered projects list first (and the first one leads the home page
 large); unordered ones follow newest-first.
 
+## Where the words live
+
+| To change                                                                 | Edit                                     |
+| ------------------------------------------------------------------------- | ---------------------------------------- |
+| Home intro, About, the "Currently" ticker, availability, page intros      | `content/site.json`                      |
+| A project or a post (title, summary, case study text, year, stack, order) | `content/posts/<file>.json` or `/admin`  |
+| Buttons, labels, form text, navigation                                    | `src/dictionaries/en.json` and `de.json` |
+
+`content/site.json` holds English and German side by side (`"en"` / `"de"`),
+and the tests fail if one of the two is left empty.
+
+- **Switch the home intro:** `home.intros` holds an `engineering` and a
+  `design` version (role line, first sentence, bio, search description).
+  Set `home.intro` to the name of the one to lead with.
+- **Update the ticker:** edit `now.items` (add, remove or reorder; `href` is
+  optional and written without the language, e.g. `/contact`) and set
+  `now.updated` to today's date.
+- Then `npm test`, commit and push.
+
 ## Project structure
 
 ```
 content/
-  site.json              # skills, greetings, quotes, social links
+  site.json              # page copy (EN + DE), ticker, contact facts, social links
   posts/*.json           # one file per post (EN + DE fields)
 src/
   app/
@@ -79,7 +98,8 @@ src/
 - **Contact form:** set `NEXT_PUBLIC_CONTACT_ENDPOINT` (e.g. your existing
   Amplify Lambda URL) in `.env.local`. Without it, the form falls back to a
   `mailto:` handoff.
-- **Translations:** all UI strings live in `src/dictionaries/`. German seed
+- **Translations:** UI strings live in `src/dictionaries/`, page copy in
+  `content/site.json`. German seed
   content was drafted by AI — review before publishing.
 
 ## Deploying on Amplify

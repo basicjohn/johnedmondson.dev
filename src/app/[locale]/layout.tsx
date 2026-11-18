@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary, isLocale, locales } from "@/lib/i18n";
-import { getSiteData } from "@/lib/content";
+import { getHomeIntro, getSiteData } from "@/lib/content";
 import { openGraphFor } from "@/lib/seo";
 import Header from "@/components/organisms/Header/Header";
 import Footer from "@/components/organisms/Footer/Footer";
@@ -44,7 +44,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         data={[
           websiteSchema(locale),
           personSchema({
-            jobTitle: dict.home.role,
+            jobTitle: getHomeIntro(site).role[locale],
             email: site.email,
             sameAs: site.socials.map((s) => s.url),
           }),
@@ -61,6 +61,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <main id="main">{children}</main>
       <Footer
         labels={dict.footer}
+        availability={site.availability[locale]}
         socials={site.socials}
         email={site.email}
         resume={site.resume}

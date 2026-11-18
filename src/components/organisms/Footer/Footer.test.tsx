@@ -9,9 +9,18 @@ const socials = [
   { label: "LinkedIn", url: "https://www.linkedin.com/in/johnedmondsondev/" },
 ];
 
-const renderFooter = (labels = en.footer) =>
+// The line itself is content (content/site.json), handed in beside the
+// labels.
+const availability = "Open to full-time, contract and freelance work";
+
+const renderFooter = (labels = en.footer, line = availability) =>
   render(
-    <Footer labels={labels} socials={socials} email="contact@example.dev" />,
+    <Footer
+      labels={labels}
+      availability={line}
+      socials={socials}
+      email="contact@example.dev"
+    />,
   );
 
 describe("Footer", () => {
@@ -25,7 +34,7 @@ describe("Footer", () => {
     expect(
       screen.getByRole("heading", { name: en.footer.availabilityHeading }),
     ).toBeInTheDocument();
-    expect(screen.getByText(en.footer.availabilityText)).toBeInTheDocument();
+    expect(screen.getByText(availability)).toBeInTheDocument();
   });
 
   it("renders the contact address as a mailto link", () => {
@@ -37,7 +46,12 @@ describe("Footer", () => {
 
   it("takes the address from props rather than hardcoding one", () => {
     render(
-      <Footer labels={en.footer} socials={socials} email="other@example.dev" />,
+      <Footer
+        labels={en.footer}
+        availability={availability}
+        socials={socials}
+        email="other@example.dev"
+      />,
     );
 
     expect(
@@ -64,11 +78,15 @@ describe("Footer", () => {
   });
 
   it("renders German copy when handed the German dictionary", () => {
-    renderFooter(de.footer);
+    const line = "Offen für Festanstellung, Projektverträge und Freelance";
+    renderFooter(de.footer, line);
 
-    expect(screen.getByText(de.footer.availabilityText)).toBeInTheDocument();
+    expect(screen.getByText(line)).toBeInTheDocument();
     expect(
-      screen.queryByText(en.footer.availabilityText),
+      screen.getByRole("heading", { name: de.footer.availabilityHeading }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: en.footer.availabilityHeading }),
     ).not.toBeInTheDocument();
   });
 });
@@ -128,6 +146,7 @@ describe("Footer — résumé link", () => {
     render(
       <Footer
         labels={en.footer}
+        availability={availability}
         socials={socials}
         email="contact@example.dev"
         resume="/files/resume.pdf"
@@ -144,6 +163,7 @@ describe("Footer — social links", () => {
     render(
       <Footer
         labels={en.footer}
+        availability={availability}
         socials={[{ label: "GitHub", url: "https://github.com/basicjohn" }]}
         email="contact@example.dev"
       />,
@@ -155,7 +175,12 @@ describe("Footer — social links", () => {
 
   it("renders an empty social list without crashing", () => {
     render(
-      <Footer labels={en.footer} socials={[]} email="contact@example.dev" />,
+      <Footer
+        labels={en.footer}
+        availability={availability}
+        socials={[]}
+        email="contact@example.dev"
+      />,
     );
 
     expect(

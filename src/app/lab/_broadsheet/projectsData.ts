@@ -2,7 +2,12 @@
 // gathered for the Broadsheet versions in the lab: the same posts, labels
 // and order, with every project link kept inside the lab.
 import { getDictionary } from "@/lib/i18n";
-import { getPostBySlug, getPostsByType, getRelatedPosts } from "@/lib/content";
+import {
+  getPostBySlug,
+  getPostsByType,
+  getRelatedPosts,
+  getSiteData,
+} from "@/lib/content";
 import { extractHeadings, markdownToHtml } from "@/lib/markdown";
 import { formatYear, fullTitle, kindLabel } from "@/lib/utils";
 import { tagLabel } from "@/lib/tags";
@@ -20,7 +25,7 @@ export function getProjectsIndex(locale: Locale) {
   return {
     shell: getShellData(locale, "broadsheet", localePaths("/projects")),
     title: dict.portfolio.title,
-    intro: dict.portfolio.intro,
+    intro: getSiteData().projects.intro[locale],
     empty: dict.portfolio.empty,
     projects: getPostsByType("portfolio").map((p) =>
       toProject(p, locale, base),

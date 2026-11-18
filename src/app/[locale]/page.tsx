@@ -3,7 +3,12 @@ import { notFound } from "next/navigation";
 import { alternatesFor } from "@/lib/seo";
 import { WRITING_SECTION_PUBLIC } from "@/lib/config";
 import { getDictionary, isLocale } from "@/lib/i18n";
-import { getFeaturedPosts, getPostsByType, getSiteData } from "@/lib/content";
+import {
+  getFeaturedPosts,
+  getHomeIntro,
+  getPostsByType,
+  getSiteData,
+} from "@/lib/content";
 import Hero from "@/components/organisms/Hero/Hero";
 import Now from "@/components/organisms/Now/Now";
 import SectionHeading from "@/components/molecules/SectionHeading/SectionHeading";
@@ -24,7 +29,10 @@ export default async function HomePage({ params }: Props) {
   if (!isLocale(locale)) notFound();
 
   const dict = getDictionary(locale);
+  // The sentences come from content/site.json; the dictionary only labels
+  // them.
   const site = getSiteData();
+  const intro = getHomeIntro(site);
   // One lead project shown large, two beneath — see ProjectCard's `feature`
   // variant. getFeaturedPosts honours each post's `order`, so the lead is
   // chosen in the content, not here.
@@ -35,9 +43,9 @@ export default async function HomePage({ params }: Props) {
     <>
       <Hero
         locale={locale}
-        role={dict.home.role}
-        bioLead={dict.home.bioLead}
-        bio={dict.home.bio}
+        role={intro.role[locale]}
+        bioLead={intro.lead[locale]}
+        bio={intro.bio[locale]}
         portraitAlt={dict.home.portraitAlt}
         ctaWork={dict.home.ctaWork}
         ctaContact={dict.home.ctaContact}
@@ -47,24 +55,12 @@ export default async function HomePage({ params }: Props) {
         locale={locale}
         heading={dict.home.nowHeading}
         updatedLabel={dict.home.nowUpdated}
-        updated={site.nowUpdated}
-        items={[
-          {
-            label: dict.home.nowWorkingLabel,
-            text: dict.home.nowWorking,
-            href: `/${locale}/portfolio/bold-reuse`,
-          },
-          {
-            label: dict.home.nowBuildingLabel,
-            text: dict.home.nowBuilding,
-            href: `/${locale}/portfolio/top-shot-reloaded`,
-          },
-          {
-            label: dict.home.nowLookingLabel,
-            text: dict.home.nowLooking,
-            href: `/${locale}/contact`,
-          },
-        ]}
+        updated={site.now.updated}
+        items={site.now.items.map((item) => ({
+          label: item.label[locale],
+          text: item.text[locale],
+          href: item.href && `/${locale}${item.href}`,
+        }))}
       />
 
       {/* Below the ticker the page is reversed out of the dark ground:
@@ -110,10 +106,12 @@ export default async function HomePage({ params }: Props) {
           />
           <div className={styles.about}>
             <p className={styles.aboutWork} data-reveal="">
-              <span className={styles.highlight}>{dict.home.aboutWork}</span>
+              <span className={styles.highlight}>
+                {site.home.about.work[locale]}
+              </span>
             </p>
             <p className={styles.aboutLife} data-reveal="">
-              {dict.home.aboutLife}
+              {site.home.about.life[locale]}
             </p>
           </div>
         </section>

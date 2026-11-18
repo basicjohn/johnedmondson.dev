@@ -75,13 +75,59 @@ export interface SocialLink {
   url: string;
 }
 
+/**
+ * One way of introducing John at the top of the home page. site.json holds
+ * more than one (engineering-first, design-first) and `home.intro` names the
+ * one in use, so the lead can be switched without retyping either.
+ */
+export interface HomeIntro {
+  /** The dateline under the name; also the job title in search metadata */
+  role: Localized;
+  /** The first, larger sentence */
+  lead: Localized;
+  bio: Localized;
+  /** What search results and link previews show for the site (English) */
+  searchDescription: string;
+}
+
+/** One entry in the home page's "Currently" ticker */
+export interface NowItem {
+  label: Localized;
+  text: Localized;
+  /** A path on this site without the language, e.g. "/contact". Optional. */
+  href?: string;
+}
+
+/**
+ * content/site.json: every sentence on the site that is not a project or a
+ * post, in both languages, plus the contact facts. Buttons, labels and form
+ * strings are not copy and stay in src/dictionaries.
+ */
 export interface SiteData {
   socials: SocialLink[];
   email: string;
   /** Path to the public résumé PDF; the footer link appears once this is set */
   resume?: string;
-  /** ISO date the home page's "Currently" block was last true */
-  nowUpdated?: string;
+  home: {
+    /** Which of `intros` the home page leads with */
+    intro: string;
+    intros: Record<string, HomeIntro>;
+    about: { work: Localized; life: Localized };
+  };
+  now: {
+    /** ISO date the "Currently" ticker was last true */
+    updated?: string;
+    items: NowItem[];
+  };
+  /** The footer's availability line */
+  availability: Localized;
+  projects: { intro: Localized };
+  writing: { intro: Localized };
+  contact: {
+    intro: Localized;
+    location: Localized;
+    responseTime: Localized;
+  };
 }
 
 /** Blank post used by the CMS "new post" form */

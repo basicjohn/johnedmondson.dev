@@ -3,7 +3,6 @@ import styles from "./Footer.module.scss";
 
 type FooterLabels = {
   availabilityHeading: string;
-  availabilityText: string;
   resume: string;
   elsewhere: string;
   rights: string;
@@ -12,13 +11,21 @@ type FooterLabels = {
 
 type Props = {
   labels: FooterLabels;
+  /** The availability line, from content/site.json */
+  availability: string;
   socials: SocialLink[];
   email: string;
   /** Public résumé PDF; the link is omitted until one is published */
   resume?: string;
 };
 
-export default function Footer({ labels, socials, email, resume }: Props) {
+export default function Footer({
+  labels,
+  availability,
+  socials,
+  email,
+  resume,
+}: Props) {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
@@ -29,7 +36,7 @@ export default function Footer({ labels, socials, email, resume }: Props) {
           <h2 className={styles.heading}>{labels.availabilityHeading}</h2>
           <p className={styles.text}>
             <span className={styles.dot} aria-hidden="true" />
-            {labels.availabilityText}
+            {availability}
           </p>
           <a className={styles.email} href={`mailto:${email}`}>
             {email}

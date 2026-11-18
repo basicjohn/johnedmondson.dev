@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Fraunces, IBM_Plex_Mono, Mulish } from "next/font/google";
 import "@/styles/globals.scss";
+import { getHomeIntro } from "@/lib/content";
 import { DEFAULT_OG_IMAGE, SITE_URL } from "@/lib/seo";
 
 // Three faces, one job each (see planning/taste-profile.md). Fraunces is
@@ -30,11 +31,12 @@ const sans = Mulish({
   display: "swap",
 });
 
-const TITLE = "John Edmondson — Product Engineer · Full-Stack";
-// Same positioning as the LinkedIn headline: the title, the stack, and the
-// kind of work — this is the snippet search results and link previews show.
-const DESCRIPTION =
-  "John Edmondson, product engineer in Freiburg, Germany. Full-stack work in React, TypeScript, Go and PostgreSQL: scalable, data-driven systems for mission-driven teams. Projects and writing.";
+// Both come from content/site.json, from whichever home intro is in use, so
+// the title and the snippet search results and link previews show never
+// disagree with the page they lead to.
+const intro = getHomeIntro();
+const TITLE = `John Edmondson — ${intro.role.en}`;
+const DESCRIPTION = intro.searchDescription;
 
 // Carried over from the CRA app's index.html so the cutover does not break
 // the property's traffic history.

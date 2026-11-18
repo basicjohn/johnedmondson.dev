@@ -69,24 +69,34 @@ describe("dictionary parity", () => {
       .filter((k) => flatEn[k] === flatDe[k])
       .sort();
 
-    expect(identical).toEqual(
-      [
-        "contact.name",
-        // The job title is deliberately kept in English on the German site,
-        // as German tech CVs and job ads do.
-        "home.role",
-        "post.stack",
-      ].sort(),
-    );
+    expect(identical).toEqual(["contact.name", "post.stack"].sort());
   });
 
-  it("carries the availability copy Phase 2 introduced, in both languages", () => {
+  it("labels the availability line Phase 2 introduced, in both languages", () => {
     expect(flatEn["footer.availabilityHeading"]).toBeTruthy();
     expect(flatDe["footer.availabilityHeading"]).toBeTruthy();
-    expect(flatEn["footer.availabilityText"]).toMatch(/opportunities/i);
-    expect(flatDe["footer.availabilityText"]).not.toBe(
-      flatEn["footer.availabilityText"],
-    );
+  });
+
+  // Sentences live in content/site.json so they can be edited in one place.
+  // A copy of one creeping back in here would be the stale one.
+  it("holds labels only, none of the copy that moved to site.json", () => {
+    for (const key of [
+      "home.role",
+      "home.bioLead",
+      "home.bio",
+      "home.aboutWork",
+      "home.aboutLife",
+      "home.nowWorking",
+      "portfolio.intro",
+      "writing.intro",
+      "contact.intro",
+      "contact.location",
+      "contact.response",
+      "footer.availabilityText",
+    ]) {
+      expect(flatEn[key], `en.${key}`).toBeUndefined();
+      expect(flatDe[key], `de.${key}`).toBeUndefined();
+    }
   });
 
   it("no longer carries the newsletter or skills copy", () => {

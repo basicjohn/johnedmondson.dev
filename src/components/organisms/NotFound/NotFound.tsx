@@ -73,6 +73,7 @@ export default function NotFoundPage({ site }: PageProps) {
       </main>
       <Footer
         labels={dict.footer}
+        availability={site.availability[locale]}
         socials={site.socials}
         email={site.email}
         resume={site.resume}

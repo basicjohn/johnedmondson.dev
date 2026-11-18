@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { getAllPosts } from "./content";
+import { getAllPosts, getHomeIntro, getSiteData } from "./content";
 import { locales, projectKinds } from "./types";
 
 // The CMS writes these files, and nothing between it and a deploy checks
@@ -147,5 +147,68 @@ describe.each(
 
   it.each([...locales])("is not repeated in the %s title", (locale) => {
     expect(post.title[locale]).not.toMatch(/ [—–-] /);
+  });
+});
+
+// content/site.json is edited by hand. These are the mistakes a hand makes:
+// a sentence changed in one language only, a typo in the intro switch, a
+// link written with its language prefix.
+describe("site.json", () => {
+  const site = getSiteData();
+
+  // Every { en, de } pair in the file, by its path
+  function localized(
+    value: unknown,
+    path: string,
+  ): [string, Record<string, unknown>][] {
+    if (!value || typeof value !== "object") return [];
+    const obj = value as Record<string, unknown>;
+    if (locales.some((l) => typeof obj[l] === "string")) return [[path, obj]];
+    return Object.entries(obj).flatMap(([k, v]) =>
+      localized(v, path ? `${path}.${k}` : k),
+    );
+  }
+  const pairs = localized(site, "");
+
+  it("has copy to check", () => {
+    expect(pairs.length).toBeGreaterThan(10);
+  });
+
+  it.each(pairs)("%s is written in every language", (_path, pair) => {
+    for (const locale of locales) {
+      expect(String(pair[locale] ?? "").trim(), locale).not.toBe("");
+    }
+  });
+
+  it("points home.intro at an intro that exists", () => {
+    expect(Object.keys(site.home.intros)).toContain(site.home.intro);
+    expect(getHomeIntro(site).searchDescription.trim()).not.toBe("");
+  });
+
+  it("gives every intro a search description", () => {
+    for (const [name, intro] of Object.entries(site.home.intros)) {
+      expect(intro.searchDescription?.trim(), name).toBeTruthy();
+    }
+  });
+
+  it("writes ticker links as site paths without a language", () => {
+    for (const item of site.now.items) {
+      if (item.href === undefined) continue;
+      expect(item.href).toMatch(/^\/(?!en\b|de\b)[a-z0-9/-]*$/);
+    }
+  });
+
+  it("links the ticker only to pages that exist", () => {
+    const slugs = published
+      .filter((p) => p.type === "portfolio")
+      .map((p) => `/portfolio/${p.slug}`);
+    const known = ["/contact", "/portfolio", "/writing", ...slugs];
+    for (const item of site.now.items) {
+      if (item.href !== undefined) expect(known).toContain(item.href);
+    }
+  });
+
+  it("dates the ticker with a valid ISO date", () => {
+    expect(site.now.updated).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
 });

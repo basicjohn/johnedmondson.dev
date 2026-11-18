@@ -183,7 +183,7 @@ describe("getSiteData", () => {
     // greetings, quotes and skills drove the randomized greeting, the
     // rotating footer quote and the skill ticker. Their absence is the
     // thing that keeps them from coming back.
-    const site = getSiteData() as Record<string, unknown>;
+    const site = getSiteData() as unknown as Record<string, unknown>;
     expect(site.greetings).toBeUndefined();
     expect(site.quotes).toBeUndefined();
     expect(site.skills).toBeUndefined();
