@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { alternatesFor } from "@/lib/seo";
 import { getDictionary, isLocale } from "@/lib/i18n";
-import { getPostsByType } from "@/lib/content";
+import { getPostsByType, getSiteData } from "@/lib/content";
 import { hasDescender } from "@/lib/utils";
 import PostGrid from "@/components/organisms/PostGrid/PostGrid";
 import styles from "./page.module.scss";
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dict = getDictionary(locale);
   return {
     title: dict.portfolio.title,
-    description: dict.portfolio.intro,
+    description: getSiteData().projects.intro[locale],
     alternates: alternatesFor(locale, "/portfolio"),
   };
 }
@@ -38,7 +38,7 @@ export default async function PortfolioPage({ params }: Props) {
           >
             {dict.portfolio.title}
           </h1>
-          <p className={styles.lede}>{dict.portfolio.intro}</p>
+          <p className={styles.lede}>{getSiteData().projects.intro[locale]}</p>
         </div>
       </header>
       <section

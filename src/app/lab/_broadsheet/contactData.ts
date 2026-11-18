@@ -14,7 +14,13 @@ export function getContactPage(locale: Locale) {
       de: "/lab/de/broadsheet/contact",
     }),
     locale,
-    labels: { ...dict.contact, elsewhere: dict.footer.elsewhere },
+    labels: {
+      ...dict.contact,
+      elsewhere: dict.footer.elsewhere,
+      intro: site.contact.intro[locale],
+      location: site.contact.location[locale],
+      response: site.contact.responseTime[locale],
+    },
     email: site.email,
     socials: site.socials,
     // Unset under `next dev` (it lives in .env.production), so the lab form

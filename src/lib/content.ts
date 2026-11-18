@@ -3,7 +3,7 @@
 // build/request time. Deploys are just git commits.
 import fs from "fs";
 import path from "path";
-import type { Post, PostType, SiteData } from "./types";
+import type { HomeIntro, Post, PostType, SiteData } from "./types";
 
 export const POSTS_DIR = path.join(process.cwd(), "content", "posts");
 const SITE_FILE = path.join(process.cwd(), "content", "site.json");
@@ -67,6 +67,17 @@ export function getAllTags(type?: PostType): string[] {
 
 export function getSiteData(): SiteData {
   return JSON.parse(fs.readFileSync(SITE_FILE, "utf8")) as SiteData;
+}
+
+/** The home page introduction site.json currently points at */
+export function getHomeIntro(site: SiteData = getSiteData()): HomeIntro {
+  const intro = site.home.intros[site.home.intro];
+  if (!intro) {
+    throw new Error(
+      `content/site.json: home.intro is "${site.home.intro}", but home.intros only has ${Object.keys(site.home.intros).join(", ")}`,
+    );
+  }
+  return intro;
 }
 
 // ---------- Write operations (used by the admin API, dev only) ----------

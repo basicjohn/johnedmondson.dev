@@ -3,7 +3,7 @@
 // presentation differs. If the home page gains or loses a field, change it
 // here too.
 import { getDictionary } from "@/lib/i18n";
-import { getFeaturedPosts, getSiteData } from "@/lib/content";
+import { getFeaturedPosts, getHomeIntro, getSiteData } from "@/lib/content";
 import { formatYear, kindLabel } from "@/lib/utils";
 import { tagLabel } from "@/lib/tags";
 import type { Locale, Post } from "@/lib/types";
@@ -81,7 +81,8 @@ export function getShellData(
   return {
     locale,
     nav: dict.nav,
-    footer: dict.footer,
+    // The lab footers predate site.json and read the line off the labels
+    footer: { ...dict.footer, availabilityText: site.availability[locale] },
     common: dict.common,
     socials: site.socials,
     email: site.email,
@@ -106,11 +107,12 @@ export function getHomeData(locale: Locale, variant: Variant) {
   const base = projectsHref(locale, variant);
   const [lead, ...rest] = getFeaturedPosts("portfolio", 3);
 
-  const updatedText = site.nowUpdated
+  const intro = getHomeIntro(site);
+  const updatedText = site.now.updated
     ? new Intl.DateTimeFormat(locale === "de" ? "de-DE" : "en-US", {
         month: "long",
         year: "numeric",
-      }).format(new Date(`${site.nowUpdated}T00:00:00`))
+      }).format(new Date(`${site.now.updated}T00:00:00`))
     : null;
 
   return {
@@ -118,29 +120,26 @@ export function getHomeData(locale: Locale, variant: Variant) {
       en: `/lab/en/${variant}`,
       de: `/lab/de/${variant}`,
     }),
-    home: dict.home,
+    // Same shape the lab pages were built against, filled from site.json
+    home: {
+      ...dict.home,
+      role: intro.role[locale],
+      bioLead: intro.lead[locale],
+      bio: intro.bio[locale],
+      aboutWork: site.home.about.work[locale],
+      aboutLife: site.home.about.life[locale],
+    },
     now: {
       heading: dict.home.nowHeading,
       updatedLabel: dict.home.nowUpdated,
-      updated: site.nowUpdated,
+      updated: site.now.updated,
       updatedText,
-      items: [
-        {
-          label: dict.home.nowWorkingLabel,
-          text: dict.home.nowWorking,
-          href: `${base}/bold-reuse`,
-        },
-        {
-          label: dict.home.nowBuildingLabel,
-          text: dict.home.nowBuilding,
-          href: `${base}/top-shot-reloaded`,
-        },
-        {
-          label: dict.home.nowLookingLabel,
-          text: dict.home.nowLooking,
-          href: contactHref(locale, variant),
-        },
-      ] satisfies NowItem[],
+      // Links go to the live pages; an item without one points home
+      items: site.now.items.map((item) => ({
+        label: item.label[locale],
+        text: item.text[locale],
+        href: `/${locale}${item.href ?? ""}`,
+      })) satisfies NowItem[],
     },
     lead: lead ? toProject(lead, locale, base) : undefined,
     rest: rest.map((post) => toProject(post, locale, base)),

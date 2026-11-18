@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/types";
 import Asterisk from "@/components/atoms/Asterisk/Asterisk";
 import styles from "./Now.module.scss";
 
-type Item = { label: string; text: string; href: string };
+type Item = { label: string; text: string; href?: string };
 
 type Props = {
   locale: Locale;
@@ -43,7 +43,11 @@ function Group({
           <div key={item.label} className={styles.item}>
             <dt>{item.label}</dt>
             <dd>
-              <Link href={item.href}>{item.text}</Link>
+              {item.href ? (
+                <Link href={item.href}>{item.text}</Link>
+              ) : (
+                item.text
+              )}
               <Asterisk className={styles.mark} />
             </dd>
           </div>
@@ -60,9 +64,8 @@ function Group({
 
 /**
  * "Currently" as a marigold ticker set at a tilt across the seam between
- * the gridded hero and the dark ground: on a contract now, building
- * something on the side, open to new opportunities. The date is the
- * cheapest possible sign the site is alive.
+ * the gridded hero and the dark ground: whatever content/site.json lists
+ * under `now`. The date is the cheapest possible sign the site is alive.
  *
  * It scrolls only where motion is allowed, pausing on hover and focus;
  * otherwise (and without JavaScript) it is one still band, its copy hidden.

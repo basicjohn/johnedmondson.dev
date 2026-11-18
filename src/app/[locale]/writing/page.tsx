@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { alternatesFor } from "@/lib/seo";
 import { WRITING_SECTION_PUBLIC } from "@/lib/config";
 import { getDictionary, isLocale } from "@/lib/i18n";
-import { getPostsByType } from "@/lib/content";
+import { getPostsByType, getSiteData } from "@/lib/content";
 import { hasDescender } from "@/lib/utils";
 import PostList from "@/components/organisms/PostList/PostList";
 import styles from "./page.module.scss";
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dict = getDictionary(locale);
   return {
     title: dict.writing.title,
-    description: dict.writing.intro,
+    description: getSiteData().writing.intro[locale],
     robots: WRITING_SECTION_PUBLIC ? undefined : { index: false, follow: true },
     alternates: alternatesFor(locale, "/writing"),
   };
@@ -39,7 +39,7 @@ export default async function WritingPage({ params }: Props) {
           >
             {title}
           </h1>
-          <p className={styles.lede}>{dict.writing.intro}</p>
+          <p className={styles.lede}>{getSiteData().writing.intro[locale]}</p>
         </div>
       </header>
       <section className={`inverse ${styles.dark}`} aria-label={title}>

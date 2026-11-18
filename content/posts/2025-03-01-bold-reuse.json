@@ -4,7 +4,7 @@
   "type": "portfolio",
   "status": "published",
   "featured": true,
-  "order": 2,
+  "order": 1,
   "kind": "contract",
   "date": "2025-03-01",
   "tags": ["Full-Stack", "GraphQL", "PostgreSQL", "Operations"],
@@ -17,20 +17,28 @@
     "de": "Plattform für Mehrweg-Logistik"
   },
   "summary": {
-    "en": "Onboarding, bulk imports, role-based access and the wash-pack-ship workflows a live fulfillment team runs on every day.",
-    "de": "Onboarding, Massenimporte, Rollenrechte und die Wasch-Pack-Versand-Workflows, mit denen ein Fulfillment-Team täglich arbeitet."
+    "en": "As the only engineer, I designed and built the operations platform a reusable packaging company runs on, from database to daily-use app.",
+    "de": "Als einziger Entwickler habe ich die Betriebsplattform eines Mehrwegverpackungs-Unternehmens entworfen und gebaut, von Datenbank bis App."
   },
   "excerpt": {
-    "en": "Full-stack product engineering for a reusable packaging company: client onboarding, CRM-style data management, bulk imports, role-based access control, and multi-step operational workflows used daily by live fulfillment teams.",
-    "de": "Full-Stack-Produktentwicklung für ein Mehrwegverpackungs-Unternehmen: Kunden-Onboarding, CRM-artige Datenverwaltung, Massenimporte, rollenbasierte Zugriffskontrolle und mehrstufige operative Workflows im täglichen Einsatz bei Fulfillment-Teams."
+    "en": "As the only engineer at a reusable packaging company, I designed and built its operations platform end to end, replacing a no-code stack with a Go, PostgreSQL and React system its fulfillment team used every day.",
+    "de": "Als einziger Entwickler eines Mehrwegverpackungs-Unternehmens habe ich dessen Betriebsplattform entworfen und gebaut und einen No-Code-Stack durch ein System aus Go, PostgreSQL und React ersetzt, mit dem das Fulfillment-Team täglich arbeitete."
   },
   "body": {
-    "en": "## Overview\n\nBold Reuse runs reusable packaging programs — items go out, come back, get washed, and go out again. Since March 2025 I've been designing and shipping full-stack features across a React + TypeScript frontend and a Go GraphQL API over PostgreSQL, supporting complex, stateful workflows and high-volume operational data.\n\n## What I built\n\n- Multi-step operational workflows (wash, pack, rewash, receive, pickup, delivery) as dedicated pages and reusable components, used daily by live fulfillment teams\n- CRM-style, data-heavy CRUD interfaces for clients, inventory pools, assets, events, and users — GraphQL queries/mutations, role-gated actions, and navigation-level access control\n- A client onboarding flow with route-level and UI-level guards that enforce required setup before core product access\n- Bulk data import and admin tooling: CSV validation, deduplication, and ingestion pipelines for large-scale onboarding\n- Background jobs and automation for scheduled processing, bulk updates, and third-party data sync, with retry and cleanup logic\n\n## Data layer\n\nI architected a migration-driven PostgreSQL schema with explicit domain modeling, enums, and relational integrity — built to safely support evolving workflows and large datasets.",
-    "de": "## Überblick\n\nBold Reuse betreibt Mehrwegverpackungs-Programme — Artikel gehen raus, kommen zurück, werden gewaschen und gehen wieder raus. Seit März 2025 entwerfe und liefere ich Full-Stack-Features über ein React + TypeScript-Frontend und eine GraphQL-API in Go auf PostgreSQL, für komplexe, zustandsbehaftete Workflows und große operative Datenmengen.\n\n## Was ich gebaut habe\n\n- Mehrstufige operative Workflows (Waschen, Packen, Nachwaschen, Annahme, Abholung, Lieferung) als eigene Seiten und wiederverwendbare Komponenten — täglich im Einsatz bei laufenden Fulfillment-Teams\n- CRM-artige, datenintensive CRUD-Oberflächen für Kunden, Bestandspools, Assets, Events und Nutzer — GraphQL-Queries/-Mutations, rollenbasierte Aktionen und Zugriffskontrolle auf Navigationsebene\n- Ein Kunden-Onboarding mit Guards auf Routen- und UI-Ebene, das erforderliche Einrichtungsschritte vor dem Produktzugang erzwingt\n- Massenimport und Admin-Tooling: CSV-Validierung, Deduplizierung und Ingestion-Pipelines für Onboarding im großen Maßstab\n- Hintergrund-Jobs und Automatisierung für geplante Verarbeitung, Massen-Updates und Drittanbieter-Sync, mit Retry- und Cleanup-Logik\n\n## Datenschicht\n\nIch habe ein migrationsgetriebenes PostgreSQL-Schema mit explizitem Domain-Modeling, Enums und relationaler Integrität entworfen — gebaut, um wachsende Workflows und große Datensätze sicher zu tragen."
+    "en": "## Overview\n\nBold Reuse runs reusable packaging programs. Items go out, come back, get washed, and go out again, and every step has to be tracked. From March 2025 to August 2026 I was the company's only engineer. I designed and built the platform that became its system of record, replacing the no-code tools it had been running on.\n\n## What I built\n\n- The full stack: a Go GraphQL API over PostgreSQL, and a React, Next.js and TypeScript frontend\n- Step-by-step workflows for wash, pack, rewash, receive, pickup and delivery, built as dedicated pages from shared components and used daily by the operations team\n- Data-heavy screens for clients, inventory pools, assets, events and users, with actions and navigation gated by role\n- Authentication end to end: Firebase auth, role-based access stored in the database, and a client onboarding flow that keeps core features locked until setup is done\n- Bulk import and admin tools: CSV validation, deduplication and ingestion for onboarding large clients\n- Background jobs for scheduled processing and bulk updates, plus a two-way sync with the old system so the switch caused no disruption\n\n## Data layer\n\nI designed an 85-table PostgreSQL schema that only changes through migrations, with explicit domain models, enums and relational integrity. It grew with the product without a single destructive change.\n\n## How I worked\n\nI shipped with AI coding agents in the loop (Claude Code, Cursor and GitHub Copilot) and kept written guidance for them in each codebase.",
+    "de": "## Überblick\n\nBold Reuse betreibt Mehrwegverpackungs-Programme. Artikel gehen raus, kommen zurück, werden gewaschen und gehen wieder raus, und jeder Schritt muss nachverfolgt werden. Von März 2025 bis August 2026 war ich der einzige Entwickler des Unternehmens. Ich habe die Plattform entworfen und gebaut, die zum zentralen System des Betriebs wurde und die No-Code-Tools ablöste, mit denen das Unternehmen bis dahin gearbeitet hatte.\n\n## Was ich gebaut habe\n\n- Den gesamten Stack: eine GraphQL-API in Go auf PostgreSQL und ein Frontend mit React, Next.js und TypeScript\n- Schritt-für-Schritt-Workflows für Waschen, Packen, Nachwaschen, Annahme, Abholung und Lieferung, als eigene Seiten aus gemeinsamen Komponenten gebaut und täglich vom Operations-Team genutzt\n- Datenintensive Oberflächen für Kunden, Bestandspools, Assets, Events und Nutzer, mit Aktionen und Navigation je nach Rolle\n- Authentifizierung von Anfang bis Ende: Firebase Auth, rollenbasierter Zugriff in der Datenbank und ein Kunden-Onboarding, das Kernfunktionen sperrt, bis die Einrichtung abgeschlossen ist\n- Massenimport und Admin-Tools: CSV-Validierung, Deduplizierung und Ingestion für das Onboarding großer Kunden\n- Hintergrund-Jobs für geplante Verarbeitung und Massen-Updates sowie eine Zwei-Wege-Synchronisation mit dem Altsystem, damit die Umstellung ohne Unterbrechung verlief\n\n## Datenschicht\n\nIch habe ein PostgreSQL-Schema mit 85 Tabellen entworfen, das sich ausschließlich über Migrationen ändert, mit expliziten Domänenmodellen, Enums und relationaler Integrität. Es ist mit dem Produkt gewachsen, ohne eine einzige destruktive Änderung.\n\n## Wie ich gearbeitet habe\n\nIch habe mit KI-Coding-Agenten im Entwicklungsprozess ausgeliefert (Claude Code, Cursor und GitHub Copilot) und in jeder Codebasis schriftliche Leitlinien für sie gepflegt."
   },
   "client": "Bold Reuse",
   "role": "Product Engineer · Full-Stack (Contract)",
-  "year": "2025 – present",
+  "year": "2025 – 2026",
   "link": "https://www.boldreuse.com",
-  "stack": ["React", "TypeScript", "Go", "GraphQL", "PostgreSQL"]
+  "stack": [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Go",
+    "GraphQL",
+    "PostgreSQL",
+    "Firebase Auth"
+  ]
 }
