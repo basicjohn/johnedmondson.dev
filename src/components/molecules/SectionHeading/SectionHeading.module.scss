@@ -1,42 +1,65 @@
+@use "tokens" as *;
+
 .wrapper {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--space-4);
-  margin-bottom: var(--space-5);
-}
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: end;
+  gap: var(--space-3) var(--space-4);
+  padding-top: var(--space-4);
+  margin-bottom: var(--space-6);
+  border-top: var(--divider);
 
-.overline {
-  font-size: var(--text-sm);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-accent-strong);
-  margin-bottom: var(--space-1);
-}
-
-.title {
-  font-size: var(--text-2xl);
-
-  // One of the accent's structural jobs: every section heading carries the
-  // same short gold rule, so the colour reads as a signature, not a link tint.
-  &::after {
-    content: "";
-    display: block;
-    width: 2.75rem;
-    height: 3px;
-    border-radius: var(--radius-pill);
-    background: var(--color-accent-strong);
-    margin-top: var(--space-2);
+  @include respond($bp-md) {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    column-gap: var(--space-5);
+    margin-bottom: var(--space-7);
   }
 }
 
+// Section numbers in outline, in the gold, the size of a page folio on a
+// poster.
+.number {
+  font-family: var(--display);
+  font-size: clamp(3.5rem, 2rem + 5vw, 7rem);
+  font-weight: 800;
+  font-variation-settings: "opsz" 144;
+  line-height: 0.75;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--gold);
+}
+
+.overline {
+  @include mono-label;
+  margin-bottom: var(--space-1);
+  color: var(--gold);
+}
+
+.title {
+  font-size: clamp(2rem, 1.2rem + 3vw, 4rem);
+  font-weight: 600;
+  font-variation-settings: "SOFT" 30;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+// "All projects": a highlighter stroke that fills in on hover
 .link {
-  font-weight: 700;
+  grid-column: 1 / -1;
+  justify-self: start;
+  font-weight: 600;
   white-space: nowrap;
+  color: var(--ink);
   text-decoration: none;
+  background: linear-gradient(var(--marigold) 0 0) 0 88% / 100% 0.45em no-repeat;
+  transition: background-size 0.3s var(--ease);
 
   &:hover {
-    text-decoration: underline;
+    background-size: 100% 100%;
+    color: var(--on-marigold);
+  }
+
+  @include respond($bp-md) {
+    grid-column: auto;
   }
 }

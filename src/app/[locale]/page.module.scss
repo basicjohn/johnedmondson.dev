@@ -1,36 +1,85 @@
 @use "tokens" as *;
 
-.section {
-  padding-block: var(--space-7);
+// The dark lower half: its own room above the footer, which has none.
+.lower {
+  padding-bottom: clamp(5rem, 3rem + 6vw, 9rem);
 }
 
-// Lead project full width, the other two side by side beneath it.
-.workGrid {
+.section {
+  padding-top: clamp(4rem, 2rem + 5vw, 7.5rem);
+}
+
+// The two projects under the lead, level, as a clean grid
+.pair {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-5);
+  gap: var(--space-7);
+  margin-top: var(--space-8);
 
   @include respond($bp-md) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+
+  @include respond($bp-lg) {
+    gap: var(--space-8);
   }
 }
 
-.lead {
-  display: grid; // so the card stretches to the cell
-  grid-column: 1 / -1;
+.about {
+  display: grid;
+  gap: var(--space-6);
+
+  @include respond($bp-lg) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--space-5);
+  }
+}
+
+// The statement, at display size
+.aboutWork {
+  font-family: var(--display);
+  font-size: clamp(1.55rem, 1rem + 2.1vw, 2.9rem);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+
+  @include respond($bp-lg) {
+    grid-column: 1 / span 10;
+  }
+}
+
+// A darker-gold highlighter run under the statement. Laid out as one long
+// strip across the line breaks, so it sweeps the first line, then the
+// next, when the statement scrolls into view. Written out rather than
+// var(--gold), which the dark ground remaps to marigold. Light text over it
+// measures 5.2:1.
+.highlight {
+  background: linear-gradient(#8f5a12 0 0) 0 88% / 100% 0.42em no-repeat;
+  transition: background-size 1.6s 0.5s var(--ease);
+}
+
+:global(html[data-motion-ready])
+  .aboutWork:not([data-shown="static"])
+  .highlight {
+  background-size: 0 0.42em;
+}
+
+:global(html[data-motion-ready]) .aboutWork[data-shown="in"] .highlight {
+  background-size: 100% 0.42em;
+}
+
+.aboutLife {
+  max-width: 34rem;
+  font-size: var(--text-lg);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+
+  @include respond($bp-lg) {
+    grid-column: 7 / -1;
+  }
 }
 
 .writingList {
   max-width: var(--content-max);
-}
-
-.about {
-  max-width: var(--content-max);
-  color: var(--color-ink-soft);
-  font-size: var(--text-lg);
-  text-wrap: pretty;
-
-  p + p {
-    margin-top: var(--space-4);
-  }
 }

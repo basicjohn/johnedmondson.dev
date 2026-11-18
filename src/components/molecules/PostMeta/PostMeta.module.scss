@@ -1,9 +1,13 @@
+@use "tokens" as *;
+
+// Date and reading time: a mono label in the gold, like the project cards'
+// eyebrows
 .meta {
+  @include mono-label;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-2);
-  font-size: var(--text-sm);
-  color: var(--color-ink-faint);
-  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gold);
 }

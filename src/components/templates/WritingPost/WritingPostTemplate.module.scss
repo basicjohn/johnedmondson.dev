@@ -1,20 +1,29 @@
-.article {
-  max-width: calc(var(--content-max) + var(--space-6) * 2);
-  padding-block: var(--space-7);
-}
+@use "tokens" as *;
 
-.header {
-  margin-bottom: var(--space-7);
+// ============================================
+// Intro — on the drafting grid
+// ============================================
+.intro {
+  @include drafting-grid;
+  padding-block: var(--space-7) clamp(3rem, 1rem + 5vw, 6rem);
+
+  @include respond($bp-lg) {
+    padding-top: var(--space-8);
+  }
 }
 
 .back {
   display: inline-block;
-  font-weight: 700;
+  margin-bottom: var(--space-6);
+  font-weight: 600;
+  color: var(--ink);
   text-decoration: none;
-  margin-bottom: var(--space-5);
+  background: linear-gradient(var(--marigold) 0 0) 0 88% / 100% 0.45em no-repeat;
+  transition: background-size 0.3s var(--ease);
 
   &:hover {
-    text-decoration: underline;
+    background-size: 100% 100%;
+    color: var(--on-marigold);
   }
 }
 
@@ -22,28 +31,62 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  color: var(--color-danger);
+  margin-bottom: var(--space-4);
   font-size: var(--text-sm);
   font-weight: 600;
-  margin-bottom: var(--space-3);
+  color: var(--color-danger);
 }
 
+// Essay titles run long, so a step under the project pages' size, and
+// balanced across their lines
 .title {
-  font-size: var(--text-3xl);
-  margin-bottom: var(--space-3);
+  max-width: 18ch;
+  font-size: clamp(2.25rem, 1rem + 4.5vw, 4.75rem);
+  font-weight: 800;
+  font-variation-settings:
+    "SOFT" 30,
+    "opsz" 144;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+// The full gap: most titles have a descender hanging into it
+.meta {
+  margin-top: var(--space-6);
+}
+
+// ============================================
+// The sheet — off-white, where the essay is read
+// ============================================
+.sheet {
+  padding-block: clamp(3rem, 2rem + 3vw, 5rem) clamp(4rem, 2rem + 5vw, 7rem);
+  background: var(--sheet);
+}
+
+// The reading measure, held to the intro's left edge
+.body > * {
+  max-width: 44rem;
 }
 
 .tags {
-  list-style: none;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-top: var(--space-6);
-  padding-top: var(--space-5);
-  border-top: 1px solid var(--color-border);
+  list-style: none;
+  margin: var(--space-7) 0 0;
+  padding: var(--space-5) 0 0;
+  border-top: var(--divider);
 }
 
-.related {
-  margin-top: var(--space-8);
+// ============================================
+// The dark ground — more writing
+// ============================================
+.dark {
+  padding-block: clamp(3.5rem, 2rem + 4vw, 6rem) clamp(5rem, 3rem + 6vw, 9rem);
+  border-top: 0.5rem solid var(--marigold);
+}
+
+.relatedList {
+  max-width: 48rem;
 }

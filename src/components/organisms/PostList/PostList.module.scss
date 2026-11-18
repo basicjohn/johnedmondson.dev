@@ -1,15 +1,17 @@
+@use "tokens" as *;
+
 .wrapper {
-  max-width: var(--content-max);
+  max-width: 48rem;
 }
 
 .filters {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
 }
 
 .empty {
-  color: var(--color-ink-soft);
-  padding-block: var(--space-7);
+  font-size: var(--text-lg);
+  color: var(--ink-soft);
 }

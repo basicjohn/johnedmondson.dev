@@ -1,35 +1,39 @@
+@use "tokens" as *;
+
+// Set on the dark ground: the fields stay light with dark text (see
+// FormField), the chips and labels draw with the swapped tokens.
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  max-width: 32rem;
+  display: grid;
+  gap: var(--space-6);
 }
 
 .topics {
+  min-width: 0;
   border: none;
   padding: 0;
   margin: 0;
 }
 
 .topicsLegend {
-  font-weight: 700;
-  font-size: var(--text-sm);
+  @include mono-label;
   padding: 0;
-  margin-bottom: var(--space-2);
+  color: var(--ink);
 }
 
 .topicRow {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
+  margin-top: var(--space-3);
 }
 
 .topic {
+  position: relative;
   cursor: pointer;
 }
 
-// Visually hidden but focusable, so keyboard and screen reader users get a
-// plain radio group while sighted users get chips.
+// The radio stays in the tab order and the accessibility tree; only its
+// circle is hidden, and the chip beside it shows its state.
 .topicInput {
   position: absolute;
   width: 1px;
@@ -39,71 +43,100 @@
   white-space: nowrap;
 }
 
+// Outlined in the ink; marigold once chosen
 .topicChip {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.375rem 0.875rem;
-  border-radius: var(--radius-pill);
-  background: var(--color-surface-tint);
-  border: 1px solid var(--color-border);
-  color: var(--color-ink-soft);
-  font-size: var(--text-sm);
-  font-weight: 600;
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink);
   transition:
     background 0.15s var(--ease),
-    color 0.15s var(--ease),
-    border-color 0.15s var(--ease);
+    box-shadow 0.15s var(--ease);
 
   .topic:hover & {
-    border-color: var(--color-accent-strong);
-    color: var(--color-accent-strong);
+    background: rgb(244 241 235 / 10%);
   }
 
   .topicInput:checked + & {
-    background: var(--color-ink);
-    border-color: var(--color-ink);
-    color: var(--color-bg);
+    background: var(--marigold);
+    border-color: var(--marigold);
+    color: var(--on-marigold);
+    box-shadow: 3px 3px 0 var(--ink);
   }
 
   .topicInput:focus-visible + & {
-    outline: 2px solid var(--color-accent-strong);
+    outline: 2px solid var(--gold);
     outline-offset: 2px;
   }
 }
 
 .actions {
   display: flex;
-  align-items: center;
-  gap: var(--space-4);
   flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
+  padding-top: var(--space-2);
+
+  button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
 }
 
 .note {
+  max-width: 22rem;
   font-size: var(--text-sm);
-  color: var(--color-ink-faint);
+  color: var(--ink-soft);
 }
 
+// Sent: the form gives way to a marigold panel, with the asterisk set on
+// its corner like a stamp.
 .success {
-  padding: var(--space-5);
-  background: #e2efe5;
-  border-radius: var(--radius-md);
-  max-width: 32rem;
+  position: relative;
+  padding: clamp(2rem, 1.5rem + 2vw, 3rem);
+  border: var(--rule);
+  background: var(--marigold);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.successMark {
+  position: absolute;
+  top: -1.5rem;
+  right: -1.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  // The light ink: it reads on the dark ground where it overhangs the panel
+  color: var(--ink);
 }
 
 .successHeading {
-  color: var(--color-success);
+  font-family: var(--display);
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
   font-weight: 700;
-  font-size: var(--text-lg);
-  margin-bottom: var(--space-1);
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--on-marigold);
 }
 
 .successText {
-  color: var(--color-ink-soft);
+  max-width: 28rem;
+  margin-top: var(--space-3);
+  font-size: var(--text-lg);
+  color: var(--on-marigold);
 }
 
 .error {
-  color: var(--color-danger);
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--color-danger);
+  background: rgb(255 154 133 / 10%);
+  font-size: 0.9375rem;
   font-weight: 600;
+  color: var(--color-danger);
 }
 
 // The honeypot: positioned off the canvas rather than display: none, which

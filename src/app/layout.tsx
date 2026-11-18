@@ -1,16 +1,26 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Merriweather, Mulish } from "next/font/google";
+import { Fraunces, IBM_Plex_Mono, Mulish } from "next/font/google";
 import "@/styles/globals.scss";
 import { DEFAULT_OG_IMAGE, SITE_URL } from "@/lib/seo";
 
-// 400 and 700 only: nothing sets weight 900, and the two files for it were
-// on every first visit.
-const serif = Merriweather({
+// Three faces, one job each (see planning/taste-profile.md). Fraunces is
+// the display face: names, headings, statements — never small text. One
+// variable file covers every weight; SOFT and the optical-size axis are
+// set per use. Normal style only: nothing on the site sets it in italic.
+const serif = Fraunces({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
+  axes: ["SOFT", "opsz"],
   variable: "--font-serif",
+  display: "swap",
+});
+
+// Small functional type — labels, dates, tags, the role line — which holds
+// up at 13px where the serif doesn't.
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -61,9 +71,10 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
 };
 
-// Browser chrome matches the paper; the page is light-only by design.
+// Browser chrome matches the header bar; there is no dark mode — the dark
+// sections are part of the design, not a theme.
 export const viewport: Viewport = {
-  themeColor: "#f4f1eb",
+  themeColor: "#fcfaf6",
   colorScheme: "light",
 };
 
@@ -73,13 +84,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    // suppressHydrationWarning: the home page's GridIntro sets an attribute
-    // on <html> before React loads (it has to, to beat first paint), which
-    // is otherwise reported as a server/client mismatch. Scoped to this
+    // suppressHydrationWarning: the Motion component sets an attribute on
+    // <html> before React loads (it has to, to beat first paint), which is
+    // otherwise reported as a server/client mismatch. Scoped to this
     // element's attributes only; children are still checked.
     <html
       lang="en"
-      className={`${serif.variable} ${sans.variable}`}
+      className={`${serif.variable} ${sans.variable} ${mono.variable}`}
       suppressHydrationWarning
     >
       <body>

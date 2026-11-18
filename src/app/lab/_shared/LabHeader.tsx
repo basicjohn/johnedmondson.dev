@@ -25,8 +25,9 @@ type Props = {
     contact: string;
     locales: Record<Locale, string>;
   };
-  /** Which nav item is the current page; Home unless a page says otherwise */
-  current?: "home" | "portfolio" | "contact";
+  /** Which nav item is the current page; Home unless a page says otherwise,
+   * and none on a page that isn't one of them (the 404) */
+  current?: "home" | "portfolio" | "contact" | "none";
 };
 
 /**

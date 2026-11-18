@@ -38,7 +38,8 @@ export default async function LocaleLayout({ children, params }: Props) {
   const dict = getDictionary(locale);
   const site = getSiteData();
   return (
-    <div lang={locale}>
+    // .site: the dark ground every page's lower sections sit on
+    <div lang={locale} className="site">
       <JsonLd
         data={[
           websiteSchema(locale),

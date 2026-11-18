@@ -23,7 +23,7 @@ const mono = IBM_Plex_Mono({
 type Props = {
   shell: ShellData;
   /** Which nav item is this page */
-  current?: "home" | "portfolio" | "contact";
+  current?: "home" | "portfolio" | "contact" | "none";
   /**
    * For a page that ends on a light section: no dark gap above the footer,
    * so the sheet meets the footer's marigold stripe directly.

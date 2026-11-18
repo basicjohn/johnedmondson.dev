@@ -4,6 +4,7 @@ import { alternatesFor } from "@/lib/seo";
 import { WRITING_SECTION_PUBLIC } from "@/lib/config";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { getPostsByType } from "@/lib/content";
+import { hasDescender } from "@/lib/utils";
 import PostList from "@/components/organisms/PostList/PostList";
 import styles from "./page.module.scss";
 
@@ -27,20 +28,31 @@ export default async function WritingPage({ params }: Props) {
 
   const dict = getDictionary(locale);
   const posts = getPostsByType("writing");
+  const title = dict.writing.title;
 
   return (
-    <div className={`container ${styles.page}`}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>{dict.writing.title}</h1>
-        <p className={styles.intro}>{dict.writing.intro}</p>
+    <>
+      <header className={styles.intro}>
+        <div className="container">
+          <h1
+            className={`${styles.title} ${hasDescender(title) ? styles.descends : ""}`}
+          >
+            {title}
+          </h1>
+          <p className={styles.lede}>{dict.writing.intro}</p>
+        </div>
       </header>
-      <PostList
-        posts={posts}
-        locale={locale}
-        allLabel={dict.writing.filterAll}
-        emptyLabel={dict.writing.empty}
-        minReadLabel={dict.post.minRead}
-      />
-    </div>
+      <section className={`inverse ${styles.dark}`} aria-label={title}>
+        <div className="container">
+          <PostList
+            posts={posts}
+            locale={locale}
+            allLabel={dict.writing.filterAll}
+            emptyLabel={dict.writing.empty}
+            minReadLabel={dict.post.minRead}
+          />
+        </div>
+      </section>
+    </>
   );
 }

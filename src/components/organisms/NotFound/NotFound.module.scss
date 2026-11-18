@@ -1,44 +1,55 @@
 @use "tokens" as *;
 
+// The drafting grid, at least a screen tall, with the content centred in
+// it: the page reads as a poster rather than a stub, and the footer starts
+// below the fold instead of floating halfway up.
 .page {
+  @include drafting-grid;
+  display: flex;
+  align-items: center;
+  min-height: calc(100dvh - var(--header-h));
   padding-block: var(--space-8);
-  min-height: 50dvh;
-}
 
-.code {
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: var(--text-sm);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--color-ink-faint);
-  margin-bottom: var(--space-2);
-}
-
-.title {
-  font-size: var(--text-3xl);
-
-  // Same gold rule every page title carries.
-  &::after {
-    content: "";
-    display: block;
-    width: 2.75rem;
-    height: 3px;
-    border-radius: var(--radius-pill);
-    background: var(--color-accent-strong);
-    margin-top: var(--space-2);
+  > :global(.container) {
+    width: 100%;
   }
 }
 
+// "404" as an outlined numeral, like the 01 and 02 that number the home
+// page's sections, at poster size.
+.code {
+  font-family: var(--display);
+  font-size: clamp(8rem, 3rem + 22vw, 20rem);
+  font-weight: 800;
+  font-variation-settings: "opsz" 144;
+  line-height: 0.78;
+  // Not tightened like the solid titles: outlined glyphs that touch show
+  // every crossing line (the 4's diagonal cut through the 0).
+  letter-spacing: 0.02em;
+  color: transparent;
+  -webkit-text-stroke: 3px var(--gold);
+}
+
+.title {
+  margin-top: var(--space-6);
+  font-size: clamp(2.25rem, 1.5rem + 3vw, 4rem);
+  font-weight: 700;
+  font-variation-settings:
+    "SOFT" 30,
+    "opsz" 144;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+
 .text {
-  margin-top: var(--space-3);
-  font-size: var(--text-lg);
-  color: var(--color-ink-soft);
-  max-width: var(--content-max);
+  @include lede;
+  max-width: 34rem;
+  margin-top: var(--space-4);
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-top: var(--space-6);
+  gap: var(--space-3) var(--space-4);
+  margin-top: var(--space-7);
 }

@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import FormField from "@/components/molecules/FormField/FormField";
 import Button from "@/components/atoms/Button/Button";
+import Asterisk from "@/components/atoms/Asterisk/Asterisk";
 import styles from "./ContactForm.module.scss";
 
 type Labels = {
@@ -118,6 +119,7 @@ export default function ContactForm({
   if (status === "success") {
     return (
       <div className={styles.success} role="status">
+        <Asterisk className={styles.successMark} />
         <p className={styles.successHeading}>{labels.successHeading}</p>
         <p className={styles.successText}>{labels.success}</p>
       </div>
@@ -194,7 +196,8 @@ export default function ContactForm({
       )}
       <div className={styles.actions}>
         <Button type="submit" disabled={status === "sending"}>
-          {status === "sending" ? labels.sending : labels.send}
+          {status === "sending" ? labels.sending : labels.send}{" "}
+          <span aria-hidden="true">→</span>
         </Button>
         <p className={styles.note}>{labels.formNote}</p>
       </div>

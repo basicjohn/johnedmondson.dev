@@ -1,56 +1,63 @@
+// Square, edged in ink, with a hard ink shadow the button lifts off on
+// hover and presses into on click. Primary is marigold, secondary the light
+// surface. Both are light fields, so their text is always ink — on the
+// dark ground too, where the edge and shadow turn light (see .inverse).
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: 0.625rem 1.375rem;
-  border-radius: var(--radius-pill);
-  font-weight: 700;
+  padding: 0.7rem 1.3rem;
+  border: var(--rule);
   font-size: var(--text-base);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--on-marigold);
   text-decoration: none;
-  border: 2px solid transparent;
+  box-shadow: 4px 4px 0 var(--ink);
   transition:
-    background 0.2s var(--ease),
-    color 0.2s var(--ease),
-    border-color 0.2s var(--ease),
-    transform 0.15s var(--ease);
+    translate 0.15s var(--ease),
+    box-shadow 0.15s var(--ease),
+    background 0.15s var(--ease);
+
+  &:hover {
+    translate: -2px -2px;
+    box-shadow: 6px 6px 0 var(--ink);
+  }
 
   &:active {
-    transform: scale(0.97);
+    translate: 3px 3px;
+    box-shadow: 1px 1px 0 var(--ink);
   }
 }
 
 .primary {
-  background: var(--color-ink);
-  color: var(--color-bg);
-
-  &:hover {
-    background: var(--color-accent-strong);
-  }
+  background: var(--marigold);
 }
 
 .secondary {
-  background: transparent;
-  color: var(--color-ink);
-  border-color: var(--color-ink);
-
-  &:hover {
-    background: var(--color-ink);
-    color: var(--color-bg);
-  }
+  background: var(--color-surface);
 }
 
+// A quiet text action (the CMS): no edge, no shadow
 .ghost {
+  border-color: transparent;
   background: transparent;
-  color: var(--color-accent-strong);
+  color: var(--gold);
+  box-shadow: none;
   padding-inline: var(--space-3);
 
-  &:hover {
+  &:hover,
+  &:active {
+    translate: none;
     background: var(--color-accent-soft);
+    box-shadow: none;
   }
 }
 
 .button:disabled {
   opacity: 0.55;
   cursor: not-allowed;
+  translate: none;
+  box-shadow: 4px 4px 0 var(--ink);
 }

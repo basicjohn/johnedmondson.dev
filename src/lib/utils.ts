@@ -60,3 +60,13 @@ export function coverGradient(seed: string): string {
   const h2 = (hash + 50) % 360;
   return `linear-gradient(135deg, hsl(${h1} 55% 72%), hsl(${h2} 60% 55%))`;
 }
+
+/**
+ * Whether a line of display type has letters that hang below the baseline.
+ * Poster titles are set at 0.85 line height, so a "j" or "g" reaches past
+ * the title's box and the line under it needs the extra room; a title
+ * without them (Let's talk) can sit closer.
+ */
+export function hasDescender(text: string): boolean {
+  return /[gjpqyQ]/.test(text);
+}

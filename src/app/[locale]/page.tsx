@@ -6,7 +6,6 @@ import { getDictionary, isLocale } from "@/lib/i18n";
 import { getFeaturedPosts, getPostsByType, getSiteData } from "@/lib/content";
 import Hero from "@/components/organisms/Hero/Hero";
 import Now from "@/components/organisms/Now/Now";
-import GridIntro from "@/components/organisms/Hero/GridIntro";
 import SectionHeading from "@/components/molecules/SectionHeading/SectionHeading";
 import ProjectCard from "@/components/molecules/ProjectCard/ProjectCard";
 import PostCard from "@/components/molecules/PostCard/PostCard";
@@ -34,7 +33,6 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
-      <GridIntro />
       <Hero
         locale={locale}
         role={dict.home.role}
@@ -69,54 +67,82 @@ export default async function HomePage({ params }: Props) {
         ]}
       />
 
-      {lead && (
-        <section className={`container ${styles.section}`}>
-          <SectionHeading
-            title={dict.home.featuredWork}
-            linkHref={`/${locale}/portfolio`}
-            linkLabel={dict.home.viewAllWork}
-          />
-          <div className={styles.workGrid}>
-            <div className={styles.lead}>
-              <ProjectCard post={lead} locale={locale} variant="feature" />
+      {/* Below the ticker the page is reversed out of the dark ground:
+          the work, then the person, numbered like a magazine's sections. */}
+      <div className={`inverse ${styles.lower}`}>
+        {lead && (
+          <section
+            className={`container ${styles.section}`}
+            aria-labelledby="work-heading"
+          >
+            <SectionHeading
+              id="work-heading"
+              number="01"
+              title={dict.home.featuredWork}
+              linkHref={`/${locale}/portfolio`}
+              linkLabel={dict.home.viewAllWork}
+            />
+            <ProjectCard post={lead} locale={locale} variant="feature" />
+            <div className={styles.pair}>
+              {rest.map((post, i) => (
+                <ProjectCard
+                  key={post.id}
+                  post={post}
+                  locale={locale}
+                  index={i}
+                />
+              ))}
             </div>
-            {rest.map((post) => (
-              <ProjectCard key={post.id} post={post} locale={locale} />
-            ))}
-          </div>
-        </section>
-      )}
+          </section>
+        )}
 
-      {/* The two hero sentences that were about the person rather than the
-          work. Below the projects, where personality belongs, so the hero
-          can be scanned instead of read. */}
-      <section className={`container ${styles.section}`}>
-        <SectionHeading title={dict.home.aboutHeading} />
-        <div className={styles.about}>
-          <p>{dict.home.aboutWork}</p>
-          <p>{dict.home.aboutLife}</p>
-        </div>
-      </section>
-
-      {WRITING_SECTION_PUBLIC && recentWriting.length > 0 && (
-        <section className={`container ${styles.section}`}>
+        {/* The two hero sentences that were about the person rather than
+            the work. Below the projects, where personality belongs, so the
+            hero can be scanned instead of read. */}
+        <section
+          className={`container ${styles.section}`}
+          aria-labelledby="about-heading"
+        >
           <SectionHeading
-            title={dict.home.recentWriting}
-            linkHref={`/${locale}/writing`}
-            linkLabel={dict.home.viewAllWriting}
+            id="about-heading"
+            number="02"
+            title={dict.home.aboutHeading}
           />
-          <div className={styles.writingList}>
-            {recentWriting.map((post) => (
-              <PostCard
-                key={post.id}
-                post={post}
-                locale={locale}
-                minReadLabel={dict.post.minRead}
-              />
-            ))}
+          <div className={styles.about}>
+            <p className={styles.aboutWork} data-reveal="">
+              <span className={styles.highlight}>{dict.home.aboutWork}</span>
+            </p>
+            <p className={styles.aboutLife} data-reveal="">
+              {dict.home.aboutLife}
+            </p>
           </div>
         </section>
-      )}
+
+        {WRITING_SECTION_PUBLIC && recentWriting.length > 0 && (
+          <section
+            className={`container ${styles.section}`}
+            aria-labelledby="writing-heading"
+          >
+            <SectionHeading
+              id="writing-heading"
+              number="03"
+              title={dict.home.recentWriting}
+              linkHref={`/${locale}/writing`}
+              linkLabel={dict.home.viewAllWriting}
+            />
+            <div className={styles.writingList}>
+              {recentWriting.map((post) => (
+                <PostCard
+                  key={post.id}
+                  post={post}
+                  locale={locale}
+                  minReadLabel={dict.post.minRead}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
     </>
   );
 }

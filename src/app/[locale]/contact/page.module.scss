@@ -1,45 +1,50 @@
 @use "tokens" as *;
 
-.page {
-  padding-block: var(--space-7);
-}
+.intro {
+  @include drafting-grid;
+  padding-block: var(--space-7) clamp(3rem, 1rem + 5vw, 6rem);
 
-.header {
-  margin-bottom: var(--space-6);
-}
-
-.title {
-  font-size: var(--text-3xl);
-
-  // Same gold rule the section headings carry — see SectionHeading.
-  &::after {
-    content: "";
-    display: block;
-    width: 2.75rem;
-    height: 3px;
-    border-radius: var(--radius-pill);
-    background: var(--color-accent-strong);
-    margin-top: var(--space-2);
+  @include respond($bp-lg) {
+    padding-top: var(--space-8);
   }
 }
 
-.intro {
-  margin-top: var(--space-2);
-  font-size: var(--text-lg);
-  color: var(--color-ink-soft);
-  max-width: var(--content-max);
+.title {
+  @include poster-title;
 }
 
-// One column until the desktop, where the form keeps its 32rem measure and
-// the details take the space that used to be empty beside it.
+// Close under the title, so it reads as the title's standfirst — unless
+// the title has descenders (Sag Hallo), whose tails hang 0.19em below the
+// title's box and need the full gap.
+.lede {
+  @include lede;
+  margin-top: var(--space-4);
+
+  .descends + & {
+    margin-top: var(--space-6);
+  }
+}
+
+// The dark ground under the marigold stripe that marks the seam. It runs
+// straight into the footer, whose own stripe closes it.
+.formSection {
+  // Readable on the dark ground: the light-theme red is 2.6:1 on ink,
+  // this one 6.4:1.
+  --color-danger: #ff9a85;
+
+  padding-block: clamp(3.5rem, 2rem + 4vw, 6rem);
+  border-top: 0.5rem solid var(--marigold);
+}
+
+// The form at a comfortable measure; the details beside it from desktop
+// width, beneath it before that.
 .columns {
   display: grid;
-  grid-template-columns: minmax(0, 32rem);
-  gap: var(--space-7);
+  gap: var(--space-8);
   align-items: start;
 
   @include respond($bp-lg) {
-    grid-template-columns: minmax(0, 32rem) minmax(0, 24rem);
-    column-gap: var(--space-8);
+    grid-template-columns: minmax(0, 36rem) minmax(0, 1fr);
+    column-gap: clamp(3rem, 2rem + 4vw, 7rem);
   }
 }

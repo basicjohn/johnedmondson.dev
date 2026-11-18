@@ -13,6 +13,11 @@ type Props = {
   ctaContact: string;
 };
 
+/**
+ * The cover: the name at poster size on the drafting grid, the portrait in
+ * the space "John" leaves on the first line, the role as a dateline, then
+ * the bio and the two ways onward.
+ */
 export default function Hero({
   locale,
   role,
@@ -24,21 +29,28 @@ export default function Hero({
 }: Props) {
   return (
     <section className={styles.hero}>
-      {/* Name, role, portrait and copy are separate grid items so the
-          portrait can sit beside the name on a phone, beside name and role
-          on a tablet, and beside the whole text block on a desktop — see the
-          grid-template-areas in the stylesheet. DOM order is the reading
-          order. */}
       <div className={`container ${styles.inner}`}>
-        <h1 className={styles.name}>John Edmondson</h1>
-        <p className={styles.role}>{role}</p>
+        {/* Each line is its own mask, so it can rise into place on load */}
+        <h1 className={styles.name}>
+          <span className={styles.line}>
+            <span>John</span>
+          </span>{" "}
+          <span className={styles.line}>
+            <span>Edmondson</span>
+          </span>
+        </h1>
+        <p className={styles.role}>
+          {role}
+          {/* A dateline rule to the margin */}
+          <span className={styles.roleRule} aria-hidden="true" />
+        </p>
         <div className={styles.portraitWrap}>
           <img
             className={styles.portrait}
             alt={portraitAlt}
             {...imageAttrs(
               "/images/john-headshot.jpg",
-              "(min-width: 1024px) 22rem, 8rem",
+              "(min-width: 1024px) 14rem, (min-width: 768px) 10rem, 5.25rem",
             )}
           />
         </div>
@@ -46,14 +58,15 @@ export default function Hero({
           <p className={styles.bioLead}>{bioLead}</p>
           <p className={styles.bio}>{bio}</p>
           <div className={styles.actions}>
-            <Button href={`/${locale}/portfolio`}>{ctaWork}</Button>
+            <Button href={`/${locale}/portfolio`}>
+              {ctaWork} <span aria-hidden="true">→</span>
+            </Button>
             <Button variant="secondary" href={`/${locale}/contact`}>
               {ctaContact}
             </Button>
           </div>
         </div>
       </div>
-      <div className={styles.glow} aria-hidden="true" />
     </section>
   );
 }

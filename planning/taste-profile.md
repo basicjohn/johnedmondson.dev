@@ -247,6 +247,20 @@ Lessons:
   engineering roles". The home ticker matches: "Looking for: New
   opportunities".
 
+## Round 10 (2026-10-27): 404 and CTA
+
+- **The 404 uses the numbering motif:**
+  - A poster-size outlined "404" in darker gold, the same treatment as 01
+    and 02, then the title, the line of text and the three hard-shadow
+    buttons.
+  - All of it sits on the grid filling the screen, so the footer never
+    floats.
+  - Outlined numerals get normal letter spacing; touching outlines show
+    every crossing line.
+- **The hero button reads "View Projects"**, consistent with the "Projects"
+  naming everywhere.
+- **The language picker's low contrast is accepted for now** (his call).
+
 ## Content structure
 
 - **A project's title is just its name; what it is goes in a subhead.**

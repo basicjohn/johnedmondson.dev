@@ -1,37 +1,41 @@
+@use "tokens" as *;
+
 .field {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: var(--space-2);
 }
 
+// Labels in the mono, like every other label on the site
 .label {
-  font-weight: 700;
-  font-size: var(--text-sm);
+  @include mono-label;
+  color: var(--ink);
 }
 
 .requiredMark {
-  color: var(--color-accent-strong);
+  color: var(--gold);
 }
 
-.control::placeholder {
-  color: var(--color-ink-faint);
-  opacity: 1;
-}
-
+// Square, ink-edged fields on the light surface, with dark text whatever
+// ground they sit on. Focus shows as a hard gold block offset behind the
+// field, the same move as the hover on the project images.
 .control {
   width: 100%;
-  padding: 0.625rem 0.875rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  padding: 0.8rem 1rem;
+  border: var(--rule);
   background: var(--color-surface);
-  transition:
-    border-color 0.15s var(--ease),
-    box-shadow 0.15s var(--ease);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+  transition: box-shadow 0.2s var(--ease);
 
-  &:focus {
+  &::placeholder {
+    color: var(--color-ink-faint);
+    opacity: 1;
+  }
+
+  &:focus-visible {
     outline: none;
-    border-color: var(--color-accent-strong);
-    box-shadow: 0 0 0 3px var(--color-accent-soft);
+    box-shadow: 5px 5px 0 var(--gold);
   }
 
   &[aria-invalid="true"] {
@@ -40,17 +44,17 @@
 }
 
 textarea.control {
+  min-height: 9rem;
   resize: vertical;
-  min-height: 8rem;
 }
 
 .hint {
-  font-size: var(--text-xs);
-  color: var(--color-ink-faint);
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
 }
 
 .error {
-  font-size: var(--text-sm);
-  color: var(--color-danger);
+  font-size: 0.9375rem;
   font-weight: 600;
+  color: var(--color-danger);
 }

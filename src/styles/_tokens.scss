@@ -27,3 +27,45 @@ $bp-xl: 1200px;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
+
+// The drafting grid: the background of every page's intro section, and
+// nowhere else.
+@mixin drafting-grid {
+  background-color: var(--color-bg);
+  background-image:
+    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+  background-position: center top;
+}
+
+// Small functional labels: dates, field labels, ticker labels, fact names
+@mixin mono-label {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+// A poster-size page title (Projects, Let's talk): Fraunces pinned to its
+// display cut, which stays narrow at small sizes too.
+@mixin poster-title {
+  font-family: var(--display);
+  font-size: clamp(3.5rem, 0.5rem + 11vw, 9rem);
+  font-weight: 800;
+  font-variation-settings:
+    "SOFT" 30,
+    "opsz" 144;
+  letter-spacing: -0.045em;
+  line-height: 0.85;
+}
+
+// The intro line under a page title: reading text, so the sans
+@mixin lede {
+  max-width: 40rem;
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  font-weight: 500;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
